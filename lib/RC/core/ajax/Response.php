@@ -4,13 +4,10 @@ namespace RC\core\ajax;
 
 use Exception;
 
-class Response
+class Response extends Headers
 {
 
-    use Headers;
-
     const BOUNDARY_SEPARATOR = '--';
-    const HEADER_SEPARATOR = ':';
     const BODY_SEPARATOR = "\n\n";
     const UNAUTHORIZED_STATUS = 401;
     const BOUNDARY_REGEXP = '/boundary=([^;]+)/i';
@@ -81,11 +78,11 @@ class Response
     {
 
         //switch ($this->getContentType()) {
-        if (stristr($this->getContentType(), self::$jsonContentType)) {
+        if ($this->isJson()) {
 
             $this->data = json_decode($this->body, true);
 
-        } elseif (stristr($this->getContentType(), self::$multipartContentType)) {
+        } elseif ($this->isMultipart()) {
 
             $boundary = preg_match_all(self::BOUNDARY_REGEXP, $this->getContentType())[1];
             $parts = explode(self::BOUNDARY_SEPARATOR . $boundary, $this->body);
@@ -136,11 +133,6 @@ class Response
     public function getStatus()
     {
         return $this->status;
-    }
-
-    public function isMultipart()
-    {
-        return $this->getContentType() == self::$multipartContentType;
     }
 
     public function getResponses()

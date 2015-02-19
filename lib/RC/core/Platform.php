@@ -9,71 +9,45 @@ use RC\core\platform\Auth;
 class Platform
 {
 
-    public $server = 'https://platform.ringcentral.com';
-    public $appKey = '';
-    public $appSecret = '';
-    public $account = '~';
-    public $accountPrefix = '/account/';
-    public $urlPrefix = '/restapi';
-    public $tokenEndpoint = '/restapi/oauth/token';
-    public $apiVersion = 'v1.0';
-    public $accessTokenTtl = 600; // 10 minutes
-    public $refreshTokenTtl = 36000; // 10 hours
-    public $refreshTokenTtlRemember = 604800; // 1 week
-    public $remember = false;
-    public $cacheKey = 'platform';
+    const ACCESS_TOKEN_TTL = 600; // 10 minutes
+    const REFRESH_TOKEN_TTL = 36000; // 10 hours
+    const REFRESH_TOKEN_TTL_REMEMBER = 604800; // 1 week
+    const ACCOUNT_PREFIX = '/account/';
+    const ACCOUNT_ID = '~';
+    const TOKEN_ENDPOINT = '/restapi/oauth/token';
+    const API_VERSION = 'v1.0';
+    const URL_PREFIX = '/restapi';
+
+    protected $server = 'https://platform.ringcentral.com';
+    protected $appKey = '';
+    protected $appSecret = '';
+    protected $account = self::ACCOUNT_ID;
 
     /** @var Auth */
     protected $auth = null;
 
-    /** @var Cache */
-    protected $cache = null;
-
-    /** @var callable */
-    protected $loadAuth;
-
-    /** @var callable */
-    protected $saveAuth;
-
-    public function __construct(Cache $cache)
+    public function __construct(Cache $cache, $appKey, $appSecret, $server = '')
     {
 
-        $this->auth = new Auth();
-        $this->cache = $cache;
+        $this->auth = new Auth($cache);
 
-    }
+        $this->appKey = $appKey;
+        $this->appSecret = $appSecret;
 
-    protected function saveAuthData($authData = null)
-    {
-
-        $this->cache->save($this->cacheKey, $this->auth->setData($authData)->getData());
-
-        return $this;
-
-    }
-
-    /**
-     * @return Auth
-     */
-    public function getAuth()
-    {
-
-        $this->auth->setData($this->cache->load($this->cacheKey));
-
-        return $this->auth;
+        if (!empty($server)) $this->server = $server;
 
     }
 
     public function isAuthorized($refresh = true)
     {
 
-        if (!$this->getAuth()->isAccessTokenValid()) {
+        if (!$this->auth->isAccessTokenValid()) {
             if ($refresh) {
                 $this->refresh();
             }
         }
 
-        if (!$this->getAuth()->isAccessTokenValid()) {
+        if (!$this->auth->isAccessTokenValid()) {
             throw new Exception('Access token is not valid after refresh timeout');
         }
 
@@ -88,8 +62,7 @@ class Platform
 
     protected function getAuthHeader()
     {
-        $auth = $this->getAuth();
-        return $auth->getTokenType() . ' ' . $auth->getAccessToken();
+        return $this->auth->getTokenType() . ' ' . $this->auth->getAccessToken();
     }
 
     /**
@@ -106,12 +79,12 @@ class Platform
             $builtUrl .= $this->server;
         }
 
-        if (!stristr($url, $this->urlPrefix)) {
-            $builtUrl .= $this->urlPrefix . '/' . $this->apiVersion;
+        if (!stristr($url, self::URL_PREFIX)) {
+            $builtUrl .= self::URL_PREFIX . '/' . self::API_VERSION;
         }
 
-        if (stristr($url, $this->accountPrefix)) {
-            $builtUrl = str_replace($this->accountPrefix . '~', $this->accountPrefix . $this->account, $builtUrl);
+        if (stristr($url, self::ACCOUNT_PREFIX)) {
+            $builtUrl = str_replace(self::ACCOUNT_PREFIX . self::ACCOUNT_ID, self::ACCOUNT_PREFIX . $this->account, $builtUrl);
         }
 
         $builtUrl .= $url;
@@ -124,7 +97,7 @@ class Platform
             $builtUrl .= '_method=' . $options['addMethod'];
         }
         if (!empty($options['addToken'])) {
-            $builtUrl .= ($options['addMethod'] ? '&' : '') . 'access_token=' . $this->getAuth()->getAccessToken();
+            $builtUrl .= ($options['addMethod'] ? '&' : '') . 'access_token=' . $this->auth->getAccessToken();
         }
 
         return $builtUrl;
@@ -142,17 +115,18 @@ class Platform
     public function authorize($username = '', $extension = '', $password = '', $remember = false)
     {
 
-        $ajax = $this->authCall(new Request(Request::POST, $this->tokenEndpoint, null, [
+        $ajax = $this->authCall(new Request(Request::POST, self::TOKEN_ENDPOINT, null, [
             'grant_type'        => 'password',
             'username'          => $username,
             'extension'         => $extension ? $extension : null,
             'password'          => $password,
-            'access_token_ttl'  => $this->accessTokenTtl,
-            'refresh_token_ttl' => $remember ? $this->refreshTokenTtlRemember : $this->refreshTokenTtl
+            'access_token_ttl'  => self::ACCESS_TOKEN_TTL,
+            'refresh_token_ttl' => $remember ? self::REFRESH_TOKEN_TTL_REMEMBER : self::REFRESH_TOKEN_TTL
         ]));
 
-        $this->saveAuthData($ajax->getResponse()->getData());
-        $this->remember = $remember;
+        $this->auth
+            ->setData($ajax->getResponse()->getData())
+            ->setRemember($remember);
 
         return $ajax;
 
@@ -165,34 +139,32 @@ class Platform
     public function refresh()
     {
 
-        $auth = $this->getAuth();
-
-        if (!$auth->isPaused()) {
+        if (!$this->auth->isPaused()) {
 
             print 'Refresh will be performed' . PHP_EOL;
 
-            $auth->pause();
-            $this->saveAuthData();
+            $this->auth->pause();
 
-            if (!$auth->isRefreshTokenValid()) {
+            if (!$this->auth->isRefreshTokenValid()) {
                 throw new Exception('Refresh token has expired');
             }
 
-            $ajax = $this->authCall(new Request(Request::POST, $this->tokenEndpoint, null, [
+            $ajax = $this->authCall(new Request(Request::POST, self::TOKEN_ENDPOINT, null, [
                 "grant_type"        => "refresh_token",
-                "refresh_token"     => $auth->getRefreshToken(),
-                "access_token_ttl"  => $this->accessTokenTtl,
-                "refresh_token_ttl" => $this->remember ? $this->refreshTokenTtlRemember : $this->refreshTokenTtl
+                "refresh_token"     => $this->auth->getRefreshToken(),
+                "access_token_ttl"  => self::ACCESS_TOKEN_TTL,
+                "refresh_token_ttl" => $this->auth->isRemember() ? self::REFRESH_TOKEN_TTL_REMEMBER : self::REFRESH_TOKEN_TTL
             ]));
 
-            $auth->resume();
-            $this->saveAuthData($ajax->getResponse()->getData());
+            $this->auth
+                ->setData($ajax->getResponse()->getData())
+                ->resume();
 
             return $ajax;
 
         } else {
 
-            while ($auth->isPaused()) {
+            while ($this->auth->isPaused()) {
                 print 'Waiting for refresh' . PHP_EOL;
                 sleep(1);
             }
@@ -216,7 +188,7 @@ class Platform
         $this->isAuthorized();
 
         $request
-            ->setHeader(Request::$authorizationHeader, $this->getAuthHeader())
+            ->setHeader(Request::AUTHORIZATION, $this->getAuthHeader())
             ->setUrl($this->apiUrl($request->getUrl(), ['addServer' => true]));
 
         $ajax = new Ajax($request);
@@ -234,8 +206,8 @@ class Platform
     {
 
         $request
-            ->setHeader(Request::$authorizationHeader, 'Basic ' . $this->getApiKey())
-            ->setHeader(Request::$contentTypeHeader, Request::$urlEncodedContentType)
+            ->setHeader(Request::AUTHORIZATION, 'Basic ' . $this->getApiKey())
+            ->setHeader(Request::CONTENT_TYPE, Request::URL_ENCODED_CONTENT_TYPE)
             ->setUrl($this->apiUrl($request->getUrl(), ['addServer' => true]))
             ->setMethod(Request::POST);
 

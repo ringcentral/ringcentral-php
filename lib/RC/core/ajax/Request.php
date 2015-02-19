@@ -4,10 +4,8 @@ namespace RC\core\ajax;
 
 use Exception;
 
-class Request
+class Request extends Headers
 {
-
-    use Headers;
 
     const POST = 'POST';
     const GET = 'GET';
@@ -48,8 +46,8 @@ class Request
         }
 
         $this->setHeaders([
-            self::$acceptHeader      => self::$jsonContentType,
-            self::$contentTypeHeader => self::$jsonContentType
+            self::ACCEPT       => self::JSON_CONTENT_TYPE,
+            self::CONTENT_TYPE => self::JSON_CONTENT_TYPE
         ]);
 
         $this->setHeaders($headers);
@@ -69,16 +67,12 @@ class Request
     public function getEncodedBody()
     {
 
-        switch ($this->getContentType()) {
-            case self::$jsonContentType:
-                return json_encode($this->body);
-                break;
-            case self::$urlEncodedContentType;
-                return http_build_query($this->body);
-                break;
-            default:
-                return $this->body;
-                break;
+        if ($this->isJson()) {
+            return json_encode($this->body);
+        } elseif ($this->isUrlEncoded()) {
+            return http_build_query($this->body);
+        } else {
+            return $this->body;
         }
 
     }

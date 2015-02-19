@@ -7,26 +7,14 @@ use RC\RCSDK;
 
 $credentials = require('credentials.php');
 
-$cacheDir = __DIR__ . DIRECTORY_SEPARATOR . 'cache';
+$cacheDir = __DIR__ . DIRECTORY_SEPARATOR . '_cache';
 
 if (!file_exists($cacheDir)) {
     mkdir($cacheDir);
 }
 
-$rcsdkMemory = new RCSDK(new MemoryCache());
-$rcsdkFile = new RCSDK(new FileCache($cacheDir));
-
-$main = function (RCSDK $rcsdk) use ($credentials) {
-
-    $platform = $rcsdk->getPlatform();
-
-    $platform->appKey = $credentials['appKey'];
-    $platform->appSecret = $credentials['appSecret'];
-
-};
-
-$main($rcsdkMemory);
-$main($rcsdkFile);
+$rcsdkMemory = new RCSDK(new MemoryCache(), $credentials['appKey'], $credentials['appSecret']);
+$rcsdkFile = new RCSDK(new FileCache($cacheDir), $credentials['appKey'], $credentials['appSecret']);
 
 //////////
 

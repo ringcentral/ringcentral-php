@@ -4,7 +4,7 @@ define('RCSDK_LIB_BASE_DIR', __DIR__);
 
 function rcsdkAutoloader($className)
 {
-    $className = str_replace('RC\\', '', ltrim($className, '\\'));
+    $className = ltrim($className, '\\');
     $fileName = '';
 
     if ($lastNsPos = strrpos($className, '\\')) {

@@ -38,12 +38,7 @@ class Ajax
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_HEADER, true);
 
-            $curlHeaders = [];
-            foreach ($this->request->getHeaders() as $name => $header) {
-                $curlHeaders[] = strtolower($name) . ': ' . $header;
-            }
-
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $curlHeaders);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $this->request->getHeadersArray());
 
             if ($this->request->isPut() || $this->request->isPost()) {
                 curl_setopt($ch, CURLOPT_POST, true);

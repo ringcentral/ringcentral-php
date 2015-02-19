@@ -10,10 +10,10 @@ class RCSDK
     /** @var core\Platform */
     protected $platform = null;
 
-    public function __construct(Cache $cache)
+    public function __construct(Cache $cache, $appKey, $appSecret, $server = '')
     {
 
-        $this->platform = new core\Platform($cache);
+        $this->platform = new core\Platform($cache, $appKey, $appSecret, $server);
 
     }
 
