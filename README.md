@@ -6,14 +6,8 @@
   
     ```json
     {
-        "repositories": [
-            {
-              "url": "https://github.com/ringcentral/php-sdk.git",
-              "type": "git"
-            }
-        ],
         "require": {
-            "ringcentral/php-sdk": "dev-master"
+            "ringcentral/php-sdk": "*"
         }
     }
     ```
