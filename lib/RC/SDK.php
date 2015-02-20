@@ -2,18 +2,19 @@
 
 namespace RC;
 
-use RC\core\Cache;
+use RC\cache\Cache;
+use RC\platform\Platform;
 
-class RCSDK
+class SDK
 {
 
-    /** @var core\Platform */
+    /** @var Platform */
     protected $platform = null;
 
     public function __construct(Cache $cache, $appKey, $appSecret, $server = '')
     {
 
-        $this->platform = new core\Platform($cache, $appKey, $appSecret, $server);
+        $this->platform = new Platform($cache, $appKey, $appSecret, $server);
 
     }
 

@@ -1,11 +1,8 @@
 <?php
 
-namespace RC\core;
+namespace RC\ajax;
 
 use Exception;
-use RC\core\ajax\AjaxException;
-use RC\core\ajax\Request;
-use RC\core\ajax\Response;
 
 class Ajax
 {
@@ -50,14 +47,14 @@ class Ajax
 
             curl_close($ch);
 
-            if (!$this->response->checkStatus()) {
-                throw new AjaxException($this);
-            }
-
         } catch (Exception $e) {
 
             throw new AjaxException($this, $e);
 
+        }
+
+        if (!$this->response->checkStatus()) {
+            throw new AjaxException($this);
         }
 
         return $this;

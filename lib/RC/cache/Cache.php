@@ -1,6 +1,6 @@
 <?php
 
-namespace RC\core;
+namespace RC\cache;
 
 abstract class Cache
 {

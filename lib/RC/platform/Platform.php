@@ -1,10 +1,11 @@
 <?php
 
-namespace RC\core;
+namespace RC\platform;
 
 use Exception;
-use RC\core\ajax\Request;
-use RC\core\platform\Auth;
+use RC\ajax\Ajax;
+use RC\ajax\Request;
+use RC\cache\Cache;
 
 class Platform
 {
@@ -34,7 +35,9 @@ class Platform
         $this->appKey = $appKey;
         $this->appSecret = $appSecret;
 
-        if (!empty($server)) $this->server = $server;
+        if (!empty($server)) {
+            $this->server = $server;
+        }
 
     }
 
@@ -84,7 +87,8 @@ class Platform
         }
 
         if (stristr($url, self::ACCOUNT_PREFIX)) {
-            $builtUrl = str_replace(self::ACCOUNT_PREFIX . self::ACCOUNT_ID, self::ACCOUNT_PREFIX . $this->account, $builtUrl);
+            $builtUrl = str_replace(self::ACCOUNT_PREFIX . self::ACCOUNT_ID, self::ACCOUNT_PREFIX . $this->account,
+                $builtUrl);
         }
 
         $builtUrl .= $url;

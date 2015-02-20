@@ -1,8 +1,8 @@
 <?php
 
-namespace RC\core\platform;
+namespace RC\platform;
 
-use RC\core\Cache;
+use RC\cache\Cache;
 
 class Auth
 {

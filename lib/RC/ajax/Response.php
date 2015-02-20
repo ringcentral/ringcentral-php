@@ -1,6 +1,6 @@
 <?php
 
-namespace RC\core\ajax;
+namespace RC\ajax;
 
 use Exception;
 

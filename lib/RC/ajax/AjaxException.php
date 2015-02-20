@@ -1,9 +1,8 @@
 <?php
 
-namespace RC\core\ajax;
+namespace RC\ajax;
 
 use Exception;
-use RC\core\Ajax;
 
 class AjaxException extends Exception
 {

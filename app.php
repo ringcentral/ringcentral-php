@@ -1,9 +1,9 @@
 <?php
 
-use RC\core\ajax\Request;
-use RC\core\cache\FileCache;
-use RC\core\cache\MemoryCache;
-use RC\RCSDK;
+use RC\ajax\Request;
+use RC\cache\FileCache;
+use RC\cache\MemoryCache;
+use RC\SDK;
 
 $credentials = require('credentials.php');
 
@@ -13,8 +13,8 @@ if (!file_exists($cacheDir)) {
     mkdir($cacheDir);
 }
 
-$rcsdkMemory = new RCSDK(new MemoryCache(), $credentials['appKey'], $credentials['appSecret']);
-$rcsdkFile = new RCSDK(new FileCache($cacheDir), $credentials['appKey'], $credentials['appSecret']);
+$rcsdkMemory = new SDK(new MemoryCache(), $credentials['appKey'], $credentials['appSecret']);
+$rcsdkFile = new SDK(new FileCache($cacheDir), $credentials['appKey'], $credentials['appSecret']);
 
 //////////
 

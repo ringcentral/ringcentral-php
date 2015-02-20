@@ -1,8 +1,6 @@
 <?php
 
-namespace RC\core\cache;
-
-use RC\core\Cache;
+namespace RC\cache;
 
 class MemoryCache extends Cache
 {
