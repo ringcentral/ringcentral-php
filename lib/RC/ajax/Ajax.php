@@ -25,9 +25,9 @@ class Ajax
     public function send()
     {
 
-        try {
+        $ch = curl_init();
 
-            $ch = curl_init();
+        try {
 
             curl_setopt($ch, CURLOPT_URL, $this->request->getUrlWithQueryString());
 
@@ -45,13 +45,14 @@ class Ajax
             $response = curl_exec($ch);
             $this->response = new Response(curl_getinfo($ch, CURLINFO_HTTP_CODE), $response);
 
-            curl_close($ch);
-
         } catch (Exception $e) {
 
+            curl_close($ch);
             throw new AjaxException($this, $e);
 
         }
+
+        curl_close($ch);
 
         if (!$this->response->checkStatus()) {
             throw new AjaxException($this);
