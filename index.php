@@ -15,7 +15,7 @@ set_exception_handler(function (Exception $e) {
 
     print 'Exception: ' . $e->getMessage() . PHP_EOL;
 
-    if ($e instanceof \RC\core\ajax\AjaxException) {
+    if ($e instanceof \RC\ajax\AjaxException) {
         print 'AJAX Data:' . PHP_EOL;
         print_r($e->getAjax()->getResponse()->getData());
         print PHP_EOL;
@@ -23,10 +23,10 @@ set_exception_handler(function (Exception $e) {
 
     print $e->getTraceAsString() . PHP_EOL;
 
-    //if ($e->getPrevious()) {
-    //    print 'Previous: ' . $e->getMessage() . PHP_EOL;
-    //    print $e->getPrevious()->getTraceAsString() . PHP_EOL;
-    //}
+    if ($e->getPrevious()) {
+        print 'Previous: ' . $e->getMessage() . PHP_EOL;
+        print $e->getPrevious()->getTraceAsString() . PHP_EOL;
+    }
 
 });
 

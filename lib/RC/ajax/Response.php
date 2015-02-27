@@ -15,6 +15,7 @@ class Response extends Headers
     private $body = '';
     private $raw = '';
     private $rawHeaders = '';
+    /** @var \StdClass */
     private $data = null;
     private $status = 0;
     /** @var Response[] */
@@ -55,13 +56,13 @@ class Response extends Headers
         foreach ($headers as $header) {
 
             if (strlen($header) == 0) {
-                break;
+                continue;
             }
 
             $headerParts = explode(self::HEADER_SEPARATOR, $header);
             $name = trim(array_shift($headerParts));
 
-            $this->setHeader($name, implode(self::HEADER_SEPARATOR, $headerParts));
+            $this->setHeader($name, trim(implode(self::HEADER_SEPARATOR, $headerParts)));
 
         }
 
@@ -80,11 +81,12 @@ class Response extends Headers
         //switch ($this->getContentType()) {
         if ($this->isJson()) {
 
-            $this->data = json_decode($this->body, true);
+            $this->data = json_decode($this->body);
 
         } elseif ($this->isMultipart()) {
 
-            $boundary = preg_match_all(self::BOUNDARY_REGEXP, $this->getContentType())[1];
+            preg_match(self::BOUNDARY_REGEXP, $this->getContentType(), $matches);
+            $boundary = $matches[1];
             $parts = explode(self::BOUNDARY_SEPARATOR . $boundary, $this->body);
 
             if (trim($parts[0]) == '') {
@@ -102,7 +104,7 @@ class Response extends Headers
 
             // Step 2. Parse all parts into Response objects
             foreach ($parts as $i => $part) {
-                $this->responses[] = new self($statusInfo->data['response'][$i]['status'], $part);
+                $this->responses[] = new self($statusInfo->data->response[$i]->status, $part);
             }
 
         } else {

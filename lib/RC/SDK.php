@@ -8,13 +8,15 @@ use RC\platform\Platform;
 class SDK
 {
 
+    const VERSION = '0.1.2';
+
     /** @var Platform */
     protected $platform = null;
 
-    public function __construct(Cache $cache, $appKey, $appSecret, $server = '')
+    public function __construct($appKey, $appSecret, $server)
     {
 
-        $this->platform = new Platform($cache, $appKey, $appSecret, $server);
+        $this->platform = new Platform($appKey, $appSecret, $server);
 
     }
 

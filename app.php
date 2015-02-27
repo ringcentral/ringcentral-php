@@ -1,51 +1,60 @@
 <?php
 
-use RC\ajax\Request;
-use RC\cache\FileCache;
-use RC\cache\MemoryCache;
 use RC\SDK;
 
-$credentials = require('credentials.php');
+//////////
 
 $cacheDir = __DIR__ . DIRECTORY_SEPARATOR . '_cache';
+$file = $cacheDir . DIRECTORY_SEPARATOR . 'platform.json';
 
 if (!file_exists($cacheDir)) {
     mkdir($cacheDir);
 }
 
-$rcsdkMemory = new SDK(new MemoryCache(), $credentials['appKey'], $credentials['appSecret']);
-$rcsdkFile = new SDK(new FileCache($cacheDir), $credentials['appKey'], $credentials['appSecret']);
+$cachedAuth = file_exists($file) ? json_decode(file_get_contents($file)) : null;
+
+$credentials = require('credentials.php');
 
 //////////
 
-$memoryPlatform = $rcsdkMemory->getPlatform();
+$rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server']);
 
-$auth = $memoryPlatform->authorize($credentials['username'], $credentials['extension'], $credentials['password']);
+$platform = $rcsdk->getPlatform();
 
-print 'Memory Authorized' . PHP_EOL;
-
-$refresh = $memoryPlatform->refresh();
-
-print 'Memory Refreshed' . PHP_EOL;
-
-$call = $memoryPlatform->apiCall(new Request('GET', '/account/~/extension/~'));
-
-print 'Memory User loaded ' . $call->getResponse()->getData()['name'] . PHP_EOL;
-
-print '----------' . PHP_EOL;
-
-//////////
-
-$filePlatform = $rcsdkFile->getPlatform();
+$platform->setAuthData($cachedAuth);
 
 try {
-    $filePlatform->isAuthorized();
-    print 'File is authorized already' . PHP_EOL;
+
+    $platform->isAuthorized();
+
+    print 'Authorization was restored' . PHP_EOL;
+
 } catch (Exception $e) {
-    $auth = $filePlatform->authorize($credentials['username'], $credentials['extension'], $credentials['password']);
-    print 'File Authorized' . PHP_EOL;
+
+    print 'Exception: ' . $e->getMessage() . PHP_EOL;
+
+    $auth = $platform->authorize($credentials['username'], $credentials['extension'], $credentials['password']);
+
+    print 'Authorized' . PHP_EOL;
+
 }
 
-$call = $filePlatform->apiCall(new Request('GET', '/account/~/extension/~'));
+$refresh = $platform->refresh();
 
-print 'File User loaded ' . $call->getResponse()->getData()['name'] . PHP_EOL;
+print 'Refreshed' . PHP_EOL;
+
+$extensions = $platform->get('/account/~/extension', ['perPage' => 10])
+                       ->getData()->records;
+
+print 'Users loaded ' . count($extensions) . PHP_EOL;
+
+$presences = $platform->get('/account/~/extension/' . $extensions[0]->id . ',' . $extensions[1]->id . '/presence')
+                      ->getResponses();
+
+print 'Presence loaded ' .
+      $extensions[0]->name . ' - ' . $presences[0]->getData()->presenceStatus . ', ' .
+      $extensions[1]->name . ' - ' . $presences[1]->getData()->presenceStatus . PHP_EOL;
+
+//////////
+
+file_put_contents($file, json_encode($platform->getAuthData(), JSON_PRETTY_PRINT));

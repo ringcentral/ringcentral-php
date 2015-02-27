@@ -5,7 +5,8 @@ namespace RC\platform;
 use Exception;
 use RC\ajax\Ajax;
 use RC\ajax\Request;
-use RC\cache\Cache;
+use RC\ajax\Response;
+use stdClass;
 
 class Platform
 {
@@ -16,10 +17,11 @@ class Platform
     const ACCOUNT_PREFIX = '/account/';
     const ACCOUNT_ID = '~';
     const TOKEN_ENDPOINT = '/restapi/oauth/token';
+    const REVOKE_ENDPOINT = '/restapi/oauth/revoke';
     const API_VERSION = 'v1.0';
     const URL_PREFIX = '/restapi';
 
-    protected $server = 'https://platform.ringcentral.com';
+    protected $server = '';
     protected $appKey = '';
     protected $appSecret = '';
     protected $account = self::ACCOUNT_ID;
@@ -27,18 +29,26 @@ class Platform
     /** @var Auth */
     protected $auth = null;
 
-    public function __construct(Cache $cache, $appKey, $appSecret, $server = '')
+    public function __construct($appKey, $appSecret, $server = '')
     {
 
-        $this->auth = new Auth($cache);
+        $this->auth = new Auth();
 
         $this->appKey = $appKey;
         $this->appSecret = $appSecret;
+        $this->server = $server;
 
-        if (!empty($server)) {
-            $this->server = $server;
-        }
+    }
 
+    public function setAuthData(stdClass $authData = null)
+    {
+        $this->auth->setData($authData);
+        return $this;
+    }
+
+    public function getAuthData()
+    {
+        return $this->auth->getData();
     }
 
     public function isAuthorized($refresh = true)
@@ -46,6 +56,7 @@ class Platform
 
         if (!$this->auth->isAccessTokenValid()) {
             if ($refresh) {
+                print 'Refresh is required' . PHP_EOL;
                 $this->refresh();
             }
         }
@@ -73,7 +84,7 @@ class Platform
      * @param array  $options
      * @return string
      */
-    protected function apiUrl($url = '', $options = [])
+    public function apiUrl($url = '', $options = [])
     {
 
         $builtUrl = '';
@@ -113,7 +124,7 @@ class Platform
      * @param string $extension
      * @param string $password
      * @param bool   $remember
-     * @return Ajax
+     * @return Response
      * @throws Exception
      */
     public function authorize($username = '', $extension = '', $password = '', $remember = false)
@@ -130,14 +141,15 @@ class Platform
 
         $this->auth
             ->setData($ajax->getResponse()->getData())
+            ->resume()
             ->setRemember($remember);
 
-        return $ajax;
+        return $ajax->getResponse();
 
     }
 
     /**
-     * @return Ajax
+     * @return Response
      * @throws Exception
      */
     public function refresh()
@@ -164,7 +176,7 @@ class Platform
                 ->setData($ajax->getResponse()->getData())
                 ->resume();
 
-            return $ajax;
+            return $ajax->getResponse();
 
         } else {
 
@@ -182,11 +194,27 @@ class Platform
     }
 
     /**
+     * @return Response
+     * @throws Exception
+     */
+    public function logout()
+    {
+
+        $ajax = $this->authCall(new Request(Request::POST, self::REVOKE_ENDPOINT,
+            ['token' => $this->auth->getAccessToken()]));
+
+        $this->auth->reset();
+
+        return $ajax->getResponse();
+
+    }
+
+    /**
      * @param Request $request
      * @return Ajax
      * @throws Exception
      */
-    public function apiCall(Request $request)
+    protected function apiCall(Request $request)
     {
 
         $this->isAuthorized();
@@ -206,7 +234,7 @@ class Platform
      * @return Ajax
      * @throws Exception
      */
-    public function authCall(Request $request)
+    protected function authCall(Request $request)
     {
 
         $request
@@ -219,6 +247,34 @@ class Platform
 
         return $ajax->send();
 
+    }
+
+    public function get($url, array $queryParameters = null, array $headers = null)
+    {
+        return $this
+            ->apiCall(new Request(Request::GET, $url, $queryParameters, null, $headers))
+            ->getResponse();
+    }
+
+    public function post($url, array $queryParameters = null, $body = null, array $headers = null)
+    {
+        return $this
+            ->apiCall(new Request(Request::GET, $url, $queryParameters, $body, $headers))
+            ->getResponse();
+    }
+
+    public function put($url, array $queryParameters = null, $body = null, array $headers = null)
+    {
+        return $this
+            ->apiCall(new Request(Request::GET, $url, $queryParameters, $body, $headers))
+            ->getResponse();
+    }
+
+    public function delete($url, array $queryParameters = null, $body = null, array $headers = null)
+    {
+        return $this
+            ->apiCall(new Request(Request::GET, $url, $queryParameters, $body, $headers))
+            ->getResponse();
     }
 
 }
