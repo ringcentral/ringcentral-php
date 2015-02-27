@@ -2,6 +2,7 @@
 
 namespace RC\platform;
 
+use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Message\MessageFactory;
 use GuzzleHttp\Message\MessageInterface;
 use GuzzleHttp\Message\Response;
@@ -86,6 +87,41 @@ class Parser
     {
 
         return $this->factory->fromMessage('HTTP/1.1 ' . $status . ' ' . $statusText . PHP_EOL . ltrim($raw));
+
+    }
+
+    /**
+     * @param RequestException $e
+     * @return string
+     */
+    public function parseError(RequestException $e)
+    {
+
+        $response = $e->getResponse();
+
+        $message = $e->getMessage();
+
+        if (!!$response) {
+
+            $message = $response->getStatusCode() . ' ' . $response->getReasonPhrase();
+
+            $data = $response->json();
+
+            if (!empty($data['message'])) {
+                $message = $data['message'];
+            }
+
+            if (!empty($data['error_description'])) {
+                $message = $data['error_description'];
+            }
+
+            if (!empty($data['description'])) {
+                $message = $data['description'];
+            }
+
+        }
+
+        return $message;
 
     }
 

@@ -8,12 +8,12 @@ use RC\platform\Platform;
 class SDK
 {
 
-    const VERSION = '0.2.0';
+    const VERSION = '0.2.1';
 
     /** @var Platform */
     protected $platform;
 
-    /** @var Platform */
+    /** @var Parser */
     protected $parser;
 
     public function __construct($appKey, $appSecret, $server)
