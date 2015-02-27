@@ -2,19 +2,24 @@
 
 namespace RC;
 
-use RC\cache\Cache;
+use RC\platform\Parser;
 use RC\platform\Platform;
 
 class SDK
 {
 
-    const VERSION = '0.1.2';
+    const VERSION = '0.2.0';
 
     /** @var Platform */
-    protected $platform = null;
+    protected $platform;
+
+    /** @var Platform */
+    protected $parser;
 
     public function __construct($appKey, $appSecret, $server)
     {
+
+        $this->parser = new Parser();
 
         $this->platform = new Platform($appKey, $appSecret, $server);
 
@@ -23,6 +28,11 @@ class SDK
     public function getPlatform()
     {
         return $this->platform;
+    }
+
+    public function getParser()
+    {
+        return $this->parser;
     }
 
 }

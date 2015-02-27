@@ -54,10 +54,43 @@ Authenticate user:
 $rcsdk->getPlatform()->authorize('username', 'extension (or leave blank)', 'password', true); // change true to false to not remember user
 ```
 
+### Authentication lifecycle
+
+Platform class performs token refresh procedure if needed. You can save authentication between requests in CGI mode:
+
+```js
+// when application is going to be stopped
+file_put_contents($file, json_encode($platform->getAuthData(), JSON_PRETTY_PRINT));
+
+// and then next time during application bootstrap before any authentication checks:
+$rcsdk->getPlatform()->setAuthData(json_decode(file_get_contents($file));
+```
+
+**Important!** You have to manually maintain synchronization of RCSDK's between requests if you share authentication.
+When two simultaneous requests will perform refresh, only one will succeed. One of the solutions would be to have
+semaphor and pause other pending requests while one of them is performing refresh.
+
 ## Performing API call
 
 ```php
-$ajax = $rcsdk->getPlatform()->apiCall(new Request('GET', '/account/~/extension/~'));
+$response = $rcsdk->getPlatform()->get('/account/~/extension/~');
+$response = $rcsdk->getPlatform()->post('/account/~/extension/~', null, {foo: 'bar'}); // QueryParameters are null
+$response = $rcsdk->getPlatform()->put('/account/~/extension/~', null, {foo: 'bar'}); // QueryParameters are null
+$response = $rcsdk->getPlatform()->delete('/account/~/extension/~', null, {foo: 'bar'}); // QueryParameters are null
 
-print_r($call->getResponse()->getData());
+print_r($response->getData());
+print_r($response->getHeaders());
+```
+
+### Multipart response
+
+Loading of multiple comma-separated IDs will result in HTTP 207 with `Content-Type: multipart/mixed`. This response will
+be parsed into multiple sub-responses:
+
+```php
+$presences = $platform->get('/account/~/extension/id_1,id_2/presence')
+                      ->getResponses();
+
+print $extensions[0]->name . ' - ' . $presences[0]->getData()->presenceStatus . ', ' .
+      $extensions[1]->name . ' - ' . $presences[1]->getData()->presenceStatus;
 ```
