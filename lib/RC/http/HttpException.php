@@ -1,26 +1,26 @@
 <?php
 
-namespace RC\ajax;
+namespace RC\http;
 
 use Exception;
 
-class AjaxException extends Exception
+class HttpException extends Exception
 {
 
-    protected $ajax = null;
+    protected $request = null;
 
-    public function __construct(Ajax $ajax, Exception $previous = null)
+    public function __construct(Request $request = null, Exception $previous = null)
     {
 
         $message = 'Unknown error';
         $status = 0;
 
-        $this->ajax = $ajax;
+        $this->request = $request;
 
-        if ($ajax->isLoaded()) {
+        if ($request && $request->isLoaded()) {
 
-            $data = $ajax->getResponse()->getData();
-            $status = $ajax->getResponse()->getStatus();
+            $data = $request->getResponse()->getData();
+            $status = $request->getResponse()->getStatus();
 
             if (!empty($data->message)) {
                 $message = $data->message;
@@ -46,9 +46,9 @@ class AjaxException extends Exception
 
     }
 
-    public function getAjax()
+    public function getRequest()
     {
-        return $this->ajax;
+        return $this->request;
     }
 
 }

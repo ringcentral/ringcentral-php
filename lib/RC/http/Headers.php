@@ -1,6 +1,6 @@
 <?php
 
-namespace RC\ajax;
+namespace RC\http;
 
 abstract class Headers
 {

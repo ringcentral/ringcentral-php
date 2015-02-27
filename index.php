@@ -1,5 +1,7 @@
 <?php
 
+use RC\http\HttpException;
+
 require_once('lib/autoload.php');
 
 date_default_timezone_set('UTC');
@@ -15,9 +17,9 @@ set_exception_handler(function (Exception $e) {
 
     print 'Exception: ' . $e->getMessage() . PHP_EOL;
 
-    if ($e instanceof \RC\ajax\AjaxException) {
+    if ($e instanceof HttpException) {
         print 'AJAX Data:' . PHP_EOL;
-        print_r($e->getAjax()->getResponse()->getData());
+        print_r($e->getRequest()->getResponse()->getData());
         print PHP_EOL;
     }
 

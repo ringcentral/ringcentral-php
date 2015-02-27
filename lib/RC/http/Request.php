@@ -1,6 +1,6 @@
 <?php
 
-namespace RC\ajax;
+namespace RC\http;
 
 use Exception;
 
@@ -11,13 +11,17 @@ class Request extends Headers
     const GET = 'GET';
     const DELETE = 'DELETE';
     const PUT = 'PUT';
+    const PATCH = 'PATCH';
 
-    private static $allowedMethods = [self::GET, self::POST, self::PUT, self::DELETE];
+    protected static $allowedMethods = [self::GET, self::POST, self::PUT, self::DELETE];
 
-    private $method = self::GET;
-    private $url = '';
-    private $queryParams = [];
-    private $body = null;
+    protected $method = self::GET;
+    protected $url = '';
+    protected $queryParams = [];
+    protected $body = null;
+
+    /** @var Response */
+    protected $response = null;
 
     public function __construct($method = '', $url = '', $queryParams = [], $body = null, $headers = [])
     {
@@ -25,6 +29,7 @@ class Request extends Headers
         if (empty($method)) {
             throw new Exception('Method must be provided');
         }
+
         if (empty($url)) {
             throw new Exception('Url must be provided');
         }
@@ -128,6 +133,60 @@ class Request extends Headers
     public function getQueryParams()
     {
         return $this->queryParams;
+    }
+
+    /**
+     * @return $this
+     * @throws HttpException
+     */
+    public function send()
+    {
+
+        $ch = curl_init();
+
+        try {
+
+            curl_setopt($ch, CURLOPT_URL, $this->getUrlWithQueryString());
+
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->getMethod());
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HEADER, true);
+
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHeadersArray());
+
+            if ($this->isPut() || $this->isPost()) {
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $this->getEncodedBody());
+            }
+
+            $response = curl_exec($ch);
+            $this->response = new Response(curl_getinfo($ch, CURLINFO_HTTP_CODE), $response, $this);
+
+        } catch (Exception $e) {
+
+            curl_close($ch);
+            throw new HttpException($this, $e);
+
+        }
+
+        curl_close($ch);
+
+        if (!$this->response->isSuccess()) {
+            throw new HttpException($this);
+        }
+
+        return $this->response;
+
+    }
+
+    public function isLoaded()
+    {
+        return !!$this->response;
+    }
+
+    public function getResponse()
+    {
+        return $this->response;
     }
 
 }

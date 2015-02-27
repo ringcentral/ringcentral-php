@@ -9,10 +9,22 @@ class Auth
 
     const RELEASE_TIMEOUT = 10;
 
-    /** @var AuthData */
-    protected $authData = null;
+    protected $pausedTime;
 
-    protected $pausedTime = 0;
+    protected $remember;
+
+    protected $token_type;
+
+    protected $access_token;
+    protected $expires_in;
+    protected $expire_time;
+
+    protected $refresh_token;
+    protected $refresh_token_expires_in;
+    protected $refresh_token_expire_time;
+
+    protected $scope;
+    protected $owner_id;
 
     protected static function isTokenDateValid($tokenDate)
     {
@@ -21,68 +33,68 @@ class Auth
 
     public function __construct()
     {
-        $this->authData = new AuthData();
+        $this->reset();
     }
 
-    public function setData(stdClass $authData = null)
+    public function setData(stdClass $data = null)
     {
 
-        if (empty($authData)) {
+        if (empty($data)) {
             return $this;
         }
 
         // Misc
 
-        if (!empty($authData->remember)) {
-            $this->authData->remember = $authData->remember;
+        if (!empty($data->remember)) {
+            $this->remember = $data->remember;
         }
 
-        if (!empty($authData->token_type)) {
-            $this->authData->token_type = $authData->token_type;
+        if (!empty($data->token_type)) {
+            $this->token_type = $data->token_type;
         }
 
-        if (!empty($authData->owner_id)) {
-            $this->authData->owner_id = $authData->owner_id;
+        if (!empty($data->owner_id)) {
+            $this->owner_id = $data->owner_id;
         }
 
-        if (!empty($authData->scope)) {
-            $this->authData->scope = $authData->scope;
+        if (!empty($data->scope)) {
+            $this->scope = $data->scope;
         }
 
         // Access token
 
-        if (!empty($authData->access_token)) {
-            $this->authData->access_token = $authData->access_token;
+        if (!empty($data->access_token)) {
+            $this->access_token = $data->access_token;
         }
 
-        if (!empty($authData->expires_in)) {
-            $this->authData->expires_in = $authData->expires_in;
+        if (!empty($data->expires_in)) {
+            $this->expires_in = $data->expires_in;
         }
 
-        if (empty($authData->expire_time) && !empty($authData->expires_in)) {
-            $this->authData->expire_time = time() + $authData->expires_in;
-        } elseif (!empty($authData->expire_time)) {
-            $this->authData->expire_time = $authData->expire_time;
+        if (empty($data->expire_time) && !empty($data->expires_in)) {
+            $this->expire_time = time() + $data->expires_in;
+        } elseif (!empty($data->expire_time)) {
+            $this->expire_time = $data->expire_time;
         }
 
         // Refresh token
 
-        if (!empty($authData->refresh_token)) {
-            $this->authData->refresh_token = $authData->refresh_token;
+        if (!empty($data->refresh_token)) {
+            $this->refresh_token = $data->refresh_token;
         }
 
-        if (!empty($authData->refresh_token_expires_in)) {
-            $this->authData->refresh_token_expires_in = $authData->refresh_token_expires_in;
+        if (!empty($data->refresh_token_expires_in)) {
+            $this->refresh_token_expires_in = $data->refresh_token_expires_in;
         }
 
-        if (empty($authData->refresh_token_expire_time) && !empty($authData->refresh_token_expires_in)) {
-            $this->authData->refresh_token_expire_time = time() + $authData->refresh_token_expires_in;
-        } elseif (!empty($authData->refresh_token_expire_time)) {
-            $this->authData->refresh_token_expire_time = $authData->refresh_token_expire_time;
+        if (empty($data->refresh_token_expire_time) && !empty($data->refresh_token_expires_in)) {
+            $this->refresh_token_expire_time = time() + $data->refresh_token_expires_in;
+        } elseif (!empty($data->refresh_token_expire_time)) {
+            $this->refresh_token_expire_time = $data->refresh_token_expire_time;
         }
 
         //print print_r($authData, true) . PHP_EOL;
-        //print print_r($this->authData, true) . PHP_EOL;
+        //print print_r($this->getData(), true) . PHP_EOL;
 
         return $this;
 
@@ -92,40 +104,76 @@ class Auth
     {
 
         $this->resume();
-        $this->authData->reset();
+
+        $this->remember = false;
+
+        $this->token_type = '';
+
+        $this->access_token = '';
+        $this->expires_in = 0;
+        $this->expire_time = 0;
+
+        $this->refresh_token = '';
+        $this->refresh_token_expires_in = 0;
+        $this->refresh_token_expire_time = 0;
+
+        $this->scope = '';
+        $this->owner_id = '';
 
         return $this;
 
     }
 
+    /**
+     * @return stdClass
+     */
     public function getData()
     {
-        return $this->authData;
+
+        $data = new stdClass();
+
+        $data->remember = $this->remember;
+
+        $data->token_type = $this->token_type;
+
+        $data->access_token = $this->access_token;
+        $data->expires_in = $this->expires_in;
+        $data->expire_time = $this->expire_time;
+
+        $data->refresh_token = $this->refresh_token;
+        $data->refresh_token_expires_in = $this->refresh_token_expires_in;
+        $data->refresh_token_expire_time = $this->refresh_token_expire_time;
+
+        $data->scope = $this->scope;
+        $data->owner_id = $this->owner_id;
+
+        return $data;
+
     }
 
     public function getAccessToken()
     {
-        return $this->authData->access_token;
+        return $this->access_token;
     }
 
     public function getRefreshToken()
     {
-        return $this->authData->refresh_token;
+        return $this->refresh_token;
     }
 
     public function getTokenType()
     {
-        return $this->authData->token_type;
+        return $this->token_type;
     }
 
     public function isAccessTokenValid()
     {
-        return self::isTokenDateValid($this->authData->expire_time);
+        return self::isTokenDateValid($this->expire_time);
     }
 
     public function isRefreshTokenValid()
     {
-        return self::isTokenDateValid($this->authData->refresh_token_expire_time);
+        return self::isTokenDateValid($this->refresh_token_expire_time);
     }
 
     public function isPaused()
@@ -147,13 +195,13 @@ class Auth
 
     public function setRemember($remember)
     {
-        $this->authData->remember = !!$remember;
+        $this->remember = !!$remember;
         return $this;
     }
 
     public function isRemember()
     {
-        return !empty($this->authData->remember);
+        return !empty($this->remember);
     }
 
 }

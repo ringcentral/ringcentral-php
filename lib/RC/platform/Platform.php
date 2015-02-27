@@ -3,9 +3,8 @@
 namespace RC\platform;
 
 use Exception;
-use RC\ajax\Ajax;
-use RC\ajax\Request;
-use RC\ajax\Response;
+use RC\http\Request;
+use RC\http\Response;
 use stdClass;
 
 class Platform
@@ -40,12 +39,19 @@ class Platform
 
     }
 
+    /**
+     * @param stdClass $authData
+     * @return $this
+     */
     public function setAuthData(stdClass $authData = null)
     {
         $this->auth->setData($authData);
         return $this;
     }
 
+    /**
+     * @return stdClass
+     */
     public function getAuthData()
     {
         return $this->auth->getData();
@@ -130,7 +136,7 @@ class Platform
     public function authorize($username = '', $extension = '', $password = '', $remember = false)
     {
 
-        $ajax = $this->authCall(new Request(Request::POST, self::TOKEN_ENDPOINT, null, [
+        $response = $this->authCall(new Request(Request::POST, self::TOKEN_ENDPOINT, null, [
             'grant_type'        => 'password',
             'username'          => $username,
             'extension'         => $extension ? $extension : null,
@@ -140,11 +146,11 @@ class Platform
         ]));
 
         $this->auth
-            ->setData($ajax->getResponse()->getData())
+            ->setData($response->getData())
             ->resume()
             ->setRemember($remember);
 
-        return $ajax->getResponse();
+        return $response;
 
     }
 
@@ -165,7 +171,7 @@ class Platform
                 throw new Exception('Refresh token has expired');
             }
 
-            $ajax = $this->authCall(new Request(Request::POST, self::TOKEN_ENDPOINT, null, [
+            $response = $this->authCall(new Request(Request::POST, self::TOKEN_ENDPOINT, null, [
                 "grant_type"        => "refresh_token",
                 "refresh_token"     => $this->auth->getRefreshToken(),
                 "access_token_ttl"  => self::ACCESS_TOKEN_TTL,
@@ -173,10 +179,10 @@ class Platform
             ]));
 
             $this->auth
-                ->setData($ajax->getResponse()->getData())
+                ->setData($response->getData())
                 ->resume();
 
-            return $ajax->getResponse();
+            return $response;
 
         } else {
 
@@ -200,18 +206,19 @@ class Platform
     public function logout()
     {
 
-        $ajax = $this->authCall(new Request(Request::POST, self::REVOKE_ENDPOINT,
-            ['token' => $this->auth->getAccessToken()]));
+        $response = $this->authCall(new Request(Request::POST, self::REVOKE_ENDPOINT, [
+            'token' => $this->auth->getAccessToken()
+        ]));
 
         $this->auth->reset();
 
-        return $ajax->getResponse();
+        return $response;
 
     }
 
     /**
      * @param Request $request
-     * @return Ajax
+     * @return Response
      * @throws Exception
      */
     protected function apiCall(Request $request)
@@ -219,62 +226,76 @@ class Platform
 
         $this->isAuthorized();
 
-        $request
+        return $request
             ->setHeader(Request::AUTHORIZATION, $this->getAuthHeader())
-            ->setUrl($this->apiUrl($request->getUrl(), ['addServer' => true]));
-
-        $ajax = new Ajax($request);
-
-        return $ajax->send();
+            ->setUrl($this->apiUrl($request->getUrl(), ['addServer' => true]))
+            ->send();
 
     }
 
     /**
      * @param Request $request
-     * @return Ajax
+     * @return Response
      * @throws Exception
      */
     protected function authCall(Request $request)
     {
 
-        $request
+        return $request
             ->setHeader(Request::AUTHORIZATION, 'Basic ' . $this->getApiKey())
             ->setHeader(Request::CONTENT_TYPE, Request::URL_ENCODED_CONTENT_TYPE)
             ->setUrl($this->apiUrl($request->getUrl(), ['addServer' => true]))
-            ->setMethod(Request::POST);
-
-        $ajax = new Ajax($request);
-
-        return $ajax->send();
+            ->setMethod(Request::POST)
+            ->send();
 
     }
 
-    public function get($url, array $queryParameters = null, array $headers = null)
+    /**
+     * @param string $url
+     * @param array  $queryParameters
+     * @param array  $headers
+     * @return Response
+     */
+    public function get($url = '', array $queryParameters = null, array $headers = null)
     {
         return $this
-            ->apiCall(new Request(Request::GET, $url, $queryParameters, null, $headers))
-            ->getResponse();
+            ->apiCall(new Request(Request::GET, $url, $queryParameters, null, $headers));
     }
 
-    public function post($url, array $queryParameters = null, $body = null, array $headers = null)
+    /**
+     * @param string $url
+     * @param array  $queryParameters
+     * @param array  $body
+     * @param array  $headers
+     * @return Response
+     */
+    public function post($url = '', array $queryParameters = null, $body = null, array $headers = null)
     {
-        return $this
-            ->apiCall(new Request(Request::GET, $url, $queryParameters, $body, $headers))
-            ->getResponse();
+        return $this->apiCall(new Request(Request::POST, $url, $queryParameters, $body, $headers));
     }
 
-    public function put($url, array $queryParameters = null, $body = null, array $headers = null)
+    /**
+     * @param string $url
+     * @param array  $queryParameters
+     * @param array  $body
+     * @param array  $headers
+     * @return Response
+     */
+    public function put($url = '', array $queryParameters = null, $body = null, array $headers = null)
     {
-        return $this
-            ->apiCall(new Request(Request::GET, $url, $queryParameters, $body, $headers))
-            ->getResponse();
+        return $this->apiCall(new Request(Request::PUT, $url, $queryParameters, $body, $headers));
     }
 
-    public function delete($url, array $queryParameters = null, $body = null, array $headers = null)
+    /**
+     * @param string $url
+     * @param array  $queryParameters
+     * @param array  $body
+     * @param array  $headers
+     * @return Response
+     */
+    public function delete($url = '', array $queryParameters = null, $body = null, array $headers = null)
     {
-        return $this
-            ->apiCall(new Request(Request::GET, $url, $queryParameters, $body, $headers))
-            ->getResponse();
+        return $this->apiCall(new Request(Request::DELETE, $url, $queryParameters, $body, $headers));
     }
 
 }

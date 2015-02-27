@@ -1,6 +1,6 @@
 <?php
 
-namespace RC\ajax;
+namespace RC\http;
 
 use Exception;
 
@@ -15,19 +15,27 @@ class Response extends Headers
     private $body = '';
     private $raw = '';
     private $rawHeaders = '';
+    private $status = 0;
+
     /** @var \StdClass */
     private $data = null;
-    private $status = 0;
+
     /** @var Response[] */
     private $responses = [];
 
+    /** @var Request */
+    private $request = null;
+
     /**
-     * @param string $status
-     * @param string $raw
+     * @param string  $status
+     * @param string  $raw
+     * @param Request $request
      * @throws Exception
      */
-    public function __construct($status, $raw)
+    public function __construct($status, $raw, Request $request = null)
     {
+
+        $this->request = $request;
 
         $this->raw = str_replace("\r", '', $raw);
 
@@ -70,7 +78,7 @@ class Response extends Headers
 
     }
 
-    public function checkStatus()
+    public function isSuccess()
     {
         return $this->status >= 200 && $this->status < 300;
     }
@@ -140,6 +148,11 @@ class Response extends Headers
     public function getResponses()
     {
         return $this->responses;
+    }
+
+    public function getRequest()
+    {
+        return $this->request;
     }
 
 }
