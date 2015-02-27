@@ -1,4 +1,6 @@
-.idea/
+.idea
 _cache
+composer.lock
+composer-test.lock
 credentials.php
 vendor

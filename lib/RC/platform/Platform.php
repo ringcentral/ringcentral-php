@@ -3,8 +3,10 @@
 namespace RC\platform;
 
 use Exception;
-use RC\http\Request;
-use RC\http\Response;
+use GuzzleHttp\Client;
+use GuzzleHttp\Event\BeforeEvent;
+use GuzzleHttp\Event\CompleteEvent;
+use GuzzleHttp\Message\Response;
 use stdClass;
 
 class Platform
@@ -20,37 +22,75 @@ class Platform
     const API_VERSION = 'v1.0';
     const URL_PREFIX = '/restapi';
 
-    protected $server = '';
-    protected $appKey = '';
-    protected $appSecret = '';
+    protected $server;
+    protected $appKey;
+    protected $appSecret;
+
     protected $account = self::ACCOUNT_ID;
 
     /** @var Auth */
-    protected $auth = null;
+    protected $auth;
 
-    public function __construct($appKey, $appSecret, $server = '')
+    /** @var Client */
+    protected $client;
+
+    public function __construct($appKey, $appSecret, $server)
     {
-
-        $this->auth = new Auth();
 
         $this->appKey = $appKey;
         $this->appSecret = $appSecret;
         $this->server = $server;
 
+        $this->auth = new Auth();
+
+        $this->client = new Client([
+            //'base_url' => $this->server,
+            'defaults' => [
+                'headers' => [
+                    'content-type' => 'application/json',
+                    'accept'       => 'application/json'
+                ],
+            ]
+        ]);
+
+        $this->client->getEmitter()->on('before', function (BeforeEvent $event) {
+
+            $request = $event->getRequest();
+
+            if (!$request->getHeader('authorization')) {
+                $request->addHeader('authorization', $this->getAuthHeader());
+            }
+
+            $request->setUrl($this->apiUrl($request->getUrl(), ['addServer' => true]));
+
+            //print 'REQUEST:' . PHP_EOL;
+            //print '  - Url: ' . $request->getUrl() . PHP_EOL;
+            //print '  - Content-Type: ' . $request->getHeader('content-type') . PHP_EOL;
+
+        });
+
+        $this->client->getEmitter()->on('complete', function (CompleteEvent $event) {
+        });
+
+    }
+
+    public function getClient()
+    {
+        return $this->client;
     }
 
     /**
-     * @param stdClass $authData
+     * @param array $authData
      * @return $this
      */
-    public function setAuthData(stdClass $authData = null)
+    public function setAuthData(array $authData = [])
     {
         $this->auth->setData($authData);
         return $this;
     }
 
     /**
-     * @return stdClass
+     * @return array
      */
     public function getAuthData()
     {
@@ -73,16 +113,6 @@ class Platform
 
         return $this;
 
-    }
-
-    protected function getApiKey()
-    {
-        return base64_encode($this->appKey . ':' . $this->appSecret);
-    }
-
-    protected function getAuthHeader()
-    {
-        return $this->auth->getTokenType() . ' ' . $this->auth->getAccessToken();
     }
 
     /**
@@ -130,24 +160,22 @@ class Platform
      * @param string $extension
      * @param string $password
      * @param bool   $remember
-     * @return Response
-     * @throws Exception
+     * @return \GuzzleHttp\Message\Response
      */
     public function authorize($username = '', $extension = '', $password = '', $remember = false)
     {
 
-        $response = $this->authCall(new Request(Request::POST, self::TOKEN_ENDPOINT, null, [
+        $response = $this->authCall([], [
             'grant_type'        => 'password',
             'username'          => $username,
             'extension'         => $extension ? $extension : null,
             'password'          => $password,
             'access_token_ttl'  => self::ACCESS_TOKEN_TTL,
             'refresh_token_ttl' => $remember ? self::REFRESH_TOKEN_TTL_REMEMBER : self::REFRESH_TOKEN_TTL
-        ]));
+        ]);
 
         $this->auth
-            ->setData($response->getData())
-            ->resume()
+            ->setData($response->json())
             ->setRemember($remember);
 
         return $response;
@@ -155,47 +183,27 @@ class Platform
     }
 
     /**
-     * @return Response
+     * @return \GuzzleHttp\Message\Response
      * @throws Exception
      */
     public function refresh()
     {
 
-        if (!$this->auth->isPaused()) {
-
-            print 'Refresh will be performed' . PHP_EOL;
-
-            $this->auth->pause();
-
-            if (!$this->auth->isRefreshTokenValid()) {
-                throw new Exception('Refresh token has expired');
-            }
-
-            $response = $this->authCall(new Request(Request::POST, self::TOKEN_ENDPOINT, null, [
-                "grant_type"        => "refresh_token",
-                "refresh_token"     => $this->auth->getRefreshToken(),
-                "access_token_ttl"  => self::ACCESS_TOKEN_TTL,
-                "refresh_token_ttl" => $this->auth->isRemember() ? self::REFRESH_TOKEN_TTL_REMEMBER : self::REFRESH_TOKEN_TTL
-            ]));
-
-            $this->auth
-                ->setData($response->getData())
-                ->resume();
-
-            return $response;
-
-        } else {
-
-            while ($this->auth->isPaused()) {
-                print 'Waiting for refresh' . PHP_EOL;
-                sleep(1);
-            }
-
-            $this->isAuthorized(false); // will throw Exception if not authorized
-
-            return null; //TODO Recover last successful refresh
-
+        if (!$this->auth->isRefreshTokenValid()) {
+            throw new Exception('Refresh token has expired');
         }
+
+        // Synchronous
+        $response = $this->authCall([], [
+            "grant_type"        => "refresh_token",
+            "refresh_token"     => $this->auth->getRefreshToken(),
+            "access_token_ttl"  => self::ACCESS_TOKEN_TTL,
+            "refresh_token_ttl" => $this->auth->isRemember() ? self::REFRESH_TOKEN_TTL_REMEMBER : self::REFRESH_TOKEN_TTL
+        ]);
+
+        $this->auth->setData($response->json());
+
+        return $response;
 
     }
 
@@ -206,9 +214,9 @@ class Platform
     public function logout()
     {
 
-        $response = $this->authCall(new Request(Request::POST, self::REVOKE_ENDPOINT, [
+        $response = $this->authCall([
             'token' => $this->auth->getAccessToken()
-        ]));
+        ]);
 
         $this->auth->reset();
 
@@ -216,86 +224,28 @@ class Platform
 
     }
 
-    /**
-     * @param Request $request
-     * @return Response
-     * @throws Exception
-     */
-    protected function apiCall(Request $request)
+    protected function getApiKey()
     {
-
-        $this->isAuthorized();
-
-        return $request
-            ->setHeader(Request::AUTHORIZATION, $this->getAuthHeader())
-            ->setUrl($this->apiUrl($request->getUrl(), ['addServer' => true]))
-            ->send();
-
+        return base64_encode($this->appKey . ':' . $this->appSecret);
     }
 
-    /**
-     * @param Request $request
-     * @return Response
-     * @throws Exception
-     */
-    protected function authCall(Request $request)
+    protected function getAuthHeader()
     {
-
-        return $request
-            ->setHeader(Request::AUTHORIZATION, 'Basic ' . $this->getApiKey())
-            ->setHeader(Request::CONTENT_TYPE, Request::URL_ENCODED_CONTENT_TYPE)
-            ->setUrl($this->apiUrl($request->getUrl(), ['addServer' => true]))
-            ->setMethod(Request::POST)
-            ->send();
-
+        return $this->auth->getTokenType() . ' ' . $this->auth->getAccessToken();
     }
 
-    /**
-     * @param string $url
-     * @param array  $queryParameters
-     * @param array  $headers
-     * @return Response
-     */
-    public function get($url = '', array $queryParameters = null, array $headers = null)
+    protected function authCall(array $queryParams = [], array $body = [])
     {
-        return $this
-            ->apiCall(new Request(Request::GET, $url, $queryParameters, null, $headers));
-    }
 
-    /**
-     * @param string $url
-     * @param array  $queryParameters
-     * @param array  $body
-     * @param array  $headers
-     * @return Response
-     */
-    public function post($url = '', array $queryParameters = null, $body = null, array $headers = null)
-    {
-        return $this->apiCall(new Request(Request::POST, $url, $queryParameters, $body, $headers));
-    }
+        return $this->client->post(self::TOKEN_ENDPOINT, [
+            'headers' => [
+                'authorization' => 'Basic ' . $this->getApiKey(),
+                'content-type'  => 'application/x-www-form-urlencoded',
+            ],
+            'body'    => $body,
+            'query'   => $queryParams
+        ]);
 
-    /**
-     * @param string $url
-     * @param array  $queryParameters
-     * @param array  $body
-     * @param array  $headers
-     * @return Response
-     */
-    public function put($url = '', array $queryParameters = null, $body = null, array $headers = null)
-    {
-        return $this->apiCall(new Request(Request::PUT, $url, $queryParameters, $body, $headers));
-    }
-
-    /**
-     * @param string $url
-     * @param array  $queryParameters
-     * @param array  $body
-     * @param array  $headers
-     * @return Response
-     */
-    public function delete($url = '', array $queryParameters = null, $body = null, array $headers = null)
-    {
-        return $this->apiCall(new Request(Request::DELETE, $url, $queryParameters, $body, $headers));
     }
 
 }

@@ -11,7 +11,7 @@ if (!file_exists($cacheDir)) {
     mkdir($cacheDir);
 }
 
-$cachedAuth = file_exists($file) ? json_decode(file_get_contents($file)) : null;
+$cachedAuth = file_exists($file) ? json_decode(file_get_contents($file), true) : [];
 
 $credentials = require('credentials.php');
 
@@ -20,6 +20,7 @@ $credentials = require('credentials.php');
 $rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server']);
 
 $platform = $rcsdk->getPlatform();
+$client = $platform->getClient();
 
 $platform->setAuthData($cachedAuth);
 
@@ -33,7 +34,7 @@ try {
 
     print 'Exception: ' . $e->getMessage() . PHP_EOL;
 
-    $auth = $platform->authorize($credentials['username'], $credentials['extension'], $credentials['password']);
+    $auth = $platform->authorize($credentials['username'], $credentials['extension'], $credentials['password'], true);
 
     print 'Authorized' . PHP_EOL;
 
@@ -43,17 +44,16 @@ $refresh = $platform->refresh();
 
 print 'Refreshed' . PHP_EOL;
 
-$extensions = $platform->get('/account/~/extension', ['perPage' => 10])
-                       ->getData()->records;
+$extensions = $client->get('/account/~/extension', ['query' => ['perPage' => 10]])
+                     ->json()['records'];
 
 print 'Users loaded ' . count($extensions) . PHP_EOL;
 
-$presences = $platform->get('/account/~/extension/' . $extensions[0]->id . ',' . $extensions[1]->id . '/presence')
-                      ->getResponses();
+$presences = $rcsdk->getParser()->parse($client->get('/account/~/extension/' . $extensions[0]['id'] . ',' . $extensions[1]['id'] . '/presence'));
 
 print 'Presence loaded ' .
-      $extensions[0]->name . ' - ' . $presences[0]->getData()->presenceStatus . ', ' .
-      $extensions[1]->name . ' - ' . $presences[1]->getData()->presenceStatus . PHP_EOL;
+      $extensions[0]['name'] . ' - ' . $presences[0]->json()['presenceStatus'] . ', ' .
+      $extensions[1]['name'] . ' - ' . $presences[1]->json()['presenceStatus'] . PHP_EOL;
 
 //////////
 
