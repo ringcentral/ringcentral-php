@@ -55,6 +55,16 @@ print 'Presence loaded ' .
       $extensions[0]['name'] . ' - ' . $presences[0]->json()['presenceStatus'] . ', ' .
       $extensions[1]['name'] . ' - ' . $presences[1]->json()['presenceStatus'] . PHP_EOL;
 
+try {
+
+    $client->get('/account/~/whatever');
+
+} catch (\GuzzleHttp\Exception\RequestException $e) {
+
+    print 'Expected HTTP Error: ' . $rcsdk->getParser()->parseError($e);
+
+}
+
 //////////
 
 file_put_contents($file, json_encode($platform->getAuthData(), JSON_PRETTY_PRINT));
