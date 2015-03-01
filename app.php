@@ -61,9 +61,23 @@ try {
 
 } catch (\GuzzleHttp\Exception\RequestException $e) {
 
-    print 'Expected HTTP Error: ' . $rcsdk->getParser()->parseError($e);
+    print 'Expected HTTP Error: ' . $rcsdk->getParser()->parseError($e) . PHP_EOL;
 
 }
+
+print 'Sending SMS' . PHP_EOL;
+
+$response = $rcsdk->getPlatform()->getClient()->post('/account/~/extension/~/sms', [
+    'json' => [
+        'from' => ['phoneNumber' => $credentials['smsNumber']],
+        'to'   => [
+            ['phoneNumber' => $credentials['mainNumber']],
+        ],
+        'text' => 'Test from PHP',
+    ]
+]);
+
+print_r($response->json());
 
 //////////
 
