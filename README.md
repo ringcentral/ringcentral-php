@@ -98,3 +98,18 @@ print 'Presence loaded ' .
       $presences[0]->json()['presenceStatus'] . ', ' .
       $presences[1]->json()['presenceStatus'] . PHP_EOL;
 ```
+
+### Send SMS - Make POST request
+
+```php
+
+$response = $rcsdk->getPlatform()->getClient()->post('/account/~/extension/~/sms', [
+    'json' => [
+        'from' => ['phoneNumber' => 'your-RC-sms-number'],
+        'to'   => [
+            ['phoneNumber' => 'mobile-number'],
+        ],
+        'text' => 'Test from PHP',
+    ]
+]);
+```
