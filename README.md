@@ -37,7 +37,7 @@
 ## Initialization
 
 ```php
-$rcsdk = new RC\SDK('appKey', 'appSecret', 'http://platform.devtest.ringcentral.com');
+$rcsdk = new RC\SDK('appKey', 'appSecret', 'https://platform.devtest.ringcentral.com');
 ```
 
 ## Authentication
