@@ -37,7 +37,7 @@
 ## Initialization
 
 ```php
-$rcsdk = new RC\RCSDK(new RC\core\cache\MemoryCache(), 'appKey', 'appSecret', 'server (optional)');
+$rcsdk = new RC\SDK('appKey', 'appSecret', 'server');
 ```
 
 ## Authentication
