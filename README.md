@@ -37,7 +37,7 @@
 ## Initialization
 
 ```php
-$rcsdk = new RC\RCSDK(new RC\core\cache\MemoryCache(), 'appKey', 'appSecret', 'server (optional)');
+$rcsdk = new RC\SDK('appKey', 'appSecret', 'https://platform.devtest.ringcentral.com');
 ```
 
 ## Authentication
@@ -73,14 +73,17 @@ semaphor and pause other pending requests while one of them is performing refres
 ## Performing API call
 
 ```php
-$response = $rcsdk->getPlatform()->get->get('/account/~/extension/~');
-$response = $rcsdk->getPlatform()->post('/account/~/extension/~', null, {foo: 'bar'}); // QueryParameters are null
-$response = $rcsdk->getPlatform()->put('/account/~/extension/~', null, {foo: 'bar'}); // QueryParameters are null
-$response = $rcsdk->getPlatform()->delete('/account/~/extension/~', null, {foo: 'bar'}); // QueryParameters are null
+$client = $rcsdk->getPlatform()->getClient();
 
-print_r($response->getData());
-print_r($response->getHeaders());
+$response = $client->get('/account/~/extension/~');
+$response = $client->post('/account/~/extension/~');
+$response = $client->put('/account/~/extension/~');
+$response = $client->delete('/account/~/extension/~');
+
+print_r($response->json());
 ```
+
+API is reached via [Guzzle Client](http://guzzle.readthedocs.org/en/latest/quickstart.html).
 
 ### Multipart response
 
@@ -88,25 +91,25 @@ Loading of multiple comma-separated IDs will result in HTTP 207 with `Content-Ty
 be parsed into multiple sub-responses:
 
 ```php
-$presences = $platform->get('/account/~/extension/id_1,id_2/presence')
-                      ->getResponses();
+$client = $rcsdk->getPlatform()->getClient();
+$presences = $rcsdk->getParser()->parse($client->get('/account/~/extension/id1,id2/presence'));
 
-print $extensions[0]->name . ' - ' . $presences[0]->getData()->presenceStatus . ', ' .
-      $extensions[1]->name . ' - ' . $presences[1]->getData()->presenceStatus;
+print 'Presence loaded ' .
+      $presences[0]->json()['presenceStatus'] . ', ' .
+      $presences[1]->json()['presenceStatus'] . PHP_EOL;
 ```
 
-### Send SMS
+### Send SMS - Make POST request
 
 ```php
+
 $response = $rcsdk->getPlatform()->getClient()->post('/account/~/extension/~/sms', [
     'json' => [
-        'from' => ['phoneNumber' => 'YOUR_RC_SMS_NUMBER,
+        'from' => ['phoneNumber' => 'your-RC-sms-number'],
         'to'   => [
-            ['phoneNumber' => 'ANY_MOBILE_NUMBER'],
+            ['phoneNumber' => 'mobile-number'],
         ],
         'text' => 'Test from PHP',
     ]
 ]);
-
-print_r($response->json());
 ```
