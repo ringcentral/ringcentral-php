@@ -58,7 +58,9 @@ class Platform
             $request = $event->getRequest();
 
             if (!$request->getHeader('authorization')) {
-                $request->addHeader('authorization', $this->getAuthHeader());
+
+                if ($this->isAuthorized()) $request->addHeader('authorization', $this->getAuthHeader());
+
             }
 
             $request->setUrl($this->apiUrl($request->getUrl(), ['addServer' => true]));
