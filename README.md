@@ -73,7 +73,7 @@ semaphor and pause other pending requests while one of them is performing refres
 ## Performing API call
 
 ```php
-$response = $rcsdk->getPlatform()->get('/account/~/extension/~');
+$response = $rcsdk->getPlatform()->get->get('/account/~/extension/~');
 $response = $rcsdk->getPlatform()->post('/account/~/extension/~', null, {foo: 'bar'}); // QueryParameters are null
 $response = $rcsdk->getPlatform()->put('/account/~/extension/~', null, {foo: 'bar'}); // QueryParameters are null
 $response = $rcsdk->getPlatform()->delete('/account/~/extension/~', null, {foo: 'bar'}); // QueryParameters are null
@@ -93,4 +93,20 @@ $presences = $platform->get('/account/~/extension/id_1,id_2/presence')
 
 print $extensions[0]->name . ' - ' . $presences[0]->getData()->presenceStatus . ', ' .
       $extensions[1]->name . ' - ' . $presences[1]->getData()->presenceStatus;
+```
+
+### Send SMS
+
+```php
+$response = $rcsdk->getPlatform()->getClient()->post('/account/~/extension/~/sms', [
+    'json' => [
+        'from' => ['phoneNumber' => 'YOUR_RC_SMS_NUMBER,
+        'to'   => [
+            ['phoneNumber' => 'ANY_MOBILE_NUMBER'],
+        ],
+        'text' => 'Test from PHP',
+    ]
+]);
+
+print_r($response->json());
 ```

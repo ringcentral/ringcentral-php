@@ -49,11 +49,11 @@ $extensions = $client->get('/account/~/extension', ['query' => ['perPage' => 10]
 
 print 'Users loaded ' . count($extensions) . PHP_EOL;
 
-$presences = $rcsdk->getParser()->parse($client->get('/account/~/extension/' . $extensions[0]['id'] . ',' . $extensions[1]['id'] . '/presence'));
+$presences = $rcsdk->getParser()->parse($client->get('/account/~/extension/' . $extensions[0]['id'] . ',' . $extensions[0]['id'] . '/presence'));
 
 print 'Presence loaded ' .
       $extensions[0]['name'] . ' - ' . $presences[0]->json()['presenceStatus'] . ', ' .
-      $extensions[1]['name'] . ' - ' . $presences[1]->json()['presenceStatus'] . PHP_EOL;
+      $extensions[0]['name'] . ' - ' . $presences[1]->json()['presenceStatus'] . PHP_EOL;
 
 try {
 
@@ -61,9 +61,23 @@ try {
 
 } catch (\GuzzleHttp\Exception\RequestException $e) {
 
-    print 'Expected HTTP Error: ' . $rcsdk->getParser()->parseError($e);
+    print 'Expected HTTP Error: ' . $rcsdk->getParser()->parseError($e) . PHP_EOL;
 
 }
+
+print 'Sending SMS' . PHP_EOL;
+
+$response = $rcsdk->getPlatform()->getClient()->post('/account/~/extension/~/sms', [
+    'json' => [
+        'from' => ['phoneNumber' => $credentials['smsNumber']],
+        'to'   => [
+            ['phoneNumber' => $credentials['mobileNumber']],
+        ],
+        'text' => 'Test from PHP',
+    ]
+]);
+
+print_r($response->json());
 
 //////////
 
