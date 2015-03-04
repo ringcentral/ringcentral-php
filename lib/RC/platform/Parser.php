@@ -46,7 +46,7 @@ class Parser
         $parts = explode(self::BOUNDARY_SEPARATOR . $boundary, $body);
 
         // First empty part out
-        if (empty(trim($parts[0]))) {
+        if (!!trim($parts[0])) {
             array_shift($parts);
         }
 
