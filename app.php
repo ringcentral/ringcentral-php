@@ -67,17 +67,17 @@ try {
 
 print 'Sending SMS' . PHP_EOL;
 
-//$response = $rcsdk->getPlatform()->getClient()->post('/account/~/extension/~/sms', [
-//    'json' => [
-//        'from' => ['phoneNumber' => $credentials['smsNumber']],
-//        'to'   => [
-//            ['phoneNumber' => $credentials['mobileNumber']],
-//        ],
-//        'text' => 'Test from PHP',
-//    ]
-//]);
-//
-//print_r($response->json());
+$response = $rcsdk->getPlatform()->getClient()->post('/account/~/extension/~/sms', [
+    'json' => [
+        'from' => ['phoneNumber' => $credentials['smsNumber']],
+        'to'   => [
+            ['phoneNumber' => $credentials['mobileNumber']],
+        ],
+        'text' => 'Test from PHP',
+    ]
+]);
+
+print_r($response->json());
 
 //////////
 

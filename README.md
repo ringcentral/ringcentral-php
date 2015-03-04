@@ -25,7 +25,15 @@ Also please read [Guzzle Installation Docs](http://docs.guzzlephp.org/en/latest/
 ## Without Composer
 
   1. Download [PHAR file](https://github.com/ringcentral/php-sdk/blob/master/dist/rcsdk.phar)
+  
   2. Download PHAR from [Guzzle Releases](https://github.com/guzzle/guzzle/releases).
+  
+  3. Require files:
+  
+    ```php
+    require('guzzle.phar');
+    require('rcsdk.phar');
+    ```
     
 # Basic Usage
 
