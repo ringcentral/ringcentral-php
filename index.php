@@ -1,7 +1,7 @@
 <?php
 
 require_once('lib/autoload.php');
-//require_once('vendor/autoload.php');
+require_once('vendor/autoload.php');
 
 date_default_timezone_set('UTC');
 
