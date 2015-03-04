@@ -1,36 +1,31 @@
 # Installation
 
-## PHP >= 5.3 with Composer *(recommended)*
+## With [Composer](http://getcomposer.org) *(recommended)*
   
-  1. Add ```ringcentral/php-sdk``` package to your ```composer.json``` file:
-  
-    ```json
-    {
-        "require": {
-            "ringcentral/php-sdk": "*"
-        }
-    }
-    ```
-    
-  2. Install dependencies:
+  1. Install composer:
     
     ```sh
-    $ composer install
+    $ curl -sS https://getcomposer.org/installer | php
     ```
-
-## PHP >= 5.3 without Composer
-
-  1. Clone the repo:
+  
+  2. Run the Composer command to install the latest version of SDK:
   
     ```sh
-    $ git clone https://github.com/ringcentral/php-sdk.git ./ringcentral-php-sdk
+    $ composer require ringcentral/php-sdk
     ```
+
+  3. Require Composer's autoloader:
     
-  2. Require autoloader:
-  
     ```php
-    require_once('path-to/ringcentral-php-sdk/lib/autoload.php');
-    ```
+    require('vendor/autoload.php');
+   ```
+
+Also please read [Guzzle Installation Docs](http://docs.guzzlephp.org/en/latest/overview.html#installation).
+
+## Without Composer
+
+  1. Download [PHAR file](https://github.com/ringcentral/php-sdk/blob/master/dist/rcsdk.phar)
+  2. Download PHAR from [Guzzle Releases](https://github.com/guzzle/guzzle/releases).
     
 # Basic Usage
 

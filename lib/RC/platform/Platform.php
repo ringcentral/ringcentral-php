@@ -127,7 +127,7 @@ class Platform
 
         $builtUrl = '';
 
-        if ($options['addServer'] && !stristr($url, 'http://') && !stristr($url, 'https://')) {
+        if (!empty($options['addServer']) && !stristr($url, 'http://') && !stristr($url, 'https://')) {
             $builtUrl .= $this->server;
         }
 
