@@ -1,12 +1,12 @@
 {
   "name": "ringcentral/php-sdk",
   "type": "library",
-  "description": "RingPlatform PHP SDK",
+  "description": "RingCentral Connect Platform PHP SDK",
   "keywords": [
     "php",
     "sdk",
     "ringcentral",
-    "ringplatform"
+    "connect"
   ],
   "homepage": "http://developers.ringcentral.com",
   "license": "MIT",
@@ -25,10 +25,11 @@
     "guzzlehttp/guzzle": "~5.2"
   },
   "require-dev": {
-    "phpunit/phpunit": "3.7.*"
+    "phpunit/phpunit": "4.*",
+    "phing/phing": "2.*"
   },
   "autoload": {
-    "psr-0": {
+    "psr-4": {
       "RC\\": "lib/"
     }
   }
