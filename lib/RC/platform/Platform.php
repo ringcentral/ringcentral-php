@@ -167,7 +167,7 @@ class Platform
     public function authorize($username = '', $extension = '', $password = '', $remember = false)
     {
 
-        $response = $this->authCall([], [
+        $response = $this->authCall(self::TOKEN_ENDPOINT, [], [
             'grant_type'        => 'password',
             'username'          => $username,
             'extension'         => $extension ? $extension : null,
@@ -196,7 +196,7 @@ class Platform
         }
 
         // Synchronous
-        $response = $this->authCall([], [
+        $response = $this->authCall(self::TOKEN_ENDPOINT, [], [
             "grant_type"        => "refresh_token",
             "refresh_token"     => $this->auth->getRefreshToken(),
             "access_token_ttl"  => self::ACCESS_TOKEN_TTL,
@@ -216,7 +216,7 @@ class Platform
     public function logout()
     {
 
-        $response = $this->authCall([
+        $response = $this->authCall(self::TOKEN_ENDPOINT . '/revoke', [], [
             'token' => $this->auth->getAccessToken()
         ]);
 
@@ -236,10 +236,10 @@ class Platform
         return $this->auth->getTokenType() . ' ' . $this->auth->getAccessToken();
     }
 
-    protected function authCall(array $queryParams = [], array $body = [])
+    protected function authCall($url = '', array $queryParams = [], array $body = [])
     {
 
-        return $this->client->post(self::TOKEN_ENDPOINT, [
+        return $this->client->post($url, [
             'headers' => [
                 'authorization' => 'Basic ' . $this->getApiKey(),
                 'content-type'  => 'application/x-www-form-urlencoded',
