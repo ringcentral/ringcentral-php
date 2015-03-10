@@ -6,6 +6,8 @@ use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Event\BeforeEvent;
 use GuzzleHttp\Message\RequestInterface;
+use GuzzleHttp\Message\ResponseInterface;
+use GuzzleHttp\Message\FutureResponse;
 use RC\http\MessageFactory;
 use RC\http\Response;
 
@@ -237,7 +239,7 @@ class Platform extends Client
     /**
      * @inheritdoc
      * @param RequestInterface $request Request to send
-     * @return Response
+     * @return ResponseInterface|FutureResponse|Response
      */
     public function send(RequestInterface $request)
     {
@@ -246,7 +248,7 @@ class Platform extends Client
 
     /**
      * @inheritdoc
-     * @return Response
+     * @return ResponseInterface|FutureResponse|Response
      */
     public function get($url = null, $options = [])
     {
@@ -255,7 +257,7 @@ class Platform extends Client
 
     /**
      * @inheritdoc
-     * @return Response
+     * @return ResponseInterface|FutureResponse|Response
      */
     public function post($url = null, array $options = [])
     {
@@ -264,7 +266,7 @@ class Platform extends Client
 
     /**
      * @inheritdoc
-     * @return Response
+     * @return ResponseInterface|FutureResponse|Response
      */
     public function put($url = null, array $options = [])
     {
@@ -273,7 +275,7 @@ class Platform extends Client
 
     /**
      * @inheritdoc
-     * @return Response
+     * @return ResponseInterface|FutureResponse|Response
      */
     public function delete($url = null, array $options = [])
     {
