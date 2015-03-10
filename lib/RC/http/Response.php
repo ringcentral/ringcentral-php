@@ -1,6 +1,6 @@
 <?php
 
-namespace RC\platform\http;
+namespace RC\http;
 
 use GuzzleHttp\Stream\StreamInterface;
 
@@ -78,11 +78,8 @@ class Response extends \GuzzleHttp\Message\Response
 
             // Step 2. Create status info object
 
-            $statusInfo = $this->createResponse(
-                $this->getStatusCode(),
-                $this->getReasonPhrase(),
-                array_shift($parts)
-            )->json()->response;
+            $statusInfo = $this->createResponse($this->getStatusCode(), $this->getReasonPhrase(), array_shift($parts))
+                               ->json()->response;
 
             // Step 3. Parse all parts into Response objects
 
@@ -90,8 +87,7 @@ class Response extends \GuzzleHttp\Message\Response
 
                 $partInfo = $statusInfo[$i];
 
-                $this->responses[] = $this->createResponse($partInfo->status, $partInfo->responseDescription,
-                    $part);
+                $this->responses[] = $this->createResponse($partInfo->status, $partInfo->responseDescription, $part);
 
             }
 

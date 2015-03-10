@@ -6,8 +6,9 @@ $phar = new Phar("./dist/rcsdk.phar",
 
 $phar["autoload.php"] = file_get_contents("./lib/autoload.php");
 $phar["RC/SDK.php"] = file_get_contents("./lib/RC/SDK.php");
+$phar["RC/http/MessageFactory.php"] = file_get_contents("./lib/RC/http/MessageFactory.php");
+$phar["RC/http/Response.php"] = file_get_contents("./lib/RC/http/Response.php");
 $phar["RC/platform/Auth.php"] = file_get_contents("./lib/RC/platform/Auth.php");
-$phar["RC/platform/Parser.php"] = file_get_contents("./lib/RC/platform/Parser.php");
 $phar["RC/platform/Platform.php"] = file_get_contents("./lib/RC/platform/Platform.php");
 
 $phar->setStub($phar->createDefaultStub("autoload.php"));
