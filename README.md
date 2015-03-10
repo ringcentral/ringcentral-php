@@ -88,8 +88,11 @@ $response = $rcsdk->getPlatform()->delete('/account/~/extension/~');
 print_r($response->json());
 ```
 
-**Platform will return an instance of StdClass from its json() method (Guzzle returns an array). This is PHP's default
+**Platform will return an instance of StdClass from its `json()` method (Guzzle returns an array). This is PHP's default
 behavior for json_decode() method without flags.**
+
+Also generic `getData()` method can be used which is a combination of `json()` and `getResponses()` methods. If both
+does not apply to response body then the body itself will be returned.
 
 ### Multipart response
 
