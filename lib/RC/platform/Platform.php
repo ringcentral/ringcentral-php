@@ -6,8 +6,8 @@ use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Event\BeforeEvent;
 use GuzzleHttp\Message\RequestInterface;
-use RC\platform\http\MessageFactory;
-use RC\platform\http\Response;
+use RC\http\MessageFactory;
+use RC\http\Response;
 
 class Platform extends Client
 {

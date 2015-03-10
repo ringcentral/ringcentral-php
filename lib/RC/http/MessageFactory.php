@@ -1,6 +1,6 @@
 <?php
 
-namespace RC\platform\http;
+namespace RC\http;
 
 use GuzzleHttp\Stream\Stream;
 

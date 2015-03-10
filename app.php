@@ -1,6 +1,6 @@
 <?php
 
-use RC\platform\http\Response;
+use RC\http\Response;
 use RC\SDK;
 
 //////////
@@ -44,12 +44,12 @@ $refresh = $platform->refresh();
 
 print 'Refreshed' . PHP_EOL;
 
-$extensions = $platform->get('/account/~/extension', ['query' => ['perPage' => 10]])
-                       ->json()->records;
+$extensions = $platform->get('/account/~/extension', ['query' => ['perPage' => 10]])->json()->records;
 
 print 'Users loaded ' . count($extensions) . PHP_EOL;
 
-$presences = $platform->get('/account/~/extension/' . $extensions[0]->id . ',' . $extensions[0]->id . '/presence')->getResponses();
+$presences = $platform->get('/account/~/extension/' . $extensions[0]->id . ',' . $extensions[0]->id . '/presence')
+                      ->getResponses();
 
 print 'Presence loaded ' .
       $extensions[0]->name . ' - ' . $presences[0]->json()->presenceStatus . ', ' .
