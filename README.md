@@ -75,18 +75,21 @@ semaphor and pause other pending requests while one of them is performing refres
 
 ## Performing API call
 
-```php
-$client = $rcsdk->getPlatform()->getClient();
+Platform class extends [Guzzle Client](http://guzzle.readthedocs.org/en/latest/quickstart.html) so anything that can be
+done via Guzzle Client can be done via Platform (and more). Guzzle Client is pre-configured when SDK instance is
+created, no extra configuration is needed.
 
-$response = $client->get('/account/~/extension/~');
-$response = $client->post('/account/~/extension/~');
-$response = $client->put('/account/~/extension/~');
-$response = $client->delete('/account/~/extension/~');
+```php
+$response = $rcsdk->getPlatform()->get('/account/~/extension/~');
+$response = $rcsdk->getPlatform()->post('/account/~/extension/~');
+$response = $rcsdk->getPlatform()->put('/account/~/extension/~');
+$response = $rcsdk->getPlatform()->delete('/account/~/extension/~');
 
 print_r($response->json());
 ```
 
-API is reached via [Guzzle Client](http://guzzle.readthedocs.org/en/latest/quickstart.html).
+**Platform will return an instance of StdClass from its json() method (Guzzle returns an array). This is PHP's default
+behavior for json_decode() method without flags.**
 
 ### Multipart response
 
@@ -94,19 +97,18 @@ Loading of multiple comma-separated IDs will result in HTTP 207 with `Content-Ty
 be parsed into multiple sub-responses:
 
 ```php
-$client = $rcsdk->getPlatform()->getClient();
-$presences = $rcsdk->getParser()->parse($client->get('/account/~/extension/id1,id2/presence'));
+$presences = $rcsdk->getPlatform()->get('/account/~/extension/id1,id2/presence')->getResponses();
 
 print 'Presence loaded ' .
-      $presences[0]->json()['presenceStatus'] . ', ' .
-      $presences[1]->json()['presenceStatus'] . PHP_EOL;
+      $presences[0]->json()->presenceStatus . ', ' .
+      $presences[1]->json()->presenceStatus . PHP_EOL;
 ```
 
 ### Send SMS - Make POST request
 
 ```php
 
-$response = $rcsdk->getPlatform()->getClient()->post('/account/~/extension/~/sms', [
+$response = $rcsdk->getPlatform()->post('/account/~/extension/~/sms', [
     'json' => [
         'from' => ['phoneNumber' => 'your-RC-sms-number'],
         'to'   => [
@@ -115,4 +117,18 @@ $response = $rcsdk->getPlatform()->getClient()->post('/account/~/extension/~/sms
         'text' => 'Test from PHP',
     ]
 ]);
+```
+
+### Get Platform error message
+
+```php
+try {
+
+    $platform->get('/account/~/whatever');
+
+} catch (Exception $e) {
+
+    print 'Expected HTTP Error: ' . $response->getError() . PHP_EOL;
+
+}
 ```
