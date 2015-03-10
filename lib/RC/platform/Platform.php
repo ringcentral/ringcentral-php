@@ -6,10 +6,11 @@ use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Event\BeforeEvent;
 use GuzzleHttp\Event\CompleteEvent;
-use GuzzleHttp\Message\Response;
-use stdClass;
+use GuzzleHttp\Message\RequestInterface;
+use RC\platform\http\MessageFactory;
+use RC\platform\http\Response;
 
-class Platform
+class Platform extends Client
 {
 
     const ACCESS_TOKEN_TTL = 600; // 10 minutes
@@ -31,8 +32,8 @@ class Platform
     /** @var Auth */
     protected $auth;
 
-    /** @var Client */
-    protected $client;
+    /** @var MessageFactory */
+    protected $factory;
 
     public function __construct($appKey, $appSecret, $server)
     {
@@ -43,9 +44,12 @@ class Platform
 
         $this->auth = new Auth();
 
-        $this->client = new Client([
+        $this->factory = new MessageFactory();
+
+        parent::__construct([
             //'base_url' => $this->server,
-            'defaults' => [
+            'message_factory' => $this->factory,
+            'defaults'        => [
                 'headers' => [
                     'content-type' => 'application/json',
                     'accept'       => 'application/json'
@@ -53,32 +57,22 @@ class Platform
             ]
         ]);
 
-        $this->client->getEmitter()->on('before', function (BeforeEvent $event) {
+        $this->getEmitter()->on('before', function (BeforeEvent $event) {
 
             $request = $event->getRequest();
 
             if (!$request->getHeader('authorization')) {
 
-                if ($this->isAuthorized()) $request->addHeader('authorization', $this->getAuthHeader());
+                if ($this->isAuthorized()) {
+                    $request->addHeader('authorization', $this->getAuthHeader());
+                }
 
             }
 
             $request->setUrl($this->apiUrl($request->getUrl(), ['addServer' => true]));
 
-            //print 'REQUEST:' . PHP_EOL;
-            //print '  - Url: ' . $request->getUrl() . PHP_EOL;
-            //print '  - Content-Type: ' . $request->getHeader('content-type') . PHP_EOL;
-
         });
 
-        $this->client->getEmitter()->on('complete', function (CompleteEvent $event) {
-        });
-
-    }
-
-    public function getClient()
-    {
-        return $this->client;
     }
 
     /**
@@ -162,7 +156,7 @@ class Platform
      * @param string $extension
      * @param string $password
      * @param bool   $remember
-     * @return \GuzzleHttp\Message\Response
+     * @return Response
      */
     public function authorize($username = '', $extension = '', $password = '', $remember = false)
     {
@@ -177,7 +171,7 @@ class Platform
         ]);
 
         $this->auth
-            ->setData($response->json())
+            ->setData($response->json(['object' => false]))
             ->setRemember($remember);
 
         return $response;
@@ -185,7 +179,7 @@ class Platform
     }
 
     /**
-     * @return \GuzzleHttp\Message\Response
+     * @return Response
      * @throws Exception
      */
     public function refresh()
@@ -203,7 +197,7 @@ class Platform
             "refresh_token_ttl" => $this->auth->isRemember() ? self::REFRESH_TOKEN_TTL_REMEMBER : self::REFRESH_TOKEN_TTL
         ]);
 
-        $this->auth->setData($response->json());
+        $this->auth->setData($response->json(['object' => false]));
 
         return $response;
 
@@ -239,7 +233,7 @@ class Platform
     protected function authCall($url = '', array $queryParams = [], array $body = [])
     {
 
-        return $this->client->post($url, [
+        return $this->post($url, [
             'headers' => [
                 'authorization' => 'Basic ' . $this->getApiKey(),
                 'content-type'  => 'application/x-www-form-urlencoded',
@@ -248,6 +242,52 @@ class Platform
             'query'   => $queryParams
         ]);
 
+    }
+
+    /**
+     * @inheritdoc
+     * @param RequestInterface $request Request to send
+     * @return Response
+     */
+    public function send(RequestInterface $request)
+    {
+        return parent::send($request);
+    }
+
+    /**
+     * @inheritdoc
+     * @return Response
+     */
+    public function get($url = null, $options = [])
+    {
+        return parent::get($url, $options);
+    }
+
+    /**
+     * @inheritdoc
+     * @return Response
+     */
+    public function post($url = null, array $options = [])
+    {
+        return parent::post($url, $options);
+    }
+
+    /**
+     * @inheritdoc
+     * @return Response
+     */
+    public function put($url = null, array $options = [])
+    {
+        return parent::put($url, $options);
+    }
+
+    /**
+     * @inheritdoc
+     * @return Response
+     */
+    public function delete($url = null, array $options = [])
+    {
+        return parent::delete($url, $options);
     }
 
 }

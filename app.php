@@ -1,5 +1,6 @@
 <?php
 
+use RC\platform\http\Response;
 use RC\SDK;
 
 //////////
@@ -20,7 +21,6 @@ $credentials = require('credentials.php');
 $rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server']);
 
 $platform = $rcsdk->getPlatform();
-$client = $platform->getClient();
 
 $platform->setAuthData($cachedAuth);
 
@@ -44,30 +44,38 @@ $refresh = $platform->refresh();
 
 print 'Refreshed' . PHP_EOL;
 
-$extensions = $client->get('/account/~/extension', ['query' => ['perPage' => 10]])
-                     ->json()['records'];
+$extensions = $platform->get('/account/~/extension', ['query' => ['perPage' => 10]])
+                       ->json()->records;
 
 print 'Users loaded ' . count($extensions) . PHP_EOL;
 
-$presences = $rcsdk->getParser()->parse($client->get('/account/~/extension/' . $extensions[0]['id'] . ',' . $extensions[0]['id'] . '/presence'));
+$presences = $platform->get('/account/~/extension/' . $extensions[0]->id . ',' . $extensions[0]->id . '/presence')->getResponses();
 
 print 'Presence loaded ' .
-      $extensions[0]['name'] . ' - ' . $presences[0]->json()['presenceStatus'] . ', ' .
-      $extensions[0]['name'] . ' - ' . $presences[1]->json()['presenceStatus'] . PHP_EOL;
+      $extensions[0]->name . ' - ' . $presences[0]->json()->presenceStatus . ', ' .
+      $extensions[0]->name . ' - ' . $presences[1]->json()->presenceStatus . PHP_EOL;
 
 try {
 
-    $client->get('/account/~/whatever');
+    $platform->get('/account/~/whatever');
 
 } catch (\GuzzleHttp\Exception\RequestException $e) {
 
-    print 'Expected HTTP Error: ' . $rcsdk->getParser()->parseError($e) . PHP_EOL;
+    $response = $e->getResponse();
+
+    if ($response instanceof Response) {
+        $message = $response->getError() . ' (from backend)';
+    } else {
+        $message = $e->getMessage();
+    }
+
+    print 'Expected HTTP Error: ' . $message . PHP_EOL;
 
 }
 
 print 'Sending SMS' . PHP_EOL;
 
-$response = $rcsdk->getPlatform()->getClient()->post('/account/~/extension/~/sms', [
+$response = $platform->post('/account/~/extension/~/sms', [
     'json' => [
         'from' => ['phoneNumber' => $credentials['smsNumber']],
         'to'   => [
@@ -77,7 +85,7 @@ $response = $rcsdk->getPlatform()->getClient()->post('/account/~/extension/~/sms
     ]
 ]);
 
-print_r($response->json());
+print 'Sent ' . $response->json()->uri . PHP_EOL;
 
 //////////
 
