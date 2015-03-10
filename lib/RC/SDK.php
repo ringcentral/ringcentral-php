@@ -7,7 +7,7 @@ use RC\platform\Platform;
 class SDK
 {
 
-    const VERSION = '0.2.2';
+    const VERSION = '0.3.0';
 
     /** @var Platform */
     protected $platform;
