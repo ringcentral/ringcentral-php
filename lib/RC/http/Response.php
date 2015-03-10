@@ -2,6 +2,7 @@
 
 namespace RC\http;
 
+use stdClass;
 use GuzzleHttp\Stream\StreamInterface;
 
 class Response extends \GuzzleHttp\Message\Response
@@ -103,6 +104,22 @@ class Response extends \GuzzleHttp\Message\Response
             $config['object'] = true;
         }
         return parent::json($config);
+    }
+
+    /**
+     * @param array $config
+     * @return StreamInterface|array|string|stdClass|Response[]
+     * @throws \Exception
+     */
+    public function getData(array $config = [])
+    {
+        if ($this->isJson()) {
+            return $this->json($config);
+        } elseif ($this->isMultipart()) {
+            return $this->getResponses();
+        } else {
+            return $this->getBody();
+        }
     }
 
     /**
