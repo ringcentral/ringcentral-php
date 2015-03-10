@@ -5,7 +5,6 @@ namespace RC\platform;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Event\BeforeEvent;
-use GuzzleHttp\Event\CompleteEvent;
 use GuzzleHttp\Message\RequestInterface;
 use RC\platform\http\MessageFactory;
 use RC\platform\http\Response;
@@ -47,7 +46,7 @@ class Platform extends Client
         $this->factory = new MessageFactory();
 
         parent::__construct([
-            //'base_url' => $this->server,
+            //TODO 'base_url' => $this->server,
             'message_factory' => $this->factory,
             'defaults'        => [
                 'headers' => [
@@ -61,12 +60,8 @@ class Platform extends Client
 
             $request = $event->getRequest();
 
-            if (!$request->getHeader('authorization')) {
-
-                if ($this->isAuthorized()) {
-                    $request->addHeader('authorization', $this->getAuthHeader());
-                }
-
+            if (!isset($request->getConfig()['auth']) && $this->isAuthorized()) {
+                $request->addHeader('authorization', $this->getAuthHeader());
             }
 
             $request->setUrl($this->apiUrl($request->getUrl(), ['addServer' => true]));
@@ -98,7 +93,7 @@ class Platform extends Client
 
         if (!$this->auth->isAccessTokenValid()) {
             if ($refresh) {
-                print 'Refresh is required' . PHP_EOL;
+                //print 'Refresh is required' . PHP_EOL;
                 $this->refresh();
             }
         }
@@ -220,11 +215,6 @@ class Platform extends Client
 
     }
 
-    protected function getApiKey()
-    {
-        return base64_encode($this->appKey . ':' . $this->appSecret);
-    }
-
     protected function getAuthHeader()
     {
         return $this->auth->getTokenType() . ' ' . $this->auth->getAccessToken();
@@ -235,9 +225,9 @@ class Platform extends Client
 
         return $this->post($url, [
             'headers' => [
-                'authorization' => 'Basic ' . $this->getApiKey(),
-                'content-type'  => 'application/x-www-form-urlencoded',
+                'content-type' => 'application/x-www-form-urlencoded',
             ],
+            'auth'    => [$this->appKey, $this->appSecret],
             'body'    => $body,
             'query'   => $queryParams
         ]);
