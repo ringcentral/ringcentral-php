@@ -73,19 +73,24 @@ try {
 
 }
 
-print 'Sending SMS' . PHP_EOL;
+// Send an SMS (asynchronously via Promise)
 
-$response = $platform->post('/account/~/extension/~/sms', [
-    'json' => [
-        'from' => ['phoneNumber' => $credentials['smsNumber']],
-        'to'   => [
-            ['phoneNumber' => $credentials['mobileNumber']],
+$platform
+    ->post('/account/~/extension/~/sms', [
+        'json'   => [
+            'from' => ['phoneNumber' => $credentials['smsNumber']],
+            'to'   => [
+                ['phoneNumber' => $credentials['mobileNumber']],
+            ],
+            'text' => 'Test from PHP',
         ],
-        'text' => 'Test from PHP',
-    ]
-]);
+        'future' => true
+    ])
+    ->then(function (Response $response) {
+        print 'Sent ' . $response->json()->uri . PHP_EOL;
+    });
 
-print 'Sent ' . $response->json()->uri . PHP_EOL;
+print 'Sending SMS' . PHP_EOL;
 
 //////////
 
