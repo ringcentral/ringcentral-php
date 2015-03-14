@@ -4,10 +4,10 @@ namespace RC\subscription;
 
 use Exception;
 use GuzzleHttp\Event\Emitter;
+use phpseclib\Crypt\AES;
 use Pubnub\Pubnub;
 use RC\http\Response;
 use RC\platform\Platform;
-use phpseclib\Crypt\AES;
 
 class Subscription extends Emitter
 {
@@ -46,6 +46,8 @@ class Subscription extends Emitter
     /** @var Pubnub */
     protected $pubnub;
 
+    protected $keepPolling = false;
+
     public function __construct(Platform $platform)
     {
 
@@ -65,6 +67,16 @@ class Subscription extends Emitter
         } else {
             return $this->subscribe($options);
         }
+    }
+
+    public function setKeepPolling($flag)
+    {
+        $this->keepPolling = !empty($flag);
+    }
+
+    public function getKeepPolling()
+    {
+        return $this->keepPolling;
     }
 
     public function addEvents(array $events)
@@ -99,6 +111,8 @@ class Subscription extends Emitter
 
             $this->updateSubscription($response->json(['object' => false]));
             $this->subscribeAtPubnub();
+
+            //TODO Subscription renewal when everything will become async
 
             $this->emit(self::EVENT_SUBSCRIBE_SUCCESS, new SuccessEvent($response));
 
@@ -222,6 +236,7 @@ class Subscription extends Emitter
 
         $this->pubnub->subscribe($this->subscription['deliveryMode']['address'], function ($message) {
             $this->notify($message['message']); // chanel, timeToken
+            return $this->keepPolling;
         });
 
         //print 'PUBNUB subscription created' . PHP_EOL;
