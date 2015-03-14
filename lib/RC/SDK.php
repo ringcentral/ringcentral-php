@@ -3,6 +3,7 @@
 namespace RC;
 
 use RC\platform\Platform;
+use RC\subscription\Subscription;
 
 class SDK
 {
@@ -22,6 +23,11 @@ class SDK
     public function getPlatform()
     {
         return $this->platform;
+    }
+
+    public function getSubscription()
+    {
+        return new Subscription($this->platform);
     }
 
 }

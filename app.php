@@ -2,6 +2,8 @@
 
 use RC\http\Response;
 use RC\SDK;
+use RC\subscription\NotificationEvent;
+use RC\subscription\Subscription;
 
 //////////
 
@@ -75,22 +77,42 @@ try {
 
 // Send an SMS (asynchronously via Promise)
 
-$platform
-    ->post('/account/~/extension/~/sms', [
-        'json'   => [
-            'from' => ['phoneNumber' => $credentials['smsNumber']],
-            'to'   => [
-                ['phoneNumber' => $credentials['mobileNumber']],
-            ],
-            'text' => 'Test from PHP',
-        ],
-        'future' => true
-    ])
-    ->then(function (Response $response) {
-        print 'Sent ' . $response->json()->uri . PHP_EOL;
-    });
+if (!$argv || !in_array('skipSMS', $argv)) {
 
-print 'Sending SMS' . PHP_EOL;
+    $platform
+        ->post('/account/~/extension/~/sms', [
+            'json'   => [
+                'from' => ['phoneNumber' => $credentials['smsNumber']],
+                'to'   => [
+                    ['phoneNumber' => $credentials['mobileNumber']],
+                ],
+                'text' => 'Test from PHP',
+            ],
+            'future' => true
+        ])
+        ->then(function (Response $response) {
+            print 'Sent ' . $response->json()->uri . PHP_EOL;
+        });
+
+    print 'Sending SMS' . PHP_EOL;
+
+}
+
+// Subscription
+
+$subscription = $rcsdk->getSubscription();
+
+$subscription->addEvents(['/account/~/extension/~/presence?detailedTelephonyState=true']);
+
+$subscription->on(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
+    print 'Notification' . print_r($e->getPayload(), true) . PHP_EOL;
+});
+
+print 'Subscribing' . PHP_EOL;
+
+$subscription->register();
+
+print 'Subscribed' . PHP_EOL;
 
 //////////
 
