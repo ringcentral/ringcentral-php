@@ -14,7 +14,7 @@ use RC\http\Response;
 class Platform extends Client
 {
 
-    const ACCESS_TOKEN_TTL = 600; // 10 minutes
+    const ACCESS_TOKEN_TTL = 3600; // 60 minutes
     const REFRESH_TOKEN_TTL = 36000; // 10 hours
     const REFRESH_TOKEN_TTL_REMEMBER = 604800; // 1 week
     const ACCOUNT_PREFIX = '/account/';
@@ -168,7 +168,7 @@ class Platform extends Client
         ]);
 
         $this->auth
-            ->setData($response->getData())
+            ->setData($response->getJson(false))
             ->setRemember($remember);
 
         return $response;
@@ -194,7 +194,7 @@ class Platform extends Client
             "refresh_token_ttl" => $this->auth->isRemember() ? self::REFRESH_TOKEN_TTL_REMEMBER : self::REFRESH_TOKEN_TTL
         ]);
 
-        $this->auth->setData($response->getData());
+        $this->auth->setData($response->getJson(false));
 
         return $response;
 

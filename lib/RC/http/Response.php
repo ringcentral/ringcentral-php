@@ -43,29 +43,10 @@ class Response extends \GuzzleHttp\Message\Response
     }
 
     /**
-     * Returns:
-     * - array if JSON
-     * - Response[] if Multipart
-     * - string if else
-     *
-     * @return StreamInterface|array|string|Response[]
-     * @throws Exception
+     * @param bool $asObject
+     * @return stdClass|array
      */
-    public function getData()
-    {
-        if ($this->isJson()) {
-            return $this->json(['object' => false]);
-        } elseif ($this->isMultipart()) {
-            return $this->getResponses();
-        } else {
-            return $this->getBody();
-        }
-    }
-
-    /**
-     * @return stdClass
-     */
-    public function getJson()
+    public function getJson($asObject = true)
     {
         return $this->json(['object' => true]);
     }
