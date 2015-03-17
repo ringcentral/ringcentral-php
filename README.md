@@ -85,14 +85,14 @@ $response = $rcsdk->getPlatform()->post('/account/~/extension/~');
 $response = $rcsdk->getPlatform()->put('/account/~/extension/~');
 $response = $rcsdk->getPlatform()->delete('/account/~/extension/~');
 
-print_r($response->json());
+print_r($response->getJson()); // stdClass will be returned or exception if Content-Type is not JSON
 ```
 
-**Platform will return an instance of StdClass from its `json()` method (Guzzle returns an array). This is PHP's default
-behavior for json_decode() method without flags.**
+Also generic `getData()` method can be used, it returns:
 
-Also generic `getData()` method can be used which is a combination of `json()` and `getResponses()` methods. If both
-does not apply to response body then the body itself will be returned.
+- A simple PHP array if response is JSON
+- An array of `Response` objects if response is Multipart
+- A string if non of the above
 
 ### Multipart response
 
@@ -103,8 +103,8 @@ be parsed into multiple sub-responses:
 $presences = $rcsdk->getPlatform()->get('/account/~/extension/id1,id2/presence')->getResponses();
 
 print 'Presence loaded ' .
-      $presences[0]->json()->presenceStatus . ', ' .
-      $presences[1]->json()->presenceStatus . PHP_EOL;
+      $presences[0]->getJson()->presenceStatus . ', ' .
+      $presences[1]->getJson()->presenceStatus . PHP_EOL;
 ```
 
 ### Send SMS - Make POST request
@@ -129,9 +129,9 @@ try {
 
     $platform->get('/account/~/whatever');
 
-} catch (Exception $e) {
+} catch (\GuzzleHttp\Exception\RequestException $e) {
 
-    print 'Expected HTTP Error: ' . $response->getError() . PHP_EOL;
+    print 'Expected HTTP Error: ' . $e->getResponse()->getError() . PHP_EOL;
 
 }
 ```

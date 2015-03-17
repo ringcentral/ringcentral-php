@@ -109,7 +109,7 @@ class Subscription extends Emitter
                 ]
             ]);
 
-            $this->updateSubscription($response->json(['object' => false]));
+            $this->updateSubscription($response->getData());
             $this->subscribeAtPubnub();
 
             //TODO Subscription renewal when everything will become async
@@ -143,7 +143,7 @@ class Subscription extends Emitter
                 ]
             ]);
 
-            $this->updateSubscription($response->json(['object' => false]));
+            $this->updateSubscription($response->getData());
 
             $this->emit(self::EVENT_RENEW_SUCCESS, new SuccessEvent($response));
 

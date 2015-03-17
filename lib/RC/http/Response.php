@@ -2,9 +2,9 @@
 
 namespace RC\http;
 
+use Exception;
 use GuzzleHttp\Stream\StreamInterface;
 use stdClass;
-use Exception;
 
 class Response extends \GuzzleHttp\Message\Response
 {
@@ -43,19 +43,31 @@ class Response extends \GuzzleHttp\Message\Response
     }
 
     /**
-     * @param array $config
-     * @return StreamInterface|array|string|stdClass|Response[]
+     * Returns:
+     * - array if JSON
+     * - Response[] if Multipart
+     * - string if else
+     *
+     * @return StreamInterface|array|string|Response[]
      * @throws Exception
      */
-    public function getData(array $config = [])
+    public function getData()
     {
         if ($this->isJson()) {
-            return $this->json($config);
+            return $this->json(['object' => false]);
         } elseif ($this->isMultipart()) {
             return $this->getResponses();
         } else {
             return $this->getBody();
         }
+    }
+
+    /**
+     * @return stdClass
+     */
+    public function getJson()
+    {
+        return $this->json(['object' => true]);
     }
 
     /**
@@ -96,7 +108,7 @@ class Response extends \GuzzleHttp\Message\Response
         // Step 2. Create status info object
 
         $statusInfo = $this->createResponse($this->getStatusCode(), $this->getReasonPhrase(), array_shift($parts))
-                           ->json()->response;
+                           ->getJson()->response;
 
         // Step 3. Parse all parts into Response objects
 
@@ -112,14 +124,6 @@ class Response extends \GuzzleHttp\Message\Response
 
         return $responses;
 
-    }
-
-    public function json(array $config = [])
-    {
-        if (!isset($config['object'])) {
-            $config['object'] = true;
-        }
-        return parent::json($config);
     }
 
     /**
@@ -143,7 +147,7 @@ class Response extends \GuzzleHttp\Message\Response
 
         $message = $this->getStatusCode() . ' ' . $this->getReasonPhrase();
 
-        $data = $this->json();
+        $data = $this->getJson();
 
         if (!empty($data->message)) {
             $message = $data->message;
