@@ -168,7 +168,7 @@ class Platform extends Client
         ]);
 
         $this->auth
-            ->setData($response->json(['object' => false]))
+            ->setData($response->getData())
             ->setRemember($remember);
 
         return $response;
@@ -194,7 +194,7 @@ class Platform extends Client
             "refresh_token_ttl" => $this->auth->isRemember() ? self::REFRESH_TOKEN_TTL_REMEMBER : self::REFRESH_TOKEN_TTL
         ]);
 
-        $this->auth->setData($response->json(['object' => false]));
+        $this->auth->setData($response->getData());
 
         return $response;
 

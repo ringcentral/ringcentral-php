@@ -33,7 +33,7 @@ set_exception_handler(function (Exception $e) {
             print 'SDK HTTP Error: ' . $response->getError() . PHP_EOL;
         }
 
-        print print_r($response->json(), true) . PHP_EOL;
+        print print_r($response->getJson(), true) . PHP_EOL;
 
     }
 
@@ -93,7 +93,7 @@ print 'Refreshed' . PHP_EOL;
 
 // Load extensions
 
-$extensions = $platform->get('/account/~/extension', ['query' => ['perPage' => 10]])->json()->records;
+$extensions = $platform->get('/account/~/extension', ['query' => ['perPage' => 10]])->getJson()->records;
 
 print 'Users loaded ' . count($extensions) . PHP_EOL;
 
@@ -103,8 +103,8 @@ $presences = $platform->get('/account/~/extension/' . $extensions[0]->id . ',' .
                       ->getResponses();
 
 print 'Presence loaded ' .
-      $extensions[0]->name . ' - ' . $presences[0]->json()->presenceStatus . ', ' .
-      $extensions[0]->name . ' - ' . $presences[1]->json()->presenceStatus . PHP_EOL;
+      $extensions[0]->name . ' - ' . $presences[0]->getJson()->presenceStatus . ', ' .
+      $extensions[0]->name . ' - ' . $presences[1]->getJson()->presenceStatus . PHP_EOL;
 
 try {
 
@@ -140,7 +140,7 @@ if (!$argv || !in_array('skipSMS', $argv)) {
             'future' => true
         ])
         ->then(function (Response $response) {
-            print 'Sent ' . $response->json()->uri . PHP_EOL;
+            print 'Sent ' . $response->getJson()->uri . PHP_EOL;
         });
 
     print 'Sending SMS' . PHP_EOL;
