@@ -88,19 +88,15 @@ $response = $rcsdk->getPlatform()->delete('/account/~/extension/~');
 print_r($response->getJson()); // stdClass will be returned or exception if Content-Type is not JSON
 ```
 
-Also generic `getData()` method can be used, it returns:
-
-- A simple PHP array if response is JSON
-- An array of `Response` objects if response is Multipart
-- A string if non of the above
-
 ### Multipart response
 
 Loading of multiple comma-separated IDs will result in HTTP 207 with `Content-Type: multipart/mixed`. This response will
 be parsed into multiple sub-responses:
 
 ```php
-$presences = $rcsdk->getPlatform()->get('/account/~/extension/id1,id2/presence')->getResponses();
+$presences = $rcsdk->getPlatform()
+                   ->get('/account/~/extension/id1,id2/presence')
+                   ->getResponses();
 
 print 'Presence loaded ' .
       $presences[0]->getJson()->presenceStatus . ', ' .
