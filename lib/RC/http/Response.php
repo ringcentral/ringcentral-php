@@ -48,7 +48,7 @@ class Response extends \GuzzleHttp\Message\Response
      */
     public function getJson($asObject = true)
     {
-        return $this->json(['object' => true]);
+        return $this->json(['object' => $asObject]);
     }
 
     /**
