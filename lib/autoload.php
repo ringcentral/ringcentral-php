@@ -1,22 +1,22 @@
 <?php
 
-define('RCSDK_LIB_BASE_DIR', __DIR__);
-
-function rcsdkAutoloader($className)
+function rcsdkAutoloader($class)
 {
-    $className = ltrim($className, '\\');
-    $fileName = '';
 
-    if ($lastNsPos = strrpos($className, '\\')) {
-        $namespace = substr($className, 0, $lastNsPos);
-        $className = substr($className, $lastNsPos + 1);
-        $fileName .= str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
+    $prefix = 'RC\\';
+
+    $len = strlen($prefix);
+
+    if (strncmp($prefix, $class, $len) !== 0) {
+        return;
     }
 
-    $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
-    $fileName = RCSDK_LIB_BASE_DIR . DIRECTORY_SEPARATOR . $fileName;
+    $file = __DIR__ . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
 
-    require_once($fileName);
+    if (file_exists($file)) {
+        require_once($file);
+    }
+
 }
 
-spl_autoload_register('rcsdkAutoloader', true, true);
+spl_autoload_register('rcsdkAutoloader', true);

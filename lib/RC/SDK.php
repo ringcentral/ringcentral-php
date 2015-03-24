@@ -2,24 +2,19 @@
 
 namespace RC;
 
-use RC\platform\Parser;
 use RC\platform\Platform;
+use RC\subscription\Subscription;
 
 class SDK
 {
 
-    const VERSION = '0.2.2';
+    const VERSION = '0.3.0';
 
     /** @var Platform */
     protected $platform;
 
-    /** @var Parser */
-    protected $parser;
-
     public function __construct($appKey, $appSecret, $server)
     {
-
-        $this->parser = new Parser();
 
         $this->platform = new Platform($appKey, $appSecret, $server);
 
@@ -30,9 +25,9 @@ class SDK
         return $this->platform;
     }
 
-    public function getParser()
+    public function getSubscription()
     {
-        return $this->parser;
+        return new Subscription($this->platform);
     }
 
 }

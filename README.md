@@ -1,35 +1,38 @@
 # Installation
 
-## PHP >= 5.3 with Composer *(recommended)*
+## With [Composer](http://getcomposer.org) *(recommended)*
   
-  1. Add ```ringcentral/php-sdk``` package to your ```composer.json``` file:
-  
-    ```json
-    {
-        "require": {
-            "ringcentral/php-sdk": "*"
-        }
-    }
-    ```
-    
-  2. Install dependencies:
+  1. Install composer:
     
     ```sh
-    $ composer install
+    $ curl -sS https://getcomposer.org/installer | php
     ```
-
-## PHP >= 5.3 without Composer
-
-  1. Clone the repo:
+  
+  2. Run the Composer command to install the latest version of SDK:
   
     ```sh
-    $ git clone https://github.com/ringcentral/php-sdk.git ./ringcentral-php-sdk
+    $ composer require ringcentral/php-sdk
     ```
+
+  3. Require Composer's autoloader:
     
-  2. Require autoloader:
+    ```php
+    require('vendor/autoload.php');
+   ```
+
+Also please read [Guzzle Installation Docs](http://docs.guzzlephp.org/en/latest/overview.html#installation).
+
+## Without Composer
+
+  1. Download [PHAR file](https://github.com/ringcentral/php-sdk/blob/master/dist/rcsdk.phar)
+  
+  2. Download PHAR from [Guzzle Releases](https://github.com/guzzle/guzzle/releases).
+  
+  3. Require files:
   
     ```php
-    require_once('path-to/ringcentral-php-sdk/lib/autoload.php');
+    require('guzzle.phar');
+    require('rcsdk.phar');
     ```
     
 # Basic Usage
@@ -72,18 +75,18 @@ semaphor and pause other pending requests while one of them is performing refres
 
 ## Performing API call
 
+Platform class extends [Guzzle Client](http://guzzle.readthedocs.org/en/latest/quickstart.html) so anything that can be
+done via Guzzle Client can be done via Platform (and more). Guzzle Client is pre-configured when SDK instance is
+created, no extra configuration is needed.
+
 ```php
-$client = $rcsdk->getPlatform()->getClient();
+$response = $rcsdk->getPlatform()->get('/account/~/extension/~');
+$response = $rcsdk->getPlatform()->post('/account/~/extension/~');
+$response = $rcsdk->getPlatform()->put('/account/~/extension/~');
+$response = $rcsdk->getPlatform()->delete('/account/~/extension/~');
 
-$response = $client->get('/account/~/extension/~');
-$response = $client->post('/account/~/extension/~');
-$response = $client->put('/account/~/extension/~');
-$response = $client->delete('/account/~/extension/~');
-
-print_r($response->json());
+print_r($response->getJson()); // stdClass will be returned or exception if Content-Type is not JSON
 ```
-
-API is reached via [Guzzle Client](http://guzzle.readthedocs.org/en/latest/quickstart.html).
 
 ### Multipart response
 
@@ -91,19 +94,20 @@ Loading of multiple comma-separated IDs will result in HTTP 207 with `Content-Ty
 be parsed into multiple sub-responses:
 
 ```php
-$client = $rcsdk->getPlatform()->getClient();
-$presences = $rcsdk->getParser()->parse($client->get('/account/~/extension/id1,id2/presence'));
+$presences = $rcsdk->getPlatform()
+                   ->get('/account/~/extension/id1,id2/presence')
+                   ->getResponses();
 
 print 'Presence loaded ' .
-      $presences[0]->json()['presenceStatus'] . ', ' .
-      $presences[1]->json()['presenceStatus'] . PHP_EOL;
+      $presences[0]->getJson()->presenceStatus . ', ' .
+      $presences[1]->getJson()->presenceStatus . PHP_EOL;
 ```
 
 ### Send SMS - Make POST request
 
 ```php
 
-$response = $rcsdk->getPlatform()->getClient()->post('/account/~/extension/~/sms', [
+$response = $rcsdk->getPlatform()->post('/account/~/extension/~/sms', [
     'json' => [
         'from' => ['phoneNumber' => 'your-RC-sms-number'],
         'to'   => [
@@ -112,4 +116,18 @@ $response = $rcsdk->getPlatform()->getClient()->post('/account/~/extension/~/sms
         'text' => 'Test from PHP',
     ]
 ]);
+```
+
+### Get Platform error message
+
+```php
+try {
+
+    $platform->get('/account/~/whatever');
+
+} catch (\GuzzleHttp\Exception\RequestException $e) {
+
+    print 'Expected HTTP Error: ' . $e->getResponse()->getError() . PHP_EOL;
+
+}
 ```
