@@ -5,14 +5,16 @@ namespace RC\platform;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Event\BeforeEvent;
-use GuzzleHttp\Event\CompleteEvent;
-use GuzzleHttp\Message\Response;
-use stdClass;
+use GuzzleHttp\Message\RequestInterface;
+use GuzzleHttp\Message\ResponseInterface;
+use GuzzleHttp\Message\FutureResponse;
+use RC\http\MessageFactory;
+use RC\http\Response;
 
-class Platform
+class Platform extends Client
 {
 
-    const ACCESS_TOKEN_TTL = 600; // 10 minutes
+    const ACCESS_TOKEN_TTL = 3600; // 60 minutes
     const REFRESH_TOKEN_TTL = 36000; // 10 hours
     const REFRESH_TOKEN_TTL_REMEMBER = 604800; // 1 week
     const ACCOUNT_PREFIX = '/account/';
@@ -31,8 +33,8 @@ class Platform
     /** @var Auth */
     protected $auth;
 
-    /** @var Client */
-    protected $client;
+    /** @var MessageFactory */
+    protected $factory;
 
     public function __construct($appKey, $appSecret, $server)
     {
@@ -43,9 +45,12 @@ class Platform
 
         $this->auth = new Auth();
 
-        $this->client = new Client([
-            //'base_url' => $this->server,
-            'defaults' => [
+        $this->factory = new MessageFactory();
+
+        parent::__construct([
+            //TODO 'base_url' => $this->server,
+            'message_factory' => $this->factory,
+            'defaults'        => [
                 'headers' => [
                     'content-type' => 'application/json',
                     'accept'       => 'application/json'
@@ -53,32 +58,18 @@ class Platform
             ]
         ]);
 
-        $this->client->getEmitter()->on('before', function (BeforeEvent $event) {
+        $this->getEmitter()->on('before', function (BeforeEvent $event) {
 
             $request = $event->getRequest();
 
-            if (!$request->getHeader('authorization')) {
-
-                if ($this->isAuthorized()) $request->addHeader('authorization', $this->getAuthHeader());
-
+            if (!isset($request->getConfig()['auth']) && $this->isAuthorized()) {
+                $request->addHeader('authorization', $this->getAuthHeader());
             }
 
             $request->setUrl($this->apiUrl($request->getUrl(), ['addServer' => true]));
 
-            //print 'REQUEST:' . PHP_EOL;
-            //print '  - Url: ' . $request->getUrl() . PHP_EOL;
-            //print '  - Content-Type: ' . $request->getHeader('content-type') . PHP_EOL;
-
         });
 
-        $this->client->getEmitter()->on('complete', function (CompleteEvent $event) {
-        });
-
-    }
-
-    public function getClient()
-    {
-        return $this->client;
     }
 
     /**
@@ -104,7 +95,7 @@ class Platform
 
         if (!$this->auth->isAccessTokenValid()) {
             if ($refresh) {
-                print 'Refresh is required' . PHP_EOL;
+                //print 'Refresh is required' . PHP_EOL;
                 $this->refresh();
             }
         }
@@ -127,7 +118,7 @@ class Platform
 
         $builtUrl = '';
 
-        if ($options['addServer'] && !stristr($url, 'http://') && !stristr($url, 'https://')) {
+        if (!empty($options['addServer']) && !stristr($url, 'http://') && !stristr($url, 'https://')) {
             $builtUrl .= $this->server;
         }
 
@@ -162,12 +153,12 @@ class Platform
      * @param string $extension
      * @param string $password
      * @param bool   $remember
-     * @return \GuzzleHttp\Message\Response
+     * @return Response
      */
     public function authorize($username = '', $extension = '', $password = '', $remember = false)
     {
 
-        $response = $this->authCall([], [
+        $response = $this->authCall(self::TOKEN_ENDPOINT, [], [
             'grant_type'        => 'password',
             'username'          => $username,
             'extension'         => $extension ? $extension : null,
@@ -177,7 +168,7 @@ class Platform
         ]);
 
         $this->auth
-            ->setData($response->json())
+            ->setData($response->getJson(false))
             ->setRemember($remember);
 
         return $response;
@@ -185,7 +176,7 @@ class Platform
     }
 
     /**
-     * @return \GuzzleHttp\Message\Response
+     * @return Response
      * @throws Exception
      */
     public function refresh()
@@ -196,14 +187,14 @@ class Platform
         }
 
         // Synchronous
-        $response = $this->authCall([], [
+        $response = $this->authCall(self::TOKEN_ENDPOINT, [], [
             "grant_type"        => "refresh_token",
             "refresh_token"     => $this->auth->getRefreshToken(),
             "access_token_ttl"  => self::ACCESS_TOKEN_TTL,
             "refresh_token_ttl" => $this->auth->isRemember() ? self::REFRESH_TOKEN_TTL_REMEMBER : self::REFRESH_TOKEN_TTL
         ]);
 
-        $this->auth->setData($response->json());
+        $this->auth->setData($response->getJson(false));
 
         return $response;
 
@@ -216,7 +207,7 @@ class Platform
     public function logout()
     {
 
-        $response = $this->authCall([
+        $response = $this->authCall(self::TOKEN_ENDPOINT . '/revoke', [], [
             'token' => $this->auth->getAccessToken()
         ]);
 
@@ -226,28 +217,69 @@ class Platform
 
     }
 
-    protected function getApiKey()
-    {
-        return base64_encode($this->appKey . ':' . $this->appSecret);
-    }
-
     protected function getAuthHeader()
     {
         return $this->auth->getTokenType() . ' ' . $this->auth->getAccessToken();
     }
 
-    protected function authCall(array $queryParams = [], array $body = [])
+    protected function authCall($url = '', array $queryParams = [], array $body = [])
     {
 
-        return $this->client->post(self::TOKEN_ENDPOINT, [
+        return $this->post($url, [
             'headers' => [
-                'authorization' => 'Basic ' . $this->getApiKey(),
-                'content-type'  => 'application/x-www-form-urlencoded',
+                'content-type' => 'application/x-www-form-urlencoded',
             ],
+            'auth'    => [$this->appKey, $this->appSecret],
             'body'    => $body,
             'query'   => $queryParams
         ]);
 
+    }
+
+    /**
+     * @inheritdoc
+     * @param RequestInterface $request Request to send
+     * @return ResponseInterface|FutureResponse|Response
+     */
+    public function send(RequestInterface $request)
+    {
+        return parent::send($request);
+    }
+
+    /**
+     * @inheritdoc
+     * @return ResponseInterface|FutureResponse|Response
+     */
+    public function get($url = null, $options = [])
+    {
+        return parent::get($url, $options);
+    }
+
+    /**
+     * @inheritdoc
+     * @return ResponseInterface|FutureResponse|Response
+     */
+    public function post($url = null, array $options = [])
+    {
+        return parent::post($url, $options);
+    }
+
+    /**
+     * @inheritdoc
+     * @return ResponseInterface|FutureResponse|Response
+     */
+    public function put($url = null, array $options = [])
+    {
+        return parent::put($url, $options);
+    }
+
+    /**
+     * @inheritdoc
+     * @return ResponseInterface|FutureResponse|Response
+     */
+    public function delete($url = null, array $options = [])
+    {
+        return parent::delete($url, $options);
     }
 
 }
