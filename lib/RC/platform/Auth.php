@@ -27,7 +27,7 @@ class Auth
         $this->reset();
     }
 
-    public function setData(array $data = [])
+    public function setData(array $data = array())
     {
 
         if (empty($data)) {

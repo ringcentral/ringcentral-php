@@ -8,7 +8,7 @@ use RC\subscription\Subscription;
 class SDK
 {
 
-    const VERSION = '0.3.0';
+    const VERSION = '0.4.0';
 
     /** @var Platform */
     protected $platform;

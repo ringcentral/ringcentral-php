@@ -6,7 +6,10 @@ $phar = new Phar("./dist/rcsdk.phar",
 
 $phar["autoload.php"] = file_get_contents("./lib/autoload.php");
 $phar["RC/SDK.php"] = file_get_contents("./lib/RC/SDK.php");
-$phar["RC/http/MessageFactory.php"] = file_get_contents("./lib/RC/http/MessageFactory.php");
+$phar["RC/core/Observable.php"] = file_get_contents("./lib/RC/core/Observable.php");
+$phar["RC/http/Headers.php"] = file_get_contents("./lib/RC/http/Headers.php");
+$phar["RC/http/HttpException.php"] = file_get_contents("./lib/RC/http/HttpException.php");
+$phar["RC/http/Request.php"] = file_get_contents("./lib/RC/http/Request.php");
 $phar["RC/http/Response.php"] = file_get_contents("./lib/RC/http/Response.php");
 $phar["RC/platform/Auth.php"] = file_get_contents("./lib/RC/platform/Auth.php");
 $phar["RC/platform/Platform.php"] = file_get_contents("./lib/RC/platform/Platform.php");

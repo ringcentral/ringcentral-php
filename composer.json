@@ -22,7 +22,6 @@
   ],
   "require": {
     "php": ">=5.3.0",
-    "guzzlehttp/guzzle": "~5.2",
     "pubnub/pubnub": "~3.7",
     "phpseclib/phpseclib": "2.0.*@dev"
   },

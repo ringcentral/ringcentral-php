@@ -3,13 +3,13 @@
 namespace RC\subscription;
 
 use Exception;
-use GuzzleHttp\Event\Emitter;
 use phpseclib\Crypt\AES;
 use Pubnub\Pubnub;
 use RC\http\Response;
 use RC\platform\Platform;
+use RC\core\Observable;
 
-class Subscription extends Emitter
+class Subscription extends Observable
 {
 
     const EVENT_NOTIFICATION = 'notification';
@@ -24,24 +24,24 @@ class Subscription extends Emitter
     protected $platform;
 
     /** @var string[] */
-    protected $eventFilters = [];
+    protected $eventFilters = array();
 
-    protected $subscription = [
-        'eventFilters'   => [],
+    protected $subscription = array(
+        'eventFilters'   => array(),
         'expirationTime' => '', // 2014-03-12T19:54:35.613Z
         'expiresIn'      => 0,
-        'deliveryMode'   => [
+        'deliveryMode'   => array(
             'transportType' => 'PubNub',
             'encryption'    => false,
             'address'       => '',
             'subscriberKey' => '',
             'secretKey'     => ''
-        ],
+        ),
         'id'             => '',
         'creationTime'   => '', // 2014-03-12T19:54:35.613Z
         'status'         => '', // Active
         'uri'            => ''
-    ];
+    );
 
     /** @var Pubnub */
     protected $pubnub;
@@ -60,7 +60,7 @@ class Subscription extends Emitter
      * @return Response
      * @throws Exception
      */
-    public function register(array $options = [])
+    public function register(array $options = array())
     {
         if ($this->isSubscribed()) {
             return $this->renew($options);
@@ -91,7 +91,7 @@ class Subscription extends Emitter
         return $this;
     }
 
-    public function subscribe(array $options = [])
+    public function subscribe(array $options = array())
     {
 
         if (!empty($options['events'])) {
@@ -100,14 +100,12 @@ class Subscription extends Emitter
 
         try {
 
-            $response = $this->platform->post('/restapi/v1.0/subscription', [
-                'json' => [
-                    'eventFilters' => $this->getFullEventFilters(),
-                    'deliveryMode' => [
-                        'transportType' => 'PubNub'
-                    ]
-                ]
-            ]);
+            $response = $this->platform->post('/restapi/v1.0/subscription', null, array(
+                'eventFilters' => $this->getFullEventFilters(),
+                'deliveryMode' => array(
+                    'transportType' => 'PubNub'
+                )
+            ));
 
             $this->updateSubscription($response->getJson(false));
             $this->subscribeAtPubnub();
@@ -128,7 +126,7 @@ class Subscription extends Emitter
 
     }
 
-    public function renew(array $options = [])
+    public function renew(array $options = array())
     {
 
         if (!empty($options['events'])) {
@@ -137,11 +135,9 @@ class Subscription extends Emitter
 
         try {
 
-            $response = $this->platform->put('/restapi/v1.0/subscription/' . $this->subscription['id'], [
-                'json' => [
-                    'eventFilters' => $this->getFullEventFilters()
-                ]
-            ]);
+            $response = $this->platform->put('/restapi/v1.0/subscription/' . $this->subscription['id'], null, array(
+                'eventFilters' => $this->getFullEventFilters()
+            ));
 
             $this->updateSubscription($response->getJson(false));
 
@@ -159,7 +155,7 @@ class Subscription extends Emitter
 
     }
 
-    public function remove(array $options = [])
+    public function remove(array $options = array())
     {
 
         if (!empty($options['events'])) {
@@ -248,17 +244,19 @@ class Subscription extends Emitter
     protected function notify($message)
     {
 
-        if ($this->isSubscribed() && $this->subscription['deliveryMode']['encryptionKey']) {
+        //TODO Since pubnub blocks everything this is probably the only place where we can intercept the process and to subscription renew
+        //$this->renew();
+
+        if ($this->isSubscribed() && $this->subscription['deliveryMode']['encryption'] && $this->subscription['deliveryMode']['encryptionKey']) {
 
             $cipher = new AES(AES::MODE_ECB);
             $cipher->setKey(base64_decode($this->subscription['deliveryMode']['encryptionKey']));
             $message = $cipher->decrypt(base64_decode($message));
+            $message = json_decode($message, true); // PUBNUB always decode as array
 
         }
 
         //print 'Message received: ' . $message . PHP_EOL;
-
-        $message = json_decode($message);
 
         $this->emit(self::EVENT_NOTIFICATION, new NotificationEvent($message));
 
