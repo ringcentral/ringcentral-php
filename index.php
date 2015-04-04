@@ -3,6 +3,7 @@
 require_once('lib/autoload.php');
 require_once('vendor/autoload.php');
 
+use RC\http\HttpException;
 use RC\http\Response;
 use RC\SDK;
 use RC\subscription\NotificationEvent;
@@ -25,15 +26,15 @@ set_exception_handler(function (Exception $e) {
 
     print 'Exception: ' . $e->getMessage() . PHP_EOL;
 
-    if ($e instanceof \GuzzleHttp\Exception\RequestException) {
+    if ($e instanceof HttpException && $response = $e->getResponse()) {
 
-        $response = $e->getResponse();
-
-        if ($response instanceof Response) {
-            print 'SDK HTTP Error: ' . $response->getError() . PHP_EOL;
-        }
+        print 'SDK HTTP Error: ' . $response->getError() . ' ' . $e->getRequest()->getUrl() . PHP_EOL;
 
         print print_r($response->getJson(), true) . PHP_EOL;
+
+        if ($e->getPrevious()) {
+            print 'Previous: ' . $e->getPrevious()->getMessage() . PHP_EOL;
+        }
 
     }
 
@@ -93,7 +94,7 @@ print 'Refreshed' . PHP_EOL;
 
 // Load extensions
 
-$extensions = $platform->get('/account/~/extension', ['query' => ['perPage' => 10]])->getJson()->records;
+$extensions = $platform->get('/account/~/extension', array('perPage' => 10))->getJson()->records;
 
 print 'Users loaded ' . count($extensions) . PHP_EOL;
 
@@ -110,7 +111,7 @@ try {
 
     $platform->get('/account/~/whatever');
 
-} catch (\GuzzleHttp\Exception\RequestException $e) {
+} catch (HttpException $e) {
 
     $response = $e->getResponse();
 
@@ -124,25 +125,20 @@ try {
 
 }
 
-// Send an SMS (asynchronously via Promise)
+// Send an SMS
 
 if (!$argv || !in_array('skipSMS', $argv)) {
 
-    $platform
-        ->post('/account/~/extension/~/sms', [
-            'json'   => [
-                'from' => ['phoneNumber' => $credentials['smsNumber']],
-                'to'   => [
-                    ['phoneNumber' => $credentials['mobileNumber']],
-                ],
-                'text' => 'Test from PHP',
-            ],
-            'future' => true
-        ])
-        ->then(function (Response $response) {
-            print 'Sent ' . $response->getJson()->uri . PHP_EOL;
-        });
+    $response = $platform
+        ->post('/account/~/extension/~/sms', null, array(
+            'from' => array('phoneNumber' => $credentials['smsNumber']),
+            'to'   => array(
+                array('phoneNumber' => $credentials['mobileNumber']),
+            ),
+            'text' => 'Test from PHP',
+        ));
 
+    print 'Sent ' . $response->getJson()->uri . PHP_EOL;
     print 'Sending SMS' . PHP_EOL;
 
 }
@@ -151,7 +147,7 @@ if (!$argv || !in_array('skipSMS', $argv)) {
 
 $subscription = $rcsdk->getSubscription();
 
-$subscription->addEvents(['/account/~/extension/~/presence?detailedTelephonyState=true']);
+$subscription->addEvents(['/account/~/extension/~/message-store']);
 
 $subscription->setKeepPolling(false);
 

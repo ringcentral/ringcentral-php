@@ -3,52 +3,83 @@
 namespace RC\http;
 
 use Exception;
-use GuzzleHttp\Stream\StreamInterface;
 use stdClass;
 
-class Response extends \GuzzleHttp\Message\Response
+class Response extends Headers
 {
 
     const BOUNDARY_REGEXP = '/boundary=([^;]+)/i';
+    const BODY_SEPARATOR = "\n\n";
     const BOUNDARY_SEPARATOR = '--';
 
-    /** @var MessageFactory */
-    private $factory;
+    private $body = '';
+    private $raw = '';
+    private $rawHeaders = '';
+    private $status = 0;
+
 
     /**
      * @inheritdoc
      */
-    public function __construct(
-        MessageFactory $factory,
-        $statusCode,
-        array $headers = [],
-        StreamInterface $body = null,
-        array $options = []
-    ) {
+    public function __construct($status, $raw)
+    {
 
-        parent::__construct($statusCode, $headers, $body, $options);
+        $this->status = $status;
 
-        $this->factory = $factory;
+        $this->raw = str_replace("\r", '', $raw);
+
+        if (stristr($this->raw, self::BODY_SEPARATOR)) {
+            list($this->rawHeaders, $this->body) = explode(self::BODY_SEPARATOR, $this->raw, 2);
+        } else {
+            $this->body = $this->raw;
+        }
+
+        $this->parseHeaders();
+
+        //if (empty($status)) {
+        //    throw new Exception('Empty status was received');
+        //}
 
     }
 
-    public function isJson()
+    protected function parseHeaders()
     {
-        return stristr($this->getHeader('content-type'), 'application/json');
+
+        $headers = explode("\n", $this->rawHeaders);
+
+        foreach ($headers as $header) {
+
+            if (strlen($header) == 0) {
+                continue;
+            }
+
+            $headerParts = explode(self::HEADER_SEPARATOR, $header);
+            $name = trim(array_shift($headerParts));
+
+            $this->setHeader($name, trim(implode(self::HEADER_SEPARATOR, $headerParts)));
+
+        }
+
+        return $this;
+
     }
 
-    public function isMultipart()
+    public function isSuccess()
     {
-        return stristr($this->getHeader('content-type'), 'multipart/mixed');
+        return $this->status >= 200 && $this->status < 300;
     }
 
     /**
      * @param bool $asObject
      * @return stdClass|array
+     * @throws Exception
      */
     public function getJson($asObject = true)
     {
-        return $this->json(['object' => $asObject]);
+        if (!$this->isJson()) {
+            throw new Exception('Response is not JSON');
+        }
+        return json_decode($this->body, !$asObject);
     }
 
     /**
@@ -88,18 +119,18 @@ class Response extends \GuzzleHttp\Message\Response
 
         // Step 2. Create status info object
 
-        $statusInfo = $this->createResponse($this->getStatusCode(), $this->getReasonPhrase(), array_shift($parts))
-                           ->getJson()->response;
+        $statusInfoObj = new Response($this->getStatus(), array_shift($parts));
+        $statusInfo = $statusInfoObj->getJson()->response;
 
         // Step 3. Parse all parts into Response objects
 
-        $responses = [];
+        $responses = array();
 
         foreach ($parts as $i => $part) {
 
             $partInfo = $statusInfo[$i];
 
-            $responses[] = $this->createResponse($partInfo->status, $partInfo->responseDescription, $part);
+            $responses[] = new Response($partInfo->status, $part);
 
         }
 
@@ -107,17 +138,19 @@ class Response extends \GuzzleHttp\Message\Response
 
     }
 
-    /**
-     * @param int    $status
-     * @param string $statusText
-     * @param string $raw
-     * @return Response
-     */
-    protected function createResponse($status, $statusText, $raw)
+    public function getBody()
     {
+        return $this->body;
+    }
 
-        return $this->factory->fromMessage('HTTP/1.1 ' . $status . ' ' . $statusText . PHP_EOL . ltrim($raw));
+    public function getRaw()
+    {
+        return $this->raw;
+    }
 
+    public function getStatus()
+    {
+        return $this->status;
     }
 
     /**
@@ -126,7 +159,7 @@ class Response extends \GuzzleHttp\Message\Response
     public function getError()
     {
 
-        $message = $this->getStatusCode() . ' ' . $this->getReasonPhrase();
+        $message = $this->getStatus() . ' Unknown response error';
 
         $data = $this->getJson();
 

@@ -2,16 +2,12 @@
 
 namespace RC\subscription;
 
-use GuzzleHttp\Event\AbstractEvent;
-use stdClass;
-
-class NotificationEvent extends AbstractEvent
+class NotificationEvent
 {
 
-    /** @var stdClass */
-    protected $payload = [];
+    protected $payload = array();
 
-    public function __construct(stdClass $payload)
+    public function __construct(array $payload)
     {
 
         $this->payload = $payload;

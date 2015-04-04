@@ -2,10 +2,9 @@
 
 namespace RC\subscription;
 
-use GuzzleHttp\Event\AbstractEvent;
 use RC\http\Response;
 
-class SuccessEvent extends AbstractEvent
+class SuccessEvent
 {
 
     /** @var Response */
