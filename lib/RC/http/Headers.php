@@ -2,7 +2,9 @@
 
 namespace RC\http;
 
-abstract class Headers
+use Exception;
+
+class Headers
 {
 
     private $headers = array();
@@ -23,12 +25,18 @@ abstract class Headers
 
     public function getHeader($name)
     {
+
+        if (!isset($this->headers[strtolower($name)])) {
+            throw new Exception(sprintf('Header "%s" is not defined', $name));
+        }
+
         return $this->headers[strtolower($name)];
+
     }
 
     public function isContentType($type)
     {
-        return stristr($this->getContentType(), $type);
+        return !!stristr(strtolower($this->getContentType()), strtolower($type)); //TODO MBSTRING?
     }
 
     public function getContentType()

@@ -143,6 +143,7 @@ class Request extends Headers
     {
 
         $ch = curl_init();
+        $response = null;
 
         try {
 
@@ -161,9 +162,9 @@ class Request extends Headers
 
             $res = curl_exec($ch);
 
-            $this->response = new Response(curl_getinfo($ch, CURLINFO_HTTP_CODE), $res);
+            $response = new Response(curl_getinfo($ch, CURLINFO_HTTP_CODE), $res);
 
-            if (!$this->response->isSuccess()) {
+            if (!$response->isSuccess()) {
                 throw new Exception('Response has unsuccessful status');
             }
 
@@ -171,24 +172,14 @@ class Request extends Headers
 
             curl_close($ch);
 
-            throw new HttpException($this, $this->response, $e);
+            throw new HttpException($this, $response, $e);
 
         }
 
         curl_close($ch);
 
-        return $this->response;
+        return $response;
 
-    }
-
-    public function isLoaded()
-    {
-        return !!$this->response;
-    }
-
-    public function getResponse()
-    {
-        return $this->response;
     }
 
 }

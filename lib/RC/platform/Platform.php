@@ -3,6 +3,7 @@
 namespace RC\platform;
 
 use Exception;
+use RC\core\Context;
 use RC\http\Request;
 use RC\http\Response;
 
@@ -28,7 +29,10 @@ class Platform
     /** @var Auth */
     protected $auth;
 
-    public function __construct($appKey, $appSecret, $server)
+    /** @var Context */
+    protected $context;
+
+    public function __construct(Context $context, $appKey, $appSecret, $server)
     {
 
         $this->appKey = $appKey;
@@ -36,6 +40,7 @@ class Platform
         $this->server = $server;
 
         $this->auth = new Auth();
+        $this->context = $context;
 
     }
 
@@ -125,7 +130,7 @@ class Platform
     public function authorize($username = '', $extension = '', $password = '', $remember = false)
     {
 
-        $response = $this->authCall(new Request(Request::POST, self::TOKEN_ENDPOINT, null, array(
+        $response = $this->authCall($this->context->getRequest(Request::POST, self::TOKEN_ENDPOINT, null, array(
             'grant_type'        => 'password',
             'username'          => $username,
             'extension'         => $extension ? $extension : null,
@@ -154,7 +159,7 @@ class Platform
         }
 
         // Synchronous
-        $response = $this->authCall(new Request(Request::POST, self::TOKEN_ENDPOINT, null, array(
+        $response = $this->authCall($this->context->getRequest(Request::POST, self::TOKEN_ENDPOINT, null, array(
             "grant_type"        => "refresh_token",
             "refresh_token"     => $this->auth->getRefreshToken(),
             "access_token_ttl"  => self::ACCESS_TOKEN_TTL,
@@ -174,7 +179,7 @@ class Platform
     public function logout()
     {
 
-        $response = $this->authCall(new Request(Request::POST, self::REVOKE_ENDPOINT, array(
+        $response = $this->authCall($this->context->getRequest(Request::POST, self::REVOKE_ENDPOINT, array(
             'token' => $this->auth->getAccessToken()
         )));
 
@@ -238,8 +243,7 @@ class Platform
      */
     public function get($url = '', array $queryParameters = null, array $headers = null)
     {
-        return $this
-            ->apiCall(new Request(Request::GET, $url, $queryParameters, null, $headers));
+        return $this->apiCall($this->context->getRequest(Request::GET, $url, $queryParameters, null, $headers));
     }
 
     /**
@@ -252,7 +256,7 @@ class Platform
      */
     public function post($url = '', array $queryParameters = null, $body = null, array $headers = null)
     {
-        return $this->apiCall(new Request(Request::POST, $url, $queryParameters, $body, $headers));
+        return $this->apiCall($this->context->getRequest(Request::POST, $url, $queryParameters, $body, $headers));
     }
 
     /**
@@ -265,7 +269,7 @@ class Platform
      */
     public function put($url = '', array $queryParameters = null, $body = null, array $headers = null)
     {
-        return $this->apiCall(new Request(Request::PUT, $url, $queryParameters, $body, $headers));
+        return $this->apiCall($this->context->getRequest(Request::PUT, $url, $queryParameters, $body, $headers));
     }
 
     /**
@@ -278,7 +282,7 @@ class Platform
      */
     public function delete($url = '', array $queryParameters = null, $body = null, array $headers = null)
     {
-        return $this->apiCall(new Request(Request::DELETE, $url, $queryParameters, $body, $headers));
+        return $this->apiCall($this->context->getRequest(Request::DELETE, $url, $queryParameters, $body, $headers));
     }
 
 }

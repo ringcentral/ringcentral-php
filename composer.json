@@ -26,6 +26,7 @@
     "phpseclib/phpseclib": "2.0.*@dev"
   },
   "require-dev": {
+    "phpunit/phpunit": "*"
   },
   "autoload": {
     "psr-4": {
