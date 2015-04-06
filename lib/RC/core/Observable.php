@@ -9,11 +9,27 @@ class Observable
 
     protected function ensureEvent($event)
     {
-        if (empty($this->events[$event])) {
+        if (!$this->hasListeners($event)) {
             $this->events[$event] = array();
         }
     }
 
+    /**
+     * @param string $event
+     * @return integer
+     */
+    public function hasListeners($event)
+    {
+
+        return empty($this->events[$event]) ? 0 : count($this->events[$event]);
+
+    }
+
+    /**
+     * @param string   $event
+     * @param callable $callable
+     * @return $this
+     */
     public function on($event, $callable)
     {
 
@@ -25,15 +41,19 @@ class Observable
 
     }
 
+    /**
+     * @param string   $event
+     * @param callable $callable
+     * @return $this
+     */
     public function off($event, $callable = null)
     {
-        $this->ensureEvent($event);
 
         if ($callable) {
 
-            for ($i = count($this->events); $i >= 0; $i--) {
+            for ($i = count($this->events[$event]) - 1; $i >= 0; $i--) {
 
-                if ($this->events[$i] == $callable) {
+                if ($this->events[$event][$i] == $callable) {
                     unset($this->events[$event][$i]);
                 }
 
@@ -47,16 +67,31 @@ class Observable
 
     }
 
-    public function emit($event, $object)
+    public function offAll()
+    {
+        $this->events = array();
+    }
+
+    /**
+     * @param string $event
+     * @param mixed  $object
+     * @return $this
+     */
+    public function emit($event, $object = null)
     {
 
         $this->ensureEvent($event);
 
+        $result = null;
+
         foreach ($this->events[$event] as $callable) {
-            call_user_func($callable, $object);
+            $result = call_user_func($callable, $object);
+            if (false === $result) {
+                break;
+            }
         }
 
-        return $this;
+        return $result;
 
     }
 

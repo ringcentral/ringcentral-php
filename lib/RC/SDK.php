@@ -2,6 +2,7 @@
 
 namespace RC;
 
+use RC\core\Context;
 use RC\platform\Platform;
 use RC\subscription\Subscription;
 
@@ -13,10 +14,15 @@ class SDK
     /** @var Platform */
     protected $platform;
 
+    /** @var Context */
+    protected $context;
+
     public function __construct($appKey, $appSecret, $server)
     {
 
-        $this->platform = new Platform($appKey, $appSecret, $server);
+        $this->context = new Context();
+
+        $this->platform = new Platform($this->context, $appKey, $appSecret, $server);
 
     }
 
@@ -27,7 +33,12 @@ class SDK
 
     public function getSubscription()
     {
-        return new Subscription($this->platform);
+        return new Subscription($this->context, $this->platform);
+    }
+
+    public function getContext()
+    {
+        return $this->context;
     }
 
 }

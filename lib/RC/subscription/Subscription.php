@@ -5,9 +5,10 @@ namespace RC\subscription;
 use Exception;
 use phpseclib\Crypt\AES;
 use Pubnub\Pubnub;
+use RC\core\Context;
+use RC\core\Observable;
 use RC\http\Response;
 use RC\platform\Platform;
-use RC\core\Observable;
 
 class Subscription extends Observable
 {
@@ -46,12 +47,16 @@ class Subscription extends Observable
     /** @var Pubnub */
     protected $pubnub;
 
+    /** @var Context */
+    protected $context;
+
     protected $keepPolling = false;
 
-    public function __construct(Platform $platform)
+    public function __construct(Context $context, Platform $platform)
     {
 
         $this->platform = $platform;
+        $this->context = $context;
 
     }
 
@@ -223,7 +228,7 @@ class Subscription extends Observable
             return $this;
         }
 
-        $this->pubnub = new Pubnub([
+        $this->pubnub = $this->context->getPubnub([
             'publish_key'   => 'foo',
             'subscribe_key' => $this->subscription['deliveryMode']['subscriberKey']
         ]);
