@@ -33,6 +33,8 @@ class Observable
     public function on($event, $callable)
     {
 
+        if (!is_callable($callable)) throw new \Exception('Supplied callback is not callable type');
+
         $this->ensureEvent($event);
 
         $this->events[$event][] = $callable;
@@ -84,7 +86,7 @@ class Observable
 
         $result = null;
 
-        foreach ($this->events[$event] as $callable) {
+        foreach ($this->events[$event] as $i => $callable) {
             $result = call_user_func($callable, $object);
             if (false === $result) {
                 break;

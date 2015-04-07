@@ -1,8 +1,9 @@
 <?php
 
 use RC\http\Headers;
+use RC\test\TestCase;
 
-class HeadersTest extends PHPUnit_Framework_TestCase
+class HeadersTest extends TestCase
 {
 
     public function testIgnoresCase()

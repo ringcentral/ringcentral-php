@@ -4,6 +4,7 @@ namespace RC\platform;
 
 use Exception;
 use RC\core\Context;
+use RC\http\HttpException;
 use RC\http\Request;
 use RC\http\Response;
 
@@ -89,12 +90,13 @@ class Platform
     {
 
         $builtUrl = '';
+        $hasHttp = stristr($url, 'http://') || stristr($url, 'https://');
 
-        if (!empty($options['addServer']) && !stristr($url, 'http://') && !stristr($url, 'https://')) {
+        if (!empty($options['addServer']) && !$hasHttp) {
             $builtUrl .= $this->server;
         }
 
-        if (!stristr($url, self::URL_PREFIX)) {
+        if (!stristr($url, self::URL_PREFIX) && !$hasHttp) {
             $builtUrl .= self::URL_PREFIX . '/' . self::API_VERSION;
         }
 
@@ -189,7 +191,7 @@ class Platform
 
     }
 
-    protected function getApiKey()
+    public function getApiKey()
     {
         return base64_encode($this->appKey . ':' . $this->appSecret);
     }
@@ -241,7 +243,7 @@ class Platform
      * @return Response
      * @throws HttpException
      */
-    public function get($url = '', array $queryParameters = null, array $headers = null)
+    public function get($url = '', $queryParameters = array(), array $headers = array())
     {
         return $this->apiCall($this->context->getRequest(Request::GET, $url, $queryParameters, null, $headers));
     }
@@ -254,7 +256,7 @@ class Platform
      * @return Response
      * @throws HttpException
      */
-    public function post($url = '', array $queryParameters = null, $body = null, array $headers = null)
+    public function post($url = '', $queryParameters = array(), $body = null, array $headers = array())
     {
         return $this->apiCall($this->context->getRequest(Request::POST, $url, $queryParameters, $body, $headers));
     }
@@ -267,7 +269,7 @@ class Platform
      * @return Response
      * @throws HttpException
      */
-    public function put($url = '', array $queryParameters = null, $body = null, array $headers = null)
+    public function put($url = '', $queryParameters = array(), $body = null, array $headers = array())
     {
         return $this->apiCall($this->context->getRequest(Request::PUT, $url, $queryParameters, $body, $headers));
     }
@@ -280,7 +282,7 @@ class Platform
      * @return Response
      * @throws HttpException
      */
-    public function delete($url = '', array $queryParameters = null, $body = null, array $headers = null)
+    public function delete($url = '', $queryParameters = array(), $body = null, array $headers = array())
     {
         return $this->apiCall($this->context->getRequest(Request::DELETE, $url, $queryParameters, $body, $headers));
     }

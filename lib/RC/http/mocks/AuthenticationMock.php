@@ -4,13 +4,15 @@ namespace RC\http\mocks;
 
 use RC\http\Request;
 use RC\http\Response;
-use RC\http\ResponseMock;
 
-class AuthenticationResponse extends ResponseMock
+class AuthenticationMock extends Mock
 {
 
     protected $path = '/restapi/oauth/token';
 
+    /**
+     * @inheritdoc
+     */
     public function getResponse(Request $request)
     {
 
@@ -21,16 +23,22 @@ class AuthenticationResponse extends ResponseMock
             'refresh_token'            => 'REFRESH_TOKEN',
             'refresh_token_expires_in' => 60480,
             'scope'                    => 'SMS RCM Foo Boo',
-            'expireTime'               => time() + 3600
+            'expireTime'               => time() + 3600,
+            'owner_id'                 => 'foo'
         )));
 
     }
 
+    /**
+     * @inheritdoc
+     */
     public function test(Request $request)
     {
 
-        return empty($request->getBody()) ||
-               empty($request->getBody()['refresh_token']);
+        return parent::test($request) &&
+               !empty($request->getBody()) &&
+               !empty($request->getBody()['grant_type']) &&
+               $request->getBody()['grant_type'] == 'password';
 
     }
 

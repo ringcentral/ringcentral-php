@@ -17,7 +17,6 @@ class Response extends Headers
     private $rawHeaders = '';
     private $status = 0;
 
-
     /**
      * @inheritdoc
      */
@@ -158,6 +157,8 @@ class Response extends Headers
      */
     public function getError()
     {
+
+        if ($this->isSuccess()) return null;
 
         $message = $this->getStatus() . ' Unknown response error';
 

@@ -49,7 +49,7 @@ class Headers
         return $this->setHeader(self::CONTENT_TYPE, $contentType);
     }
 
-    public function setHeaders($headers = array())
+    public function setHeaders(array $headers = array())
     {
 
         if (!empty($headers)) {

@@ -3,23 +3,33 @@
 namespace RC\http;
 
 use Exception;
+use RC\http\mocks\Mocks;
 
 class RequestMock extends Request
 {
 
-    /** @var ResponseMockCollection */
-    protected $collection;
+    /** @var Mocks */
+    protected $mocks;
 
+    /**
+     * @param Mocks        $mocks
+     * @param string       $method
+     * @param string       $url
+     * @param array|null   $queryParams
+     * @param array|string $body
+     * @param array        $headers
+     * @throws Exception
+     */
     public function __construct(
-        ResponseMockCollection $collection,
-        $method = '',
-        $url = '',
+        Mocks $mocks,
+        $method,
+        $url,
         $queryParams = array(),
         $body = null,
-        $headers = array()
+        array $headers = array()
     ) {
         parent::__construct($method, $url, $queryParams, $body, $headers);
-        $this->collection = $collection;
+        $this->mocks = $mocks;
     }
 
     /**
@@ -29,13 +39,13 @@ class RequestMock extends Request
     public function send()
     {
 
-        $responseMock = $this->collection->find($this);
+        $responseMock = $this->mocks->find($this);
 
         if (empty($responseMock)) {
-            throw new HttpException($this, null, new Exception('Response was not found in collection'));
+            throw new HttpException($this, null, new Exception('Mock was not found in contextual mocks registry'));
         }
 
-        $response = $responseMock->getResponse();
+        $response = $responseMock->getResponse($this);
 
         if (!$response->isSuccess()) {
             throw new HttpException($this, $response, new Exception('Response has unsuccessful status'));

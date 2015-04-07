@@ -1,14 +1,16 @@
 <?php
 
-namespace RC\http;
+namespace RC\http\mocks;
 
-class ResponseMockCollection
+use RC\http\Request;
+
+class Mocks
 {
 
-    /** @var ResponseMock[] */
+    /** @var Mock[] */
     protected $responses = array();
 
-    public function add(ResponseMock $requestMockResponse)
+    public function add(Mock $requestMockResponse)
     {
 
         $this->responses[] = $requestMockResponse;
@@ -18,7 +20,7 @@ class ResponseMockCollection
 
     /**
      * @param Request $request
-     * @return ResponseMock
+     * @return Mock
      */
     public function find(Request $request)
     {
@@ -27,7 +29,7 @@ class ResponseMockCollection
 
         foreach ($this->responses as $res) {
 
-            if ($res->match($request)) {
+            if ($res->test($request)) {
                 $response = $res;
             }
 
