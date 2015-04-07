@@ -1,21 +1,19 @@
 <?php
 
-use RC\http\Headers;
-use RC\http\mocks\AuthenticationResponse;
-use RC\SDK;
+use RC\http\mocks\GenericMock;
+use RC\http\mocks\LogoutMock;
+use RC\http\mocks\RefreshMock;
+use RC\test\TestCase;
 
-class PlatformTest extends PHPUnit_Framework_TestCase
+class PlatformTest extends TestCase
 {
 
-    protected function getSDK(){
+    public function testKey()
+    {
 
-        $sdk = new SDK('foo', 'bar', 'baz');
+        $sdk = $this->getSDK(false);
 
-        $sdk->getContext()
-            ->usePubnubStub(true)
-            ->useRequestStub(true);
-
-        return $sdk;
+        $this->assertEquals('d2hhdGV2ZXI6d2hhdGV2ZXI=', $sdk->getPlatform()->getApiKey());
 
     }
 
@@ -24,11 +22,123 @@ class PlatformTest extends PHPUnit_Framework_TestCase
 
         $sdk = $this->getSDK();
 
-        $sdk->getContext()->getResponseMockCollection()->add(new AuthenticationResponse());
-
-        $sdk->getPlatform()->authorize('foo', null, 'baz', true);
-
         $this->assertTrue(!empty($sdk->getPlatform()->getAuthData()['remember']));
+
+    }
+
+    public function testRefreshWithOutdatedToken()
+    {
+
+        $sdk = $this->getSDK(true);
+
+        $sdk->getContext()
+            ->getMocks()
+            ->add(new RefreshMock());
+
+        $sdk->getPlatform()->setAuthData(array(
+            'refresh_token_expires_in'  => 1,
+            'refresh_token_expire_time' => 1
+        ));
+
+        $caught = true;
+
+        try {
+            $sdk->getPlatform()->refresh();
+            $caught = false;
+        } catch (Exception $e) {
+            $this->assertEquals('Refresh token has expired', $e->getMessage());
+        }
+
+        $this->assertTrue($caught);
+
+    }
+
+    public function testAutomaticRefresh()
+    {
+
+        $sdk = $this->getSDK();
+
+        $sdk->getContext()
+            ->getMocks()
+            ->add(new RefreshMock())
+            ->add(new GenericMock('/foo', array('foo' => 'bar')));
+
+        $sdk->getPlatform()->setAuthData(array(
+            'expires_in'  => 1,
+            'expire_time' => 1
+        ));
+
+        $this->assertEquals('bar', $sdk->getPlatform()->get('/foo')->getJson()->foo);
+
+        $this->assertEquals('ACCESS_TOKEN_FROM_REFRESH', $sdk->getPlatform()->getAuthData()['access_token']);
+
+    }
+
+    public function testLogout()
+    {
+
+        $sdk = $this->getSDK();
+
+        $sdk->getContext()
+            ->getMocks()
+            ->add(new LogoutMock());
+
+        $sdk->getPlatform()->logout();
+
+        $this->assertEquals('', $sdk->getPlatform()->getAuthData()['access_token']);
+        $this->assertEquals('', $sdk->getPlatform()->getAuthData()['refresh_token']);
+
+    }
+
+    public function testApiUrl()
+    {
+
+        $sdk = $this->getSDK();
+
+        $this->assertEquals(
+            'https://whatever/restapi/v1.0/account/~/extension/~?_method=POST&access_token=ACCESS_TOKEN',
+            $sdk->getPlatform()->apiUrl('/account/~/extension/~', array(
+                'addServer' => true,
+                'addMethod' => 'POST',
+                'addToken'  => true
+            ))
+        );
+
+        $this->assertEquals(
+            'https://foo/account/~/extension/~?_method=POST&access_token=ACCESS_TOKEN',
+            $sdk->getPlatform()->apiUrl('https://foo/account/~/extension/~', array(
+                'addServer' => true,
+                'addMethod' => 'POST',
+                'addToken'  => true
+            ))
+        );
+
+    }
+
+    public function testUnsuccessfulRefresh(){
+
+        $sdk = $this->getSDK();
+
+        $sdk->getContext()
+            ->getMocks()
+            ->add(new RefreshMock(false, -1))
+            ->add(new GenericMock('/foo', array('foo' => 'bar')));
+
+        $sdk->getPlatform()->setAuthData(array(
+            'expires_in'  => 1,
+            'expire_time' => 1
+        ));
+
+        $caught = false;
+
+        try {
+            $sdk->getPlatform()->isAuthorized();
+        } catch (Exception $e) {
+            $this->assertEquals('Access token is not valid after refresh timeout', $e->getMessage());
+            $caught = true;
+        }
+
+        $this->assertTrue($caught);
 
     }
 

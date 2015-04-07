@@ -15,70 +15,35 @@ class Request extends Headers
 
     protected static $allowedMethods = [self::GET, self::POST, self::PUT, self::DELETE];
 
-    protected $method = self::GET;
-    protected $url = '';
-    protected $queryParams = array();
-    protected $body = null;
+    protected $method;
+    protected $url;
+    protected $queryParams;
+    protected $body;
 
     /** @var Response */
     protected $response = null;
 
-    public function __construct($method = '', $url = '', $queryParams = array(), $body = null, $headers = array())
+    /**
+     * @param string       $method
+     * @param string       $url
+     * @param array|null   $queryParams
+     * @param array|string $body
+     * @param array        $headers
+     * @throws Exception
+     */
+    public function __construct($method, $url, $queryParams = array(), $body = null, $headers = array())
     {
 
-        if (empty($method)) {
-            throw new Exception('Method must be provided');
-        }
-
-        if (empty($url)) {
-            throw new Exception('Url must be provided');
-        }
-
-        if (!in_array($method, self::$allowedMethods)) {
-            throw new Exception('Unknown method');
-        }
-
-        $this->method = $method;
-
-        $this->url = $url;
-
-        if (!empty($queryParams)) {
-            $this->queryParams = $queryParams;
-        }
-
-        if (!empty($body)) {
-            $this->body = $body;
-        }
-
-        $this->setHeaders([
-            self::ACCEPT       => self::JSON_CONTENT_TYPE,
-            self::CONTENT_TYPE => self::JSON_CONTENT_TYPE
-        ]);
-
-        $this->setHeaders($headers);
-
-    }
-
-    public function getUrl()
-    {
-        return $this->url;
-    }
-
-    public function getUrlWithQueryString()
-    {
-        return $this->url . (!empty($this->queryParams) ? (stristr($this->url, '?') ? '&' : '?') . http_build_query($this->queryParams) : '');
-    }
-
-    public function getEncodedBody()
-    {
-
-        if ($this->isJson()) {
-            return json_encode($this->body);
-        } elseif ($this->isUrlEncoded()) {
-            return http_build_query($this->body);
-        } else {
-            return $this->body;
-        }
+        $this
+            ->setMethod($method)
+            ->setUrl($url)
+            ->setQueryParams($queryParams)
+            ->setBody($body)
+            ->setHeaders([
+                self::ACCEPT       => self::JSON_CONTENT_TYPE,
+                self::CONTENT_TYPE => self::JSON_CONTENT_TYPE
+            ])
+            ->setHeaders($headers);
 
     }
 
@@ -109,13 +74,42 @@ class Request extends Headers
 
     public function setMethod($method)
     {
+        if (!in_array($method, self::$allowedMethods)) {
+            throw new Exception('Unknown method');
+        }
         $this->method = $method;
         return $this;
+    }
+
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    public function getUrlWithQueryString()
+    {
+        return $this->url . (!empty($this->queryParams) ? (stristr($this->url,
+                '?') ? '&' : '?') . http_build_query($this->queryParams) : '');
     }
 
     public function setUrl($url)
     {
         $this->url = $url;
+        return $this;
+    }
+
+    public function getQueryParams()
+    {
+        return $this->queryParams;
+    }
+
+    /**
+     * @param array $queryParams
+     * @return $this
+     */
+    public function setQueryParams($queryParams = array())
+    {
+        $this->queryParams = $queryParams;
         return $this;
     }
 
@@ -130,14 +124,23 @@ class Request extends Headers
         return $this->body;
     }
 
-    public function getQueryParams()
+    public function getEncodedBody()
     {
-        return $this->queryParams;
+
+        if ($this->isJson()) {
+            return json_encode($this->body);
+        } elseif ($this->isUrlEncoded()) {
+            return http_build_query($this->body);
+        } else {
+            return $this->body;
+        }
+
     }
 
     /**
      * @return $this
      * @throws HttpException
+     * @codeCoverageIgnore
      */
     public function send()
     {

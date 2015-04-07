@@ -6,7 +6,7 @@ require_once('vendor/autoload.php');
 use RC\http\HttpException;
 use RC\http\Response;
 use RC\SDK;
-use RC\subscription\NotificationEvent;
+use RC\subscription\events\NotificationEvent;
 use RC\subscription\Subscription;
 
 date_default_timezone_set('UTC');

@@ -8,9 +8,6 @@ use RC\core\Observable;
 class PubnubMock extends Pubnub
 {
 
-    /** @var callable */
-    private $onMessage;
-
     /** @var Observable */
     private $observer;
 
@@ -24,14 +21,18 @@ class PubnubMock extends Pubnub
     public function subscribe($address, $cb = null)
     {
 
-        $this->observer->on('message', $this->onMessage);
+        $this->observer->on('message', $cb);
 
     }
 
     public function receiveMessage($message)
     {
 
-        $this->observer->emit('message', $message);
+        $this->observer->emit('message', array(
+            'message' => $message,
+            'channel' => null,
+            'timeToken' => time()
+        ));
 
     }
 

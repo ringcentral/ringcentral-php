@@ -9,6 +9,9 @@ use RC\core\Context;
 use RC\core\Observable;
 use RC\http\Response;
 use RC\platform\Platform;
+use RC\subscription\events\ErrorEvent;
+use RC\subscription\events\NotificationEvent;
+use RC\subscription\events\SuccessEvent;
 
 class Subscription extends Observable
 {
@@ -267,6 +270,14 @@ class Subscription extends Observable
 
         return $this;
 
+    }
+
+    /**
+     * @return Pubnub|PubnubMock
+     */
+    public function getPubnub()
+    {
+        return $this->pubnub;
     }
 
 }

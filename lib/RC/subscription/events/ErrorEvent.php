@@ -1,6 +1,6 @@
 <?php
 
-namespace RC\subscription;
+namespace RC\subscription\events;
 
 class ErrorEvent
 {

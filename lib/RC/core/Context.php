@@ -3,9 +3,9 @@
 namespace RC\core;
 
 use Pubnub\Pubnub;
+use RC\http\mocks\Mocks;
 use RC\http\Request;
 use RC\http\RequestMock;
-use RC\http\ResponseMockCollection;
 use RC\subscription\PubnubMock;
 
 class Context
@@ -14,12 +14,12 @@ class Context
     protected $_usePubnubMock = false;
     protected $_useRequestMock = false;
 
-    /** @var ResponseMockCollection */
-    protected $_responseMockCollection;
+    /** @var Mocks */
+    protected $_mocks;
 
     public function __construct()
     {
-        $this->_responseMockCollection = new ResponseMockCollection();
+        $this->_mocks = new Mocks();
     }
 
     /**
@@ -34,17 +34,17 @@ class Context
     }
 
     /**
-     * @param string $method
-     * @param string $url
-     * @param array  $queryParams
-     * @param mixed  $body
-     * @param array  $headers
+     * @param string     $method
+     * @param string     $url
+     * @param array|null $queryParams
+     * @param mixed      $body
+     * @param array      $headers
      * @return Request
      */
-    public function getRequest($method = '', $url = '', $queryParams = array(), $body = null, $headers = array())
+    public function getRequest($method = '', $url = '', $queryParams = array(), $body = null, array $headers = array())
     {
         return $this->_useRequestMock
-            ? new RequestMock($this->getResponseMockCollection(), $method, $url, $queryParams, $body, $headers)
+            ? new RequestMock($this->getMocks(), $method, $url, $queryParams, $body, $headers)
             : new Request($method, $url, $queryParams, $body, $headers);
     }
 
@@ -60,9 +60,9 @@ class Context
         return $this;
     }
 
-    public function getResponseMockCollection()
+    public function getMocks()
     {
-        return $this->_responseMockCollection;
+        return $this->_mocks;
     }
 
 }
