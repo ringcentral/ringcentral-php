@@ -41,7 +41,7 @@ class Mocks
 
     public function clear()
     {
-        $this->responses = [];
+        $this->responses = array();
     }
 
 }

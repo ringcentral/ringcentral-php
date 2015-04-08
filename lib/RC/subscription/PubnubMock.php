@@ -18,7 +18,7 @@ class PubnubMock extends Pubnub
 
     }
 
-    public function subscribe($address, $cb = null)
+    public function subscribe($channel, $cb, $timeToken = 0, $presence = false)
     {
 
         $this->observer->on('message', $cb);

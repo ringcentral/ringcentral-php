@@ -39,7 +39,7 @@ abstract class Mock
     protected static function createBody(array $body = array(), array $headers = array('content-type' => 'application/json'))
     {
 
-        $res = [];
+        $res = array();
 
         foreach ($headers as $k => $v) {
             $res[] = $k . ': ' . $v;

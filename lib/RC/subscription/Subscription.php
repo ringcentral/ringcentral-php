@@ -201,9 +201,11 @@ class Subscription extends Observable
 
     private function getFullEventFilters()
     {
-        return array_map(function ($event) {
-            return $this->platform->apiUrl($event);
-        }, $this->eventFilters);
+        $events = array();
+        foreach ($this->eventFilters as $event) {
+            $events[] = $this->platform->apiUrl($event);
+        }
+        return $events;
     }
 
     protected function updateSubscription($subscription)
@@ -224,6 +226,8 @@ class Subscription extends Observable
 
     }
 
+
+
     protected function subscribeAtPubnub()
     {
 
@@ -231,17 +235,14 @@ class Subscription extends Observable
             return $this;
         }
 
-        $this->pubnub = $this->context->getPubnub([
+        $this->pubnub = $this->context->getPubnub(array(
             'publish_key'   => 'foo',
             'subscribe_key' => $this->subscription['deliveryMode']['subscriberKey']
-        ]);
+        ));
 
         //print 'PUBNUB object created' . PHP_EOL;
 
-        $this->pubnub->subscribe($this->subscription['deliveryMode']['address'], function ($message) {
-            $this->notify($message['message']); // chanel, timeToken
-            return $this->keepPolling;
-        });
+        $this->pubnub->subscribe($this->subscription['deliveryMode']['address'], array($this, 'notify'));
 
         //print 'PUBNUB subscription created' . PHP_EOL;
 
@@ -249,8 +250,10 @@ class Subscription extends Observable
 
     }
 
-    protected function notify($message)
+    protected function notify($pubnubMessage)
     {
+
+        $message = $pubnubMessage['message'];
 
         //TODO Since pubnub blocks everything this is probably the only place where we can intercept the process and to subscription renew
         //$this->renew();
@@ -268,7 +271,7 @@ class Subscription extends Observable
 
         $this->emit(self::EVENT_NOTIFICATION, new NotificationEvent($message));
 
-        return $this;
+        return $this->keepPolling;
 
     }
 

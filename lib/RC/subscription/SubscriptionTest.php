@@ -24,9 +24,11 @@ class SubscriptionTest extends TestCase
                       'It3DqQ6vdUWISoTfjb+vT5h9kfZxWYUP4ykN2UtUW1biqCjj1Rb6GWGnTx6jPqF77ud0XgV1rk/Q6heSFZWV/GP23/iytD' .
                       'PK1HGJoJqXPx7ErQU=';
 
+        $t = $this;
+
         $s = $sdk->getSubscription();
         $s->addEvents(array('/restapi/v1.0/account/~/extension/1/presence'))
-          ->on(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) use (&$executed) {
+          ->on(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) use (&$executed, &$t) {
 
               $expected = array(
                   "timestamp" => "2014-03-12T20:47:54.712+0000",
@@ -38,7 +40,7 @@ class SubscriptionTest extends TestCase
                   "uuid"      => "db01e7de-5f3c-4ee5-ab72-f8bd3b77e308"
               );
 
-              $this->assertEquals($expected, $e->getPayload());
+              $t->assertEquals($expected, $e->getPayload());
 
               $executed = true;
 
@@ -72,11 +74,13 @@ class SubscriptionTest extends TestCase
             "uuid"      => "db01e7de-5f3c-4ee5-ab72-f8bd3b77e308"
         );
 
+        $t = $this;
+
         $s = $sdk->getSubscription();
         $s->addEvents(array('/restapi/v1.0/account/~/extension/1/presence'))
-          ->on(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) use (&$executed, $expected) {
+          ->on(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) use (&$executed, $expected, &$t) {
 
-              $this->assertEquals($expected, $e->getPayload());
+              $t->assertEquals($expected, $e->getPayload());
 
               $executed = true;
 
