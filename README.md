@@ -26,10 +26,12 @@
   
   2. Follow [PUBNUB installation instructions](https://github.com/pubnub/php#php--53-without-composer)
   
-  3. Require files:
+  3. Follow [PhpSecLib installation instructions](https://github.com/phpseclib/phpseclib)
+  
+  4. Require files:
   
     ```php
-    require('path-to-pubnub/lib/autoloader.php');
+    // PUBNUB and PHPSECLIB should be added before
     require('path-to-rcsdk/rcsdk.phar');
     ```
 
@@ -39,10 +41,12 @@
 
   2. Follow [PUBNUB installation instructions](https://github.com/pubnub/php#php--53-without-composer)
   
-  3. Add autoloaders:
+  3. Follow [PhpSecLib installation instructions](https://github.com/phpseclib/phpseclib)
+  
+  4. Add autoloaders:
   
     ```php
-    require('path-to-pubnub/lib/autoloader.php');
+    // PUBNUB and PHPSECLIB should be added before
     require('path-to-rcsdk/lib/autoload.php');
     ```
     
