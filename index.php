@@ -147,7 +147,7 @@ if (!$argv || !in_array('skipSMS', $argv)) {
 
 $subscription = $rcsdk->getSubscription();
 
-$subscription->addEvents(['/account/~/extension/~/message-store']);
+$subscription->addEvents(array('/account/~/extension/~/message-store'));
 
 $subscription->setKeepPolling(false);
 
