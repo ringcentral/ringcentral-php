@@ -6,9 +6,11 @@ test:
 phar:
 	php ./create-phar.php
 
-
 .PHONY: all
 all:
 	make test
 	make phar
 
+.PHONY: install
+install:
+	composer install --prefer-source --no-interaction

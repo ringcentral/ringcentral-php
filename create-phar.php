@@ -40,8 +40,9 @@ require('./dist/rcsdk.phar');
 
 $sdk = new RC\SDK('foo', 'bar', 'http://server');
 
-$url = $sdk->getPlatform()->apiUrl('/foo', ['addServer' => true]);
+$url = $sdk->getPlatform()->apiUrl('/foo', array('addServer' => true));
 
-if (!$url == 'http://server/restapi/v1.0/foo') {
+if ($url != 'http://server/restapi/v1.0/foo') {
     print 'Failed to verify PHAR' . PHP_EOL;
+    exit(1);
 }
