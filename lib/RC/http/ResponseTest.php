@@ -94,13 +94,15 @@ class ResponseTest extends TestCase
 
         $r1 = new Response(207, $goodMultipartMixedResponse);
         $this->assertEquals(2, count($r1->getResponses()));
-        $this->assertEquals('bar', $r1->getResponses()[0]->getJson()->foo);
-        $this->assertEquals('qux', $r1->getResponses()[1]->getJson()->baz);
+        $rr1 = $r1->getResponses();
+        $this->assertEquals('bar', $rr1[0]->getJson()->foo);
+        $this->assertEquals('qux', $rr1[1]->getJson()->baz);
 
         $r2 = new Response(207, $multipartMixedResponseWithErrorPart);
-        $this->assertEquals('bar', $r2->getResponses()[0]->getJson()->foo);
-        $this->assertEquals('object not found', $r2->getResponses()[1]->getError());
-        $this->assertEquals('qux', $r2->getResponses()[2]->getJson()->baz);
+        $rr2 = $r2->getResponses();
+        $this->assertEquals('bar', $rr2[0]->getJson()->foo);
+        $this->assertEquals('object not found', $rr2[1]->getError());
+        $this->assertEquals('qux', $rr2[2]->getJson()->baz);
 
         $r3 = new Response(207, $badMultipartMixedResponse);
         $caught = false;

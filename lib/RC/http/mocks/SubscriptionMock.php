@@ -23,8 +23,10 @@ class SubscriptionMock extends Mock
     public function getResponse(Request $request)
     {
 
+        $body = $request->getBody();
+
         return new Response(200, self::createBody(array(
-            'eventFilters'   => $request->getBody()['eventFilters'],
+            'eventFilters'   => $body['eventFilters'],
             'expirationTime' => date('c', time() + $this->expiresIn),
             'expiresIn'      => $this->expiresIn,
             'deliveryMode'   => array(

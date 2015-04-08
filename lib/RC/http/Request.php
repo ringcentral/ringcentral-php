@@ -13,7 +13,7 @@ class Request extends Headers
     const PUT = 'PUT';
     const PATCH = 'PATCH';
 
-    protected static $allowedMethods = [self::GET, self::POST, self::PUT, self::DELETE];
+    protected static $allowedMethods = array(self::GET, self::POST, self::PUT, self::DELETE);
 
     protected $method;
     protected $url;
@@ -39,10 +39,10 @@ class Request extends Headers
             ->setUrl($url)
             ->setQueryParams($queryParams)
             ->setBody($body)
-            ->setHeaders([
+            ->setHeaders(array(
                 self::ACCEPT       => self::JSON_CONTENT_TYPE,
                 self::CONTENT_TYPE => self::JSON_CONTENT_TYPE
-            ])
+            ))
             ->setHeaders($headers);
 
     }

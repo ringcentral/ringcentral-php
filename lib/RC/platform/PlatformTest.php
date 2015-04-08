@@ -21,8 +21,9 @@ class PlatformTest extends TestCase
     {
 
         $sdk = $this->getSDK();
+        $authData = $sdk->getPlatform()->getAuthData();
 
-        $this->assertTrue(!empty($sdk->getPlatform()->getAuthData()['remember']));
+        $this->assertTrue(!empty($authData['remember']));
 
     }
 
@@ -70,7 +71,9 @@ class PlatformTest extends TestCase
 
         $this->assertEquals('bar', $sdk->getPlatform()->get('/foo')->getJson()->foo);
 
-        $this->assertEquals('ACCESS_TOKEN_FROM_REFRESH', $sdk->getPlatform()->getAuthData()['access_token']);
+        $authData = $sdk->getPlatform()->getAuthData();
+
+        $this->assertEquals('ACCESS_TOKEN_FROM_REFRESH', $authData['access_token']);
 
     }
 
@@ -85,8 +88,10 @@ class PlatformTest extends TestCase
 
         $sdk->getPlatform()->logout();
 
-        $this->assertEquals('', $sdk->getPlatform()->getAuthData()['access_token']);
-        $this->assertEquals('', $sdk->getPlatform()->getAuthData()['refresh_token']);
+        $authData = $sdk->getPlatform()->getAuthData();
+
+        $this->assertEquals('', $authData['access_token']);
+        $this->assertEquals('', $authData['refresh_token']);
 
     }
 

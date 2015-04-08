@@ -53,10 +53,12 @@ class RefreshMock extends Mock
     public function test(Request $request)
     {
 
+        $body = $request->getBody();
+
         return parent::test($request) &&
-               !empty($request->getBody()) &&
-               !empty($request->getBody()['grant_type']) &&
-               $request->getBody()['grant_type'] == 'refresh_token';
+               !empty($body) &&
+               !empty($body['grant_type']) &&
+               $body['grant_type'] == 'refresh_token';
 
     }
 
