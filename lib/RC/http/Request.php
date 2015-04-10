@@ -167,7 +167,7 @@ class Request extends Headers
 
             $response = new Response(curl_getinfo($ch, CURLINFO_HTTP_CODE), $res);
 
-            if (!$response->isSuccess()) {
+            if (!$response->checkStatus()) {
                 throw new Exception('Response has unsuccessful status');
             }
 

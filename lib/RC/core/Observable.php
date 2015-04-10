@@ -33,7 +33,9 @@ class Observable
     public function on($event, $callable)
     {
 
-        if (!is_callable($callable)) throw new \Exception('Supplied callback is not callable type');
+        if (!is_callable($callable)) {
+            throw new \Exception('Supplied callback is not callable type');
+        }
 
         $this->ensureEvent($event);
 
@@ -48,30 +50,31 @@ class Observable
      * @param callable $callable
      * @return $this
      */
-    public function off($event, $callable = null)
+    public function off($event = '', $callable = null)
     {
 
-        if ($callable) {
+        if (!empty($event)) {
 
-            for ($i = count($this->events[$event]) - 1; $i >= 0; $i--) {
+            if ($callable) {
 
-                if ($this->events[$event][$i] == $callable) {
-                    unset($this->events[$event][$i]);
+                for ($i = count($this->events[$event]) - 1; $i >= 0; $i--) {
+
+                    if ($this->events[$event][$i] == $callable) {
+                        unset($this->events[$event][$i]);
+                    }
+
                 }
 
+            } else {
+                unset($this->events[$event]);
             }
 
         } else {
-            unset($this->events[$event]);
+            $this->events = array();
         }
 
         return $this;
 
-    }
-
-    public function offAll()
-    {
-        $this->events = array();
     }
 
     /**

@@ -47,7 +47,7 @@ class RequestMock extends Request
 
         $response = $responseMock->getResponse($this);
 
-        if (!$response->isSuccess()) {
+        if (!$response->checkStatus()) {
             throw new HttpException($this, $response, new Exception('Response has unsuccessful status'));
         }
 
