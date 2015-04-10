@@ -63,7 +63,7 @@ class Response extends Headers
 
     }
 
-    public function isSuccess()
+    public function checkStatus()
     {
         return $this->status >= 200 && $this->status < 300;
     }
@@ -158,7 +158,7 @@ class Response extends Headers
     public function getError()
     {
 
-        if ($this->isSuccess()) return null;
+        if ($this->checkStatus()) return null;
 
         $message = $this->getStatus() . ' Unknown response error';
 

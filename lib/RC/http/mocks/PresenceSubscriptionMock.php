@@ -25,9 +25,12 @@ class PresenceSubscriptionMock extends Mock
     public function getResponse(Request $request)
     {
 
+        $expiresIn = 15 * 60 * 60;
+
         return new Response(200, self::createBody(array(
             'eventFilters'   => array('/restapi/v1.0/account/~/extension/' . $this->id . '/presence' . ($this->detailed ? '?detailedTelephonyState=true' : '')),
-            'expirationTime' => date('c', time() + (15 * 60 * 60)),
+            'expirationTime' => date('c', time() + $expiresIn),
+            'expiresIn'      => $expiresIn,
             'deliveryMode'   => array(
                 'transportType'       => 'PubNub',
                 'encryption'          => true,

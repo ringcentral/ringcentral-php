@@ -100,9 +100,12 @@ class Platform
             $builtUrl .= self::URL_PREFIX . '/' . self::API_VERSION;
         }
 
-        if (stristr($url, self::ACCOUNT_PREFIX)) {
-            $builtUrl = str_replace(self::ACCOUNT_PREFIX . self::ACCOUNT_ID, self::ACCOUNT_PREFIX . $this->account,
-                $builtUrl);
+        if (stristr($builtUrl, self::ACCOUNT_PREFIX)) {
+            $builtUrl = str_replace(
+                self::ACCOUNT_PREFIX . self::ACCOUNT_ID,
+                self::ACCOUNT_PREFIX . $this->account,
+                $builtUrl
+            );
         }
 
         $builtUrl .= $url;

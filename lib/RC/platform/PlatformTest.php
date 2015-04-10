@@ -41,12 +41,12 @@ class PlatformTest extends TestCase
             'refresh_token_expire_time' => 1
         ));
 
-        $caught = true;
+        $caught = false;
 
         try {
             $sdk->getPlatform()->refresh();
-            $caught = false;
         } catch (Exception $e) {
+            $caught = true;
             $this->assertEquals('Refresh token has expired', $e->getMessage());
         }
 
