@@ -27,7 +27,7 @@ class Auth
         $this->reset();
     }
 
-    public function setData(array $data = [])
+    public function setData(array $data = array())
     {
 
         if (empty($data)) {
@@ -116,7 +116,7 @@ class Auth
     public function getData()
     {
 
-        return [
+        return array(
             'remember'                  => $this->remember,
             'token_type'                => $this->token_type,
             'access_token'              => $this->access_token,
@@ -127,7 +127,7 @@ class Auth
             'refresh_token_expire_time' => $this->refresh_token_expire_time,
             'scope'                     => $this->scope,
             'owner_id'                  => $this->owner_id,
-        ];
+        );
 
     }
 
