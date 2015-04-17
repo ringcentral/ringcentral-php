@@ -35,7 +35,6 @@ $phar->setStub($phar->createDefaultStub("autoload.php"));
 
 //////////
 
-require('./_cache/guzzle.phar');
 require('./dist/rcsdk.phar');
 
 $sdk = new RC\SDK('foo', 'bar', 'http://server');
