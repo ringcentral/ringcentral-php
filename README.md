@@ -118,15 +118,15 @@ print 'Presence loaded ' .
 
 ```php
 
-$response = $rcsdk->getPlatform()->post('/account/~/extension/~/sms', [
-    'json' => [
-        'from' => ['phoneNumber' => 'your-RC-sms-number'],
-        'to'   => [
-            ['phoneNumber' => 'mobile-number'],
-        ],
+$response = $rcsdk->getPlatform()->post('/account/~/extension/~/sms', array(
+    'json' => array(
+        'from' => array('phoneNumber' => 'your-RC-sms-number'),
+        'to'   => array(
+            array('phoneNumber' => 'mobile-number'),
+        ),
         'text' => 'Test from PHP',
-    ]
-]);
+    )
+));
 ```
 
 ### Get Platform error message
@@ -191,10 +191,12 @@ Refreshed
 Users loaded 10
 Presence loaded Something New - Available, Something New - Available
 Expected HTTP Error: Not Found (from backend)
-Sent https://platform.ringcentral.com/restapi/v1.0/account/111/extension/222/message-store/333
-Sending SMS
+SMS Phone Number: 12223334455
+Sent SMS https://platform.ringcentral.com/restapi/v1.0/account/111/extension/222/message-store/333
 Subscribing
 ```
 
 After that script will wait for any presence notification. Make a call to your account or make outbound call from your
 account. When you will make a call, script will print notification and exit.
+
+Please take a look in `demo` folder to see all the demos.

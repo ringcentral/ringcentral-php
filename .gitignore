@@ -1,5 +1,5 @@
 .idea
-_cache
+demo/_cache
+demo/_credentials.php
 composer*.lock
-credentials.php
 vendor
