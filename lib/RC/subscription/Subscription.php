@@ -2,8 +2,8 @@
 
 namespace RC\subscription;
 
+use Crypt_AES;
 use Exception;
-use phpseclib\Crypt\AES;
 use Pubnub\Pubnub;
 use RC\core\Context;
 use RC\core\Observable;
@@ -260,7 +260,7 @@ class Subscription extends Observable
 
         if ($this->isSubscribed() && $this->subscription['deliveryMode']['encryption'] && $this->subscription['deliveryMode']['encryptionKey']) {
 
-            $cipher = new AES(AES::MODE_ECB);
+            $cipher = new Crypt_AES(CRYPT_AES_MODE_ECB);
             $cipher->setKey(base64_decode($this->subscription['deliveryMode']['encryptionKey']));
             $message = $cipher->decrypt(base64_decode($message));
             $message = json_decode($message, true); // PUBNUB always decode as array
