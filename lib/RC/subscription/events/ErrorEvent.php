@@ -1,10 +1,8 @@
 <?php
 
-namespace RC\subscription;
+namespace RC\subscription\events;
 
-use GuzzleHttp\Event\AbstractEvent;
-
-class ErrorEvent extends AbstractEvent
+class ErrorEvent
 {
 
     protected $exception;

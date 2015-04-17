@@ -20,19 +20,34 @@
     require('vendor/autoload.php');
    ```
 
-Also please read [Guzzle Installation Docs](http://docs.guzzlephp.org/en/latest/overview.html#installation).
-
 ## Without Composer
 
   1. Download [PHAR file](https://github.com/ringcentral/php-sdk/blob/master/dist/rcsdk.phar)
   
-  2. Download PHAR from [Guzzle Releases](https://github.com/guzzle/guzzle/releases).
+  2. Follow [PUBNUB installation instructions](https://github.com/pubnub/php#php--53-without-composer)
   
-  3. Require files:
+  3. Follow [PhpSecLib installation instructions](https://github.com/phpseclib/phpseclib)
+  
+  4. Require files:
   
     ```php
-    require('guzzle.phar');
-    require('rcsdk.phar');
+    // PUBNUB and PHPSECLIB should be added before
+    require('path-to-rcsdk/rcsdk.phar');
+    ```
+
+## Without Composer and PHAR
+    
+  1. Clone or download [ZIP file](https://github.com/ringcentral/php-sdk/archive/master.zip)
+
+  2. Follow [PUBNUB installation instructions](https://github.com/pubnub/php#php--53-without-composer)
+  
+  3. Follow [PhpSecLib installation instructions](https://github.com/phpseclib/phpseclib)
+  
+  4. Add autoloaders:
+  
+    ```php
+    // PUBNUB and PHPSECLIB should be added before
+    require('path-to-rcsdk/lib/autoload.php');
     ```
     
 # Basic Usage
@@ -74,10 +89,6 @@ When two simultaneous requests will perform refresh, only one will succeed. One 
 semaphor and pause other pending requests while one of them is performing refresh.
 
 ## Performing API call
-
-Platform class extends [Guzzle Client](http://guzzle.readthedocs.org/en/latest/quickstart.html) so anything that can be
-done via Guzzle Client can be done via Platform (and more). Guzzle Client is pre-configured when SDK instance is
-created, no extra configuration is needed.
 
 ```php
 $response = $rcsdk->getPlatform()->get('/account/~/extension/~');
@@ -131,3 +142,59 @@ try {
 
 }
 ```
+
+# Subscriptions
+
+```php
+$s = ;
+
+$sdk->getSubscription()
+    ->addEvents(array('/restapi/v1.0/account/~/extension/~/presence'))
+    ->on(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
+
+        print_r($e->getPayload());
+
+    })
+    ->register();
+```
+
+# How to demo?
+
+Clone the repo and create a file `credentials.php` near `index.php`:
+
+```php
+return array(
+    'username'     => '18881112233', // your RC phone number
+    'extension'    => null, // or number
+    'password'     => 'yourPassword',
+    'appKey'       => 'yourAppKey',
+    'appSecret'    => 'yourAppSecret',
+    'server'       => 'https://platform.devtest.ringcentral.com', // for production - https://platform.ringcentral.com
+    'smsNumber'    => '18882223344', // any of SMS-enabled numbers on your RC account
+    'mobileNumber' => '16502746490', // your own mobile number to which script will send sms
+);
+```
+
+Then execute:
+
+```sh
+$ php index.php
+```
+
+Should output:
+
+```
+Auth exception: Refresh token has expired
+Authorized
+Refreshing
+Refreshed
+Users loaded 10
+Presence loaded Something New - Available, Something New - Available
+Expected HTTP Error: Not Found (from backend)
+Sent https://platform.ringcentral.com/restapi/v1.0/account/111/extension/222/message-store/333
+Sending SMS
+Subscribing
+```
+
+After that script will wait for any presence notification. Make a call to your account or make outbound call from your
+account. When you will make a call, script will print notification and exit.

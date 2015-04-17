@@ -1,11 +1,10 @@
 <?php
 
-namespace RC\subscription;
+namespace RC\subscription\events;
 
-use GuzzleHttp\Event\AbstractEvent;
 use RC\http\Response;
 
-class SuccessEvent extends AbstractEvent
+class SuccessEvent
 {
 
     /** @var Response */
