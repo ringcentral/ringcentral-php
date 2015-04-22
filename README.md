@@ -160,7 +160,7 @@ $sdk->getSubscription()
 
 # How to demo?
 
-Clone the repo and create a file `credentials.php` near `index.php`:
+Clone the repo and create a file `demo/_credentials.php`:
 
 ```php
 return array(
