@@ -1,5 +1,7 @@
 <?php
 
+use RC\http\HttpException;
+use RC\http\mocks\GenericMock;
 use RC\http\mocks\PresenceSubscriptionMock;
 use RC\http\mocks\SubscriptionMock;
 use RC\subscription\events\NotificationEvent;
@@ -106,6 +108,123 @@ class SubscriptionTest extends TestCase
         $s = $sdk->getSubscription()->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
 
         $this->assertEquals('/restapi/v1.0/account/~/extension/1/presence', $s->getJson()->eventFilters[0]);
+
+    }
+
+    public function testSubscribeErrorWithEvents()
+    {
+
+        $sdk = $this->getSDK();
+
+        $sdk->getContext()
+            ->getMocks()
+            ->add(new GenericMock('/subscription', array('message' => 'Expected Error'), 400));
+
+        /** @var HttpException $err */
+        $err = null;
+
+        try {
+            $sdk->getSubscription()->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        } catch(HttpException $e) {
+            $err = $e;
+        }
+
+        $this->assertEquals('Expected Error', $err->getMessage());
+        $this->assertEquals('Expected Error', $err->getResponse()->getError());
+
+    }
+
+    public function testRenew()
+    {
+
+        $sdk = $this->getSDK();
+
+        $sdk->getContext()
+            ->getMocks()
+            ->add(new SubscriptionMock())
+            ->add(new GenericMock('/subscription/foo-bar-baz', array('ok' => 'ok')));
+
+        $s = $sdk->getSubscription();
+
+        $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        $s->renew(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+
+        $this->assertEquals(array('ok' => 'ok'), $s->getSubscription());
+
+    }
+
+    public function testRenewError()
+    {
+
+        $sdk = $this->getSDK();
+
+        $sdk->getContext()
+            ->getMocks()
+            ->add(new SubscriptionMock())
+            ->add(new GenericMock('/subscription/foo-bar-baz', array('message' => 'Expected Error'), 400));
+
+        $s = $sdk->getSubscription();
+
+        $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+
+        /** @var HttpException $err */
+        $err = null;
+
+        try {
+            $s->renew(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        } catch(HttpException $e) {
+            $err = $e;
+        }
+
+        $this->assertEquals('Expected Error', $err->getMessage());
+        $this->assertEquals('Expected Error', $err->getResponse()->getError());
+
+    }
+
+    public function testRemove()
+    {
+
+        $sdk = $this->getSDK();
+
+        $sdk->getContext()
+            ->getMocks()
+            ->add(new SubscriptionMock())
+            ->add(new GenericMock('/subscription/foo-bar-baz', array('ok' => 'ok')));
+
+        $s = $sdk->getSubscription();
+
+        $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        $s->remove();
+
+        $this->assertEquals(null, $s->getSubscription());
+
+    }
+
+    public function testRemoveError()
+    {
+
+        $sdk = $this->getSDK();
+
+        $sdk->getContext()
+            ->getMocks()
+            ->add(new SubscriptionMock())
+            ->add(new GenericMock('/subscription/foo-bar-baz', array('message' => 'Expected Error'), 400));
+
+        $s = $sdk->getSubscription();
+
+        $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+
+        /** @var HttpException $err */
+        $err = null;
+
+        try {
+            $s->remove();
+        } catch(HttpException $e) {
+            $err = $e;
+        }
+
+        $this->assertEquals('Expected Error', $err->getMessage());
+        $this->assertEquals('Expected Error', $err->getResponse()->getError());
 
     }
 

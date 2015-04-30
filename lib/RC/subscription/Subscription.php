@@ -151,7 +151,7 @@ class Subscription extends Observable
 
             $this->emit(self::EVENT_RENEW_SUCCESS, new SuccessEvent($response));
 
-            return $response;
+            return $this;
 
         } catch (Exception $e) {
 
@@ -163,12 +163,8 @@ class Subscription extends Observable
 
     }
 
-    public function remove(array $options = array())
+    public function remove()
     {
-
-        if (!empty($options['events'])) {
-            $this->setEvents($options['events']);
-        }
 
         try {
 
@@ -281,6 +277,11 @@ class Subscription extends Observable
     public function getPubnub()
     {
         return $this->pubnub;
+    }
+
+    public function getSubscription()
+    {
+        return $this->subscription;
     }
 
 }
