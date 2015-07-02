@@ -1,5 +1,6 @@
 .idea
 demo/_cache
 demo/_credentials.php
+dist/coverage
 composer*.lock
 vendor

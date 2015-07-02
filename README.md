@@ -118,14 +118,12 @@ print 'Presence loaded ' .
 
 ```php
 
-$response = $rcsdk->getPlatform()->post('/account/~/extension/~/sms', array(
-    'json' => array(
-        'from' => array('phoneNumber' => 'your-RC-sms-number'),
-        'to'   => array(
-            array('phoneNumber' => 'mobile-number'),
-        ),
-        'text' => 'Test from PHP',
-    )
+$response = $rcsdk->getPlatform()->post('/account/~/extension/~/sms', null, array(
+    'from' => array('phoneNumber' => 'your-RC-sms-number'),
+    'to'   => array(
+        array('phoneNumber' => 'mobile-number'),
+    ),
+    'text' => 'Test from PHP',
 ));
 ```
 
@@ -136,7 +134,7 @@ try {
 
     $platform->get('/account/~/whatever');
 
-} catch (\GuzzleHttp\Exception\RequestException $e) {
+} catch (RC\http\HttpException $e) {
 
     print 'Expected HTTP Error: ' . $e->getResponse()->getError() . PHP_EOL;
 
