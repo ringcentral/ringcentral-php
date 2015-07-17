@@ -30,3 +30,13 @@ $presences = $platform->get('/account/~/extension/' . $extensions[0]->id . ',' .
 print 'Presence loaded ' .
       $extensions[0]->name . ' - ' . $presences[0]->getJson()->presenceStatus . ', ' .
       $extensions[0]->name . ' - ' . $presences[1]->getJson()->presenceStatus . PHP_EOL;
+
+print_r($rcsdk->extension->accountExtensions(['account_id' => '~', 'extension_id' => '~'])->records[0]);
+print PHP_EOL;
+
+print_r($rcsdk->account->account(['account_id' => '~']));
+print PHP_EOL;
+
+print_r($rcsdk->callLog->accountExtensionCallLogs(['account_id' => '~', 'extension_id' => '~'])->records[0]);
+print PHP_EOL;
+
