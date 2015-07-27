@@ -81,7 +81,25 @@ class Response extends Headers
         if (!$this->isJson()) {
             throw new Exception('Response is not JSON');
         }
-        return json_decode($this->body, !$asObject);
+        $json = json_decode($this->body, !$asObject);
+        $error = json_last_error();
+        switch ($error) {
+            case JSON_ERROR_NONE:
+                break;
+            case JSON_ERROR_DEPTH:
+                throw new Exception('JSON Error: Maximum stack depth exceeded');
+                break;
+            case JSON_ERROR_CTRL_CHAR:
+                throw new Exception('JSON Error: Unexpected control character found');
+                break;
+            case JSON_ERROR_SYNTAX:
+                throw new Exception('JSON Error: Syntax error, malformed JSON');
+                break;
+            default:
+                throw new Exception('JSON Error: Unknown error');
+                break;
+        }
+        return $json;
     }
 
     /**
