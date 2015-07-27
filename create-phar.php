@@ -1,11 +1,11 @@
 <?php
 
-unlink('./dist/rcsdk.phar');
+@unlink('./dist/ringcentral.phar');
 
 $phar = new Phar(
-    './dist/rcsdk.phar',
+    './dist/ringcentral.phar',
     FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::KEY_AS_FILENAME,
-    'rcsdk.phar'
+    'ringcentral.phar'
 );
 
 function listDir($path, $phar)
@@ -35,9 +35,9 @@ $phar->setStub($phar->createDefaultStub("autoload.php"));
 
 //////////
 
-require('./dist/rcsdk.phar');
+require('./dist/ringcentral.phar');
 
-$sdk = new RC\SDK('foo', 'bar', 'http://server');
+$sdk = new RingCentral\SDK('foo', 'bar', 'http://server');
 
 $url = $sdk->getPlatform()->apiUrl('/foo', array('addServer' => true));
 

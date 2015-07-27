@@ -1,7 +1,7 @@
 <phpunit bootstrap="lib/autoload.php">
     <testsuites>
-        <testsuite name="RC">
-            <directory>lib/RC</directory>
+        <testsuite name="RingCentral">
+            <directory>lib</directory>
         </testsuite>
     </testsuites>
     <filter>

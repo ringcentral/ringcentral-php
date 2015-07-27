@@ -2,7 +2,7 @@
 
 require_once(__DIR__ . '/_bootstrap.php');
 
-use RC\SDK;
+use RingCentral\SDK;
 
 // Create SDK instance
 
