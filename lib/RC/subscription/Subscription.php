@@ -237,9 +237,7 @@ class Subscription extends Observable
 
         //print 'PUBNUB object created' . PHP_EOL;
 
-        $this->pubnub->subscribe($this->subscription['deliveryMode']['address'], function ($pubnubMessage) {
-            $this->notify($pubnubMessage);
-        });
+        $this->pubnub->subscribe($this->subscription['deliveryMode']['address'], array($this, 'notify'));
 
         //print 'PUBNUB subscription created' . PHP_EOL;
 
@@ -247,7 +245,13 @@ class Subscription extends Observable
 
     }
 
-    protected function notify($pubnubMessage)
+    /**
+     * Attention, this function is NOT PUBLIC!!! The only reason it's public is due to PHP 5.3 limitations
+     * @protected
+     * @param $pubnubMessage
+     * @return bool
+     */
+    public function notify($pubnubMessage)
     {
 
         $message = $pubnubMessage['message'];
