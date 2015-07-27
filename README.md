@@ -1,3 +1,7 @@
+# RingCentral SDK for PHP
+
+[![Build Status](https://img.shields.io/travis/ringcentral/php-sdk/master.svg)](https://travis-ci.org/ringcentral/php-sdk)
+
 # Installation
 
 ## With [Composer](http://getcomposer.org) *(recommended)*
