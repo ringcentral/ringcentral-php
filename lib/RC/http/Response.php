@@ -31,7 +31,7 @@ class Response extends Headers
         if (stristr($this->raw, self::BODY_SEPARATOR)) {
             list($this->rawHeaders, $this->body) = explode(self::BODY_SEPARATOR, $this->raw, 2);
             preg_match('#^HTTP/1.(?:0|1) [\d]{3} (.*)$#m', $this->rawHeaders, $match);
-            $this->reason = trim($match[1]);
+            $this->reason = empty($match[1]) ? '' : trim($match[1]);
         } else {
             $this->body = $this->raw;
         }
