@@ -16,6 +16,7 @@ class Response extends Headers
     private $raw = '';
     private $rawHeaders = '';
     private $status = 0;
+    private $reason = '';
 
     /**
      * @inheritdoc
@@ -29,6 +30,8 @@ class Response extends Headers
 
         if (stristr($this->raw, self::BODY_SEPARATOR)) {
             list($this->rawHeaders, $this->body) = explode(self::BODY_SEPARATOR, $this->raw, 2);
+            preg_match('#^HTTP/1.(?:0|1) [\d]{3} (.*)$#m', $this->rawHeaders, $match);
+            $this->reason = trim($match[1]);
         } else {
             $this->body = $this->raw;
         }
@@ -158,22 +161,31 @@ class Response extends Headers
     public function getError()
     {
 
-        if ($this->checkStatus()) return null;
-
-        $message = $this->getStatus() . ' Unknown response error';
-
-        $data = $this->getJson();
-
-        if (!empty($data->message)) {
-            $message = $data->message;
+        if ($this->checkStatus()) {
+            return null;
         }
 
-        if (!empty($data->error_description)) {
-            $message = $data->error_description;
-        }
+        $message = $this->getStatus() . ' ' . ($this->reason ? $this->reason : 'Unknown response error');
 
-        if (!empty($data->description)) {
-            $message = $data->description;
+        //print '[[[' . $this->raw . ']]]' . PHP_EOL;
+
+        try {
+
+            $data = $this->getJson();
+
+            if (!empty($data->message)) {
+                $message = $data->message;
+            }
+
+            if (!empty($data->error_description)) {
+                $message = $data->error_description;
+            }
+
+            if (!empty($data->description)) {
+                $message = $data->description;
+            }
+
+        } catch (Exception $e) {
         }
 
         return $message;

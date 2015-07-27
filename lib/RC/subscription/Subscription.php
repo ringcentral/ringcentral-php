@@ -223,7 +223,6 @@ class Subscription extends Observable
     }
 
 
-
     protected function subscribeAtPubnub()
     {
 
@@ -238,7 +237,9 @@ class Subscription extends Observable
 
         //print 'PUBNUB object created' . PHP_EOL;
 
-        $this->pubnub->subscribe($this->subscription['deliveryMode']['address'], array($this, 'notify'));
+        $this->pubnub->subscribe($this->subscription['deliveryMode']['address'], function ($pubnubMessage) {
+            $this->notify($pubnubMessage);
+        });
 
         //print 'PUBNUB subscription created' . PHP_EOL;
 
