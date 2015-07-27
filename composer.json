@@ -1,12 +1,14 @@
 {
-  "name": "ringcentral/php-sdk",
+  "name": "ringcentral/ringcentral-php",
   "type": "library",
   "description": "RingCentral Connect Platform PHP SDK",
   "keywords": [
     "php",
     "sdk",
     "ringcentral",
-    "connect"
+    "connect",
+    "platform",
+    "api"
   ],
   "homepage": "http://developers.ringcentral.com",
   "license": "MIT",
@@ -21,6 +23,7 @@
     }
   ],
   "require": {
+    "ext-curl": "*",
     "php": ">=5.3.0",
     "pubnub/pubnub": "~3.7",
     "phpseclib/phpseclib": "~0.3"
