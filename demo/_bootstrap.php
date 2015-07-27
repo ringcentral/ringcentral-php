@@ -3,7 +3,7 @@
 require_once(__DIR__ . '/../lib/autoload.php');
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use RC\http\HttpException;
+use RingCentral\http\HttpException;
 
 date_default_timezone_set('UTC');
 

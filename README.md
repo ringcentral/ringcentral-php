@@ -1,3 +1,7 @@
+# RingCentral SDK for PHP
+
+[![Build Status](https://img.shields.io/travis/ringcentral/ringcentral-php/master.svg)](https://travis-ci.org/ringcentral/ringcentral-php)
+
 # Installation
 
 ## With [Composer](http://getcomposer.org) *(recommended)*
@@ -11,7 +15,7 @@
   2. Run the Composer command to install the latest version of SDK:
   
     ```sh
-    $ composer require ringcentral/php-sdk
+    $ composer require ringcentral/ringcentral-php
     ```
 
   3. Require Composer's autoloader:
@@ -22,7 +26,7 @@
 
 ## Without Composer
 
-  1. Download [PHAR file](https://github.com/ringcentral/php-sdk/blob/master/dist/rcsdk.phar)
+  1. Download [PHAR file](https://github.com/ringcentral/ringcentral-php/blob/master/dist/ringcentral.phar)
   
   2. Follow [PUBNUB installation instructions](https://github.com/pubnub/php#php--53-without-composer)
   
@@ -32,12 +36,12 @@
   
     ```php
     // PUBNUB and PHPSECLIB should be added before
-    require('path-to-rcsdk/rcsdk.phar');
+    require('path-to-sdk/ringcentral.phar');
     ```
 
 ## Without Composer and PHAR
     
-  1. Clone or download [ZIP file](https://github.com/ringcentral/php-sdk/archive/master.zip)
+  1. Clone or download [ZIP file](https://github.com/ringcentral/ringcentral-php/archive/master.zip)
 
   2. Follow [PUBNUB installation instructions](https://github.com/pubnub/php#php--53-without-composer)
   
@@ -47,7 +51,7 @@
   
     ```php
     // PUBNUB and PHPSECLIB should be added before
-    require('path-to-rcsdk/lib/autoload.php');
+    require('path-to-sdk/autoload.php');
     ```
     
 # Basic Usage
@@ -55,7 +59,7 @@
 ## Initialization
 
 ```php
-$rcsdk = new RC\SDK('appKey', 'appSecret', 'https://platform.devtest.ringcentral.com');
+$sdk = new RingCentral\SDK('appKey', 'appSecret', 'https://platform.devtest.ringcentral.com');
 ```
 
 ## Authentication
@@ -63,13 +67,13 @@ $rcsdk = new RC\SDK('appKey', 'appSecret', 'https://platform.devtest.ringcentral
 Check authentication status:
 
 ```php
-$rcsdk->getPlatform()->isAuthorized(); // throws exception if not authorized after automatic refresh
+$sdk->getPlatform()->isAuthorized(); // throws exception if not authorized after automatic refresh
 ```
 
 Authenticate user:
 
 ```php
-$rcsdk->getPlatform()->authorize('username', 'extension (or leave blank)', 'password', true); // change true to false to not remember user
+$sdk->getPlatform()->authorize('username', 'extension (or leave blank)', 'password', true); // change true to false to not remember user
 ```
 
 ### Authentication lifecycle
@@ -81,20 +85,20 @@ Platform class performs token refresh procedure if needed. You can save authenti
 file_put_contents($file, json_encode($platform->getAuthData(), JSON_PRETTY_PRINT));
 
 // and then next time during application bootstrap before any authentication checks:
-$rcsdk->getPlatform()->setAuthData(json_decode(file_get_contents($file));
+$sdk->getPlatform()->setAuthData(json_decode(file_get_contents($file));
 ```
 
-**Important!** You have to manually maintain synchronization of RCSDK's between requests if you share authentication.
+**Important!** You have to manually maintain synchronization of SDK's between requests if you share authentication.
 When two simultaneous requests will perform refresh, only one will succeed. One of the solutions would be to have
 semaphor and pause other pending requests while one of them is performing refresh.
 
 ## Performing API call
 
 ```php
-$response = $rcsdk->getPlatform()->get('/account/~/extension/~');
-$response = $rcsdk->getPlatform()->post('/account/~/extension/~');
-$response = $rcsdk->getPlatform()->put('/account/~/extension/~');
-$response = $rcsdk->getPlatform()->delete('/account/~/extension/~');
+$response = $sdk->getPlatform()->get('/account/~/extension/~');
+$response = $sdk->getPlatform()->post('/account/~/extension/~');
+$response = $sdk->getPlatform()->put('/account/~/extension/~');
+$response = $sdk->getPlatform()->delete('/account/~/extension/~');
 
 print_r($response->getJson()); // stdClass will be returned or exception if Content-Type is not JSON
 ```
@@ -105,9 +109,9 @@ Loading of multiple comma-separated IDs will result in HTTP 207 with `Content-Ty
 be parsed into multiple sub-responses:
 
 ```php
-$presences = $rcsdk->getPlatform()
-                   ->get('/account/~/extension/id1,id2/presence')
-                   ->getResponses();
+$presences = $sdk->getPlatform()
+                 ->get('/account/~/extension/id1,id2/presence')
+                 ->getResponses();
 
 print 'Presence loaded ' .
       $presences[0]->getJson()->presenceStatus . ', ' .
@@ -118,8 +122,8 @@ print 'Presence loaded ' .
 
 ```php
 
-$response = $rcsdk->getPlatform()->post('/account/~/extension/~/sms', null, array(
-    'from' => array('phoneNumber' => 'your-RC-sms-number'),
+$response = $sdk->getPlatform()->post('/account/~/extension/~/sms', null, array(
+    'from' => array('phoneNumber' => 'your-ringcentral-sms-number'),
     'to'   => array(
         array('phoneNumber' => 'mobile-number'),
     ),
@@ -134,7 +138,7 @@ try {
 
     $platform->get('/account/~/whatever');
 
-} catch (RC\http\HttpException $e) {
+} catch (RingCentral\http\HttpException $e) {
 
     print 'Expected HTTP Error: ' . $e->getResponse()->getError() . PHP_EOL;
 
@@ -162,13 +166,13 @@ Clone the repo and create a file `demo/_credentials.php`:
 
 ```php
 return array(
-    'username'     => '18881112233', // your RC phone number
+    'username'     => '18881112233', // your RingCentral account phone number
     'extension'    => null, // or number
     'password'     => 'yourPassword',
     'appKey'       => 'yourAppKey',
     'appSecret'    => 'yourAppSecret',
     'server'       => 'https://platform.devtest.ringcentral.com', // for production - https://platform.ringcentral.com
-    'smsNumber'    => '18882223344', // any of SMS-enabled numbers on your RC account
+    'smsNumber'    => '18882223344', // any of SMS-enabled numbers on your RingCentral account
     'mobileNumber' => '16502746490', // your own mobile number to which script will send sms
 );
 ```

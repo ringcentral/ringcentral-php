@@ -1,9 +1,9 @@
 <?php
 
-function rcsdkAutoloader($class)
+function RingCentralAutoLoader($class)
 {
 
-    $prefix = 'RC\\';
+    $prefix = 'RingCentral\\';
 
     $len = strlen($prefix);
 
@@ -11,7 +11,11 @@ function rcsdkAutoloader($class)
         return;
     }
 
-    $file = __DIR__ . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
+    $file = __DIR__ . $class . '.php';
+    $file = str_replace($prefix, DIRECTORY_SEPARATOR, $file);
+    $file = str_replace('\\', DIRECTORY_SEPARATOR, $file);
+
+    //print 'RC Autoload: ' . $file . PHP_EOL;
 
     if (file_exists($file)) {
         require_once($file);
@@ -19,4 +23,4 @@ function rcsdkAutoloader($class)
 
 }
 
-spl_autoload_register('rcsdkAutoloader', true);
+spl_autoload_register('RingCentralAutoLoader', true);
