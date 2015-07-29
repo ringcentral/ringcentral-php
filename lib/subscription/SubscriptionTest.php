@@ -4,9 +4,12 @@ use RingCentral\http\HttpException;
 use RingCentral\http\mocks\GenericMock;
 use RingCentral\http\mocks\PresenceSubscriptionMock;
 use RingCentral\http\mocks\SubscriptionMock;
+use RingCentral\subscription\events\ErrorEvent;
 use RingCentral\subscription\events\NotificationEvent;
+use RingCentral\subscription\events\SuccessEvent;
 use RingCentral\subscription\Subscription;
 use RingCentral\test\TestCase;
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 class SubscriptionTest extends TestCase
 {
@@ -125,12 +128,54 @@ class SubscriptionTest extends TestCase
 
         try {
             $sdk->getSubscription()->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
-        } catch(HttpException $e) {
+        } catch (HttpException $e) {
             $err = $e;
         }
 
         $this->assertEquals('Expected Error', $err->getMessage());
         $this->assertEquals('Expected Error', $err->getResponse()->getError());
+
+    }
+
+    public function testEvents()
+    {
+
+        $counter = 0;
+
+        $sdk = $this->getSDK();
+
+        $sdk->getContext()
+            ->getMocks()
+            ->add(new SubscriptionMock());
+
+        $s1 = $sdk->getSubscription();
+
+        $s1->on(Subscription::EVENT_SUBSCRIBE_SUCCESS, function (SuccessEvent $event) use (&$counter) {
+            $this->assertEquals('/restapi/v1.0/account/~/extension/1/presence',
+                $event->getResponse()->getJson()->eventFilters[0]);
+            $counter++;
+        });
+
+        $s1->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+
+        $sdk->getContext()
+            ->getMocks()
+            ->clear()
+            ->add(new GenericMock('/subscription', array('message' => 'Expected Error'), 400));
+
+        $s2 = $sdk->getSubscription();
+
+        $s2->on(Subscription::EVENT_SUBSCRIBE_ERROR, function (ErrorEvent $event) use (&$counter) {
+            $this->assertEquals('Expected Error', $event->getException()->getMessage());
+            $counter++;
+        });
+
+        try {
+            $s2->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        } catch (HttpException $e) {
+        }
+
+        $this->assertEquals(2, $counter); // make sure both callbacks were used
 
     }
 
@@ -172,7 +217,7 @@ class SubscriptionTest extends TestCase
 
         try {
             $s->renew(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
-        } catch(HttpException $e) {
+        } catch (HttpException $e) {
             $err = $e;
         }
 
@@ -219,7 +264,7 @@ class SubscriptionTest extends TestCase
 
         try {
             $s->remove();
-        } catch(HttpException $e) {
+        } catch (HttpException $e) {
             $err = $e;
         }
 
