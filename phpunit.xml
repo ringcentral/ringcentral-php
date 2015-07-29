@@ -1,4 +1,8 @@
 <phpunit bootstrap="lib/autoload.php">
+    <logging>
+        <log type="coverage-clover" target="dist/coverage/clover.xml"/>
+        <log type="coverage-html" target="dist/coverage"/>
+    </logging>
     <testsuites>
         <testsuite name="RingCentral">
             <directory>lib</directory>

@@ -1,6 +1,6 @@
 .PHONY: test
 test:
-	./vendor/bin/phpunit --configuration ./phpunit.xml --colors --coverage-html ./dist/coverage
+	./vendor/bin/phpunit --configuration ./phpunit.xml --colors
 
 .PHONY: phar
 phar:
@@ -14,3 +14,7 @@ all:
 .PHONY: install
 install:
 	composer install --prefer-source --no-interaction
+
+.PHONY: coveralls
+coveralls:
+	./vendor/bin/coveralls -v
