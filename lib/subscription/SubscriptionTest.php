@@ -143,6 +143,7 @@ class SubscriptionTest extends TestCase
         $counter = 0;
 
         $sdk = $this->getSDK();
+        $self = $this;
 
         $sdk->getContext()
             ->getMocks()
@@ -150,8 +151,8 @@ class SubscriptionTest extends TestCase
 
         $s1 = $sdk->getSubscription();
 
-        $s1->on(Subscription::EVENT_SUBSCRIBE_SUCCESS, function (SuccessEvent $event) use (&$counter) {
-            $this->assertEquals('/restapi/v1.0/account/~/extension/1/presence',
+        $s1->on(Subscription::EVENT_SUBSCRIBE_SUCCESS, function (SuccessEvent $event) use (&$self, &$counter) {
+            $self->assertEquals('/restapi/v1.0/account/~/extension/1/presence',
                 $event->getResponse()->getJson()->eventFilters[0]);
             $counter++;
         });
@@ -165,8 +166,8 @@ class SubscriptionTest extends TestCase
 
         $s2 = $sdk->getSubscription();
 
-        $s2->on(Subscription::EVENT_SUBSCRIBE_ERROR, function (ErrorEvent $event) use (&$counter) {
-            $this->assertEquals('Expected Error', $event->getException()->getMessage());
+        $s2->on(Subscription::EVENT_SUBSCRIBE_ERROR, function (ErrorEvent $event) use (&$self, &$counter) {
+            $self->assertEquals('Expected Error', $event->getException()->getMessage());
             $counter++;
         });
 
