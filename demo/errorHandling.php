@@ -26,17 +26,9 @@ try {
 
 } catch (HttpException $e) {
 
-    $response = $e->getResponse();
+    $response = $e->getTransaction()->getResponse();
 
-    if ($response instanceof Response) { // Response has been received
-
-        $message = $response->getError() . ' (from backend) at URL ' . $e->getRequest()->getUrl();
-
-    } else { // No response received, request failed to start
-
-        $message = $e->getMessage();
-
-    }
+    $message = $e->getMessage() . ' (from backend) at URL ' . $e->getTransaction()->getRequest()->getUri()->__toString();
 
     print 'Expected HTTP Error: ' . $message . PHP_EOL;
 

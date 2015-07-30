@@ -1,59 +1,72 @@
 # RingCentral SDK for PHP
 
 [![Build Status](https://img.shields.io/travis/ringcentral/ringcentral-php/master.svg)](https://travis-ci.org/ringcentral/ringcentral-php)
-
 [![Coverage Status](https://coveralls.io/repos/ringcentral/ringcentral-php/badge.svg?branch=master&service=github)](https://coveralls.io/github/ringcentral/ringcentral-php?branch=master)
 
 # Installation
 
-## With [Composer](http://getcomposer.org) *(recommended)*
+**This release supports PHP 5.4+.**
+Last release that has PHP 5.3 support is [0.5.0](https://github.com/ringcentral/ringcentral-php/tree/0.5.0).
+PHP 5.3 support is planned for future releases, stay tuned.
+
+## With [Composer](http://getcomposer.org) **(recommended)**
   
-  1. Install composer:
+1. Install composer:
     
     ```sh
     $ curl -sS https://getcomposer.org/installer | php
     ```
   
-  2. Run the Composer command to install the latest version of SDK:
+2. Run the Composer command to install the latest version of SDK:
   
     ```sh
     $ composer require ringcentral/ringcentral-php
     ```
 
-  3. Require Composer's autoloader:
+3. Require Composer's autoloader:
     
     ```php
     require('vendor/autoload.php');
-   ```
+    ```
 
 ## Without Composer
 
-  1. Download [PHAR file](https://github.com/ringcentral/ringcentral-php/blob/master/dist/ringcentral.phar)
+**This is highly not recommended! Use [Composer](http://getcomposer.org) as modern way of working with PHP packages.**
+
+1. Download [PHAR file](https://github.com/ringcentral/ringcentral-php/blob/master/dist/ringcentral.phar)
+
+2. Install dependencies
+
+    1. [PUBNUB](https://github.com/pubnub/php#php--53-without-composer)
+    2. [PhpSecLib](https://github.com/phpseclib/phpseclib)
+    3. [Guzzle PSR-7](https://github.com/guzzle/psr7)
+    4. [Zend Framework 2 Mail Component](https://github.com/zendframework/zend-mail) (don't forget to install its dependencies too)
   
-  2. Follow [PUBNUB installation instructions](https://github.com/pubnub/php#php--53-without-composer)
-  
-  3. Follow [PhpSecLib installation instructions](https://github.com/phpseclib/phpseclib)
-  
-  4. Require files:
+3. Require files:
   
     ```php
-    // PUBNUB and PHPSECLIB should be added before
+    // PUBNUB, PHPSECLIB and ZEND FRAMEWORK 2 should be added before
     require('path-to-sdk/ringcentral.phar');
     ```
 
 ## Without Composer and PHAR
-    
-  1. Clone or download [ZIP file](https://github.com/ringcentral/ringcentral-php/archive/master.zip)
 
-  2. Follow [PUBNUB installation instructions](https://github.com/pubnub/php#php--53-without-composer)
-  
-  3. Follow [PhpSecLib installation instructions](https://github.com/phpseclib/phpseclib)
-  
-  4. Add autoloaders:
-  
+**This is highly not recommended! Use [Composer](http://getcomposer.org) as modern way of working with PHP packages.**
+    
+1. Clone `git clone git@github.com:ringcentral/ringcentral-php.git` or download [ZIP file](https://github.com/ringcentral/ringcentral-php/archive/master.zip)
+
+2. Install dependencies
+
+    1. [PUBNUB](https://github.com/pubnub/php#php--53-without-composer)
+    2. [PhpSecLib](https://github.com/phpseclib/phpseclib)
+    3. [Guzzle PSR-7](https://github.com/guzzle/psr7)
+    4. [Zend Framework 2 Mail Component](https://github.com/zendframework/zend-mail) (don't forget to install its dependencies too)
+
+3. Add autoloaders:
+
     ```php
-    // PUBNUB and PHPSECLIB should be added before
-    require('path-to-sdk/autoload.php');
+    // PUBNUB, PHPSECLIB and ZEND FRAMEWORK 2 should be added before
+    require('path-to-sdk/src/autoload.php');
     ```
     
 # Basic Usage
@@ -97,12 +110,14 @@ semaphor and pause other pending requests while one of them is performing refres
 ## Performing API call
 
 ```php
-$response = $sdk->getPlatform()->get('/account/~/extension/~');
-$response = $sdk->getPlatform()->post('/account/~/extension/~');
-$response = $sdk->getPlatform()->put('/account/~/extension/~');
-$response = $sdk->getPlatform()->delete('/account/~/extension/~');
+$transaction = $sdk->getPlatform()->get('/account/~/extension/~');
+$transaction = $sdk->getPlatform()->post('/account/~/extension/~');
+$transaction = $sdk->getPlatform()->put('/account/~/extension/~');
+$transaction = $sdk->getPlatform()->delete('/account/~/extension/~');
 
-print_r($response->getJson()); // stdClass will be returned or exception if Content-Type is not JSON
+print_r($transaction->getJson()); // stdClass will be returned or exception if Content-Type is not JSON
+print_r($transaction->getRequest()); // PSR-7's RequestInterface compatible instance used to perform HTTP request 
+print_r($transaction->getResponse()); // PSR-7's ResponseInterface compatible instance used as HTTP response 
 ```
 
 ### Multipart response
@@ -113,7 +128,7 @@ be parsed into multiple sub-responses:
 ```php
 $presences = $sdk->getPlatform()
                  ->get('/account/~/extension/id1,id2/presence')
-                 ->getResponses();
+                 ->getMultipart();
 
 print 'Presence loaded ' .
       $presences[0]->getJson()->presenceStatus . ', ' .
@@ -123,8 +138,7 @@ print 'Presence loaded ' .
 ### Send SMS - Make POST request
 
 ```php
-
-$response = $sdk->getPlatform()->post('/account/~/extension/~/sms', null, array(
+$transaction = $sdk->getPlatform()->post('/account/~/extension/~/sms', null, array(
     'from' => array('phoneNumber' => 'your-ringcentral-sms-number'),
     'to'   => array(
         array('phoneNumber' => 'mobile-number'),
@@ -142,8 +156,17 @@ try {
 
 } catch (RingCentral\http\HttpException $e) {
 
-    print 'Expected HTTP Error: ' . $e->getResponse()->getError() . PHP_EOL;
+    // Getting error messages using PHP native interface
+    print 'Expected HTTP Error: ' . $e->getMessage() . PHP_EOL;
 
+    // In order to get Request and Response used to perform transaction:
+    $transaction = $e->getTransaction();
+    print_r($transaction->getRequest()); 
+    print_r($transaction->getResponse());
+    
+    // Another way to get message, but keep in mind, that there could be no response if request has failed completely
+    print '  Message: ' . $e->getTransaction->getResponse()->getError() . PHP_EOL;
+    
 }
 ```
 

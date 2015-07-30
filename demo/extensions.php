@@ -25,7 +25,7 @@ print 'Users loaded ' . count($extensions) . PHP_EOL;
 // Load presence
 
 $presences = $platform->get('/account/~/extension/' . $extensions[0]->id . ',' . $extensions[0]->id . '/presence')
-                      ->getResponses();
+                      ->getMultipart();
 
 print 'Presence loaded ' .
       $extensions[0]->name . ' - ' . $presences[0]->getJson()->presenceStatus . ', ' .

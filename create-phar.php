@@ -11,7 +11,7 @@ $phar = new Phar(
 function listDir($path, $phar)
 {
 
-    $relPath = str_replace('/lib', '', $path);
+    $relPath = str_replace('/src', '', $path);
 
     $it = new DirectoryIterator(__DIR__ . $path);
     foreach ($it as $fileinfo) {
@@ -29,7 +29,7 @@ function listDir($path, $phar)
 
 }
 
-listDir('/lib', $phar);
+listDir('/src', $phar);
 
 $phar->setStub($phar->createDefaultStub("autoload.php"));
 
