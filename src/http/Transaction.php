@@ -206,7 +206,7 @@ class Transaction
     public function getError()
     {
 
-        if (empty($this->getResponse())) {
+        if (!$this->getResponse()) {
             return null;
         }
 
