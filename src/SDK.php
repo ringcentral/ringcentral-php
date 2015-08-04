@@ -3,6 +3,7 @@
 namespace RingCentral;
 
 use RingCentral\http\Client;
+use RingCentral\http\MultipartBuilder;
 use RingCentral\platform\Platform;
 use RingCentral\pubnub\PubnubFactory;
 use RingCentral\subscription\Subscription;
@@ -53,6 +54,11 @@ class SDK
     public function getSubscription()
     {
         return new Subscription($this->pubnubFactory, $this->platform);
+    }
+
+    public function getMultipartBuilder()
+    {
+        return new MultipartBuilder();
     }
 
 }

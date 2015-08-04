@@ -80,6 +80,13 @@ class Transaction
 
     }
 
+    public function getText()
+    {
+
+        return (string)$this->response->getBody();
+
+    }
+
     /**
      * Parses response body as JSON
      * Result is cached internally
@@ -252,8 +259,7 @@ class Transaction
 
     protected function getContentType()
     {
-        $contentType = $this->response->getHeader('content-type');
-        return $contentType[0];
+        return $this->response->getHeaderLine('content-type');
     }
 
 }
