@@ -46,7 +46,7 @@ class Transaction
         $this->request = $request;
 
         $reason = null;
-        $headers = [];
+        $headers = array();
 
         if (is_string($body)) {
 
@@ -149,7 +149,7 @@ class Transaction
                 throw new Exception('Response is not multipart');
             }
 
-            $contentType = $this->response->getHeader('content-type')[0];
+            $contentType = $this->getContentType();
 
             if (!stristr($contentType, 'multipart/mixed')) {
                 throw new Exception('Response is not multipart/mixed');
@@ -257,7 +257,8 @@ class Transaction
 
     protected function getContentType()
     {
-        return $this->response->getHeader('content-type')[0];
+        $contentType = $this->response->getHeader('content-type');
+        return $contentType[0];
     }
 
 }

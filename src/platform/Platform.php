@@ -187,7 +187,7 @@ class Platform
         return base64_encode($this->appKey . ':' . $this->appSecret);
     }
 
-    protected function getAuthHeader()
+    public function getAuthHeader()
     {
         return $this->auth->getTokenType() . ' ' . $this->auth->getAccessToken();
     }
