@@ -3,6 +3,12 @@
 [![Build Status](https://img.shields.io/travis/ringcentral/ringcentral-php/master.svg)](https://travis-ci.org/ringcentral/ringcentral-php)
 [![Coverage Status](https://coveralls.io/repos/ringcentral/ringcentral-php/badge.svg?branch=master&service=github)](https://coveralls.io/github/ringcentral/ringcentral-php?branch=master)
 
+# Requirements
+
+- PHP 5.3.29+
+- CURL extension
+- MCrypt extension
+
 # Installation
 
 **This release supports PHP 5.4+.**
@@ -10,20 +16,26 @@ Last release that has PHP 5.3 support is [0.5.0](https://github.com/ringcentral/
 PHP 5.3 support is planned for future releases, stay tuned.
 
 ## With [Composer](http://getcomposer.org) **(recommended)**
-  
+
+The installation of composer is local by default. We suggest that you install it at the top level of your application's
+directory structure.
+
 1. Install composer:
     
     ```sh
     $ curl -sS https://getcomposer.org/installer | php
     ```
+    
+    More info about installation on [Linux / Unix / OSX](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
+    and [Windows](https://getcomposer.org/doc/00-intro.md#installation-windows).
   
 2. Run the Composer command to install the latest version of SDK:
   
     ```sh
-    $ composer require ringcentral/ringcentral-php
+    $ php composer.phar require ringcentral/ringcentral-php
     ```
 
-3. Require Composer's autoloader:
+3. Require Composer's autoloader in your PHP script (assuming it is in the same directory where you installed Composer):
     
     ```php
     require('vendor/autoload.php');
@@ -39,9 +51,13 @@ PHP 5.3 support is planned for future releases, stay tuned.
 
     1. [PUBNUB](https://github.com/pubnub/php#php--53-without-composer)
     2. [PhpSecLib](https://github.com/phpseclib/phpseclib)
-    3. [Guzzle PSR-7](https://github.com/guzzle/psr7)
-    4. [Zend Framework 2 Mail Component](https://github.com/zendframework/zend-mail) (don't forget to install its dependencies too)
-  
+    3. [PSR-7 HTTP Message](https://github.com/php-fig/http-message)
+    4. [Guzzle PSR-7 fork for PHP 5.3](https://github.com/kirill-konshin/psr7)
+    5. [Zend Framework 2 Mail Component](https://github.com/zendframework/zend-mail)
+
+    Keep in mind that each package may have it's own dependencies, which are not listed here. You must visit each
+    package and verify that it has been installed correctly.
+
 3. Require files:
   
     ```php
@@ -59,8 +75,12 @@ PHP 5.3 support is planned for future releases, stay tuned.
 
     1. [PUBNUB](https://github.com/pubnub/php#php--53-without-composer)
     2. [PhpSecLib](https://github.com/phpseclib/phpseclib)
-    3. [Guzzle PSR-7](https://github.com/guzzle/psr7)
-    4. [Zend Framework 2 Mail Component](https://github.com/zendframework/zend-mail) (don't forget to install its dependencies too)
+    3. [PSR-7 HTTP Message](https://github.com/php-fig/http-message)
+    4. [Guzzle PSR-7 fork for PHP 5.3](https://github.com/kirill-konshin/psr7)
+    5. [Zend Framework 2 Mail Component](https://github.com/zendframework/zend-mail)
+    
+    Keep in mind that each package may have it's own dependencies, which are not listed here. You must visit each
+    package and verify that it has been installed correctly.
 
 3. Add autoloaders:
 

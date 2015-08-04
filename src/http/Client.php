@@ -76,7 +76,7 @@ class Client
 
             if ($request->getMethod() == 'PUT' || $request->getMethod() == 'POST') {
                 curl_setopt($ch, CURLOPT_POST, true);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $request->getBody()->__toString()); //TODO Handle streams
+                curl_setopt($ch, CURLOPT_POSTFIELDS, (string)$request->getBody()); //TODO Handle streams
             }
 
             $body = curl_exec($ch);
@@ -99,10 +99,14 @@ class Client
 
         } catch (Exception $e) {
 
-            if ($ch) curl_close($ch);
+            if ($ch) {
+                curl_close($ch);
+            }
 
             // The following means that request failed completely
-            if (empty($transaction)) $transaction = new Transaction($request);
+            if (empty($transaction)) {
+                $transaction = new Transaction($request);
+            }
 
             throw new HttpException($transaction, $e);
 
@@ -117,6 +121,8 @@ class Client
      */
     protected function sendViaMock($request)
     {
+
+        $transaction = null;
 
         try {
 
@@ -143,7 +149,9 @@ class Client
         } catch (Exception $e) {
 
             // The following means that request failed completely
-            if (empty($transaction)) $transaction = new Transaction($request);
+            if (empty($transaction)) {
+                $transaction = new Transaction($request);
+            }
 
             throw new HttpException($transaction, $e);
 

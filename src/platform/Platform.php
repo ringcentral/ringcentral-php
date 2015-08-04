@@ -211,7 +211,7 @@ class Platform
 
         }
 
-        $uri = new Uri($this->apiUrl($request->getUri()->__toString(), array('addServer' => true)));
+        $uri = new Uri($this->apiUrl((string)$request->getUri(), array('addServer' => true)));
 
         return $request->withUri($uri);
 
@@ -245,7 +245,7 @@ class Platform
 
         $request = $this->client->requestFactory('POST', $url, null, $body, $headers);
 
-        $uri = new Uri($this->apiUrl($request->getUri()->__toString(), array('addServer' => true)));
+        $uri = new Uri($this->apiUrl((string)$request->getUri(), array('addServer' => true)));
 
         return $this->client->send($request->withUri($uri));
 

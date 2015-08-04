@@ -19,7 +19,7 @@ class SubscriptionTest extends TestCase
         $sdk = $this->getSDK();
 
         $sdk->getClient()->getMockRegistry()
-             ->add(new PresenceSubscriptionMock());
+            ->add(new PresenceSubscriptionMock());
 
         $executed = false;
         $aesMessage = 'gkw8EU4G1SDVa2/hrlv6+0ViIxB7N1i1z5MU/Hu2xkIKzH6yQzhr3vIc27IAN558kTOkacqE5DkLpRdnN1orwtIBsUHmPM' .
@@ -62,7 +62,7 @@ class SubscriptionTest extends TestCase
         $sdk = $this->getSDK();
 
         $sdk->getClient()->getMockRegistry()
-             ->add(new SubscriptionMock());
+            ->add(new SubscriptionMock());
 
         $executed = false;
 
@@ -102,7 +102,7 @@ class SubscriptionTest extends TestCase
         $sdk = $this->getSDK();
 
         $sdk->getClient()->getMockRegistry()
-             ->add(new SubscriptionMock());
+            ->add(new SubscriptionMock());
 
         $s = $sdk->getSubscription()->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
 
@@ -110,25 +110,19 @@ class SubscriptionTest extends TestCase
 
     }
 
+    /**
+     * @expectedException \RingCentral\http\HttpException
+     * @expectedExceptionMessage Expected Error
+     */
     public function testSubscribeErrorWithEvents()
     {
 
         $sdk = $this->getSDK();
 
         $sdk->getClient()->getMockRegistry()
-             ->add(new GenericMock('/subscription', array('message' => 'Expected Error'), 400));
+            ->add(new GenericMock('/subscription', array('message' => 'Expected Error'), 400));
 
-        /** @var HttpException $err */
-        $err = null;
-
-        try {
-            $sdk->getSubscription()->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
-        } catch (HttpException $e) {
-            $err = $e;
-        }
-
-        $this->assertEquals('Expected Error', $err->getMessage());
-        $this->assertEquals('Expected Error', $err->getTransaction()->getError());
+        $sdk->getSubscription()->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
 
     }
 
@@ -141,7 +135,7 @@ class SubscriptionTest extends TestCase
         $self = $this;
 
         $sdk->getClient()->getMockRegistry()
-             ->add(new SubscriptionMock());
+            ->add(new SubscriptionMock());
 
         $s1 = $sdk->getSubscription();
 
@@ -154,8 +148,8 @@ class SubscriptionTest extends TestCase
         $s1->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
 
         $sdk->getClient()->getMockRegistry()
-             ->clear()
-             ->add(new GenericMock('/subscription', array('message' => 'Expected Error'), 400));
+            ->clear()
+            ->add(new GenericMock('/subscription', array('message' => 'Expected Error'), 400));
 
         $s2 = $sdk->getSubscription();
 
@@ -179,8 +173,8 @@ class SubscriptionTest extends TestCase
         $sdk = $this->getSDK();
 
         $sdk->getClient()->getMockRegistry()
-             ->add(new SubscriptionMock())
-             ->add(new GenericMock('/subscription/foo-bar-baz', array('ok' => 'ok')));
+            ->add(new SubscriptionMock())
+            ->add(new GenericMock('/subscription/foo-bar-baz', array('ok' => 'ok')));
 
         $s = $sdk->getSubscription();
 
@@ -191,30 +185,22 @@ class SubscriptionTest extends TestCase
 
     }
 
+    /**
+     * @expectedException \RingCentral\http\HttpException
+     * @expectedExceptionMessage Expected Error
+     */
     public function testRenewError()
     {
 
         $sdk = $this->getSDK();
 
         $sdk->getClient()->getMockRegistry()
-             ->add(new SubscriptionMock())
-             ->add(new GenericMock('/subscription/foo-bar-baz', array('message' => 'Expected Error'), 400));
+            ->add(new SubscriptionMock())
+            ->add(new GenericMock('/subscription/foo-bar-baz', array('message' => 'Expected Error'), 400));
 
         $s = $sdk->getSubscription();
-
         $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
-
-        /** @var HttpException $err */
-        $err = null;
-
-        try {
-            $s->renew(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
-        } catch (HttpException $e) {
-            $err = $e;
-        }
-
-        $this->assertEquals('Expected Error', $err->getMessage());
-        $this->assertEquals('Expected Error', $err->getTransaction()->getError());
+        $s->renew(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
 
     }
 
@@ -224,11 +210,10 @@ class SubscriptionTest extends TestCase
         $sdk = $this->getSDK();
 
         $sdk->getClient()->getMockRegistry()
-             ->add(new SubscriptionMock())
-             ->add(new GenericMock('/subscription/foo-bar-baz', array('ok' => 'ok')));
+            ->add(new SubscriptionMock())
+            ->add(new GenericMock('/subscription/foo-bar-baz', array('ok' => 'ok')));
 
         $s = $sdk->getSubscription();
-
         $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
         $s->remove();
 
@@ -236,30 +221,22 @@ class SubscriptionTest extends TestCase
 
     }
 
+    /**
+     * @expectedException \RingCentral\http\HttpException
+     * @expectedExceptionMessage Expected Error
+     */
     public function testRemoveError()
     {
 
         $sdk = $this->getSDK();
 
         $sdk->getClient()->getMockRegistry()
-             ->add(new SubscriptionMock())
-             ->add(new GenericMock('/subscription/foo-bar-baz', array('message' => 'Expected Error'), 400));
+            ->add(new SubscriptionMock())
+            ->add(new GenericMock('/subscription/foo-bar-baz', array('message' => 'Expected Error'), 400));
 
         $s = $sdk->getSubscription();
-
         $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
-
-        /** @var HttpException $err */
-        $err = null;
-
-        try {
-            $s->remove();
-        } catch (HttpException $e) {
-            $err = $e;
-        }
-
-        $this->assertEquals('Expected Error', $err->getMessage());
-        $this->assertEquals('Expected Error', $err->getTransaction()->getError());
+        $s->remove();
 
     }
 

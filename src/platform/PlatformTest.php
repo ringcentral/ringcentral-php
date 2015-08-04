@@ -28,29 +28,24 @@ class PlatformTest extends TestCase
 
     }
 
+    /**
+     * @expectedException \Exception
+     * @expectedExceptionMessage Refresh token has expired
+     */
     public function testRefreshWithOutdatedToken()
     {
 
         $sdk = $this->getSDK(true);
 
         $sdk->getClient()->getMockRegistry()
-             ->add(new RefreshMock());
+            ->add(new RefreshMock());
 
-        $sdk->getPlatform()->setAuthData(array(
-            'refresh_token_expires_in'  => 1,
-            'refresh_token_expire_time' => 1
-        ));
-
-        $caught = false;
-
-        try {
-            $sdk->getPlatform()->refresh();
-        } catch (Exception $e) {
-            $caught = true;
-            $this->assertEquals('Refresh token has expired', $e->getMessage());
-        }
-
-        $this->assertTrue($caught);
+        $sdk->getPlatform()
+            ->setAuthData(array(
+                'refresh_token_expires_in'  => 1,
+                'refresh_token_expire_time' => 1
+            ))
+            ->refresh();
 
     }
 
@@ -60,8 +55,8 @@ class PlatformTest extends TestCase
         $sdk = $this->getSDK();
 
         $sdk->getClient()->getMockRegistry()
-             ->add(new RefreshMock())
-             ->add(new GenericMock('/foo', array('foo' => 'bar')));
+            ->add(new RefreshMock())
+            ->add(new GenericMock('/foo', array('foo' => 'bar')));
 
         $sdk->getPlatform()->setAuthData(array(
             'expires_in'  => 1,
@@ -82,7 +77,7 @@ class PlatformTest extends TestCase
         $sdk = $this->getSDK();
 
         $sdk->getClient()->getMockRegistry()
-             ->add(new LogoutMock());
+            ->add(new LogoutMock());
 
         $sdk->getPlatform()->logout();
 
@@ -118,30 +113,25 @@ class PlatformTest extends TestCase
 
     }
 
+    /**
+     * @expectedException \Exception
+     * @expectedExceptionMessage Access token is not valid after refresh timeout
+     */
     public function testUnsuccessfulRefresh()
     {
 
         $sdk = $this->getSDK();
 
         $sdk->getClient()->getMockRegistry()
-             ->add(new RefreshMock(false, -1))
-             ->add(new GenericMock('/foo', array('foo' => 'bar')));
+            ->add(new RefreshMock(false, -1))
+            ->add(new GenericMock('/foo', array('foo' => 'bar')));
 
         $sdk->getPlatform()->setAuthData(array(
             'expires_in'  => 1,
             'expire_time' => 1
         ));
 
-        $caught = false;
-
-        try {
-            $sdk->getPlatform()->isAuthorized();
-        } catch (Exception $e) {
-            $this->assertEquals('Access token is not valid after refresh timeout', $e->getMessage());
-            $caught = true;
-        }
-
-        $this->assertTrue($caught);
+        $sdk->getPlatform()->isAuthorized();
 
     }
 
@@ -151,11 +141,11 @@ class PlatformTest extends TestCase
         $sdk = $this->getSDK();
 
         $sdk->getClient()->getMockRegistry()
-             ->add(new GenericMock('/foo', array('foo' => 'bar')));
+            ->add(new GenericMock('/foo', array('foo' => 'bar')));
 
         $request = $sdk->getPlatform()->processRequest(new Request('GET', '/foo'));
 
-        $this->assertEquals('https://whatever/restapi/v1.0/foo', $request->getUri()->__toString());
+        $this->assertEquals('https://whatever/restapi/v1.0/foo', (string)$request->getUri());
 
     }
 

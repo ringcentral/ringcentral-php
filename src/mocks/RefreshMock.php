@@ -3,7 +3,6 @@
 namespace RingCentral\mocks;
 
 use Psr\Http\Message\RequestInterface;
-use RingCentral\http\Transaction;
 
 class RefreshMock extends AbstractMock
 {

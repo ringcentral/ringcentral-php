@@ -20,9 +20,7 @@ class HttpException extends Exception
         $message = $previous ? $previous->getMessage() : 'Unknown error';
         $status = $previous ? $previous->getCode() : 0;
 
-        $error = $transaction->getError();
-
-        if ($error) {
+        if ($error = $transaction->getError()) {
             $message = $error;
         }
 

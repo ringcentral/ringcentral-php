@@ -96,7 +96,7 @@ class Transaction
 
         if (($asObject && empty($this->jsonAsObject)) || (!$asObject && empty($this->jsonAsArray))) {
 
-            $json = json_decode($this->response->getBody()->__toString(), !$asObject);
+            $json = json_decode((string)$this->response->getBody(), !$asObject);
 
             if ($asObject) {
                 $this->jsonAsObject = $json;
@@ -123,6 +123,7 @@ class Transaction
                     break;
             }
 
+            // This is a courtesy by PHP JSON parser to parse "null" into null, but this is an error situation
             if (empty($json)) {
                 throw new Exception('JSON Error: Result is empty after parsing');
             }
@@ -149,15 +150,9 @@ class Transaction
                 throw new Exception('Response is not multipart');
             }
 
-            $contentType = $this->getContentType();
-
-            if (!stristr($contentType, 'multipart/mixed')) {
-                throw new Exception('Response is not multipart/mixed');
-            }
-
             // Step 1. Split boundaries
 
-            preg_match('/boundary="([^;]+)"/i', $contentType, $matches); // Zend Mime Decoder adds quotes
+            preg_match('/boundary="([^;]+)"/i', $this->getContentType(), $matches); // Zend Mime Decoder adds quotes
 
             if (empty($matches[1])) {
                 throw new Exception('Boundary not found');
@@ -165,7 +160,7 @@ class Transaction
 
             $boundary = $matches[1];
 
-            $parts = Decode::splitMime($this->response->getBody()->__toString(), $boundary);
+            $parts = Decode::splitMime((string)$this->response->getBody(), $boundary);
 
             if (count($parts) == 0) {
                 throw new Exception('No parts found');

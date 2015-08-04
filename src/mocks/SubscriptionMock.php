@@ -3,7 +3,6 @@
 namespace RingCentral\mocks;
 
 use Psr\Http\Message\RequestInterface;
-use RingCentral\http\Transaction;
 
 class SubscriptionMock extends AbstractMock
 {
@@ -23,7 +22,7 @@ class SubscriptionMock extends AbstractMock
     public function getResponse(RequestInterface $request)
     {
 
-        $body = json_decode($request->getBody()->__toString(), true);
+        $body = json_decode((string)$request->getBody(), true);
 
         return self::createBody(array(
             'eventFilters'   => $body['eventFilters'],

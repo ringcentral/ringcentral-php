@@ -3,7 +3,6 @@
 namespace RingCentral\mocks;
 
 use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
 
 abstract class AbstractMock
 {
@@ -30,7 +29,7 @@ abstract class AbstractMock
     /**
      * Helper function to generate response headers + body as text
      * @param array $body
-     * @param int $status
+     * @param int   $status
      * @param array $headers
      * @return string
      */

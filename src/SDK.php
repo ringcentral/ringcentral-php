@@ -2,9 +2,9 @@
 
 namespace RingCentral;
 
-use RingCentral\pubnub\PubnubFactory;
 use RingCentral\http\Client;
 use RingCentral\platform\Platform;
+use RingCentral\pubnub\PubnubFactory;
 use RingCentral\subscription\Subscription;
 
 class SDK
