@@ -42,6 +42,9 @@
   "autoload": {
     "psr-4": {
       "RingCentral\\": "lib/"
-    }
+    },
+    "files": [
+      "src/core/functions.php"
+    ]
   }
 }

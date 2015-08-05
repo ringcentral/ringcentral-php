@@ -22,7 +22,7 @@ class SubscriptionMock extends AbstractMock
     public function getResponse(RequestInterface $request)
     {
 
-        $body = json_decode((string)$request->getBody(), true);
+        $body = \RingCentral\core\json_parse((string)$request->getBody(), true);
 
         return self::createBody(array(
             'eventFilters'   => $body['eventFilters'],

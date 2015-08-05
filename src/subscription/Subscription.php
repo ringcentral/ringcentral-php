@@ -269,7 +269,7 @@ class Subscription extends Observable
                 base64_decode($message),
                 MCRYPT_MODE_ECB);
 
-            $message = json_decode($aes->unPadPKCS7($message, 128), true); // PUBNUB itself always decode as array
+            $message = \RingCentral\core\json_parse($aes->unPadPKCS7($message, 128), true); // PUBNUB itself always decode as array
 
         }
 

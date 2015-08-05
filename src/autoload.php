@@ -23,4 +23,6 @@ function RingCentralAutoLoader($class)
 
 }
 
+require_once('core/functions.php');
+
 spl_autoload_register('RingCentralAutoLoader', true);

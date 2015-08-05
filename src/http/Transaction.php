@@ -86,36 +86,12 @@ class Transaction
 
         if (($asObject && empty($this->jsonAsObject)) || (!$asObject && empty($this->jsonAsArray))) {
 
-            $json = json_decode((string)$this->response->getBody(), !$asObject);
+            $json = \RingCentral\core\json_parse((string)$this->response->getBody(), !$asObject);
 
             if ($asObject) {
                 $this->jsonAsObject = $json;
             } else {
                 $this->jsonAsArray = $json;
-            }
-
-            $error = json_last_error();
-
-            switch ($error) {
-                case JSON_ERROR_NONE:
-                    break;
-                case JSON_ERROR_DEPTH:
-                    throw new Exception('JSON Error: Maximum stack depth exceeded');
-                    break;
-                case JSON_ERROR_CTRL_CHAR:
-                    throw new Exception('JSON Error: Unexpected control character found');
-                    break;
-                case JSON_ERROR_SYNTAX:
-                    throw new Exception('JSON Error: Syntax error, malformed JSON');
-                    break;
-                default:
-                    throw new Exception('JSON Error: Unknown error');
-                    break;
-            }
-
-            // This is a courtesy by PHP JSON parser to parse "null" into null, but this is an error situation
-            if (empty($json)) {
-                throw new Exception('JSON Error: Result is empty after parsing');
             }
 
         }
