@@ -1,5 +1,6 @@
 <?php
 
+use GuzzleHttp\Psr7\Stream;
 use RingCentral\http\MultipartBuilder;
 use RingCentral\test\TestCase;
 
@@ -10,18 +11,24 @@ class MultipartBuilderTest extends TestCase
 
     public function setup()
     {
-        $this->fname = tempnam('/tmp', 'tfile');
+
+        $this->fname = tempnam('/tmp', 'tfile') . '.txt';
 
         if (file_exists($this->fname)) {
             unlink($this->fname);
         }
+
+        file_put_contents($this->fname, 'file');
+
     }
 
     public function tearDown()
     {
+
         if (file_exists($this->fname)) {
             unlink($this->fname);
         }
+
     }
 
 
@@ -37,7 +44,7 @@ class MultipartBuilderTest extends TestCase
             "{\"to\":{\"phoneNumber\":\"foo\"},\"faxResolution\":\"High\"}\r\n" .
             "--boundary\r\n" .
             "Content-Type: application/octet-stream\r\n" .
-            "Content-Disposition: form-data; name=\"plain\"; filename=\"plain.txt\"\r\n" .
+            "Content-Disposition: form-data; name=\"plain.txt\"; filename=\"plain.txt\"\r\n" .
             "Content-Length: 10\r\n" .
             "\r\n" .
             "plain text\r\n" .
@@ -47,7 +54,7 @@ class MultipartBuilderTest extends TestCase
 
         $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
                 ->setBoundary('boundary')
-                ->addAttachment('plain text', 'plain.txt', 'plain');
+                ->addAttachment('plain text', 'plain.txt');
 
         $request = $builder->getRequest('/fax');
 
@@ -55,8 +62,25 @@ class MultipartBuilderTest extends TestCase
 
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage File name was not provided and cannot be auto-discovered
+     */
+    public function testContentPlainTextWithNoName()
+    {
+
+        $builder = new MultipartBuilder();
+
+        $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
+                ->setBoundary('boundary')
+                ->addAttachment('plain text');
+
+    }
+
     public function testContentStream()
     {
+
+        $fileName = basename($this->fname);
 
         $expected =
             "--boundary\r\n" .
@@ -66,37 +90,64 @@ class MultipartBuilderTest extends TestCase
             "\r\n" .
             "{\"to\":{\"phoneNumber\":\"foo\"},\"faxResolution\":\"High\"}\r\n" .
             "--boundary\r\n" .
-            "Content-Type: application/octet-stream\r\n" .
-            "Content-Disposition: form-data; name=\"streamed\"; filename=\"streamed.txt\"\r\n" .
+            "Content-Disposition: form-data; name=\"streamed.txt\"; filename=\"streamed.txt\"\r\n" .
             "Content-Length: 8\r\n" .
+            "Content-Type: text/plain\r\n" . // <----- DETECTED AUTOMATICALLY FROM FILE NAME
             "\r\n" .
             "streamed\r\n" .
             "--boundary\r\n" .
-            "Content-Type: application/octet-stream\r\n" .
-            "Content-Disposition: form-data; name=\"streamed-no-file\"; filename=\"streamed-no-file\"\r\n" .
-            "Content-Length: 8\r\n" .
+            "Content-Disposition: form-data; name=\"" . $fileName . "\"; filename=\"" . $fileName . "\"\r\n" .
+            "Content-Length: 4\r\n" .
+            "Content-Type: text/plain\r\n" . // <----- DETECTED AUTOMATICALLY FROM FILE NAME
             "\r\n" .
-            "streamed\r\n" .
+            "file\r\n" .
             "--boundary--\r\n";
 
         $builder = new MultipartBuilder();
 
         $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
                 ->setBoundary('boundary')
-                ->addAttachment(\GuzzleHttp\Psr7\stream_for('streamed'), 'streamed.txt', 'streamed')
-                ->addAttachment(\GuzzleHttp\Psr7\stream_for('streamed'), null, 'streamed-no-file');
+                ->addAttachment(\GuzzleHttp\Psr7\stream_for('streamed'), 'streamed.txt')
+                ->addAttachment(new Stream(fopen($this->fname, 'r')));
 
         $this->assertEquals($expected, (string)$builder->getRequest('/fax')->getBody());
+
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage File name was not provided and cannot be auto-discovered
+     */
+    public function testStreamWithNoName()
+    {
+
+        $builder = new MultipartBuilder();
+
+        $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
+                ->setBoundary('boundary')
+                ->addAttachment(\GuzzleHttp\Psr7\stream_for('streamed'));
+
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Content-Type header was not provided and cannot be auto-discovered
+     */
+    public function testStreamWithUnknownExtension()
+    {
+
+        $builder = new MultipartBuilder();
+
+        $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
+                ->setBoundary('boundary')
+                ->addAttachment(\GuzzleHttp\Psr7\stream_for('streamed'), 'streamed');
 
     }
 
     public function testContentResource()
     {
 
-        file_put_contents($this->fname, 'file');
-
-        $fileParts = explode('/', $this->fname);
-        $fileName = array_pop($fileParts);
+        $fileName = basename($this->fname);
 
         $expected =
             "--boundary\r\n" .
@@ -106,14 +157,9 @@ class MultipartBuilderTest extends TestCase
             "\r\n" .
             "{\"to\":{\"phoneNumber\":\"foo\"},\"faxResolution\":\"High\"}\r\n" .
             "--boundary\r\n" .
-            "Content-Disposition: form-data; name=\"file\"; filename=\"" . $fileName . "\"\r\n" .
+            "Content-Disposition: form-data; name=\"" . $fileName . "\"; filename=\"" . $fileName . "\"\r\n" .
             "Content-Length: 4\r\n" .
-            "\r\n" .
-            "file\r\n" .
-            "--boundary\r\n" .
-            "Content-Disposition: form-data; name=\"file\"; filename=\"file.txt\"\r\n" .
-            "Content-Length: 4\r\n" .
-            "Content-Type: text/plain\r\n" . // <----- this is detected automatically from file
+            "Content-Type: text/plain\r\n" . // <----- DETECTED AUTOMATICALLY FROM FILE NAME
             "\r\n" .
             "file\r\n" .
             "--boundary--\r\n";
@@ -122,8 +168,7 @@ class MultipartBuilderTest extends TestCase
 
         $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
                 ->setBoundary('boundary')
-                ->addAttachment(fopen($this->fname, 'r'), null, 'file')
-                ->addAttachment(fopen($this->fname, 'r'), 'file.txt', 'file');
+                ->addAttachment(fopen($this->fname, 'r'));
 
         $this->assertEquals($expected, (string)$builder->getRequest('/fax')->getBody());
 
@@ -141,7 +186,7 @@ class MultipartBuilderTest extends TestCase
             "{\"to\":{\"phoneNumber\":\"foo\"},\"faxResolution\":\"High\"}\r\n" .
             "--boundary\r\n" .
             "Content-Type: text/custom\r\n" . // <----- CUSTOM HEADER
-            "Content-Disposition: form-data; name=\"plain\"; filename=\"plain.txt\"\r\n" .
+            "Content-Disposition: form-data; name=\"plain.txt\"; filename=\"plain.txt\"\r\n" .
             "Content-Length: 10\r\n" .
             "\r\n" .
             "plain text\r\n" .
@@ -151,7 +196,7 @@ class MultipartBuilderTest extends TestCase
 
         $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
                 ->setBoundary('boundary')
-                ->addAttachment('plain text', 'plain.txt', 'plain', array('Content-Type' => 'text/custom'));
+                ->addAttachment('plain text', 'plain.txt', array('Content-Type' => 'text/custom'));
 
         $request = $builder->getRequest('/fax');
 

@@ -41,60 +41,80 @@ class MultipartBuilder
      * automatically discovered the $filename will be set to attachment name.
      * If attachment name is not provided, it will be randomly generated.
      * @param resource|string|StreamInterface $content  StreamInterface/resource/string to send
-     * @param string                          $filename Filename of attachment, can't be empty if content is string
-     * @param string                          $name     Form field name
-     * @param array                           $headers  Associative array of custom headers
+     * @param string                          $filename Optional. Filename of attachment, can't be empty if content is string
+     * @param array                           $headers  Optional. Associative array of custom headers
+     * @param string                          $name     Optional. Form field name
      * @return $this
      */
-    public function addAttachment($content, $filename = '', $name = '', array $headers = array())
+    public function addAttachment($content, $filename = '', array $headers = array(), $name = '')
     {
 
         $uri = null;
+
         if (!empty($filename)) {
+
             $uri = $filename;
+
         } elseif ($content instanceof StreamInterface) {
-            $uri = $content->getMetadata('uri');
+
+            $meta = $content->getMetadata('uri');
+
+            if (substr($meta, 0, 6) !== 'php://') {
+                $uri = $meta;
+            }
+
         } elseif (is_resource($content)) {
+
             $meta = stream_get_meta_data($content);
             $uri = $meta['uri'];
+
         }
 
-        $basename = empty($uri) ? null : basename($uri);
-        $name = empty($name) ? (empty($basename) ? uniqid() : $basename) : $name;
+        $basename = basename($uri);
+
+        if (empty($basename)) {
+            throw new \InvalidArgumentException('File name was not provided and cannot be auto-discovered');
+        }
+
+        $name = !empty($name) ? $name : $basename;
 
         $element = array(
             'contents' => $content,
             'name'     => $name
         );
 
+        // always set as defined or else it will be auto-discovered by Guzzle
         if (!empty($filename)) {
-
-            $element['filename'] = $filename; // always set as defined
-
-        } else {
-
-            if (empty($uri) || substr($uri, 0, 6) === 'php://') {
-                $element['filename'] = $name;
-            }
-
+            $element['filename'] = $filename;
         }
 
         if (!empty($headers)) {
             $element['headers'] = $headers;
         }
 
-        if ($content instanceof StreamInterface || is_string($content)) {
+        $contentKey = null;
 
-            $contentKey = null;
-
-            foreach ($headers as $k => $v) {
-                if (strtolower($k) == 'content-type') {
-                    $contentKey = $k;
-                }
+        foreach ($headers as $k => $v) {
+            if (strtolower($k) == 'content-type') {
+                $contentKey = $k;
             }
+        }
 
-            if (empty($contentKey)) {
+        if (empty($contentKey)) {
+
+            if (is_string($content)) {
+
+                // Automatically set
                 $element['headers']['Content-Type'] = 'application/octet-stream';
+
+            } elseif ($content instanceof StreamInterface) {
+
+                $type = \GuzzleHttp\Psr7\mimetype_from_filename($basename);
+
+                if (!$type) {
+                    throw new \InvalidArgumentException('Content-Type header was not provided and cannot be auto-discovered');
+                }
+
             }
 
         }
