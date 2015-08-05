@@ -11,3 +11,8 @@ script:
   - make test
 after_script:
   - make coveralls
+matrix:
+  allow_failures:
+    - php:
+      - hhvm
+  fast_finish: true
