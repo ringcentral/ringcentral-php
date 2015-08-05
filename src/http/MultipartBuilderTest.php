@@ -36,9 +36,9 @@ class MultipartBuilderTest extends TestCase
             "\r\n" .
             "{\"to\":{\"phoneNumber\":\"foo\"},\"faxResolution\":\"High\"}\r\n" .
             "--boundary\r\n" .
+            "Content-Type: application/octet-stream\r\n" .
             "Content-Disposition: form-data; name=\"plain\"; filename=\"plain.txt\"\r\n" .
             "Content-Length: 10\r\n" .
-            "Content-Type: text/plain\r\n" .
             "\r\n" .
             "plain text\r\n" .
             "--boundary--\r\n";
@@ -66,12 +66,13 @@ class MultipartBuilderTest extends TestCase
             "\r\n" .
             "{\"to\":{\"phoneNumber\":\"foo\"},\"faxResolution\":\"High\"}\r\n" .
             "--boundary\r\n" .
+            "Content-Type: application/octet-stream\r\n" .
             "Content-Disposition: form-data; name=\"streamed\"; filename=\"streamed.txt\"\r\n" .
             "Content-Length: 8\r\n" .
-            "Content-Type: text/plain\r\n" .
             "\r\n" .
             "streamed\r\n" .
             "--boundary\r\n" .
+            "Content-Type: application/octet-stream\r\n" .
             "Content-Disposition: form-data; name=\"streamed-no-file\"; filename=\"streamed-no-file\"\r\n" .
             "Content-Length: 8\r\n" .
             "\r\n" .
@@ -112,7 +113,7 @@ class MultipartBuilderTest extends TestCase
             "--boundary\r\n" .
             "Content-Disposition: form-data; name=\"file\"; filename=\"file.txt\"\r\n" .
             "Content-Length: 4\r\n" .
-            "Content-Type: text/plain\r\n" .
+            "Content-Type: text/plain\r\n" . // <----- this is detected automatically from file
             "\r\n" .
             "file\r\n" .
             "--boundary--\r\n";

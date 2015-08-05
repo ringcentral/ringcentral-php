@@ -21,45 +21,24 @@ $platform->authorize($credentials['username'], $credentials['extension'], $crede
 $phoneNumbers = $platform->get('/account/~/extension/~/phone-number', array('perPage' => 'max'))
                          ->getJson()->records;
 
-$faxNumber = null;
 
-print_r($phoneNumbers[0]);
-
-foreach ($phoneNumbers as $phoneNumber) {
-
-    if (stristr($phoneNumber->type, 'Fax')) {
-
-        $faxNumber = $phoneNumber->phoneNumber;
-
-        break;
-
-    }
-
-}
-
-print 'Fax Phone Number: ' . $faxNumber . PHP_EOL;
+print 'Fax Phone Number: ' . $credentials['username'] . PHP_EOL;
 
 // Send SMS
 
-if ($faxNumber) {
+$request = $rcsdk->getMultipartBuilder()
+                 ->setBody(array(
+                     'to'         => array(
+                         array('phoneNumber' => $credentials['username']),
+                     ),
+                     'faxResolution' => 'High',
+                 ))
+                 ->addAttachment('Plain Text', 'file.txt')
+                 ->addAttachment(fopen('https://developers.ringcentral.com/assets/images/ico_case_crm.png', 'r'))
+                 ->getRequest('/account/~/extension/~/fax');
 
-    $request = $rcsdk->getMultipartBuilder()
-                     ->setBody(array(
-                         'to'         => array(
-                             array('phoneNumber' => $faxNumber),
-                         ),
-                         'faxResolution' => 'High',
-                     ))
-                     ->addAttachment('Plain Text')
-                     ->addAttachment(fopen('https://developers.ringcentral.com/assets/images/img_api.png', 'r'))
-                     ->getRequest('/account/~/extension/~/fax');
+//print $request->getBody() . PHP_EOL;
 
-    $response = $platform->apiCall($request);
+$response = $platform->apiCall($request);
 
-    print 'Sent Fax ' . $response->getJson()->uri . PHP_EOL;
-
-} else {
-
-    print 'Fax cannot be sent: no Fax-enabled phone number found...' . PHP_EOL;
-
-}
+print 'Sent Fax ' . $response->getJson()->uri . PHP_EOL;

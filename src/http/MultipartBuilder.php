@@ -39,9 +39,7 @@ class MultipartBuilder
     /**
      * Function always use provided $filename. In cases when it's empty, for string content or when name cannot be
      * automatically discovered the $filename will be set to attachment name.
-     *
      * If attachment name is not provided, it will be randomly generated.
-     *
      * @param resource|string|StreamInterface $content  StreamInterface/resource/string to send
      * @param string                          $filename Filename of attachment, can't be empty if content is string
      * @param string                          $name     Form field name
@@ -51,9 +49,22 @@ class MultipartBuilder
     public function addAttachment($content, $filename = '', $name = '', array $headers = array())
     {
 
+        $uri = null;
+        if (!empty($filename)) {
+            $uri = $filename;
+        } elseif ($content instanceof StreamInterface) {
+            $uri = $content->getMetadata('uri');
+        } elseif (is_resource($content)) {
+            $meta = stream_get_meta_data($content);
+            $uri = $meta['uri'];
+        }
+
+        $basename = empty($uri) ? null : basename($uri);
+        $name = empty($name) ? (empty($basename) ? uniqid() : $basename) : $name;
+
         $element = array(
             'contents' => $content,
-            'name'     => empty($name) ? uniqid() : $name
+            'name'     => $name
         );
 
         if (!empty($filename)) {
@@ -62,25 +73,30 @@ class MultipartBuilder
 
         } else {
 
-            $uri = null;
-
-            if ($content instanceof StreamInterface) {
-                $uri = $content->getMetadata('uri');
-            }
-
-            if (is_resource($content)) {
-                $meta = stream_get_meta_data($content);
-                $uri = $meta['uri'];
-            }
-
             if (empty($uri) || substr($uri, 0, 6) === 'php://') {
-                $element['filename'] = $element['name'];
+                $element['filename'] = $name;
             }
 
         }
 
         if (!empty($headers)) {
             $element['headers'] = $headers;
+        }
+
+        if ($content instanceof StreamInterface || is_string($content)) {
+
+            $contentKey = null;
+
+            foreach ($headers as $k => $v) {
+                if (strtolower($k) == 'content-type') {
+                    $contentKey = $k;
+                }
+            }
+
+            if (empty($contentKey)) {
+                $element['headers']['Content-Type'] = 'application/octet-stream';
+            }
+
         }
 
         $this->elements[] = $element;

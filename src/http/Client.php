@@ -72,6 +72,18 @@ class Client
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_HEADER, true);
 
+            if (($request->getMethod() == 'PUT' || $request->getMethod() == 'POST')) {
+
+                if (stristr($request->getHeaderLine('Content-Type'), 'multipart/form-data')) {
+                    $request = $request->withHeader('Expect', '');
+                }
+
+                if ($request->getBody()->isSeekable()) {
+                    $request->getBody()->rewind();
+                }
+
+            }
+
             curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getRequestHeaders($request));
 
             if ($request->getMethod() == 'PUT' || $request->getMethod() == 'POST') {
