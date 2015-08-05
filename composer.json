@@ -33,8 +33,7 @@
     "php": ">=5.3.29",
     "guzzlehttp/psr7": "dev-master",
     "phpseclib/phpseclib": "~0.3",
-    "pubnub/pubnub": "~3.7",
-    "zendframework/zend-mail": "~2.5"
+    "pubnub/pubnub": "~3.7"
   },
   "require-dev": {
     "phpunit/phpunit": "*",

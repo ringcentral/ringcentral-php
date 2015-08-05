@@ -2,9 +2,9 @@
 
 namespace RingCentral\subscription;
 
-use Crypt_AES;
 use Exception;
 use Pubnub\Pubnub;
+use Pubnub\PubnubAES;
 use RingCentral\core\Observable;
 use RingCentral\http\Transaction;
 use RingCentral\platform\Platform;
@@ -262,17 +262,14 @@ class Subscription extends Observable
 
         if ($this->isSubscribed() && $this->subscription['deliveryMode']['encryption'] && $this->subscription['deliveryMode']['encryptionKey']) {
 
-            //$message = mcrypt_decrypt(MCRYPT_RIJNDAEL_128,
-            //    base64_decode($this->subscription['deliveryMode']['encryptionKey']),
-            //    base64_decode($message),
-            //    MCRYPT_MODE_ECB);
+            $aes = new PubnubAES();
 
-            //FIXME Pubnub uses mcrypt anyway so this may be replaced with the thing from above
-            $cipher = new Crypt_AES(CRYPT_AES_MODE_ECB);
-            $cipher->setKey(base64_decode($this->subscription['deliveryMode']['encryptionKey']));
-            $message = $cipher->decrypt(base64_decode($message));
+            $message = mcrypt_decrypt(MCRYPT_RIJNDAEL_128,
+                base64_decode($this->subscription['deliveryMode']['encryptionKey']),
+                base64_decode($message),
+                MCRYPT_MODE_ECB);
 
-            $message = json_decode($message, true); // PUBNUB always decode as array
+            $message = json_decode($aes->unPadPKCS7($message, 128), true); // PUBNUB itself always decode as array
 
         }
 

@@ -50,10 +50,8 @@ directory structure.
 2. Install dependencies
 
     1. [PUBNUB](https://github.com/pubnub/php#php--53-without-composer)
-    2. [PhpSecLib](https://github.com/phpseclib/phpseclib)
-    3. [PSR-7 HTTP Message](https://github.com/php-fig/http-message)
-    4. [Guzzle PSR-7 fork for PHP 5.3](https://github.com/kirill-konshin/psr7)
-    5. [Zend Framework 2 Mail Component](https://github.com/zendframework/zend-mail)
+    2. [PSR-7 HTTP Message](https://github.com/php-fig/http-message)
+    3. [Guzzle PSR-7 fork for PHP 5.3](https://github.com/kirill-konshin/psr7)
 
     Keep in mind that each package may have it's own dependencies, which are not listed here. You must visit each
     package and verify that it has been installed correctly.
@@ -74,10 +72,8 @@ directory structure.
 2. Install dependencies
 
     1. [PUBNUB](https://github.com/pubnub/php#php--53-without-composer)
-    2. [PhpSecLib](https://github.com/phpseclib/phpseclib)
-    3. [PSR-7 HTTP Message](https://github.com/php-fig/http-message)
-    4. [Guzzle PSR-7 fork for PHP 5.3](https://github.com/kirill-konshin/psr7)
-    5. [Zend Framework 2 Mail Component](https://github.com/zendframework/zend-mail)
+    2. [PSR-7 HTTP Message](https://github.com/php-fig/http-message)
+    3. [Guzzle PSR-7 fork for PHP 5.3](https://github.com/kirill-konshin/psr7)
     
     Keep in mind that each package may have it's own dependencies, which are not listed here. You must visit each
     package and verify that it has been installed correctly.

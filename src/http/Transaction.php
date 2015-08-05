@@ -7,8 +7,6 @@ use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use stdClass;
-use Zend\Mail\Headers;
-use Zend\Mime\Decode;
 
 /**
  * FIXME Support streams
@@ -34,6 +32,8 @@ class Transaction
     /** @var RequestInterface */
     protected $request;
 
+    protected $raw;
+
     /**
      * TODO Support strams
      * @param RequestInterface $request Reqeuest used to get the response
@@ -44,39 +44,24 @@ class Transaction
     {
 
         $this->request = $request;
-
-        $reason = null;
-        $headers = array();
+        $this->body = $body;
 
         if (is_string($body)) {
 
-            preg_match('#^HTTP/1.(?:0|1) ([\d]{3})(.*)$#m', $body, $match);
-
-            if (!empty($match[2])) {
-                $reason = trim($match[2]);
+            // Make the HTTP message complete
+            if (substr($body, 0, 5) !== 'HTTP/') {
+                $body = "HTTP/1.1 " . $status . "\r\n" . $body;
             }
 
-            if (!empty($match[1])) {
-                $status = trim($match[1]);
+            $r = $this->parseResponse($body);
+
+            if (!$r) {
+                throw new \InvalidArgumentException('Message was empty');
             }
 
-            if (!empty($match[0])) {
-                $body = substr($body, strlen($match[0]) + 1);
-            }
+            $this->response = new Response($r['code'], $r['headers'], $r['body'], $r['version'], $r['reason_phrase']);
 
         }
-
-        /** @var Headers $zendHeaders */
-        $zendHeaders = null;
-        $zendContent = null;
-        Decode::splitMessage($body, $zendHeaders, $zendContent);
-
-
-        foreach ($zendHeaders as $header) {
-            $headers[$header->getFieldName()] = $header->getFieldValue();
-        }
-
-        $this->response = new Response($status, $headers, $zendContent, null, $reason);
 
     }
 
@@ -84,6 +69,13 @@ class Transaction
     {
 
         return (string)$this->response->getBody();
+
+    }
+
+    public function getRaw()
+    {
+
+        return $this->raw;
 
     }
 
@@ -157,9 +149,9 @@ class Transaction
                 throw new Exception('Response is not multipart');
             }
 
-            // Step 1. Split boundaries
+            // Step 1. Get boundary
 
-            preg_match('/boundary="([^;]+)"/i', $this->getContentType(), $matches); // Zend Mime Decoder adds quotes
+            preg_match('/boundary=([^";]+)/i', $this->getContentType(), $matches);
 
             if (empty($matches[1])) {
                 throw new Exception('Boundary not found');
@@ -167,24 +159,35 @@ class Transaction
 
             $boundary = $matches[1];
 
-            $parts = Decode::splitMime((string)$this->response->getBody(), $boundary);
+            // Step 2. Split by boundary and remove first and last parts if needed
+
+            $parts = explode('--' . $boundary . '', (string)$this->response->getBody());
+
+            if (empty($parts[0])) {
+                array_shift($parts);
+            }
+
+            if (trim($parts[count($parts) - 1]) == '--') {
+                array_pop($parts);
+            }
 
             if (count($parts) == 0) {
                 throw new Exception('No parts found');
             }
 
-            // Step 2. Create status info object
+            // Step 3. Create status info object
 
-            $statusInfoObj = new self(null, array_shift($parts), $this->response->getStatusCode());
+            $statusInfoPart = array_shift($parts);
+            $statusInfoObj = new self(null, trim($statusInfoPart), $this->response->getStatusCode());
             $statusInfo = $statusInfoObj->getJson()->response;
 
-            // Step 3. Parse all parts into Response objects
+            // Step 4. Parse all parts into Response objects
 
             foreach ($parts as $i => $part) {
 
                 $partInfo = $statusInfo[$i];
 
-                $this->multipartTransactions[] = new self(null, $part, $partInfo->status);
+                $this->multipartTransactions[] = new self(null, trim($part), $partInfo->status);
 
             }
 
@@ -260,6 +263,79 @@ class Transaction
     protected function getContentType()
     {
         return $this->response->getHeaderLine('content-type');
+    }
+
+    /**
+     * Ported from guzzle/guzzle
+     * @param $message
+     * @return array
+     */
+    protected function parseMessage($message)
+    {
+        $startLine = null;
+        $headers = array();
+        $body = '';
+
+        // Iterate over each line in the message, accounting for line endings
+        $lines = preg_split('/(\\r?\\n)/', $message, -1, PREG_SPLIT_DELIM_CAPTURE);
+        for ($i = 0, $totalLines = count($lines); $i < $totalLines; $i += 2) {
+
+            $line = $lines[$i];
+
+            // If two line breaks were encountered, then this is the end of body
+            if (empty($line)) {
+                if ($i < $totalLines - 1) {
+                    $body = implode('', array_slice($lines, $i + 2));
+                }
+                break;
+            }
+
+            // Parse message headers
+            if (!$startLine) {
+                $startLine = explode(' ', $line, 3);
+            } elseif (strpos($line, ':')) {
+                $parts = explode(':', $line, 2);
+                $key = trim($parts[0]);
+                $value = isset($parts[1]) ? trim($parts[1]) : '';
+                if (!isset($headers[$key])) {
+                    $headers[$key] = $value;
+                } elseif (!is_array($headers[$key])) {
+                    $headers[$key] = array($headers[$key], $value);
+                } else {
+                    $headers[$key][] = $value;
+                }
+            }
+        }
+
+        return array(
+            'start_line' => $startLine,
+            'headers'    => $headers,
+            'body'       => $body
+        );
+    }
+
+    /**
+     * Ported from guzzle/guzzle
+     * @param $message
+     * @return array|bool
+     */
+    protected function parseResponse($message)
+    {
+        if (!$message) {
+            return false;
+        }
+
+        $parts = $this->parseMessage($message);
+        list($protocol, $version) = explode('/', trim($parts['start_line'][0]));
+
+        return array(
+            'protocol'      => $protocol,
+            'version'       => $version,
+            'code'          => $parts['start_line'][1],
+            'reason_phrase' => isset($parts['start_line'][2]) ? $parts['start_line'][2] : '',
+            'headers'       => $parts['headers'],
+            'body'          => $parts['body']
+        );
     }
 
 }
