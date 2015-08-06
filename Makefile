@@ -21,7 +21,7 @@ coveralls:
 
 .PHONY: docker-shell
 docker-shell:
-	boot2docker shellinit
+	eval "$(boot2docker shellinit)"
 
 .PHONY: docker-login
 docker-login:

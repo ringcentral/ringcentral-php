@@ -164,7 +164,7 @@ class Transaction
 
     }
 
-    public function checkStatus()
+    public function isOK()
     {
         $status = $this->response->getStatusCode();
         return $status >= 200 && $status < 300;
@@ -182,7 +182,7 @@ class Transaction
             return null;
         }
 
-        if ($this->checkStatus()) {
+        if ($this->isOK()) {
             return null;
         }
 

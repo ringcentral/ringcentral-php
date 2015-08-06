@@ -51,6 +51,7 @@ class Client
      * @param RequestInterface $request
      * @return Transaction
      * @throws HttpException
+     * @codeCoverageIgnore
      */
     protected function sendViaCurl(RequestInterface $request)
     {
@@ -97,7 +98,7 @@ class Client
 
             $transaction = new Transaction($request, $body, $status);
 
-            if ($transaction->checkStatus()) {
+            if ($transaction->isOK()) {
 
                 curl_close($ch);
 
@@ -148,7 +149,7 @@ class Client
 
             $transaction = new Transaction($request, $responseBody);
 
-            if ($transaction->checkStatus()) {
+            if ($transaction->isOK()) {
 
                 return $transaction;
 
@@ -234,12 +235,15 @@ class Client
         $accept = null;
 
         foreach ($headers as $k => $v) {
+
             if (strtolower($k) == 'content-type') {
                 $contentType = $v;
             }
+
             if (strtolower($k) == 'accept') {
                 $accept = $v;
             }
+
         }
 
         if (!$contentType) {
@@ -255,16 +259,20 @@ class Client
         // Body
 
         if ($contentType) {
+
             switch (strtolower($contentType)) {
                 case 'application/json':
                     $body = json_encode($body);
                     break;
+
                 case 'application/x-www-form-urlencoded';
                     $body = http_build_query($body);
                     break;
+
                 default:
                     break;
             }
+
         }
 
         // Create request
