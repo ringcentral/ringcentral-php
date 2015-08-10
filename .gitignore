@@ -2,5 +2,6 @@
 demo/_cache
 demo/_credentials.php
 dist/coverage
+dist/phar
 composer*.lock
 vendor

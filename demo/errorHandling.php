@@ -2,9 +2,8 @@
 
 require_once(__DIR__ . '/_bootstrap.php');
 
-use RingCentral\http\HttpException;
-use RingCentral\http\Response;
-use RingCentral\SDK;
+use RingCentral\SDK\Http\HttpException;
+use RingCentral\SDK\SDK;
 
 $credentials = require(__DIR__ . '/_credentials.php');
 

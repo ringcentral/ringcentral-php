@@ -11,9 +11,7 @@
 
 # Installation
 
-**This release supports PHP 5.4+.**
-Last release that has PHP 5.3 support is [0.5.0](https://github.com/ringcentral/ringcentral-php/tree/0.5.0).
-PHP 5.3 support is planned for future releases, stay tuned.
+Please choose one of the following installation options:
 
 ## With [Composer](http://getcomposer.org) **(recommended)**
 
@@ -41,31 +39,23 @@ directory structure.
     require('vendor/autoload.php');
     ```
 
-## Without Composer
+## PHAR with bundled dependencies
 
-**This is highly not recommended! Use [Composer](http://getcomposer.org) as modern way of working with PHP packages.**
+**This is not recommended! Use [Composer](http://getcomposer.org) as modern way of working with PHP packages.**
 
 1. Download [PHAR file](https://github.com/ringcentral/ringcentral-php/blob/master/dist/ringcentral.phar)
 
-2. Install dependencies
-
-    1. [PUBNUB](https://github.com/pubnub/php#php--53-without-composer)
-    2. [PSR-7 HTTP Message](https://github.com/php-fig/http-message)
-    3. [Guzzle PSR-7 fork for PHP 5.3](https://github.com/kirill-konshin/psr7)
-
-    Keep in mind that each package may have it's own dependencies, which are not listed here. You must visit each
-    package and verify that it has been installed correctly.
-
-3. Require files:
+2. Require files:
   
     ```php
-    // PUBNUB, PHPSECLIB and ZEND FRAMEWORK 2 should be added before
     require('path-to-sdk/ringcentral.phar');
     ```
 
+Please keep in mind that bundled dependencies may interfere with your other dependencies.
+
 ## Without Composer and PHAR
 
-**This is highly not recommended! Use [Composer](http://getcomposer.org) as modern way of working with PHP packages.**
+**This is not recommended! Use [Composer](http://getcomposer.org) as modern way of working with PHP packages.**
     
 1. Clone `git clone git@github.com:ringcentral/ringcentral-php.git` or download [ZIP file](https://github.com/ringcentral/ringcentral-php/archive/master.zip)
 
@@ -81,7 +71,7 @@ directory structure.
 3. Add autoloaders:
 
     ```php
-    // PUBNUB, PHPSECLIB and ZEND FRAMEWORK 2 should be added before
+    // PUBNUB, PSR-7 and GUZZLE HTTP should be added before
     require('path-to-sdk/src/autoload.php');
     ```
     
@@ -90,7 +80,7 @@ directory structure.
 ## Initialization
 
 ```php
-$sdk = new RingCentral\SDK('appKey', 'appSecret', 'https://platform.devtest.ringcentral.com');
+$sdk = new RingCentral\SDK\SDK('appKey', 'appSecret', 'https://platform.devtest.ringcentral.com');
 ```
 
 ## Authentication
@@ -166,11 +156,13 @@ $transaction = $sdk->getPlatform()->post('/account/~/extension/~/sms', null, arr
 ### Get Platform error message
 
 ```php
+use RingCentral\SDK\Http\HttpException;
+
 try {
 
     $platform->get('/account/~/whatever');
 
-} catch (RingCentral\http\HttpException $e) {
+} catch (HttpException $e) {
 
     // Getting error messages using PHP native interface
     print 'Expected HTTP Error: ' . $e->getMessage() . PHP_EOL;
@@ -189,7 +181,8 @@ try {
 # Subscriptions
 
 ```php
-$s = ;
+use RingCentral\SDK\Subscription\Events\NotificationEvent;
+use RingCentral\SDK\Subscription\Subscription;
 
 $sdk->getSubscription()
     ->addEvents(array('/restapi/v1.0/account/~/extension/~/presence'))
@@ -214,7 +207,7 @@ return array(
     'appSecret'    => 'yourAppSecret',
     'server'       => 'https://platform.devtest.ringcentral.com', // for production - https://platform.ringcentral.com
     'smsNumber'    => '18882223344', // any of SMS-enabled numbers on your RingCentral account
-    'mobileNumber' => '16502746490', // your own mobile number to which script will send sms
+    'mobileNumber' => '16501112233', // your own mobile number to which script will send sms
 );
 ```
 

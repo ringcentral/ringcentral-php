@@ -1,6 +1,11 @@
 <?php
 
+exec('rm -rf ' . __DIR__ . '/dist/phar');
+
+@mkdir('./dist/phar');
 @unlink('./dist/ringcentral.phar');
+@unlink('./dist/phar/composer.json');
+@unlink('./dist/phar/composer.lock');
 
 $phar = new Phar(
     './dist/ringcentral.phar',
@@ -8,40 +13,76 @@ $phar = new Phar(
     'ringcentral.phar'
 );
 
-function listDir($path, $phar)
+function listDir($root, $path, $phar)
 {
 
-    $relPath = str_replace('/src', '', $path);
+    //print 'Entering ' . $root . $path . PHP_EOL;
 
-    $it = new DirectoryIterator(__DIR__ . $path);
+    $it = new DirectoryIterator($root . $path);
+
     foreach ($it as $fileinfo) {
+
         $filename = $fileinfo->getFilename();
-        if ($fileinfo->isDot() || stristr($filename, 'Test.php')) {
+
+        if ($fileinfo->isDot() ||
+            stristr($filename, 'Test.php') ||
+            stristr($filename, '.git') ||
+            stristr($filename, 'manual_tests') ||
+            stristr($filename, 'tests') ||
+            stristr($filename, 'demo') ||
+            stristr($filename, 'dist') ||
+            stristr($filename, 'docs')
+        ) {
+
             continue;
+
         } elseif ($fileinfo->isDir()) {
-            listDir($path . '/' . $filename, $phar);
+
+            listDir($root, $path . '/' . $filename, $phar);
+
         } else {
-            $key = ($relPath ? $relPath . '/' : '') . $filename;
-            $phar[$key] = file_get_contents(__DIR__ . $path . '/' . $fileinfo->getFilename());
-            //print $key . ' -> ' . $path . '/' . $filename . PHP_EOL;
+
+            $key = ($path ? $path . '/' : '') . $filename;
+
+            $phar[$key] = file_get_contents($root . $path . '/' . $fileinfo->getFilename());
+
+            //print '  ' . $key . ' -> ' . $path . '/' . $filename . PHP_EOL;
+
         }
     }
 
 }
 
-listDir('/src', $phar);
+file_put_contents('./dist/phar/composer.json', json_encode(array(
+    "type"              => "project",
+    "minimum-stability" => "dev",
+    "repositories"      => array(
+        array(
+            "url"  => __DIR__,
+            "type" => "vcs"
+        )
+    ),
+    "require"           => array(
+        "ringcentral/ringcentral-php" => "dev-develop"
+    )
+)));
+
+exec('cd ' . __DIR__ . '/dist/phar && composer install --prefer-source --no-interaction --no-dev');
+
+listDir(__DIR__ . '/dist/phar/vendor', '', $phar);
 
 $phar->setStub($phar->createDefaultStub("autoload.php"));
 
-//////////
+/////
 
 require('./dist/ringcentral.phar');
 
-$sdk = new RingCentral\SDK('foo', 'bar', 'http://server');
+$credentials = require('demo/_credentials.php');
 
-$url = $sdk->getPlatform()->apiUrl('/foo', array('addServer' => true));
+$sdk = new RingCentral\SDK\SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server']);
 
-if ($url != 'http://server/restapi/v1.0/foo') {
-    print 'Failed to verify PHAR' . PHP_EOL;
-    exit(1);
-}
+$sdk->getPlatform()->authorize($credentials['username'], $credentials['extension'], $credentials['password'], true);
+
+$t = $sdk->getPlatform()->get('/restapi/v1.0');
+
+print 'Connected to API server ' . $t->getJson()->uri . ', version ' . $t->getJson()->versionString . PHP_EOL;

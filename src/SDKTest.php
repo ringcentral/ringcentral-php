@@ -1,7 +1,7 @@
 <?php
 
 use GuzzleHttp\Psr7\Request;
-use RingCentral\SDK;
+use RingCentral\SDK\SDK;
 
 class SDKTest extends PHPUnit_Framework_TestCase
 {

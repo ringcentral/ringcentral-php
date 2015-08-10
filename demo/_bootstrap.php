@@ -1,9 +1,8 @@
 <?php
 
-require_once(__DIR__ . '/../src/autoload.php');
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use RingCentral\http\HttpException;
+use RingCentral\SDK\Http\HttpException;
 
 date_default_timezone_set('UTC');
 

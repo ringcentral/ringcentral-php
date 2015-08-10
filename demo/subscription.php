@@ -2,9 +2,9 @@
 
 require_once(__DIR__ . '/_bootstrap.php');
 
-use RingCentral\SDK;
-use RingCentral\subscription\events\NotificationEvent;
-use RingCentral\subscription\Subscription;
+use RingCentral\SDK\SDK;
+use RingCentral\SDK\Subscription\Events\NotificationEvent;
+use RingCentral\SDK\Subscription\Subscription;
 
 $credentials = require(__DIR__ . '/_credentials.php');
 

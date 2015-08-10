@@ -1,0 +1,22 @@
+<?php
+
+namespace RingCentral\SDK\Subscription\Events;
+
+class NotificationEvent
+{
+
+    protected $payload = array();
+
+    public function __construct(array $payload)
+    {
+
+        $this->payload = $payload;
+
+    }
+
+    public function getPayload()
+    {
+        return $this->payload;
+    }
+
+}

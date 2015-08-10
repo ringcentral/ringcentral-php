@@ -1,12 +1,12 @@
 <?php
 
-namespace RingCentral;
+namespace RingCentral\SDK;
 
-use RingCentral\http\Client;
-use RingCentral\http\MultipartBuilder;
-use RingCentral\platform\Platform;
-use RingCentral\pubnub\PubnubFactory;
-use RingCentral\subscription\Subscription;
+use RingCentral\SDK\Http\Client;
+use RingCentral\SDK\Http\MultipartBuilder;
+use RingCentral\SDK\Platform\Platform;
+use RingCentral\SDK\Pubnub\PubnubFactory;
+use RingCentral\SDK\Subscription\Subscription;
 
 class SDK
 {
