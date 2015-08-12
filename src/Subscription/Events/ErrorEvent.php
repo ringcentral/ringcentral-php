@@ -2,7 +2,9 @@
 
 namespace RingCentral\SDK\Subscription\Events;
 
-class ErrorEvent
+use Symfony\Component\EventDispatcher\Event;
+
+class ErrorEvent extends Event
 {
 
     protected $exception;

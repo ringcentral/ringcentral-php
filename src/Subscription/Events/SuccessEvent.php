@@ -3,8 +3,9 @@
 namespace RingCentral\SDK\Subscription\Events;
 
 use RingCentral\SDK\Http\Transaction;
+use Symfony\Component\EventDispatcher\Event;
 
-class SuccessEvent
+class SuccessEvent extends Event
 {
 
     /** @var Transaction */

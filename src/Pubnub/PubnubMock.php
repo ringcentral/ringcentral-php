@@ -3,37 +3,39 @@
 namespace RingCentral\SDK\Pubnub;
 
 use Pubnub\Pubnub;
-use RingCentral\SDK\core\Observable;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
 class PubnubMock extends Pubnub
 {
 
-    /** @var Observable */
-    private $observer;
+    /** @var EventDispatcher */
+    private $eventDispatcher;
 
     public function __construct(array $options = array())
     {
 
         parent::__construct($options);
-        $this->observer = new Observable();
+        $this->observer = new EventDispatcher();
 
     }
 
     public function subscribe($channel, $cb, $timeToken = 0, $presence = false)
     {
 
-        $this->observer->on('message', $cb);
+        $this->observer->addListener('message', function (PubnubEvent $e) use ($cb) {
+            call_user_func($cb, $e->getData());
+        });
 
     }
 
     public function receiveMessage($message)
     {
 
-        $this->observer->emit('message', array(
+        $this->observer->dispatch('message', new PubnubEvent(array(
             'message'   => $message,
             'channel'   => null,
             'timeToken' => time()
-        ));
+        )));
 
     }
 

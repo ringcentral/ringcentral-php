@@ -5,7 +5,6 @@ namespace RingCentral\SDK\Subscription;
 use Exception;
 use Pubnub\Pubnub;
 use Pubnub\PubnubAES;
-use RingCentral\SDK\core\Observable;
 use RingCentral\SDK\Core\Utils;
 use RingCentral\SDK\Http\Transaction;
 use RingCentral\SDK\Platform\Platform;
@@ -14,8 +13,9 @@ use RingCentral\SDK\pubnub\PubnubMock;
 use RingCentral\SDK\Subscription\Events\ErrorEvent;
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
 use RingCentral\SDK\Subscription\Events\SuccessEvent;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 
-class Subscription extends Observable
+class Subscription extends EventDispatcher
 {
 
     const EVENT_NOTIFICATION = 'notification';
@@ -122,14 +122,14 @@ class Subscription extends Observable
 
             //TODO Subscription renewal when everything will become async
 
-            $this->emit(self::EVENT_SUBSCRIBE_SUCCESS, new SuccessEvent($response));
+            $this->dispatch(self::EVENT_SUBSCRIBE_SUCCESS, new SuccessEvent($response));
 
             return $response;
 
         } catch (Exception $e) {
 
             $this->unsubscribe();
-            $this->emit(self::EVENT_SUBSCRIBE_ERROR, new ErrorEvent($e));
+            $this->dispatch(self::EVENT_SUBSCRIBE_ERROR, new ErrorEvent($e));
             throw $e;
 
         }
@@ -151,14 +151,14 @@ class Subscription extends Observable
 
             $this->updateSubscription($response->getJson(false));
 
-            $this->emit(self::EVENT_RENEW_SUCCESS, new SuccessEvent($response));
+            $this->dispatch(self::EVENT_RENEW_SUCCESS, new SuccessEvent($response));
 
             return $this;
 
         } catch (Exception $e) {
 
             $this->unsubscribe();
-            $this->emit(self::EVENT_RENEW_ERROR, new ErrorEvent($e));
+            $this->dispatch(self::EVENT_RENEW_ERROR, new ErrorEvent($e));
             throw $e;
 
         }
@@ -174,14 +174,14 @@ class Subscription extends Observable
 
             $this->unsubscribe();
 
-            $this->emit(self::EVENT_REMOVE_SUCCESS, new SuccessEvent($response));
+            $this->dispatch(self::EVENT_REMOVE_SUCCESS, new SuccessEvent($response));
 
             return $response;
 
         } catch (Exception $e) {
 
             $this->unsubscribe();
-            $this->emit(self::EVENT_REMOVE_ERROR, new ErrorEvent($e));
+            $this->dispatch(self::EVENT_REMOVE_ERROR, new ErrorEvent($e));
             throw $e;
 
         }
@@ -258,7 +258,7 @@ class Subscription extends Observable
 
         $message = $pubnubMessage['message'];
 
-        //TODO Since pubnub blocks everything this is probably the only place where we can intercept the process and to subscription renew
+        //TODO Since pubnub blocks everything this is probably the only place where we can intercept the process and do subscription renew
         //$this->renew();
 
         if ($this->isSubscribed() && $this->subscription['deliveryMode']['encryption'] && $this->subscription['deliveryMode']['encryptionKey']) {
@@ -276,7 +276,7 @@ class Subscription extends Observable
 
         //print 'Message received: ' . $message . PHP_EOL;
 
-        $this->emit(self::EVENT_NOTIFICATION, new NotificationEvent($message));
+        $this->dispatch(self::EVENT_NOTIFICATION, new NotificationEvent($message));
 
         return $this->keepPolling;
 

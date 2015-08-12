@@ -2,7 +2,9 @@
 
 namespace RingCentral\SDK\Subscription\Events;
 
-class NotificationEvent
+use Symfony\Component\EventDispatcher\Event;
+
+class NotificationEvent extends Event
 {
 
     protected $payload = array();

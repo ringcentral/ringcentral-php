@@ -8,7 +8,7 @@ $credentials = require(__DIR__ . '/_credentials.php');
 
 // Create SDK instance
 
-$rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server']);
+$rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server'], 'Demo', '1.0.0');
 
 $platform = $rcsdk->getPlatform();
 
@@ -30,3 +30,5 @@ $presences = $platform->get('/account/~/extension/' . $extensions[0]->id . ',' .
 print 'Presence loaded ' .
       $extensions[0]->name . ' - ' . $presences[0]->getJson()->presenceStatus . ', ' .
       $extensions[0]->name . ' - ' . $presences[1]->getJson()->presenceStatus . PHP_EOL;
+
+print_r($platform->get('/account/~/extension', array('perPage' => 10))->getRequest());

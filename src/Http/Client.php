@@ -7,18 +7,23 @@ use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\StreamInterface;
 use RingCentral\SDK\Mocks\Registry;
+use RingCentral\SDK\SDK;
 
 class Client
 {
 
     protected $_useMock = false;
+    protected $appVersion;
+    protected $appName;
 
     /** @var Registry */
     protected $mockRegistry;
 
-    public function __construct()
+    public function __construct($appName = '', $appVersion = '')
     {
         $this->mockRegistry = new Registry();
+        $this->appVersion = $appVersion;
+        $this->appName = $appName;
     }
 
     public function getMockRegistry()
@@ -66,6 +71,14 @@ class Client
             if (!$ch) {
                 throw new Exception('Couldn\'t initialize a cURL handle');
             }
+
+            $ua = (!empty($this->appName) ? ($this->appName . (!empty($this->appVersion) ? '/' . $this->appVersion : '') . ' ') : '') .
+                  php_uname('s') . '/' . php_uname('r') . ' ' .
+                  'RCPHPSDK/' . SDK::VERSION;
+
+            /** @var Request $request */
+            $request = $request->withAddedHeader('User-Agent', $ua)
+                               ->withAddedHeader('RC-User-Agent', $ua);
 
             curl_setopt($ch, CURLOPT_URL, $request->getUri());
 

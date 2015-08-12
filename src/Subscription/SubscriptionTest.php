@@ -31,7 +31,7 @@ class SubscriptionTest extends TestCase
 
         $s = $sdk->getSubscription();
         $s->addEvents(array('/restapi/v1.0/account/~/extension/1/presence'))
-          ->on(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) use (&$executed, &$t) {
+          ->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) use (&$executed, &$t) {
 
               $expected = array(
                   "timestamp" => "2014-03-12T20:47:54.712+0000",
@@ -47,8 +47,9 @@ class SubscriptionTest extends TestCase
 
               $executed = true;
 
-          })
-          ->register();
+          });
+
+        $s->register();
 
         $s->getPubnub()->receiveMessage($aesMessage);
 
@@ -80,14 +81,16 @@ class SubscriptionTest extends TestCase
 
         $s = $sdk->getSubscription();
         $s->addEvents(array('/restapi/v1.0/account/~/extension/1/presence'))
-          ->on(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) use (&$executed, $expected, &$t) {
+          ->addListener(Subscription::EVENT_NOTIFICATION,
+              function (NotificationEvent $e) use (&$executed, $expected, &$t) {
 
-              $t->assertEquals($expected, $e->getPayload());
+                  $t->assertEquals($expected, $e->getPayload());
 
-              $executed = true;
+                  $executed = true;
 
-          })
-          ->register();
+              });
+
+        $s->register();
 
         $s->getPubnub()
           ->receiveMessage(array_merge(array(), $expected));
@@ -139,7 +142,7 @@ class SubscriptionTest extends TestCase
 
         $s1 = $sdk->getSubscription();
 
-        $s1->on(Subscription::EVENT_SUBSCRIBE_SUCCESS, function (SuccessEvent $event) use (&$self, &$counter) {
+        $s1->addListener(Subscription::EVENT_SUBSCRIBE_SUCCESS, function (SuccessEvent $event) use (&$self, &$counter) {
             $self->assertEquals('/restapi/v1.0/account/~/extension/1/presence',
                 $event->getTransaction()->getJson()->eventFilters[0]);
             $counter++;
@@ -153,7 +156,7 @@ class SubscriptionTest extends TestCase
 
         $s2 = $sdk->getSubscription();
 
-        $s2->on(Subscription::EVENT_SUBSCRIBE_ERROR, function (ErrorEvent $event) use (&$self, &$counter) {
+        $s2->addListener(Subscription::EVENT_SUBSCRIBE_ERROR, function (ErrorEvent $event) use (&$self, &$counter) {
             $self->assertEquals('Expected Error', $event->getException()->getMessage());
             $counter++;
         });

@@ -52,35 +52,21 @@ directory structure.
     ```
 
 Please keep in mind that bundled dependencies may interfere with your other dependencies.
-
-## Without Composer and PHAR
-
-**This is not recommended! Use [Composer](http://getcomposer.org) as modern way of working with PHP packages.**
-    
-1. Clone `git clone git@github.com:ringcentral/ringcentral-php.git` or download [ZIP file](https://github.com/ringcentral/ringcentral-php/archive/master.zip)
-
-2. Install dependencies
-
-    1. [PUBNUB](https://github.com/pubnub/php#php--53-without-composer)
-    2. [PSR-7 HTTP Message](https://github.com/php-fig/http-message)
-    3. [Guzzle PSR-7 fork for PHP 5.3](https://github.com/kirill-konshin/psr7)
-    
-    Keep in mind that each package may have it's own dependencies, which are not listed here. You must visit each
-    package and verify that it has been installed correctly.
-
-3. Add autoloaders:
-
-    ```php
-    // PUBNUB, PSR-7 and GUZZLE HTTP should be added before
-    require('path-to-sdk/src/autoload.php');
-    ```
-    
+  
 # Basic Usage
 
 ## Initialization
 
 ```php
 $sdk = new RingCentral\SDK\SDK('appKey', 'appSecret', 'https://platform.devtest.ringcentral.com');
+```
+
+You also may supply custom AppName and AppVersion parameters with your application codename and version. These parameters
+are optional but they will help a lot to identify your application in API logs and speed up any potential troubleshooting.
+Allowed characters for AppName and AppVersion are: letters, digits, hyphen, dot and underscore.
+
+```php
+$sdk = new RingCentral\SDK\SDK('appKey', 'appSecret', 'https://platform.devtest.ringcentral.com', 'MyApp', '1.0.0');
 ```
 
 ## Authentication
@@ -184,14 +170,34 @@ try {
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
 use RingCentral\SDK\Subscription\Subscription;
 
-$sdk->getSubscription()
-    ->addEvents(array('/restapi/v1.0/account/~/extension/~/presence'))
-    ->on(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
+$subscription = $sdk->getSubscription()
+                     ->addEvents(array('/restapi/v1.0/account/~/extension/~/presence'))
+                     ->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
+                
+                         print_r($e->getPayload());
+                
+                     });
+                     
+$transaction = $subscription->register();
+```
 
-        print_r($e->getPayload());
+# Multipart Requests
 
-    })
-    ->register();
+SDK provides a helper to make sending of faxes easier.
+
+```php
+$request = $rcsdk->getMultipartBuilder()
+                 ->setBody(array(
+                     'to'         => array(
+                         array('phoneNumber' => '16501112233'),
+                     ),
+                     'faxResolution' => 'High',
+                 ))
+                 ->addAttachment('Plain Text', 'file.txt')
+                 ->addAttachment(fopen('path/to/file', 'r'))
+                 ->getRequest('/account/~/extension/~/fax'); // also has optional $method argument
+
+$response = $platform->apiCall($request);
 ```
 
 # How to demo?
