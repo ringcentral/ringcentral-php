@@ -51,20 +51,4 @@ class ClientTest extends TestCase
 
     }
 
-    public function testGetRequestHeaders()
-    {
-
-        $client = new Client();
-
-        $request = new Request('GET', '/foo');
-
-        $request = $request->withAddedHeader('content-type', 'foo')
-                           ->withAddedHeader('content-type', 'bar')
-                           ->withAddedHeader('foo', 'bar');
-
-        $this->assertEquals(array('content-type: foo, bar', 'foo: bar'), $client->getRequestHeaders($request));
-
-    }
-
-
 }

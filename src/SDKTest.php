@@ -2,8 +2,9 @@
 
 use GuzzleHttp\Psr7\Request;
 use RingCentral\SDK\SDK;
+use RingCentral\SDK\Test\TestCase;
 
-class SDKTest extends PHPUnit_Framework_TestCase
+class SDKTest extends TestCase
 {
     public function testConstructor()
     {
@@ -28,6 +29,11 @@ class SDKTest extends PHPUnit_Framework_TestCase
     public function testSandbox()
     {
         $this->connectToLiveServer(SDK::SERVER_SANDBOX);
+    }
+
+    public function testMultipartBuilder()
+    {
+        $this->getSDK(false)->getMultipartBuilder();
     }
 
 }

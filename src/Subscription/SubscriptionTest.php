@@ -207,6 +207,27 @@ class SubscriptionTest extends TestCase
 
     }
 
+    public function testRegister()
+    {
+
+        $sdk = $this->getSDK();
+
+        $sdk->getClient()->getMockRegistry()
+            ->add(new SubscriptionMock());
+
+        $s = $sdk->getSubscription();
+
+        $s->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+
+        $sdk->getClient()->getMockRegistry()
+            ->add(new GenericMock('/subscription/foo-bar-baz', array('ok' => 'ok')));
+
+        $s->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+
+        $this->assertEquals(array('ok' => 'ok'), $s->getSubscription());
+
+    }
+
     public function testRemove()
     {
 
@@ -240,6 +261,18 @@ class SubscriptionTest extends TestCase
         $s = $sdk->getSubscription();
         $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
         $s->remove();
+
+    }
+
+    public function testKeepPolling()
+    {
+
+        $sdk = $this->getSDK();
+
+        $s = $sdk->getSubscription();
+        $this->assertEquals(false, $s->getKeepPolling());
+        $s->setKeepPolling(true);
+        $this->assertEquals(true, $s->getKeepPolling());
 
     }
 

@@ -207,7 +207,7 @@ class Client
      * @param RequestInterface $request
      * @return string[]
      */
-    public function getRequestHeaders(RequestInterface $request)
+    protected function getRequestHeaders(RequestInterface $request)
     {
 
         $headers = array();
