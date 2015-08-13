@@ -4,7 +4,7 @@ test:
 
 .PHONY: phar
 phar:
-	php ./create-phar.php
+	php ./create-phar.php ${args}
 
 .PHONY: all
 all:

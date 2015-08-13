@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\Config\Definition\Exception\Exception;
+
 exec('rm -rf ' . __DIR__ . '/dist/phar');
 
 @mkdir('./dist/phar');
@@ -53,19 +55,32 @@ function listDir($root, $path, $phar)
 
 }
 
-file_put_contents('./dist/phar/composer.json', json_encode(array(
-    "type"              => "project",
-    "minimum-stability" => "dev",
-    "repositories"      => array(
-        array(
-            "url"  => __DIR__,
-            "type" => "vcs"
-        )
-    ),
-    "require"           => array(
-        "ringcentral/ringcentral-php" => "dev-develop"
+$json = array(
+    'type'              => 'project',
+    'minimum-stability' => 'dev',
+    'require'           => array(
+        'ringcentral/ringcentral-php' => 'dev-master'
     )
-)));
+);
+
+if (!empty($argv) && in_array('develop', $argv)) {
+    $json['require']['ringcentral/ringcentral-php'] = 'dev-develop';
+}
+
+if (!empty($argv) && in_array('local', $argv)) {
+    $json['repositories'] = array(
+        array(
+            'url'  => __DIR__,
+            'type' => 'vcs'
+        )
+    );
+}
+
+print 'Composer config:' . PHP_EOL;
+print_r($json);
+print PHP_EOL . PHP_EOL;
+
+file_put_contents('./dist/phar/composer.json', json_encode($json));
 
 exec('cd ' . __DIR__ . '/dist/phar && composer install --prefer-source --no-interaction --no-dev');
 
@@ -77,12 +92,24 @@ $phar->setStub($phar->createDefaultStub("autoload.php"));
 
 require('./dist/ringcentral.phar');
 
-$credentials = require('demo/_credentials.php');
+try {
 
-$sdk = new RingCentral\SDK\SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server']);
+    if (!file_exists('demo/_credentials.php')) {
+        print 'Connection check skipped.';
+        exit;
+    }
 
-$sdk->getPlatform()->authorize($credentials['username'], $credentials['extension'], $credentials['password'], true);
+    $credentials = require('demo/_credentials.php');
 
-$t = $sdk->getPlatform()->get('/restapi/v1.0');
+    $sdk = new RingCentral\SDK\SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server']);
 
-print 'Connected to API server ' . $t->getJson()->uri . ', version ' . $t->getJson()->versionString . PHP_EOL;
+    $sdk->getPlatform()->authorize($credentials['username'], $credentials['extension'], $credentials['password'], true);
+
+    $t = $sdk->getPlatform()->get('/restapi/v1.0');
+
+    print 'Connected to API server ' . $t->getJson()->uri . ', version ' . $t->getJson()->versionString . PHP_EOL;
+
+} catch (Exception $e) {
+    print 'Error while connecting using PHAR: ' . $e->getMessage();
+    exit(1);
+}

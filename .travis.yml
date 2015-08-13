@@ -10,9 +10,19 @@ before_script:
 script:
   - make test
 after_script:
+  - make phar
   - make coveralls
 matrix:
   allow_failures:
     - php:
       - hhvm
   fast_finish: true
+deploy:
+  provider: releases
+  api_key:
+    secure: U+QF83a+Yc5sUCVoNThzZbzDQ+FWMK2sTxqFXdfbtTmVpRDOuTkjQmKwekTqv2VLcK0ewfF95cGIkYGiVnI3BveJyb8BMv/WgRlglM5vsrpeQs3YF2ujwS58d2bbkfdW5w/naIpC+5i/lu9VGzJeMK4DE703zaWSXKul7hLrILo=
+  file: dist/ringcentral.phar
+  on:
+    php: 5.6
+    tags: true
+    repo: ringcentral/ringcentral-php
