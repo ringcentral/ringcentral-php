@@ -43,7 +43,7 @@ directory structure.
 
 **This is not recommended! Use [Composer](http://getcomposer.org) as modern way of working with PHP packages.**
 
-1. Download [PHAR file](https://github.com/ringcentral/ringcentral-php/blob/master/dist/ringcentral.phar)
+1. Download [PHAR file](https://github.com/ringcentral/ringcentral-php/releases/latest)
 
 2. Require files:
   
