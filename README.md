@@ -26,6 +26,14 @@ directory structure.
     
     More info about installation on [Linux / Unix / OSX](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
     and [Windows](https://getcomposer.org/doc/00-intro.md#installation-windows).
+
+3. Add the following line to your `composer.json` or create the one from scratch:
+  
+    ```json
+    {
+        "minimum-stability": "dev"
+    }
+    ```
   
 2. Run the Composer command to install the latest version of SDK:
   
