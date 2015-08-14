@@ -22,18 +22,26 @@
       "email": "devsupport@ringcentral.com"
     }
   ],
+  "repositories": [
+    {
+      "url": "https://github.com/kirill-konshin/psr7.git",
+      "type": "git"
+    }
+  ],
   "require": {
     "ext-curl": "*",
-    "php": ">=5.3.0",
+    "php": ">=5.3.29",
+    "guzzlehttp/psr7": "dev-master",
     "pubnub/pubnub": "~3.7",
-    "phpseclib/phpseclib": "~0.3"
+    "symfony/event-dispatcher": "^2.7"
   },
   "require-dev": {
-    "phpunit/phpunit": "*"
+    "phpunit/phpunit": "*",
+    "satooshi/php-coveralls": "dev-master"
   },
   "autoload": {
     "psr-4": {
-      "RingCentral\\": "lib/"
+      "RingCentral\\SDK\\": "src/"
     }
   }
 }

@@ -2,15 +2,14 @@
 
 require_once(__DIR__ . '/_bootstrap.php');
 
-use RingCentral\http\HttpException;
-use RingCentral\http\Response;
-use RingCentral\SDK;
+use RingCentral\SDK\Http\HttpException;
+use RingCentral\SDK\SDK;
 
 $credentials = require(__DIR__ . '/_credentials.php');
 
 // Create SDK instance
 
-$rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server']);
+$rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server'], 'Demo', '1.0.0');
 
 $platform = $rcsdk->getPlatform();
 
@@ -26,17 +25,9 @@ try {
 
 } catch (HttpException $e) {
 
-    $response = $e->getResponse();
+    $response = $e->getTransaction()->getResponse();
 
-    if ($response instanceof Response) { // Response has been received
-
-        $message = $response->getError() . ' (from backend) at URL ' . $e->getRequest()->getUrl();
-
-    } else { // No response received, request failed to start
-
-        $message = $e->getMessage();
-
-    }
+    $message = $e->getMessage() . ' (from backend) at URL ' . $e->getTransaction()->getRequest()->getUri()->__toString();
 
     print 'Expected HTTP Error: ' . $message . PHP_EOL;
 

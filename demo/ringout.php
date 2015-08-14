@@ -2,13 +2,13 @@
 
 require_once(__DIR__ . '/_bootstrap.php');
 
-use RingCentral\SDK;
+use RingCentral\SDK\SDK;
 
 $credentials = require(__DIR__ . '/_credentials.php');
 
 // Create SDK instance
 
-$rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server']);
+$rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server'], 'Demo', '1.0.0');
 
 $platform = $rcsdk->getPlatform();
 

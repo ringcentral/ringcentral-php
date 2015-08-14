@@ -1,66 +1,75 @@
 # RingCentral SDK for PHP
 
 [![Build Status](https://img.shields.io/travis/ringcentral/ringcentral-php/master.svg)](https://travis-ci.org/ringcentral/ringcentral-php)
+[![Coverage Status](https://coveralls.io/repos/ringcentral/ringcentral-php/badge.svg?branch=master&service=github)](https://coveralls.io/github/ringcentral/ringcentral-php?branch=master)
+
+# Requirements
+
+- PHP 5.3.29+
+- CURL extension
+- MCrypt extension
 
 # Installation
 
-## With [Composer](http://getcomposer.org) *(recommended)*
-  
-  1. Install composer:
+Please choose one of the following installation options:
+
+## With [Composer](http://getcomposer.org) **(recommended)**
+
+The installation of composer is local by default. We suggest that you install it at the top level of your application's
+directory structure.
+
+1. Install composer:
     
     ```sh
     $ curl -sS https://getcomposer.org/installer | php
     ```
+    
+    More info about installation on [Linux / Unix / OSX](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
+    and [Windows](https://getcomposer.org/doc/00-intro.md#installation-windows).
   
-  2. Run the Composer command to install the latest version of SDK:
+2. Run the Composer command to install the latest version of SDK:
   
     ```sh
-    $ composer require ringcentral/ringcentral-php
+    $ php composer.phar require ringcentral/ringcentral-php
     ```
 
-  3. Require Composer's autoloader:
+3. Require Composer's autoloader in your PHP script (assuming it is in the same directory where you installed Composer):
     
     ```php
     require('vendor/autoload.php');
-   ```
+    ```
 
-## Without Composer
+## PHAR with bundled dependencies
 
-  1. Download [PHAR file](https://github.com/ringcentral/ringcentral-php/blob/master/dist/ringcentral.phar)
-  
-  2. Follow [PUBNUB installation instructions](https://github.com/pubnub/php#php--53-without-composer)
-  
-  3. Follow [PhpSecLib installation instructions](https://github.com/phpseclib/phpseclib)
-  
-  4. Require files:
+**This is not recommended! Use [Composer](http://getcomposer.org) as modern way of working with PHP packages.**
+
+1. Download [PHAR file](https://github.com/ringcentral/ringcentral-php/releases/latest)
+
+2. Require files:
   
     ```php
-    // PUBNUB and PHPSECLIB should be added before
     require('path-to-sdk/ringcentral.phar');
     ```
 
-## Without Composer and PHAR
-    
-  1. Clone or download [ZIP file](https://github.com/ringcentral/ringcentral-php/archive/master.zip)
-
-  2. Follow [PUBNUB installation instructions](https://github.com/pubnub/php#php--53-without-composer)
+Please keep in mind that bundled dependencies may interfere with your other dependencies.
   
-  3. Follow [PhpSecLib installation instructions](https://github.com/phpseclib/phpseclib)
-  
-  4. Add autoloaders:
-  
-    ```php
-    // PUBNUB and PHPSECLIB should be added before
-    require('path-to-sdk/autoload.php');
-    ```
-    
 # Basic Usage
 
 ## Initialization
 
 ```php
-$sdk = new RingCentral\SDK('appKey', 'appSecret', 'https://platform.devtest.ringcentral.com');
+$sdk = new RingCentral\SDK\SDK('appKey', 'appSecret', RingCentral\SDK\SDK::SERVER_SANDBOX);
 ```
+
+You also may supply custom AppName and AppVersion parameters with your application codename and version. These parameters
+are optional but they will help a lot to identify your application in API logs and speed up any potential troubleshooting.
+Allowed characters for AppName and AppVersion are: letters, digits, hyphen, dot and underscore.
+
+```php
+$sdk = new RingCentral\SDK\SDK('appKey', 'appSecret', RingCentral\SDK\SDK::SERVER_SANDBOX, 'MyApp', '1.0.0');
+```
+
+For production use `RingCentral\SDK\SDK::SERVER_PRODUCTION` constant. Or type in the server URL by hand.
 
 ## Authentication
 
@@ -95,12 +104,14 @@ semaphor and pause other pending requests while one of them is performing refres
 ## Performing API call
 
 ```php
-$response = $sdk->getPlatform()->get('/account/~/extension/~');
-$response = $sdk->getPlatform()->post('/account/~/extension/~');
-$response = $sdk->getPlatform()->put('/account/~/extension/~');
-$response = $sdk->getPlatform()->delete('/account/~/extension/~');
+$transaction = $sdk->getPlatform()->get('/account/~/extension/~');
+$transaction = $sdk->getPlatform()->post('/account/~/extension/~');
+$transaction = $sdk->getPlatform()->put('/account/~/extension/~');
+$transaction = $sdk->getPlatform()->delete('/account/~/extension/~');
 
-print_r($response->getJson()); // stdClass will be returned or exception if Content-Type is not JSON
+print_r($transaction->getJson()); // stdClass will be returned or exception if Content-Type is not JSON
+print_r($transaction->getRequest()); // PSR-7's RequestInterface compatible instance used to perform HTTP request 
+print_r($transaction->getResponse()); // PSR-7's ResponseInterface compatible instance used as HTTP response 
 ```
 
 ### Multipart response
@@ -111,7 +122,7 @@ be parsed into multiple sub-responses:
 ```php
 $presences = $sdk->getPlatform()
                  ->get('/account/~/extension/id1,id2/presence')
-                 ->getResponses();
+                 ->getMultipart();
 
 print 'Presence loaded ' .
       $presences[0]->getJson()->presenceStatus . ', ' .
@@ -121,8 +132,7 @@ print 'Presence loaded ' .
 ### Send SMS - Make POST request
 
 ```php
-
-$response = $sdk->getPlatform()->post('/account/~/extension/~/sms', null, array(
+$transaction = $sdk->getPlatform()->post('/account/~/extension/~/sms', null, array(
     'from' => array('phoneNumber' => 'your-ringcentral-sms-number'),
     'to'   => array(
         array('phoneNumber' => 'mobile-number'),
@@ -134,30 +144,65 @@ $response = $sdk->getPlatform()->post('/account/~/extension/~/sms', null, array(
 ### Get Platform error message
 
 ```php
+use RingCentral\SDK\Http\HttpException;
+
 try {
 
     $platform->get('/account/~/whatever');
 
-} catch (RingCentral\http\HttpException $e) {
+} catch (HttpException $e) {
 
-    print 'Expected HTTP Error: ' . $e->getResponse()->getError() . PHP_EOL;
+    // Getting error messages using PHP native interface
+    print 'Expected HTTP Error: ' . $e->getMessage() . PHP_EOL;
 
+    // In order to get Request and Response used to perform transaction:
+    $transaction = $e->getTransaction();
+    print_r($transaction->getRequest()); 
+    print_r($transaction->getResponse());
+    
+    // Another way to get message, but keep in mind, that there could be no response if request has failed completely
+    print '  Message: ' . $e->getTransaction->getResponse()->getError() . PHP_EOL;
+    
 }
 ```
 
 # Subscriptions
 
 ```php
-$s = ;
+use RingCentral\SDK\Subscription\Events\NotificationEvent;
+use RingCentral\SDK\Subscription\Subscription;
 
-$sdk->getSubscription()
-    ->addEvents(array('/restapi/v1.0/account/~/extension/~/presence'))
-    ->on(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
+$subscription = $sdk->getSubscription()
+                     ->addEvents(array('/restapi/v1.0/account/~/extension/~/presence'))
+                     ->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
+                
+                         print_r($e->getPayload());
+                
+                     });
+                     
+$transaction = $subscription->register();
+```
 
-        print_r($e->getPayload());
+Please keep in mind that due to limitations of PUBNUB library, which is synchronous, subscriptions may expire and must
+be re-created manually.
 
-    })
-    ->register();
+# Multipart Requests
+
+SDK provides a helper to make sending of faxes easier.
+
+```php
+$request = $rcsdk->getMultipartBuilder()
+                 ->setBody(array(
+                     'to'         => array(
+                         array('phoneNumber' => '16501112233'),
+                     ),
+                     'faxResolution' => 'High',
+                 ))
+                 ->addAttachment('Plain Text', 'file.txt')
+                 ->addAttachment(fopen('path/to/file', 'r'))
+                 ->getRequest('/account/~/extension/~/fax'); // also has optional $method argument
+
+$response = $platform->apiCall($request);
 ```
 
 # How to demo?
@@ -173,7 +218,7 @@ return array(
     'appSecret'    => 'yourAppSecret',
     'server'       => 'https://platform.devtest.ringcentral.com', // for production - https://platform.ringcentral.com
     'smsNumber'    => '18882223344', // any of SMS-enabled numbers on your RingCentral account
-    'mobileNumber' => '16502746490', // your own mobile number to which script will send sms
+    'mobileNumber' => '16501112233', // your own mobile number to which script will send sms
 );
 ```
 

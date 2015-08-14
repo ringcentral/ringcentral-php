@@ -1,9 +1,8 @@
 <?php
 
-require_once(__DIR__ . '/../lib/autoload.php');
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use RingCentral\http\HttpException;
+use RingCentral\SDK\Http\HttpException;
 
 date_default_timezone_set('UTC');
 
@@ -22,16 +21,15 @@ set_exception_handler(function (Exception $e) {
 
     print 'Exception: ' . $e->getMessage() . PHP_EOL;
 
-    if ($e instanceof HttpException && $response = $e->getResponse()) {
+    if ($e instanceof HttpException) {
 
-        print 'SDK HTTP Error: ' . $response->getError() . ' at ' . $e->getRequest()->getUrl() . PHP_EOL;
+        print 'SDK HTTP Error at ' . $e->getTransaction()->getRequest()->getUri() . PHP_EOL .
+              'Response body: ' . $e->getTransaction()->getText() . PHP_EOL;
 
-        print print_r($response->getJson(), true) . PHP_EOL;
+    }
 
-        if ($e->getPrevious()) {
-            print 'Previous: ' . $e->getPrevious()->getMessage() . PHP_EOL;
-        }
-
+    if ($e->getPrevious()) {
+        print 'Previous: ' . $e->getPrevious()->getMessage() . PHP_EOL;
     }
 
     print $e->getTraceAsString() . PHP_EOL;
