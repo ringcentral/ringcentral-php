@@ -58,7 +58,7 @@ Please keep in mind that bundled dependencies may interfere with your other depe
 ## Initialization
 
 ```php
-$sdk = new RingCentral\SDK\SDK('appKey', 'appSecret', 'https://platform.devtest.ringcentral.com');
+$sdk = new RingCentral\SDK\SDK('appKey', 'appSecret', RingCentral\SDK\SDK::SERVER_SANDBOX);
 ```
 
 You also may supply custom AppName and AppVersion parameters with your application codename and version. These parameters
@@ -66,8 +66,10 @@ are optional but they will help a lot to identify your application in API logs a
 Allowed characters for AppName and AppVersion are: letters, digits, hyphen, dot and underscore.
 
 ```php
-$sdk = new RingCentral\SDK\SDK('appKey', 'appSecret', 'https://platform.devtest.ringcentral.com', 'MyApp', '1.0.0');
+$sdk = new RingCentral\SDK\SDK('appKey', 'appSecret', RingCentral\SDK\SDK::SERVER_SANDBOX, 'MyApp', '1.0.0');
 ```
+
+For production use `RingCentral\SDK\SDK::SERVER_PRODUCTION` constant. Or type in the server URL by hand.
 
 ## Authentication
 
@@ -180,6 +182,9 @@ $subscription = $sdk->getSubscription()
                      
 $transaction = $subscription->register();
 ```
+
+Please keep in mind that due to limitations of PUBNUB library, which is synchronous, subscriptions may expire and must
+be re-created manually.
 
 # Multipart Requests
 
