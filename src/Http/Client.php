@@ -74,6 +74,7 @@ class Client
 
             $ua = (!empty($this->appName) ? ($this->appName . (!empty($this->appVersion) ? '/' . $this->appVersion : '') . ' ') : '') .
                   php_uname('s') . '/' . php_uname('r') . ' ' .
+                  'PHP/' . phpversion() . ' ' .
                   'RCPHPSDK/' . SDK::VERSION;
 
             /** @var Request $request */
