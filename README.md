@@ -196,7 +196,7 @@ be re-created manually.
 
 # Multipart Requests
 
-SDK provides a helper to make sending of faxes easier.
+The SDK provides a multipart request helper that can be used to make sending of faxes easier.
 
 ```php
 $request = $sdk->getMultipartBuilder()
