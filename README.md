@@ -196,21 +196,21 @@ be re-created manually.
 
 # Multipart Requests
 
-SDK provides a helper to make sending of faxes easier.
+The SDK provides a multipart request helper that can be used to make sending of faxes easier.
 
 ```php
-$request = $rcsdk->getMultipartBuilder()
-                 ->setBody(array(
-                     'to'         => array(
-                         array('phoneNumber' => '16501112233'),
-                     ),
-                     'faxResolution' => 'High',
-                 ))
-                 ->addAttachment('Plain Text', 'file.txt')
-                 ->addAttachment(fopen('path/to/file', 'r'))
-                 ->getRequest('/account/~/extension/~/fax'); // also has optional $method argument
+$request = $sdk->getMultipartBuilder()
+               ->setBody(array(
+                   'to' => array(
+                     array('phoneNumber' => '16501112233'),
+                   ),
+                   'faxResolution' => 'High'
+               ))
+               ->addAttachment('Plain Text', 'file.txt')
+               ->addAttachment(fopen('path/to/file', 'r'))
+               ->getRequest('/account/~/extension/~/fax'); // also has optional $method argument
 
-$response = $platform->apiCall($request);
+$transaction = $platform->apiCall($request);
 ```
 
 # How to demo?
