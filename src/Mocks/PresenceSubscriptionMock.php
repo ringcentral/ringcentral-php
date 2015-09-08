@@ -7,7 +7,8 @@ use Psr\Http\Message\RequestInterface;
 class PresenceSubscriptionMock extends AbstractMock
 {
 
-    protected $path = '/restapi/v1.0/subscription';
+    protected $_path = '/restapi/v1.0/subscription';
+    protected $_method = 'POST';
 
     protected $id = '1';
     protected $detailed = false;

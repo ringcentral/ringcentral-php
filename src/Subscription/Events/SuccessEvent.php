@@ -2,25 +2,25 @@
 
 namespace RingCentral\SDK\Subscription\Events;
 
-use RingCentral\SDK\Http\Transaction;
+use RingCentral\SDK\Http\ApiResponse;
 use Symfony\Component\EventDispatcher\Event;
 
 class SuccessEvent extends Event
 {
 
-    /** @var Transaction */
-    protected $response;
+    /** @var ApiResponse */
+    protected $_response;
 
-    public function __construct(Transaction $response)
+    public function __construct(ApiResponse $response)
     {
 
-        $this->transaction = $response;
+        $this->_response = $response;
 
     }
 
-    public function getTransaction()
+    public function response()
     {
-        return $this->transaction;
+        return $this->_response;
     }
 
 }

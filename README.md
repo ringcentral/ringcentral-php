@@ -84,13 +84,13 @@ For production use `RingCentral\SDK\SDK::SERVER_PRODUCTION` constant. Or type in
 Check authentication status:
 
 ```php
-$sdk->getPlatform()->isAuthorized(); // throws exception if not authorized after automatic refresh
+$sdk->platform()->loggedIn();
 ```
 
 Authenticate user:
 
 ```php
-$sdk->getPlatform()->authorize('username', 'extension (or leave blank)', 'password', true); // change true to false to not remember user
+$sdk->getPlatform()->login('username', 'extension (or leave blank)', 'password'); // change true to false to not remember user
 ```
 
 ### Authentication lifecycle
@@ -99,10 +99,10 @@ Platform class performs token refresh procedure if needed. You can save authenti
 
 ```js
 // when application is going to be stopped
-file_put_contents($file, json_encode($platform->getAuthData(), JSON_PRETTY_PRINT));
+file_put_contents($file, json_encode($platform->auth()->data(), JSON_PRETTY_PRINT));
 
 // and then next time during application bootstrap before any authentication checks:
-$sdk->getPlatform()->setAuthData(json_decode(file_get_contents($file));
+$sdk->getPlatform()->auth->setData(json_decode(file_get_contents($file));
 ```
 
 **Important!** You have to manually maintain synchronization of SDK's between requests if you share authentication.
@@ -112,14 +112,14 @@ semaphor and pause other pending requests while one of them is performing refres
 ## Performing API call
 
 ```php
-$transaction = $sdk->getPlatform()->get('/account/~/extension/~');
-$transaction = $sdk->getPlatform()->post('/account/~/extension/~');
-$transaction = $sdk->getPlatform()->put('/account/~/extension/~');
-$transaction = $sdk->getPlatform()->delete('/account/~/extension/~');
+$apiResponse = $sdk->platform()->get('/account/~/extension/~');
+$apiResponse = $sdk->platform()->post('/account/~/extension/~', array(...));
+$apiResponse = $sdk->platform()->put('/account/~/extension/~', array(...));
+$apiResponse = $sdk->platform()->delete('/account/~/extension/~');
 
-print_r($transaction->getJson()); // stdClass will be returned or exception if Content-Type is not JSON
-print_r($transaction->getRequest()); // PSR-7's RequestInterface compatible instance used to perform HTTP request 
-print_r($transaction->getResponse()); // PSR-7's ResponseInterface compatible instance used as HTTP response 
+print_r($apiResponse->json()); // stdClass will be returned or exception if Content-Type is not JSON
+print_r($apiResponse->request()); // PSR-7's RequestInterface compatible instance used to perform HTTP request 
+print_r($apiResponse->response()); // PSR-7's ResponseInterface compatible instance used as HTTP response 
 ```
 
 ### Multipart response
@@ -128,19 +128,19 @@ Loading of multiple comma-separated IDs will result in HTTP 207 with `Content-Ty
 be parsed into multiple sub-responses:
 
 ```php
-$presences = $sdk->getPlatform()
+$presences = $sdk->platform()
                  ->get('/account/~/extension/id1,id2/presence')
-                 ->getMultipart();
+                 ->multipart();
 
 print 'Presence loaded ' .
-      $presences[0]->getJson()->presenceStatus . ', ' .
-      $presences[1]->getJson()->presenceStatus . PHP_EOL;
+      $presences[0]->json()->presenceStatus . ', ' .
+      $presences[1]->json()->presenceStatus . PHP_EOL;
 ```
 
 ### Send SMS - Make POST request
 
 ```php
-$transaction = $sdk->getPlatform()->post('/account/~/extension/~/sms', null, array(
+$apiResponse = $sdk->platform()->post('/account/~/extension/~/sms', array(
     'from' => array('phoneNumber' => 'your-ringcentral-sms-number'),
     'to'   => array(
         array('phoneNumber' => 'mobile-number'),
@@ -152,24 +152,22 @@ $transaction = $sdk->getPlatform()->post('/account/~/extension/~/sms', null, arr
 ### Get Platform error message
 
 ```php
-use RingCentral\SDK\Http\HttpException;
-
 try {
 
-    $platform->get('/account/~/whatever');
+    $sdk->platform()->get('/account/~/whatever');
 
-} catch (HttpException $e) {
+} catch (\RingCentral\SDK\Http\ApiException $e) {
 
     // Getting error messages using PHP native interface
     print 'Expected HTTP Error: ' . $e->getMessage() . PHP_EOL;
 
     // In order to get Request and Response used to perform transaction:
-    $transaction = $e->getTransaction();
-    print_r($transaction->getRequest()); 
-    print_r($transaction->getResponse());
+    $apiResponse = $e->apiResponse();
+    print_r($apiResponse->request()); 
+    print_r($apiResponse->response());
     
     // Another way to get message, but keep in mind, that there could be no response if request has failed completely
-    print '  Message: ' . $e->getTransaction->getResponse()->getError() . PHP_EOL;
+    print '  Message: ' . $e->apiResponse->response()->error() . PHP_EOL;
     
 }
 ```
@@ -180,7 +178,7 @@ try {
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
 use RingCentral\SDK\Subscription\Subscription;
 
-$subscription = $sdk->getSubscription()
+$subscription = $sdk->createSubscription()
                      ->addEvents(array('/restapi/v1.0/account/~/extension/~/presence'))
                      ->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
                 
@@ -188,7 +186,7 @@ $subscription = $sdk->getSubscription()
                 
                      });
                      
-$transaction = $subscription->register();
+$apiResponse = $subscription->register();
 ```
 
 Please keep in mind that due to limitations of PUBNUB library, which is synchronous, subscriptions may expire and must
@@ -199,7 +197,7 @@ be re-created manually.
 SDK provides a helper to make sending of faxes easier.
 
 ```php
-$request = $rcsdk->getMultipartBuilder()
+$request = $rcsdk->createMultipartBuilder()
                  ->setBody(array(
                      'to'         => array(
                          array('phoneNumber' => '16501112233'),
@@ -208,9 +206,9 @@ $request = $rcsdk->getMultipartBuilder()
                  ))
                  ->addAttachment('Plain Text', 'file.txt')
                  ->addAttachment(fopen('path/to/file', 'r'))
-                 ->getRequest('/account/~/extension/~/fax'); // also has optional $method argument
+                 ->request('/account/~/extension/~/fax'); // also has optional $method argument
 
-$response = $platform->apiCall($request);
+$response = $platform->sendRequest($request);
 ```
 
 # How to demo?

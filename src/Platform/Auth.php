@@ -7,8 +7,6 @@ use stdClass;
 class Auth
 {
 
-    protected $remember;
-
     protected $token_type;
 
     protected $access_token;
@@ -35,10 +33,6 @@ class Auth
         }
 
         // Misc
-
-        if (!empty($data['remember'])) {
-            $this->remember = !!$data['remember'];
-        }
 
         if (!empty($data['token_type'])) {
             $this->token_type = $data['token_type'];
@@ -91,8 +85,6 @@ class Auth
     public function reset()
     {
 
-        $this->remember = false;
-
         $this->token_type = '';
 
         $this->access_token = '';
@@ -113,11 +105,10 @@ class Auth
     /**
      * @return stdClass
      */
-    public function getData()
+    public function data()
     {
 
         return array(
-            'remember'                  => $this->remember,
             'token_type'                => $this->token_type,
             'access_token'              => $this->access_token,
             'expires_in'                => $this->expires_in,
@@ -131,40 +122,29 @@ class Auth
 
     }
 
-    public function getAccessToken()
+    public function accessToken()
     {
         return $this->access_token;
     }
 
-    public function getRefreshToken()
+    public function refreshToken()
     {
         return $this->refresh_token;
     }
 
-    public function getTokenType()
+    public function tokenType()
     {
         return $this->token_type;
     }
 
-    public function isAccessTokenValid()
+    public function accessTokenValid()
     {
         return $this->expire_time > time();
     }
 
-    public function isRefreshTokenValid()
+    public function refreshTokenValid()
     {
         return $this->refresh_token_expire_time > time();
-    }
-
-    public function setRemember($remember)
-    {
-        $this->remember = !!$remember;
-        return $this;
-    }
-
-    public function isRemember()
-    {
-        return !empty($this->remember);
     }
 
 }

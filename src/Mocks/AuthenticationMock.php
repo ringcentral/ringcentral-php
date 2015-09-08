@@ -7,7 +7,8 @@ use Psr\Http\Message\RequestInterface;
 class AuthenticationMock extends AbstractMock
 {
 
-    protected $path = '/restapi/oauth/token';
+    protected $_path = '/restapi/oauth/token';
+    protected $_method = 'POST';
 
     /**
      * @inheritdoc

@@ -8,7 +8,8 @@ use RingCentral\SDK\Core\Utils;
 class SubscriptionMock extends AbstractMock
 {
 
-    protected $path = '/restapi/v1.0/subscription';
+    protected $_path = '/restapi/v1.0/subscription';
+    protected $_method = 'POST';
 
     protected $expiresIn = 54000; // 15 * 60 * 60
 

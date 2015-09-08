@@ -7,7 +7,8 @@ use Psr\Http\Message\RequestInterface;
 abstract class AbstractMock
 {
 
-    protected $path = '';
+    protected $_path = '';
+    protected $_method = 'GET';
 
     /**
      * Factory method that creates Response object based on given Request object
@@ -16,6 +17,16 @@ abstract class AbstractMock
      */
     public abstract function getResponse(RequestInterface $request);
 
+    public function path()
+    {
+        return $this->_path;
+    }
+
+    public function method()
+    {
+        return $this->_method;
+    }
+
     /**
      * Method verifies that mock is applicable for given Request
      * @param RequestInterface $request
@@ -23,7 +34,9 @@ abstract class AbstractMock
      */
     public function test(RequestInterface $request)
     {
-        return (stristr($request->getUri()->getPath(), $this->path));
+        return (stristr($request->getUri()->getPath(), $this->_path) &&
+                strtoupper($request->getMethod()) == $this->_method
+        );
     }
 
     /**

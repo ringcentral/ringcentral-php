@@ -56,7 +56,7 @@ class MultipartBuilderTest extends TestCase
                 ->setBoundary('boundary')
                 ->addAttachment('plain text', 'plain.txt');
 
-        $request = $builder->getRequest('/fax');
+        $request = $builder->request('/fax');
 
         $this->assertEquals($expected, (string)$request->getBody());
 
@@ -110,7 +110,7 @@ class MultipartBuilderTest extends TestCase
                 ->addAttachment(\GuzzleHttp\Psr7\stream_for('streamed'), 'streamed.txt')
                 ->addAttachment(new Stream(fopen($this->fname, 'r')));
 
-        $this->assertEquals($expected, (string)$builder->getRequest('/fax')->getBody());
+        $this->assertEquals($expected, (string)$builder->request('/fax')->getBody());
 
     }
 
@@ -170,7 +170,7 @@ class MultipartBuilderTest extends TestCase
                 ->setBoundary('boundary')
                 ->addAttachment(fopen($this->fname, 'r'));
 
-        $this->assertEquals($expected, (string)$builder->getRequest('/fax')->getBody());
+        $this->assertEquals($expected, (string)$builder->request('/fax')->getBody());
 
     }
 
@@ -198,11 +198,11 @@ class MultipartBuilderTest extends TestCase
                 ->setBoundary('boundary')
                 ->addAttachment('plain text', 'plain.txt', array('Content-Type' => 'text/custom'));
 
-        $request = $builder->getRequest('/fax');
+        $request = $builder->request('/fax');
 
         $this->assertEquals($expected, (string)$request->getBody());
         $this->assertEquals('multipart/form-data; boundary=boundary', $request->getHeaderLine('Content-Type'));
-        $this->assertEquals('boundary', $builder->getBoundary());
+        $this->assertEquals('boundary', $builder->boundary());
         $this->assertEquals(1, count($builder->getAttachments()));
 
     }
@@ -213,10 +213,9 @@ class MultipartBuilderTest extends TestCase
         $builder = new MultipartBuilder();
         $body = array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High');
 
-        $builder->setBody($body)
-                ->setBoundary('boundary');
+        $builder->setBody($body);
 
-        $this->assertEquals($body, $builder->getBody());
+        $this->assertEquals($body, $builder->body());
 
     }
 

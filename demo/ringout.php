@@ -10,20 +10,20 @@ $credentials = require(__DIR__ . '/_credentials.php');
 
 $rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server'], 'Demo', '1.0.0');
 
-$platform = $rcsdk->getPlatform();
+$platform = $rcsdk->platform();
 
 // Authorize
 
-$platform->authorize($credentials['username'], $credentials['extension'], $credentials['password'], true);
+$platform->login($credentials['username'], $credentials['extension'], $credentials['password']);
 
 // Make a call
 
-$response = $platform->post('/account/~/extension/~/ringout', null, array(
+$response = $platform->post('/account/~/extension/~/ringout', array(
     'from' => array('phoneNumber' => '15551112233'),
     'to'   => array('phoneNumber' => $credentials['mobileNumber'])
 ));
 
-$json = $response->getJson();
+$json = $response->json();
 
 $lastStatus = $json->status->callStatus;
 
@@ -32,7 +32,7 @@ $lastStatus = $json->status->callStatus;
 while ($lastStatus == 'InProgress') {
 
     $current = $platform->get($json->uri);
-    $currentJson = $current->getJson();
+    $currentJson = $current->json();
     $lastStatus = $currentJson->status->callStatus;
     print 'Status: ' . json_encode($currentJson->status) . PHP_EOL;
 

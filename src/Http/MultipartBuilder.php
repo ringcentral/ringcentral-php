@@ -20,7 +20,7 @@ class MultipartBuilder
         return $this;
     }
 
-    public function getBoundary()
+    public function boundary()
     {
         return $this->boundary;
     }
@@ -31,7 +31,7 @@ class MultipartBuilder
         return $this;
     }
 
-    public function getBody()
+    public function body()
     {
         return $this->body;
     }
@@ -136,10 +136,10 @@ class MultipartBuilder
      * @throws \InvalidArgumentException
      * @return RequestInterface
      */
-    public function getRequest($uri, $method = 'POST')
+    public function request($uri, $method = 'POST')
     {
 
-        $stream = $this->getRequestBody();
+        $stream = $this->requestBody();
         $headers = array('Content-Type' => 'multipart/form-data; boundary=' . $stream->getBoundary());
 
         return new Request($method, $uri, $headers, $stream);
@@ -149,7 +149,7 @@ class MultipartBuilder
     /**
      * @return StreamInterface|MultipartStream
      */
-    protected function getRequestBody()
+    protected function requestBody()
     {
 
         $bodyAttachment = array(

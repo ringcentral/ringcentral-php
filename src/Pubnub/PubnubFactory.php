@@ -9,10 +9,9 @@ class PubnubFactory
 
     protected $_useMock = false;
 
-    public function useMock($flag = false)
+    public function __construct($useMock = false)
     {
-        $this->_useMock = $flag;
-        return $this;
+        $this->_useMock = $useMock;
     }
 
     /**

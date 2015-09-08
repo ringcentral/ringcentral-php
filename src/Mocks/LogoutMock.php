@@ -7,7 +7,8 @@ use Psr\Http\Message\RequestInterface;
 class LogoutMock extends AbstractMock
 {
 
-    protected $path = '/restapi/oauth/revoke';
+    protected $_path = '/restapi/oauth/revoke';
+    protected $_method = 'POST';
 
     /**
      * @inheritdoc

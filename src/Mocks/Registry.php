@@ -3,6 +3,7 @@
 namespace RingCentral\SDK\Mocks;
 
 use Psr\Http\Message\RequestInterface;
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 class Registry
 {
@@ -25,17 +26,20 @@ class Registry
     public function find(RequestInterface $request)
     {
 
-        $response = null;
+        /** @var AbstractMock $mock */
+        $mock = array_shift($this->responses);
 
-        foreach ($this->responses as $res) {
-
-            if ($res->test($request)) {
-                $response = $res;
-            }
-
+        if (empty($mock)) {
+            throw new Exception('No mock in registry for request ' .
+                                $request->getMethod() . ' ' . $request->getUri());
         }
 
-        return $response;
+        if (!$mock->test($request)) {
+            throw new Exception('Wrong request ' . $request->getMethod() . ' ' . $request->getUri() .
+                                ' for expected mock ' . $mock->method() . ' ' . $mock->path());
+        }
+
+        return $mock;
 
     }
 
