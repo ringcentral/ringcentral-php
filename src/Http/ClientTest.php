@@ -1,6 +1,5 @@
 <?php
 
-use GuzzleHttp\Psr7\Request;
 use RingCentral\SDK\Http\Client;
 use RingCentral\SDK\Test\TestCase;
 
@@ -14,7 +13,7 @@ class ClientTest extends TestCase
 
         // Query string
 
-        $r = $client->requestFactory('GET', 'http://whatever:8080/path', array('foo' => 'bar', 'baz' => 'qux'));
+        $r = $client->createRequest('GET', 'http://whatever:8080/path', array('foo' => 'bar', 'baz' => 'qux'));
 
         $this->assertEquals('http', $r->getUri()->getScheme());
         $this->assertEquals('whatever', $r->getUri()->getHost());
@@ -24,27 +23,27 @@ class ClientTest extends TestCase
 
         // URLEncoded
 
-        $r = $client->requestFactory('POST', 'http://whatever:8080/path', null, array('foo' => 'bar', 'baz' => 'qux'),
+        $r = $client->createRequest('POST', 'http://whatever:8080/path', null, array('foo' => 'bar', 'baz' => 'qux'),
             array('content-type' => 'application/x-www-form-urlencoded'));
 
         $this->assertEquals('foo=bar&baz=qux', $r->getBody());
 
         // JSON
 
-        $r = $client->requestFactory('POST', 'http://whatever', null, array('foo' => 'bar', 'baz' => 'qux'),
+        $r = $client->createRequest('POST', 'http://whatever', null, array('foo' => 'bar', 'baz' => 'qux'),
             array('content-type' => 'application/json'));
 
         $this->assertEquals('{"foo":"bar","baz":"qux"}', $r->getBody());
 
         // JSON by default
 
-        $r = $client->requestFactory('POST', 'http://whatever', null, array('foo' => 'bar', 'baz' => 'qux'));
+        $r = $client->createRequest('POST', 'http://whatever', null, array('foo' => 'bar', 'baz' => 'qux'));
 
         $this->assertEquals('{"foo":"bar","baz":"qux"}', $r->getBody());
 
         // Foo content type
 
-        $r = $client->requestFactory('POST', 'http://whatever', null, 'foo-encoded-text',
+        $r = $client->createRequest('POST', 'http://whatever', null, 'foo-encoded-text',
             array('content-type' => 'foo'));
 
         $this->assertEquals('foo-encoded-text', $r->getBody());

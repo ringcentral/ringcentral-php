@@ -1,9 +1,7 @@
 <?php
 
-use RingCentral\SDK\Http\HttpException;
-use RingCentral\SDK\Mocks\GenericMock;
-use RingCentral\SDK\Mocks\PresenceSubscriptionMock;
-use RingCentral\SDK\Mocks\SubscriptionMock;
+use RingCentral\SDK\Http\ApiException;
+use RingCentral\SDK\Mocks\Mock;
 use RingCentral\SDK\Subscription\Events\ErrorEvent;
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
 use RingCentral\SDK\Subscription\Events\SuccessEvent;
@@ -18,8 +16,7 @@ class SubscriptionTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $sdk->getClient()->getMockRegistry()
-            ->add(new PresenceSubscriptionMock());
+        $sdk->mockRegistry()->presenceSubscriptionMock();
 
         $executed = false;
         $aesMessage = 'gkw8EU4G1SDVa2/hrlv6+0ViIxB7N1i1z5MU/Hu2xkIKzH6yQzhr3vIc27IAN558kTOkacqE5DkLpRdnN1orwtIBsUHmPM' .
@@ -29,7 +26,8 @@ class SubscriptionTest extends TestCase
 
         $t = $this;
 
-        $s = $sdk->getSubscription();
+        $s = $sdk->createSubscription();
+
         $s->addEvents(array('/restapi/v1.0/account/~/extension/1/presence'))
           ->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) use (&$executed, &$t) {
 
@@ -43,7 +41,7 @@ class SubscriptionTest extends TestCase
                   "uuid"      => "db01e7de-5f3c-4ee5-ab72-f8bd3b77e308"
               );
 
-              $t->assertEquals($expected, $e->getPayload());
+              $t->assertEquals($expected, $e->payload());
 
               $executed = true;
 
@@ -51,7 +49,7 @@ class SubscriptionTest extends TestCase
 
         $s->register();
 
-        $s->getPubnub()->receiveMessage($aesMessage);
+        $s->pubnub()->receiveMessage($aesMessage);
 
         $this->assertTrue($executed, 'make sure that callback has been called');
 
@@ -62,8 +60,7 @@ class SubscriptionTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $sdk->getClient()->getMockRegistry()
-            ->add(new SubscriptionMock());
+        $sdk->mockRegistry()->subscriptionMock();
 
         $executed = false;
 
@@ -79,12 +76,13 @@ class SubscriptionTest extends TestCase
 
         $t = $this;
 
-        $s = $sdk->getSubscription();
+        $s = $sdk->createSubscription();
+
         $s->addEvents(array('/restapi/v1.0/account/~/extension/1/presence'))
           ->addListener(Subscription::EVENT_NOTIFICATION,
               function (NotificationEvent $e) use (&$executed, $expected, &$t) {
 
-                  $t->assertEquals($expected, $e->getPayload());
+                  $t->assertEquals($expected, $e->payload());
 
                   $executed = true;
 
@@ -92,8 +90,7 @@ class SubscriptionTest extends TestCase
 
         $s->register();
 
-        $s->getPubnub()
-          ->receiveMessage(array_merge(array(), $expected));
+        $s->pubnub()->receiveMessage(array_merge(array(), $expected));
 
         $this->assertTrue($executed, 'make sure that callback has been called');
 
@@ -104,17 +101,17 @@ class SubscriptionTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $sdk->getClient()->getMockRegistry()
-            ->add(new SubscriptionMock());
+        $sdk->mockRegistry()->subscriptionMock();
 
-        $s = $sdk->getSubscription()->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        $s = $sdk->createSubscription()
+                 ->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
 
-        $this->assertEquals('/restapi/v1.0/account/~/extension/1/presence', $s->getJson()->eventFilters[0]);
+        $this->assertEquals('/restapi/v1.0/account/~/extension/1/presence', $s->json()->eventFilters[0]);
 
     }
 
     /**
-     * @expectedException \RingCentral\SDK\Http\HttpException
+     * @expectedException \RingCentral\SDK\Http\ApiException
      * @expectedExceptionMessage Expected Error
      */
     public function testSubscribeErrorWithEvents()
@@ -122,10 +119,10 @@ class SubscriptionTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $sdk->getClient()->getMockRegistry()
-            ->add(new GenericMock('/subscription', array('message' => 'Expected Error'), 400));
+        $sdk->mockRegistry()->add(new Mock('POST', '/subscription', array('message' => 'Expected Error'), 400));
 
-        $sdk->getSubscription()->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        $sdk->createSubscription()
+            ->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
 
     }
 
@@ -137,33 +134,30 @@ class SubscriptionTest extends TestCase
         $sdk = $this->getSDK();
         $self = $this;
 
-        $sdk->getClient()->getMockRegistry()
-            ->add(new SubscriptionMock());
+        $sdk->mockRegistry()->subscriptionMock();
 
-        $s1 = $sdk->getSubscription();
+        $s1 = $sdk->createSubscription();
 
         $s1->addListener(Subscription::EVENT_SUBSCRIBE_SUCCESS, function (SuccessEvent $event) use (&$self, &$counter) {
             $self->assertEquals('/restapi/v1.0/account/~/extension/1/presence',
-                $event->getTransaction()->getJson()->eventFilters[0]);
+                $event->apiResponse()->json()->eventFilters[0]);
             $counter++;
         });
 
         $s1->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
 
-        $sdk->getClient()->getMockRegistry()
-            ->clear()
-            ->add(new GenericMock('/subscription', array('message' => 'Expected Error'), 400));
+        $sdk->mockRegistry()->clear()->add(new Mock('POST', '/subscription', array('message' => 'Expected Error'), 400));
 
-        $s2 = $sdk->getSubscription();
+        $s2 = $sdk->createSubscription();
 
         $s2->addListener(Subscription::EVENT_SUBSCRIBE_ERROR, function (ErrorEvent $event) use (&$self, &$counter) {
-            $self->assertEquals('Expected Error', $event->getException()->getMessage());
+            $self->assertEquals('Expected Error', $event->exception()->getMessage());
             $counter++;
         });
 
         try {
             $s2->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
-        } catch (HttpException $e) {
+        } catch (ApiException $e) {
         }
 
         $this->assertEquals(2, $counter); // make sure both callbacks were used
@@ -175,21 +169,21 @@ class SubscriptionTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $sdk->getClient()->getMockRegistry()
-            ->add(new SubscriptionMock())
-            ->add(new GenericMock('/subscription/foo-bar-baz', array('ok' => 'ok')));
+        $sdk->mockRegistry()
+            ->subscriptionMock()
+            ->add(new Mock('PUT', '/subscription/foo-bar-baz', array('ok' => 'ok')));
 
-        $s = $sdk->getSubscription();
+        $s = $sdk->createSubscription();
 
         $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
         $s->renew(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
 
-        $this->assertEquals(array('ok' => 'ok'), $s->getSubscription());
+        $this->assertEquals(array('ok' => 'ok'), $s->subscription());
 
     }
 
     /**
-     * @expectedException \RingCentral\SDK\Http\HttpException
+     * @expectedException \RingCentral\SDK\Http\ApiException
      * @expectedExceptionMessage Expected Error
      */
     public function testRenewError()
@@ -197,11 +191,11 @@ class SubscriptionTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $sdk->getClient()->getMockRegistry()
-            ->add(new SubscriptionMock())
-            ->add(new GenericMock('/subscription/foo-bar-baz', array('message' => 'Expected Error'), 400));
+        $sdk->mockRegistry()
+            ->subscriptionMock()
+            ->add(new Mock('PUT', '/subscription/foo-bar-baz', array('message' => 'Expected Error'), 400));
 
-        $s = $sdk->getSubscription();
+        $s = $sdk->createSubscription();
         $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
         $s->renew(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
 
@@ -212,19 +206,18 @@ class SubscriptionTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $sdk->getClient()->getMockRegistry()
-            ->add(new SubscriptionMock());
+        $sdk->mockRegistry()->subscriptionMock();
 
-        $s = $sdk->getSubscription();
-
-        $s->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
-
-        $sdk->getClient()->getMockRegistry()
-            ->add(new GenericMock('/subscription/foo-bar-baz', array('ok' => 'ok')));
+        $s = $sdk->createSubscription();
 
         $s->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
 
-        $this->assertEquals(array('ok' => 'ok'), $s->getSubscription());
+        $sdk->mockRegistry()
+            ->add(new Mock('PUT', '/subscription/foo-bar-baz', array('ok' => 'ok')));
+
+        $s->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+
+        $this->assertEquals(array('ok' => 'ok'), $s->subscription());
 
     }
 
@@ -233,20 +226,20 @@ class SubscriptionTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $sdk->getClient()->getMockRegistry()
-            ->add(new SubscriptionMock())
-            ->add(new GenericMock('/subscription/foo-bar-baz', array('ok' => 'ok')));
+        $sdk->mockRegistry()
+            ->subscriptionMock()
+            ->add(new Mock('DELETE', '/subscription/foo-bar-baz', array('ok' => 'ok')));
 
-        $s = $sdk->getSubscription();
+        $s = $sdk->createSubscription();
         $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
         $s->remove();
 
-        $this->assertEquals(null, $s->getSubscription());
+        $this->assertEquals(null, $s->subscription());
 
     }
 
     /**
-     * @expectedException \RingCentral\SDK\Http\HttpException
+     * @expectedException \RingCentral\SDK\Http\ApiException
      * @expectedExceptionMessage Expected Error
      */
     public function testRemoveError()
@@ -254,11 +247,11 @@ class SubscriptionTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $sdk->getClient()->getMockRegistry()
-            ->add(new SubscriptionMock())
-            ->add(new GenericMock('/subscription/foo-bar-baz', array('message' => 'Expected Error'), 400));
+        $sdk->mockRegistry()
+            ->subscriptionMock()
+            ->add(new Mock('DELETE', '/subscription/foo-bar-baz', array('message' => 'Expected Error'), 400));
 
-        $s = $sdk->getSubscription();
+        $s = $sdk->createSubscription();
         $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
         $s->remove();
 
@@ -269,10 +262,10 @@ class SubscriptionTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $s = $sdk->getSubscription();
-        $this->assertEquals(false, $s->getKeepPolling());
+        $s = $sdk->createSubscription();
+        $this->assertEquals(false, $s->keepPolling());
         $s->setKeepPolling(true);
-        $this->assertEquals(true, $s->getKeepPolling());
+        $this->assertEquals(true, $s->keepPolling());
 
     }
 

@@ -6,80 +6,65 @@ use Exception;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\StreamInterface;
-use RingCentral\SDK\Mocks\Registry;
 use RingCentral\SDK\SDK;
 
 class Client
 {
 
-    protected $_useMock = false;
-    protected $appVersion;
-    protected $appName;
-
-    /** @var Registry */
-    protected $mockRegistry;
-
-    public function __construct($appName = '', $appVersion = '')
-    {
-        $this->mockRegistry = new Registry();
-        $this->appVersion = $appVersion;
-        $this->appName = $appName;
-    }
-
-    public function getMockRegistry()
-    {
-        return $this->mockRegistry;
-    }
-
-    public function useMock($flag = false)
-    {
-        $this->_useMock = $flag;
-        return $this;
-    }
-
     /**
      * @param RequestInterface $request
      * @return $this
-     * @throws HttpException
+     * @throws ApiException
      */
     public function send(RequestInterface $request)
     {
 
-        return ($this->_useMock)
-            ? $this->sendViaMock($request)
-            : $this->sendViaCurl($request);
+        $response = null;
+
+        try {
+
+            $response = $this->loadResponse($request);
+
+            if ($response->ok()) {
+
+                return $response;
+
+            } else {
+
+                throw new Exception('Response has unsuccessful status');
+
+            }
+
+        } catch (Exception $e) {
+
+            // The following means that request failed completely
+            if (empty($response)) {
+                $response = new ApiResponse($request);
+            }
+
+            throw new ApiException($response, $e);
+
+        }
 
     }
 
     /**
-     * TODO Use sockets
      * @param RequestInterface $request
-     * @return Transaction
-     * @throws HttpException
-     * @codeCoverageIgnore
+     * @return ApiResponse
+     * @throws Exception
      */
-    protected function sendViaCurl(RequestInterface $request)
+    protected function loadResponse(RequestInterface $request)
     {
 
         $ch = null;
-        $transaction = null;
 
         try {
 
             $ch = curl_init();
 
             if (!$ch) {
-                throw new Exception('Couldn\'t initialize a cURL handle');
+                throw new Exception('Cannot initialize a cURL handle');
             }
-
-            $ua = (!empty($this->appName) ? ($this->appName . (!empty($this->appVersion) ? '/' . $this->appVersion : '') . ' ') : '') .
-                  php_uname('s') . '/' . php_uname('r') . ' ' .
-                  'PHP/' . phpversion() . ' ' .
-                  'RCPHPSDK/' . SDK::VERSION;
-
-            /** @var Request $request */
-            $request = $request->withAddedHeader('User-Agent', $ua)
-                               ->withAddedHeader('RC-User-Agent', $ua);
 
             curl_setopt($ch, CURLOPT_URL, $request->getUri());
 
@@ -110,19 +95,9 @@ class Client
 
             $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-            $transaction = new Transaction($request, $body, $status);
+            curl_close($ch);
 
-            if ($transaction->isOK()) {
-
-                curl_close($ch);
-
-                return $transaction;
-
-            } else {
-
-                throw new Exception('Response has unsuccessful status');
-
-            }
+            return new ApiResponse($request, $body, $status);
 
         } catch (Exception $e) {
 
@@ -130,57 +105,7 @@ class Client
                 curl_close($ch);
             }
 
-            // The following means that request failed completely
-            if (empty($transaction)) {
-                $transaction = new Transaction($request);
-            }
-
-            throw new HttpException($transaction, $e);
-
-        }
-
-    }
-
-    /**
-     * @param RequestInterface $request
-     * @return $this
-     * @throws HttpException
-     */
-    protected function sendViaMock($request)
-    {
-
-        $transaction = null;
-
-        try {
-
-            $responseMock = $this->mockRegistry->find($request);
-
-            if (empty($responseMock)) {
-                throw new Exception(sprintf('Mock for "%s" has not been found in registry', $request->getUri()));
-            }
-
-            $responseBody = $responseMock->getResponse($request);
-
-            $transaction = new Transaction($request, $responseBody);
-
-            if ($transaction->isOK()) {
-
-                return $transaction;
-
-            } else {
-
-                throw new Exception('Response has unsuccessful status');
-
-            }
-
-        } catch (Exception $e) {
-
-            // The following means that request failed completely
-            if (empty($transaction)) {
-                $transaction = new Transaction($request);
-            }
-
-            throw new HttpException($transaction, $e);
+            throw $e;
 
         }
 
@@ -195,7 +120,7 @@ class Client
      * @throws Exception
      * @return RequestInterface
      */
-    public function requestFactory($method, $url, $queryParams = array(), $body = null, $headers = array())
+    public function createRequest($method, $url, $queryParams = array(), $body = null, $headers = array())
     {
 
         $properties = $this->parseProperties($method, $url, $queryParams, $body, $headers);

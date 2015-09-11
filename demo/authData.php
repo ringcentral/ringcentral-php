@@ -10,7 +10,7 @@ $credentials = require(__DIR__ . '/_credentials.php');
 
 $rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server'], 'Demo', '1.0.0');
 
-$platform = $rcsdk->getPlatform();
+$platform = $rcsdk->platform();
 
 // Retrieve previous authentication data
 
@@ -28,11 +28,11 @@ if (file_exists($file)) {
     unlink($file); // dispose cache file, it will be updated if script ends successfully
 }
 
-$platform->setAuthData($cachedAuth);
+$platform->auth()->setData($cachedAuth);
 
 try {
 
-    $platform->isAuthorized();
+    $platform->refresh();
 
     print 'Authorization was restored' . PHP_EOL;
 
@@ -40,7 +40,7 @@ try {
 
     print 'Auth exception: ' . $e->getMessage() . PHP_EOL;
 
-    $auth = $platform->authorize($credentials['username'], $credentials['extension'], $credentials['password'], true);
+    $auth = $platform->login($credentials['username'], $credentials['extension'], $credentials['password']);
 
     print 'Authorized' . PHP_EOL;
 
@@ -48,4 +48,4 @@ try {
 
 // Save authentication data
 
-file_put_contents($file, json_encode($platform->getAuthData(), JSON_PRETTY_PRINT));
+file_put_contents($file, json_encode($platform->auth()->data(), JSON_PRETTY_PRINT));

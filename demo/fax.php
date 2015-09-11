@@ -10,35 +10,35 @@ $credentials = require(__DIR__ . '/_credentials.php');
 
 $rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server'], 'Demo', '1.0.0');
 
-$platform = $rcsdk->getPlatform();
+$platform = $rcsdk->platform();
 
 // Authorize
 
-$platform->authorize($credentials['username'], $credentials['extension'], $credentials['password'], true);
+$platform->login($credentials['username'], $credentials['extension'], $credentials['password']);
 
 // Find Fax-enabled phone number that belongs to extension
 
 $phoneNumbers = $platform->get('/account/~/extension/~/phone-number', array('perPage' => 'max'))
-                         ->getJson()->records;
+                         ->json()->records;
 
 
 print 'Fax Phone Number: ' . $credentials['username'] . PHP_EOL;
 
-// Send SMS
+// Send Fax
 
-$request = $rcsdk->getMultipartBuilder()
+$request = $rcsdk->createMultipartBuilder()
                  ->setBody(array(
                      'to'         => array(
                          array('phoneNumber' => $credentials['username']),
                      ),
                      'faxResolution' => 'High',
                  ))
-                 ->addAttachment('Plain Text', 'file.txt')
-                 ->addAttachment(fopen('https://developers.ringcentral.com/assets/images/ico_case_crm.png', 'r'))
-                 ->getRequest('/account/~/extension/~/fax');
+                 ->add('Plain Text', 'file.txt')
+                 ->add(fopen('https://developers.ringcentral.com/assets/images/ico_case_crm.png', 'r'))
+                 ->request('/account/~/extension/~/fax');
 
 //print $request->getBody() . PHP_EOL;
 
-$response = $platform->apiCall($request);
+$response = $platform->sendRequest($request);
 
-print 'Sent Fax ' . $response->getJson()->uri . PHP_EOL;
+print 'Sent Fax ' . $response->json()->uri . PHP_EOL;

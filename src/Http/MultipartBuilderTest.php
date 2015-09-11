@@ -54,9 +54,9 @@ class MultipartBuilderTest extends TestCase
 
         $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
                 ->setBoundary('boundary')
-                ->addAttachment('plain text', 'plain.txt');
+                ->add('plain text', 'plain.txt');
 
-        $request = $builder->getRequest('/fax');
+        $request = $builder->request('/fax');
 
         $this->assertEquals($expected, (string)$request->getBody());
 
@@ -73,7 +73,7 @@ class MultipartBuilderTest extends TestCase
 
         $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
                 ->setBoundary('boundary')
-                ->addAttachment('plain text');
+                ->add('plain text');
 
     }
 
@@ -107,10 +107,10 @@ class MultipartBuilderTest extends TestCase
 
         $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
                 ->setBoundary('boundary')
-                ->addAttachment(\GuzzleHttp\Psr7\stream_for('streamed'), 'streamed.txt')
-                ->addAttachment(new Stream(fopen($this->fname, 'r')));
+                ->add(\GuzzleHttp\Psr7\stream_for('streamed'), 'streamed.txt')
+                ->add(new Stream(fopen($this->fname, 'r')));
 
-        $this->assertEquals($expected, (string)$builder->getRequest('/fax')->getBody());
+        $this->assertEquals($expected, (string)$builder->request('/fax')->getBody());
 
     }
 
@@ -125,7 +125,7 @@ class MultipartBuilderTest extends TestCase
 
         $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
                 ->setBoundary('boundary')
-                ->addAttachment(\GuzzleHttp\Psr7\stream_for('streamed'));
+                ->add(\GuzzleHttp\Psr7\stream_for('streamed'));
 
     }
 
@@ -140,7 +140,7 @@ class MultipartBuilderTest extends TestCase
 
         $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
                 ->setBoundary('boundary')
-                ->addAttachment(\GuzzleHttp\Psr7\stream_for('streamed'), 'streamed');
+                ->add(\GuzzleHttp\Psr7\stream_for('streamed'), 'streamed');
 
     }
 
@@ -168,9 +168,9 @@ class MultipartBuilderTest extends TestCase
 
         $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
                 ->setBoundary('boundary')
-                ->addAttachment(fopen($this->fname, 'r'));
+                ->add(fopen($this->fname, 'r'));
 
-        $this->assertEquals($expected, (string)$builder->getRequest('/fax')->getBody());
+        $this->assertEquals($expected, (string)$builder->request('/fax')->getBody());
 
     }
 
@@ -196,14 +196,14 @@ class MultipartBuilderTest extends TestCase
 
         $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
                 ->setBoundary('boundary')
-                ->addAttachment('plain text', 'plain.txt', array('Content-Type' => 'text/custom'));
+                ->add('plain text', 'plain.txt', array('Content-Type' => 'text/custom'));
 
-        $request = $builder->getRequest('/fax');
+        $request = $builder->request('/fax');
 
         $this->assertEquals($expected, (string)$request->getBody());
         $this->assertEquals('multipart/form-data; boundary=boundary', $request->getHeaderLine('Content-Type'));
-        $this->assertEquals('boundary', $builder->getBoundary());
-        $this->assertEquals(1, count($builder->getAttachments()));
+        $this->assertEquals('boundary', $builder->boundary());
+        $this->assertEquals(1, count($builder->contents()));
 
     }
 
@@ -213,10 +213,9 @@ class MultipartBuilderTest extends TestCase
         $builder = new MultipartBuilder();
         $body = array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High');
 
-        $builder->setBody($body)
-                ->setBoundary('boundary');
+        $builder->setBody($body);
 
-        $this->assertEquals($body, $builder->getBody());
+        $this->assertEquals($body, $builder->body());
 
     }
 

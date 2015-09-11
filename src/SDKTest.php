@@ -8,15 +8,19 @@ class SDKTest extends TestCase
 {
     public function testConstructor()
     {
-        $sdk = new SDK('foo', 'bar', 'baz');
-        $this->assertNotEquals($sdk->getPlatform(), null);
+        $sdk = new SDK('foo', 'bar', 'baz', 'SDKTests', SDK::VERSION);
+        $this->assertNotEquals($sdk->platform(), null);
     }
 
     private function connectToLiveServer($server)
     {
+
         $sdk = new SDK('foo', 'bar', $server);
-        $platform = $sdk->getPlatform();
-        $res = $platform->apiCall(new Request('GET', ''), false)->getJson();
+
+        $res = $sdk->platform()
+            ->get('', array(), array(), array('skipAuthCheck' => true))
+            ->json();
+
         $this->assertEquals('v1.0', $res->uriString);
 
     }
@@ -33,7 +37,7 @@ class SDKTest extends TestCase
 
     public function testMultipartBuilder()
     {
-        $this->getSDK(false)->getMultipartBuilder();
+        $this->getSDK(false)->createMultipartBuilder();
     }
 
 }

@@ -14,25 +14,25 @@ use stdClass;
  * @see     http://www.opensource.apple.com/source/apache_mod_php/apache_mod_php-7/php/pear/Mail/mimeDecode.php
  * @see     https://github.com/php-mime-mail-parser/php-mime-mail-parser
  */
-class Transaction
+class ApiResponse
 {
 
     /** @var array */
-    protected $jsonAsArray;
+    protected $_jsonAsArray;
 
     /** @var stdClass */
-    protected $jsonAsObject;
+    protected $_jsonAsObject;
 
-    /** @var Transaction[] */
-    protected $multipartTransactions;
+    /** @var ApiResponse[] */
+    protected $_multiparts;
 
     /** @var ResponseInterface */
-    protected $response;
+    protected $_response;
 
     /** @var RequestInterface */
-    protected $request;
+    protected $_request;
 
-    protected $raw;
+    protected $_raw;
 
     /**
      * TODO Support strams
@@ -43,8 +43,8 @@ class Transaction
     public function __construct(RequestInterface $request = null, $body = null, $status = 200)
     {
 
-        $this->request = $request;
-        $this->raw = $body;
+        $this->_request = $request;
+        $this->_raw = $body;
 
         $body = (string)$body;
 
@@ -53,22 +53,32 @@ class Transaction
             $body = "HTTP/1.1 " . $status . " OK\r\n" . $body;
         }
 
-        $this->response = \GuzzleHttp\Psr7\parse_response($body);
+        $this->_response = \GuzzleHttp\Psr7\parse_response($body);
 
     }
 
-    public function getText()
+    /**
+     * @return string
+     */
+    public function text()
     {
-
-        return (string)$this->response->getBody();
-
+        return (string)$this->body();
     }
 
-    public function getRaw()
+    /**
+     * @return \Psr\Http\Message\StreamInterface
+     */
+    public function body()
     {
+        return $this->_response->getBody();
+    }
 
-        return $this->raw;
-
+    /**
+     * @return mixed
+     */
+    public function raw()
+    {
+        return $this->_raw;
     }
 
     /**
@@ -78,40 +88,40 @@ class Transaction
      * @return stdClass|array
      * @throws Exception
      */
-    public function getJson($asObject = true)
+    public function json($asObject = true)
     {
 
         if (!$this->isContentType('application/json')) {
             throw new Exception('Response is not JSON');
         }
 
-        if (($asObject && empty($this->jsonAsObject)) || (!$asObject && empty($this->jsonAsArray))) {
+        if (($asObject && empty($this->_jsonAsObject)) || (!$asObject && empty($this->_jsonAsArray))) {
 
-            $json = Utils::json_parse((string)$this->response->getBody(), !$asObject);
+            $json = Utils::json_parse($this->text(), !$asObject);
 
             if ($asObject) {
-                $this->jsonAsObject = $json;
+                $this->_jsonAsObject = $json;
             } else {
-                $this->jsonAsArray = $json;
+                $this->_jsonAsArray = $json;
             }
 
         }
 
-        return $asObject ? $this->jsonAsObject : $this->jsonAsArray;
+        return $asObject ? $this->_jsonAsObject : $this->_jsonAsArray;
 
     }
 
     /**
-     * Parses multipart response body as an array of Transaction objects
-     * @return Transaction[]
+     * Parses multipart response body as an array of ApiResponse objects
+     * @return ApiResponse[]
      * @throws Exception
      */
-    public function getMultipart()
+    public function multipart()
     {
 
-        if (empty($this->multipartTransactions)) {
+        if (empty($this->_multiparts)) {
 
-            $this->multipartTransactions = array();
+            $this->_multiparts = array();
 
             if (!$this->isContentType('multipart/mixed')) {
                 throw new Exception('Response is not multipart');
@@ -129,7 +139,7 @@ class Transaction
 
             // Step 2. Split by boundary and remove first and last parts if needed
 
-            $parts = explode('--' . $boundary . '', (string)$this->response->getBody()); //TODO Handle as stream
+            $parts = explode('--' . $boundary . '', $this->text()); //TODO Handle as stream
 
             if (empty($parts[0])) {
                 array_shift($parts);
@@ -146,8 +156,8 @@ class Transaction
             // Step 3. Create status info object
 
             $statusInfoPart = array_shift($parts);
-            $statusInfoObj = new self(null, trim($statusInfoPart), $this->response->getStatusCode());
-            $statusInfo = $statusInfoObj->getJson()->response;
+            $statusInfoObj = new self(null, trim($statusInfoPart), $this->response()->getStatusCode());
+            $statusInfo = $statusInfoObj->json()->response;
 
             // Step 4. Parse all parts into Response objects
 
@@ -155,44 +165,48 @@ class Transaction
 
                 $partInfo = $statusInfo[$i];
 
-                $this->multipartTransactions[] = new self(null, trim($part), $partInfo->status);
+                $this->_multiparts[] = new self(null, trim($part), $partInfo->status);
 
             }
 
         }
 
-        return $this->multipartTransactions;
+        return $this->_multiparts;
 
     }
 
-    public function isOK()
+    /**
+     * @return bool
+     */
+    public function ok()
     {
-        $status = $this->response->getStatusCode();
+        $status = $this->response()->getStatusCode();
         return $status >= 200 && $status < 300;
     }
 
     /**
-     * Convenience method on top of PSR-7 spec
      * Returns a meaningful error message
      * @return string
      */
-    public function getError()
+    public function error()
     {
 
-        if (!$this->getResponse()) {
+        $res = $this->response();
+
+        if (!$res) {
             return null;
         }
 
-        if ($this->isOK()) {
+        if ($this->ok()) {
             return null;
         }
 
-        $message = ($this->getResponse()->getStatusCode() ? $this->getResponse()->getStatusCode() . ' ' : '') .
-                   ($this->getResponse()->getReasonPhrase() ? $this->getResponse()->getReasonPhrase() : 'Unknown response reason phrase');
+        $message = ($res->getStatusCode() ? $res->getStatusCode() . ' ' : '') .
+                   ($res->getReasonPhrase() ? $res->getReasonPhrase() : 'Unknown response reason phrase');
 
         try {
 
-            $data = $this->getJson();
+            $data = $this->json();
 
             if (!empty($data->message)) {
                 $message = $data->message;
@@ -207,20 +221,28 @@ class Transaction
             }
 
         } catch (Exception $e) {
+            // This should never happen
+            $message .= ' (and additional error happened during JSON parse: ' . $e->getMessage() . ')';
         }
 
         return $message;
 
     }
 
-    public function getRequest()
+    /**
+     * @return RequestInterface
+     */
+    public function request()
     {
-        return $this->request;
+        return $this->_request;
     }
 
-    public function getResponse()
+    /**
+     * @return ResponseInterface
+     */
+    public function response()
     {
-        return $this->response;
+        return $this->_response;
     }
 
     protected function isContentType($type)
@@ -230,7 +252,7 @@ class Transaction
 
     protected function getContentType()
     {
-        return $this->response->getHeaderLine('content-type');
+        return $this->response()->getHeaderLine('content-type');
     }
 
 }

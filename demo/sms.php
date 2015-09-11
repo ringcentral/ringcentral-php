@@ -10,16 +10,15 @@ $credentials = require(__DIR__ . '/_credentials.php');
 
 $rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server'], 'Demo', '1.0.0');
 
-$platform = $rcsdk->getPlatform();
+$platform = $rcsdk->platform();
 
 // Authorize
 
-$platform->authorize($credentials['username'], $credentials['extension'], $credentials['password'], true);
+$platform->login($credentials['username'], $credentials['extension'], $credentials['password']);
 
 // Find SMS-enabled phone number that belongs to extension
 
-$phoneNumbers = $platform->get('/account/~/extension/~/phone-number', array('perPage' => 'max'))
-                         ->getJson()->records;
+$phoneNumbers = $platform->get('/account/~/extension/~/phone-number', array('perPage' => 'max'))->json()->records;
 
 $smsNumber = null;
 
@@ -42,7 +41,7 @@ print 'SMS Phone Number: ' . $smsNumber . PHP_EOL;
 if ($smsNumber) {
 
     $response = $platform
-        ->post('/account/~/extension/~/sms', null, array(
+        ->post('/account/~/extension/~/sms', array(
             'from' => array('phoneNumber' => $smsNumber),
             'to'   => array(
                 array('phoneNumber' => $credentials['mobileNumber']),
@@ -50,7 +49,7 @@ if ($smsNumber) {
             'text' => 'Test from PHP',
         ));
 
-    print 'Sent SMS ' . $response->getJson()->uri . PHP_EOL;
+    print 'Sent SMS ' . $response->json()->uri . PHP_EOL;
 
 } else {
 

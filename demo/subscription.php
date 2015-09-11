@@ -12,22 +12,22 @@ $credentials = require(__DIR__ . '/_credentials.php');
 
 $rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server'], 'Demo', '1.0.0');
 
-$platform = $rcsdk->getPlatform();
+$platform = $rcsdk->platform();
 
 // Authorize
 
-$platform->authorize($credentials['username'], $credentials['extension'], $credentials['password'], true);
+$platform->login($credentials['username'], $credentials['extension'], $credentials['password']);
 
 // Subscription
 
-$subscription = $rcsdk->getSubscription();
+$subscription = $rcsdk->createSubscription();
 
 $subscription->addEvents(array('/account/~/extension/~/message-store'));
 
 $subscription->setKeepPolling(false);
 
-$subscription->on(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
-    print 'Notification' . print_r($e->getPayload(), true) . PHP_EOL;
+$subscription->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
+    print 'Notification' . print_r($e->payload(), true) . PHP_EOL;
 });
 
 print 'Subscribing' . PHP_EOL;

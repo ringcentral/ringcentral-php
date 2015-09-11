@@ -1,9 +1,9 @@
 <?php
 
-use RingCentral\SDK\Http\Transaction;
+use RingCentral\SDK\Http\ApiResponse;
 use RingCentral\SDK\Test\TestCase;
 
-class TransactionTest extends TestCase
+class ApiResponseTest extends TestCase
 {
 
     public function testMultipart()
@@ -27,12 +27,12 @@ class TransactionTest extends TestCase
             "{\"baz\" : \"qux\"}\n" .
             "--Boundary_1245_945802293_1394135045248--\n";
 
-        $r = new Transaction(null, $goodMultipartMixedResponse, 207);
-        $parts = $r->getMultipart();
+        $r = new ApiResponse(null, $goodMultipartMixedResponse, 207);
+        $parts = $r->multipart();
 
         $this->assertEquals(2, count($parts));
-        $this->assertEquals('bar', $parts[0]->getJson()->foo);
-        $this->assertEquals('qux', $parts[1]->getJson()->baz);
+        $this->assertEquals('bar', $parts[0]->json()->foo);
+        $this->assertEquals('qux', $parts[1]->json()->baz);
 
 
     }
@@ -58,12 +58,12 @@ class TransactionTest extends TestCase
             "{\"message\" : \"object not found\"}\n" .
             "--Boundary_1245_945802293_1394135045248--\n";
 
-        $r = new Transaction(null, $multipartMixedResponseWithErrorPart, 207);
-        $parts = $r->getMultipart();
+        $r = new ApiResponse(null, $multipartMixedResponseWithErrorPart, 207);
+        $parts = $r->multipart();
 
         $this->assertEquals(2, count($parts));
-        $this->assertEquals('bar', $parts[0]->getJson()->foo);
-        $this->assertEquals('object not found', $parts[1]->getError());
+        $this->assertEquals('bar', $parts[0]->json()->foo);
+        $this->assertEquals('object not found', $parts[1]->error());
 
     }
 
@@ -87,8 +87,8 @@ class TransactionTest extends TestCase
             "{\"foo\" : \"bar\"}\n" .
             "--Boundary_1245_945802293_1394135045248--\n";
 
-        $r3 = new Transaction(null, $badMultipartMixedResponse, 207);
-        $r3->getMultipart();
+        $r3 = new ApiResponse(null, $badMultipartMixedResponse, 207);
+        $r3->multipart();
 
     }
 
@@ -99,8 +99,8 @@ class TransactionTest extends TestCase
     public function testMultipartOnNotAMultipartResponse()
     {
 
-        $r3 = new Transaction(null, "Content-Type: text/plain\n\nWhatever", 207);
-        $r3->getMultipart();
+        $r3 = new ApiResponse(null, "Content-Type: text/plain\n\nWhatever", 207);
+        $r3->multipart();
 
     }
 
@@ -124,20 +124,20 @@ class TransactionTest extends TestCase
             "{\"foo\" : \"bar\"}\n" .
             "--Boundary_1245_945802293_1394135045248--\n";
 
-        $r3 = new Transaction(null, $response, 207);
-        $r3->getMultipart();
+        $r3 = new ApiResponse(null, $response, 207);
+        $r3->multipart();
 
     }
 
     public function testGetJson()
     {
 
-        $r = new Transaction(null, "content-type: application/json\n\n{\"foo\":\"bar\"}", 200);
+        $r = new ApiResponse(null, "content-type: application/json\n\n{\"foo\":\"bar\"}", 200);
 
-        $this->assertEquals('{"foo":"bar"}', (string)$r->getResponse()->getBody());
-        $this->assertEquals('bar', $r->getJson()->foo);
+        $this->assertEquals('{"foo":"bar"}', $r->text());
+        $this->assertEquals('bar', $r->json()->foo);
 
-        $asArray = $r->getJson(false);
+        $asArray = $r->json(false);
         $this->assertEquals('bar', $asArray['foo']);
 
     }
@@ -149,8 +149,8 @@ class TransactionTest extends TestCase
     public function testGetJsonWithNotJSON()
     {
 
-        $r = new Transaction(null, "content-type: application/not-a-json\n\nfoo", 200);
-        $r->getJson();
+        $r = new ApiResponse(null, "content-type: application/not-a-json\n\nfoo", 200);
+        $r->json();
 
     }
 
@@ -161,8 +161,8 @@ class TransactionTest extends TestCase
     public function testGetJsonWithCorruptedJSON()
     {
 
-        $r = new Transaction(null, "content-type: application/json\n\n{\"foo\";\"bar\"}", 200);
-        $r->getJson();
+        $r = new ApiResponse(null, "content-type: application/json\n\n{\"foo\";\"bar\"}", 200);
+        $r->json();
 
     }
 
@@ -173,8 +173,8 @@ class TransactionTest extends TestCase
     public function testGetJsonWithEmptyJSON()
     {
 
-        $r = new Transaction(null, "content-type: application/json\n\nnull", 200);
-        $r->getJson();
+        $r = new ApiResponse(null, "content-type: application/json\n\nnull", 200);
+        $r->json();
 
     }
 

@@ -1,30 +1,19 @@
 <?php
 
 use GuzzleHttp\Psr7\Request;
-use RingCentral\SDK\Mocks\GenericMock;
-use RingCentral\SDK\Mocks\LogoutMock;
-use RingCentral\SDK\Mocks\RefreshMock;
+use RingCentral\SDK\Mocks\Mock;
+use RingCentral\SDK\SDK;
 use RingCentral\SDK\Test\TestCase;
 
 class PlatformTest extends TestCase
 {
 
-    public function testKey()
-    {
-
-        $sdk = $this->getSDK(false);
-
-        $this->assertEquals('d2hhdGV2ZXI6d2hhdGV2ZXI=', $sdk->getPlatform()->getApiKey());
-
-    }
-
     public function testLogin()
     {
 
         $sdk = $this->getSDK();
-        $authData = $sdk->getPlatform()->getAuthData();
-
-        $this->assertTrue(!empty($authData['remember']));
+        $authData = $sdk->platform()->auth()->data();
+        $this->assertTrue(!empty($authData['access_token']));
 
     }
 
@@ -35,17 +24,17 @@ class PlatformTest extends TestCase
     public function testRefreshWithOutdatedToken()
     {
 
-        $sdk = $this->getSDK(true);
+        $sdk = $this->getSDK();
 
-        $sdk->getClient()->getMockRegistry()
-            ->add(new RefreshMock());
+        $sdk->mockRegistry()
+            ->add(new Mock());
 
-        $sdk->getPlatform()
-            ->setAuthData(array(
-                'refresh_token_expires_in'  => 1,
-                'refresh_token_expire_time' => 1
-            ))
-            ->refresh();
+        $sdk->platform()->auth()->setData(array(
+            'refresh_token_expires_in'  => 1,
+            'refresh_token_expire_time' => 1
+        ));
+
+        $sdk->platform()->refresh();
 
     }
 
@@ -54,20 +43,19 @@ class PlatformTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $sdk->getClient()->getMockRegistry()
-            ->add(new RefreshMock())
-            ->add(new GenericMock('/foo', array('foo' => 'bar')));
+        $sdk->mockRegistry()
+            ->refreshMock()
+            ->add(new Mock('GET', '/foo', array('foo' => 'bar')));
 
-        $sdk->getPlatform()->setAuthData(array(
+        $sdk->platform()->auth()->setData(array(
             'expires_in'  => 1,
             'expire_time' => 1
         ));
 
-        $this->assertEquals('bar', $sdk->getPlatform()->get('/foo')->getJson()->foo);
+        $this->assertEquals('bar', $sdk->platform()->get('/foo')->json()->foo);
 
-        $authData = $sdk->getPlatform()->getAuthData();
-
-        $this->assertEquals('ACCESS_TOKEN_FROM_REFRESH', $authData['access_token']);
+        $this->assertEquals('ACCESS_TOKEN_FROM_REFRESH', $sdk->platform()->auth()->accessToken());
+        $this->assertTrue($sdk->platform()->loggedIn());
 
     }
 
@@ -76,12 +64,11 @@ class PlatformTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $sdk->getClient()->getMockRegistry()
-            ->add(new LogoutMock());
+        $sdk->mockRegistry()->logoutMock();
 
-        $sdk->getPlatform()->logout();
+        $sdk->platform()->logout();
 
-        $authData = $sdk->getPlatform()->getAuthData();
+        $authData = $sdk->platform()->auth()->data();
 
         $this->assertEquals('', $authData['access_token']);
         $this->assertEquals('', $authData['refresh_token']);
@@ -95,7 +82,7 @@ class PlatformTest extends TestCase
 
         $this->assertEquals(
             'https://whatever/restapi/v1.0/account/~/extension/~?_method=POST&access_token=ACCESS_TOKEN',
-            $sdk->getPlatform()->apiUrl('/account/~/extension/~', array(
+            $sdk->platform()->createUrl('/account/~/extension/~', array(
                 'addServer' => true,
                 'addMethod' => 'POST',
                 'addToken'  => true
@@ -104,7 +91,7 @@ class PlatformTest extends TestCase
 
         $this->assertEquals(
             'https://foo/account/~/extension/~?_method=POST&access_token=ACCESS_TOKEN',
-            $sdk->getPlatform()->apiUrl('https://foo/account/~/extension/~', array(
+            $sdk->platform()->createUrl('https://foo/account/~/extension/~', array(
                 'addServer' => true,
                 'addMethod' => 'POST',
                 'addToken'  => true
@@ -113,39 +100,22 @@ class PlatformTest extends TestCase
 
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Access token is not valid after refresh timeout
-     */
-    public function testUnsuccessfulRefresh()
-    {
-
-        $sdk = $this->getSDK();
-
-        $sdk->getClient()->getMockRegistry()
-            ->add(new RefreshMock(false, -1))
-            ->add(new GenericMock('/foo', array('foo' => 'bar')));
-
-        $sdk->getPlatform()->setAuthData(array(
-            'expires_in'  => 1,
-            'expire_time' => 1
-        ));
-
-        $sdk->getPlatform()->isAuthorized();
-
-    }
-
     public function testProcessRequest()
     {
 
         $sdk = $this->getSDK();
 
-        $sdk->getClient()->getMockRegistry()
-            ->add(new GenericMock('/foo', array('foo' => 'bar')));
+        $sdk->mockRegistry()->add(new Mock('GET', '/foo', array('foo' => 'bar')));
 
-        $request = $sdk->getPlatform()->processRequest(new Request('GET', '/foo'));
+        $request = $sdk->platform()->inflateRequest(new Request('GET', '/foo'));
 
         $this->assertEquals('https://whatever/restapi/v1.0/foo', (string)$request->getUri());
+
+        $this->assertEquals($request->getHeaderLine('User-Agent'), $request->getHeaderLine('RC-User-Agent'));
+
+        $this->assertTrue(!!$request->getHeaderLine('User-Agent'));
+        $this->assertContains('RCPHPSDK/' . SDK::VERSION, $request->getHeaderLine('User-Agent'));
+        $this->assertContains('SDKTests/' . SDK::VERSION, $request->getHeaderLine('User-Agent'));
 
     }
 

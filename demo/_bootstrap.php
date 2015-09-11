@@ -2,7 +2,7 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use RingCentral\SDK\Http\HttpException;
+use RingCentral\SDK\Http\ApiException;
 
 date_default_timezone_set('UTC');
 
@@ -21,10 +21,10 @@ set_exception_handler(function (Exception $e) {
 
     print 'Exception: ' . $e->getMessage() . PHP_EOL;
 
-    if ($e instanceof HttpException) {
+    if ($e instanceof ApiException) {
 
-        print 'SDK HTTP Error at ' . $e->getTransaction()->getRequest()->getUri() . PHP_EOL .
-              'Response body: ' . $e->getTransaction()->getText() . PHP_EOL;
+        print 'SDK HTTP Error at ' . $e->apiResponse()->request()->getUri() . PHP_EOL .
+              'Response text: ' . $e->apiResponse()->text() . PHP_EOL;
 
     }
 

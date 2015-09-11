@@ -16,7 +16,7 @@ class NotificationEvent extends Event
 
     }
 
-    public function getPayload()
+    public function payload()
     {
         return $this->payload;
     }

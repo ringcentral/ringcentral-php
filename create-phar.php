@@ -103,11 +103,11 @@ try {
 
     $sdk = new RingCentral\SDK\SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server']);
 
-    $sdk->getPlatform()->authorize($credentials['username'], $credentials['extension'], $credentials['password'], true);
+    $sdk->platform()->login($credentials['username'], $credentials['extension'], $credentials['password']);
 
-    $t = $sdk->getPlatform()->get('/restapi/v1.0');
+    $t = $sdk->platform()->get('/restapi/v1.0');
 
-    print 'Connected to API server ' . $t->getJson()->uri . ', version ' . $t->getJson()->versionString . PHP_EOL;
+    print 'Connected to API server ' . $t->json()->uri . ', version ' . $t->json()->versionString . PHP_EOL;
 
 } catch (Exception $e) {
     print 'Error while connecting using PHAR: ' . $e->getMessage();

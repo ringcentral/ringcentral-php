@@ -6,10 +6,10 @@ use Exception;
 use Pubnub\Pubnub;
 use Pubnub\PubnubAES;
 use RingCentral\SDK\Core\Utils;
-use RingCentral\SDK\Http\Transaction;
+use RingCentral\SDK\Http\ApiResponse;
 use RingCentral\SDK\Platform\Platform;
 use RingCentral\SDK\pubnub\PubnubFactory;
-use RingCentral\SDK\pubnub\PubnubMock;
+use RingCentral\SDK\Pubnub\PubnubMock;
 use RingCentral\SDK\Subscription\Events\ErrorEvent;
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
 use RingCentral\SDK\Subscription\Events\SuccessEvent;
@@ -27,12 +27,12 @@ class Subscription extends EventDispatcher
     const EVENT_SUBSCRIBE_ERROR = 'subscribeError';
 
     /** @var Platform */
-    protected $platform;
+    protected $_platform;
 
     /** @var string[] */
-    protected $eventFilters = array();
+    protected $_eventFilters = array();
 
-    protected $subscription = array(
+    protected $_subscription = array(
         'eventFilters'   => array(),
         'expirationTime' => '', // 2014-03-12T19:54:35.613Z
         'expiresIn'      => 0,
@@ -50,54 +50,62 @@ class Subscription extends EventDispatcher
     );
 
     /** @var Pubnub */
-    protected $pubnub;
+    protected $_pubnub;
 
     /** @var PubnubFactory */
-    protected $pubnubFactory;
+    protected $_pubnubFactory;
 
-    protected $keepPolling = false;
+    protected $_keepPolling = false;
 
     public function __construct(PubnubFactory $pubnubFactory, Platform $platform)
     {
 
-        $this->platform = $platform;
-        $this->pubnubFactory = $pubnubFactory;
+        $this->_platform = $platform;
+        $this->_pubnubFactory = $pubnubFactory;
 
     }
 
     /**
+     * @return Pubnub|PubnubMock
+     */
+    public function pubnub()
+    {
+        return $this->_pubnub;
+    }
+
+    /**
      * @param array $options
-     * @return Transaction
+     * @return ApiResponse
      * @throws Exception
      */
     public function register(array $options = array())
     {
-        if ($this->isSubscribed()) {
+        if ($this->alive()) {
             return $this->renew($options);
         } else {
             return $this->subscribe($options);
         }
     }
 
-    public function setKeepPolling($flag)
+    public function setKeepPolling($flag = false)
     {
-        $this->keepPolling = !empty($flag);
+        $this->_keepPolling = !empty($flag);
     }
 
-    public function getKeepPolling()
+    public function keepPolling()
     {
-        return $this->keepPolling;
+        return $this->_keepPolling;
     }
 
     public function addEvents(array $events)
     {
-        $this->eventFilters = array_merge($this->eventFilters, $events);
+        $this->_eventFilters = array_merge($this->_eventFilters, $events);
         return $this;
     }
 
     public function setEvents(array $events)
     {
-        $this->eventFilters = $events;
+        $this->_eventFilters = $events;
         return $this;
     }
 
@@ -110,14 +118,14 @@ class Subscription extends EventDispatcher
 
         try {
 
-            $response = $this->platform->post('/restapi/v1.0/subscription', null, array(
+            $response = $this->_platform->post('/restapi/v1.0/subscription', array(
                 'eventFilters' => $this->getFullEventFilters(),
                 'deliveryMode' => array(
                     'transportType' => 'PubNub'
                 )
             ));
 
-            $this->updateSubscription($response->getJson(false));
+            $this->setSubscription($response->json(false));
             $this->subscribeAtPubnub();
 
             //TODO Subscription renewal when everything will become async
@@ -128,7 +136,7 @@ class Subscription extends EventDispatcher
 
         } catch (Exception $e) {
 
-            $this->unsubscribe();
+            $this->reset();
             $this->dispatch(self::EVENT_SUBSCRIBE_ERROR, new ErrorEvent($e));
             throw $e;
 
@@ -143,13 +151,17 @@ class Subscription extends EventDispatcher
             $this->setEvents($options['events']);
         }
 
+        if (!$this->alive()) {
+            throw new Exception('Subscription is not alive');
+        }
+
         try {
 
-            $response = $this->platform->put('/restapi/v1.0/subscription/' . $this->subscription['id'], null, array(
+            $response = $this->_platform->put('/restapi/v1.0/subscription/' . $this->_subscription['id'], array(
                 'eventFilters' => $this->getFullEventFilters()
             ));
 
-            $this->updateSubscription($response->getJson(false));
+            $this->setSubscription($response->json(false));
 
             $this->dispatch(self::EVENT_RENEW_SUCCESS, new SuccessEvent($response));
 
@@ -157,7 +169,7 @@ class Subscription extends EventDispatcher
 
         } catch (Exception $e) {
 
-            $this->unsubscribe();
+            $this->reset();
             $this->dispatch(self::EVENT_RENEW_ERROR, new ErrorEvent($e));
             throw $e;
 
@@ -168,11 +180,15 @@ class Subscription extends EventDispatcher
     public function remove()
     {
 
+        if (!$this->alive()) {
+            throw new Exception('Subscription is not alive');
+        }
+
         try {
 
-            $response = $this->platform->delete('/restapi/v1.0/subscription/' . $this->subscription['id']);
+            $response = $this->_platform->delete('/restapi/v1.0/subscription/' . $this->_subscription['id']);
 
-            $this->unsubscribe();
+            $this->reset();
 
             $this->dispatch(self::EVENT_REMOVE_SUCCESS, new SuccessEvent($response));
 
@@ -180,7 +196,7 @@ class Subscription extends EventDispatcher
 
         } catch (Exception $e) {
 
-            $this->unsubscribe();
+            $this->reset();
             $this->dispatch(self::EVENT_REMOVE_ERROR, new ErrorEvent($e));
             throw $e;
 
@@ -188,39 +204,35 @@ class Subscription extends EventDispatcher
 
     }
 
-    public function isSubscribed()
+    public function alive()
     {
-        return (!empty($this->subscription) &&
-                !empty($this->subscription['deliveryMode']) &&
-                !empty($this->subscription['deliveryMode']['subscriberKey']) &&
-                !empty($this->subscription['deliveryMode']['address']));
+        return (!empty($this->_subscription) &&
+                !empty($this->_subscription['deliveryMode']) &&
+                !empty($this->_subscription['deliveryMode']['subscriberKey']) &&
+                !empty($this->_subscription['deliveryMode']['address']));
     }
 
 
-    private function getFullEventFilters()
+    public function subscription()
     {
-        $events = array();
-        foreach ($this->eventFilters as $event) {
-            $events[] = $this->platform->apiUrl($event);
-        }
-        return $events;
+        return $this->_subscription;
     }
 
-    protected function updateSubscription($subscription)
+    function setSubscription($subscription)
     {
-        $this->subscription = $subscription;
+        $this->_subscription = $subscription;
         return $this;
     }
 
-    protected function unsubscribe()
+    protected function reset()
     {
 
-        if ($this->pubnub && $this->isSubscribed()) {
-            //$this->pubnub->unsubscribe($this->subscription['deliveryMode']['address']);
-            $this->pubnub = null;
+        if ($this->_pubnub && $this->alive()) {
+            //$this->_pubnub->unsubscribe($this->subscription['deliveryMode']['address']);
+            $this->_pubnub = null;
         }
 
-        $this->subscription = null;
+        $this->_subscription = null;
 
     }
 
@@ -228,20 +240,16 @@ class Subscription extends EventDispatcher
     protected function subscribeAtPubnub()
     {
 
-        if (!$this->isSubscribed()) {
-            return $this;
+        if (!$this->alive()) {
+            throw new Exception('Subscription is not alive');
         }
 
-        $this->pubnub = $this->pubnubFactory->getPubnub(array(
+        $this->_pubnub = $this->_pubnubFactory->pubnub(array(
             'publish_key'   => 'convince-pubnub-its-okay',
-            'subscribe_key' => $this->subscription['deliveryMode']['subscriberKey']
+            'subscribe_key' => $this->_subscription['deliveryMode']['subscriberKey']
         ));
 
-        //print 'PUBNUB object created' . PHP_EOL;
-
-        $this->pubnub->subscribe($this->subscription['deliveryMode']['address'], array($this, 'notify'));
-
-        //print 'PUBNUB subscription created' . PHP_EOL;
+        $this->_pubnub->subscribe($this->_subscription['deliveryMode']['address'], array($this, 'notify'));
 
         return $this;
 
@@ -252,6 +260,7 @@ class Subscription extends EventDispatcher
      * @protected
      * @param $pubnubMessage
      * @return bool
+     * @throws Exception
      */
     public function notify($pubnubMessage)
     {
@@ -261,12 +270,16 @@ class Subscription extends EventDispatcher
         //TODO Since pubnub blocks everything this is probably the only place where we can intercept the process and do subscription renew
         //$this->renew();
 
-        if ($this->isSubscribed() && $this->subscription['deliveryMode']['encryption'] && $this->subscription['deliveryMode']['encryptionKey']) {
+        if (!$this->alive()) {
+            throw new Exception('Subscription is not alive');
+        }
+
+        if ($this->_subscription['deliveryMode']['encryption'] && $this->_subscription['deliveryMode']['encryptionKey']) {
 
             $aes = new PubnubAES();
 
             $message = mcrypt_decrypt(MCRYPT_RIJNDAEL_128,
-                base64_decode($this->subscription['deliveryMode']['encryptionKey']),
+                base64_decode($this->_subscription['deliveryMode']['encryptionKey']),
                 base64_decode($message),
                 MCRYPT_MODE_ECB);
 
@@ -278,21 +291,18 @@ class Subscription extends EventDispatcher
 
         $this->dispatch(self::EVENT_NOTIFICATION, new NotificationEvent($message));
 
-        return $this->keepPolling;
+        return $this->_keepPolling;
 
     }
 
-    /**
-     * @return Pubnub|PubnubMock
-     */
-    public function getPubnub()
+    protected function getFullEventFilters()
     {
-        return $this->pubnub;
+        $events = array();
+        foreach ($this->_eventFilters as $event) {
+            $events[] = $this->_platform->createUrl($event);
+        }
+        return $events;
     }
 
-    public function getSubscription()
-    {
-        return $this->subscription;
-    }
 
 }

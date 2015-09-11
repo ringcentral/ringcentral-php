@@ -10,30 +10,30 @@ use Psr\Http\Message\StreamInterface;
 class MultipartBuilder
 {
 
-    protected $body = array();
-    protected $elements = array();
-    protected $boundary = null;
+    protected $_body = array();
+    protected $_contents = array();
+    protected $_boundary = null;
 
     public function setBoundary($boundary = '')
     {
-        $this->boundary = $boundary;
+        $this->_boundary = $boundary;
         return $this;
     }
 
-    public function getBoundary()
+    public function boundary()
     {
-        return $this->boundary;
+        return $this->_boundary;
     }
 
     public function setBody(array $body = array())
     {
-        $this->body = $body;
+        $this->_body = $body;
         return $this;
     }
 
-    public function getBody()
+    public function body()
     {
-        return $this->body;
+        return $this->_body;
     }
 
     /**
@@ -46,7 +46,7 @@ class MultipartBuilder
      * @param string                          $name     Optional. Form field name
      * @return $this
      */
-    public function addAttachment($content, $filename = '', array $headers = array(), $name = '')
+    public function add($content, $filename = '', array $headers = array(), $name = '')
     {
 
         $uri = null;
@@ -119,15 +119,15 @@ class MultipartBuilder
 
         }
 
-        $this->elements[] = $element;
+        $this->_contents[] = $element;
 
         return $this;
 
     }
 
-    public function getAttachments()
+    public function contents()
     {
-        return $this->elements;
+        return $this->_contents;
     }
 
     /**
@@ -136,10 +136,10 @@ class MultipartBuilder
      * @throws \InvalidArgumentException
      * @return RequestInterface
      */
-    public function getRequest($uri, $method = 'POST')
+    public function request($uri, $method = 'POST')
     {
 
-        $stream = $this->getRequestBody();
+        $stream = $this->requestBody();
         $headers = array('Content-Type' => 'multipart/form-data; boundary=' . $stream->getBoundary());
 
         return new Request($method, $uri, $headers, $stream);
@@ -149,13 +149,13 @@ class MultipartBuilder
     /**
      * @return StreamInterface|MultipartStream
      */
-    protected function getRequestBody()
+    protected function requestBody()
     {
 
-        $bodyAttachment = array(
+        $body = array(
             array(
                 'name'     => 'json',
-                'contents' => json_encode($this->body),
+                'contents' => json_encode($this->_body),
                 'headers'  => array(
                     'Content-Type' => 'application/json'
                 ),
@@ -163,7 +163,7 @@ class MultipartBuilder
             )
         );
 
-        $stream = new MultipartStream(array_merge($bodyAttachment, $this->elements), $this->boundary);
+        $stream = new MultipartStream(array_merge($body, $this->_contents), $this->_boundary);
 
         return $stream;
 
