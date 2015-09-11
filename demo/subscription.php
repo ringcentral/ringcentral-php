@@ -27,7 +27,7 @@ $subscription->addEvents(array('/account/~/extension/~/message-store'));
 $subscription->setKeepPolling(false);
 
 $subscription->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
-    print 'Notification' . print_r($e->getPayload(), true) . PHP_EOL;
+    print 'Notification' . print_r($e->payload(), true) . PHP_EOL;
 });
 
 print 'Subscribing' . PHP_EOL;

@@ -2,9 +2,9 @@
 
 namespace RingCentral\SDK;
 
-use RingCentral\SDK\Http\Client;
-use RingCentral\SDK\Http\ClientMock;
+use RingCentral\SDK\Http\Client as HttpClient;
 use RingCentral\SDK\Http\MultipartBuilder;
+use RingCentral\SDK\Mocks\Client as MockClient;
 use RingCentral\SDK\Mocks\Registry;
 use RingCentral\SDK\Platform\Platform;
 use RingCentral\SDK\Pubnub\PubnubFactory;
@@ -26,7 +26,7 @@ class SDK
     /** @var PubnubFactory */
     protected $_pubnubFactory;
 
-    /** @var Client */
+    /** @var HttpClient */
     protected $_client;
 
     public function __construct(
@@ -49,8 +49,8 @@ class SDK
         $this->_pubnubFactory = new PubnubFactory($usePubnubMock);
 
         $this->_client = $useHttpMock
-            ? new ClientMock($this->_mockRegistry)
-            : new Client();
+            ? new MockClient($this->_mockRegistry)
+            : new HttpClient();
 
         $this->_platform = new Platform($this->_client, $appKey, $appSecret, $server, $appName, $appVersion);
 

@@ -57,16 +57,25 @@ class ApiResponse
 
     }
 
+    /**
+     * @return string
+     */
     public function text()
     {
         return (string)$this->body();
     }
 
+    /**
+     * @return \Psr\Http\Message\StreamInterface
+     */
     public function body()
     {
         return $this->_response->getBody();
     }
 
+    /**
+     * @return mixed
+     */
     public function raw()
     {
         return $this->_raw;
@@ -166,6 +175,9 @@ class ApiResponse
 
     }
 
+    /**
+     * @return bool
+     */
     public function ok()
     {
         $status = $this->response()->getStatusCode();
@@ -173,7 +185,6 @@ class ApiResponse
     }
 
     /**
-     * Convenience method on top of PSR-7 spec
      * Returns a meaningful error message
      * @return string
      */
@@ -218,11 +229,17 @@ class ApiResponse
 
     }
 
+    /**
+     * @return RequestInterface
+     */
     public function request()
     {
         return $this->_request;
     }
 
+    /**
+     * @return ResponseInterface
+     */
     public function response()
     {
         return $this->_response;

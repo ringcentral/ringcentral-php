@@ -24,7 +24,7 @@ $phoneNumbers = $platform->get('/account/~/extension/~/phone-number', array('per
 
 print 'Fax Phone Number: ' . $credentials['username'] . PHP_EOL;
 
-// Send SMS
+// Send Fax
 
 $request = $rcsdk->createMultipartBuilder()
                  ->setBody(array(
@@ -33,8 +33,8 @@ $request = $rcsdk->createMultipartBuilder()
                      ),
                      'faxResolution' => 'High',
                  ))
-                 ->addAttachment('Plain Text', 'file.txt')
-                 ->addAttachment(fopen('https://developers.ringcentral.com/assets/images/ico_case_crm.png', 'r'))
+                 ->add('Plain Text', 'file.txt')
+                 ->add(fopen('https://developers.ringcentral.com/assets/images/ico_case_crm.png', 'r'))
                  ->request('/account/~/extension/~/fax');
 
 //print $request->getBody() . PHP_EOL;

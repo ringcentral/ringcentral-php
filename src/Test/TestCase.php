@@ -3,7 +3,6 @@
 namespace RingCentral\SDK\Test;
 
 use \PHPUnit_Framework_TestCase;
-use RingCentral\SDK\Mocks\AuthenticationMock;
 use RingCentral\SDK\SDK;
 
 abstract class TestCase extends PHPUnit_Framework_TestCase
@@ -18,7 +17,7 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
 
         if ($authorized) {
 
-            $sdk->mockRegistry()->add(new AuthenticationMock());
+            $sdk->mockRegistry()->authenticationMock();
 
             $sdk->platform()->login('18881112233', null, 'password');
 

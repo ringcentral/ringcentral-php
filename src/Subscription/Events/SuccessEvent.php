@@ -18,7 +18,7 @@ class SuccessEvent extends Event
 
     }
 
-    public function response()
+    public function apiResponse()
     {
         return $this->_response;
     }

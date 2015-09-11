@@ -16,7 +16,7 @@ class ErrorEvent extends Event
 
     }
 
-    public function getException()
+    public function exception()
     {
         return $this->exception;
     }

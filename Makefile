@@ -5,6 +5,7 @@ test:
 .PHONY: phar
 phar:
 	php ./create-phar.php ${args}
+# Use "make phar args=develop" to build phar on develop branch
 
 .PHONY: all
 all:

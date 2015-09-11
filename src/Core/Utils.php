@@ -7,7 +7,13 @@ use InvalidArgumentException;
 class Utils
 {
 
-    static function json_parse($json, $assoc = false, $depth = 512)
+    /**
+     * @param string $json
+     * @param bool   $assoc
+     * @param int    $depth
+     * @return mixed
+     */
+    static function json_parse($json = '', $assoc = false, $depth = 512)
     {
 
         $parsed = \json_decode($json, $assoc, $depth);

@@ -1,9 +1,7 @@
 <?php
 
 use GuzzleHttp\Psr7\Request;
-use RingCentral\SDK\Mocks\GenericMock;
-use RingCentral\SDK\Mocks\LogoutMock;
-use RingCentral\SDK\Mocks\RefreshMock;
+use RingCentral\SDK\Mocks\Mock;
 use RingCentral\SDK\SDK;
 use RingCentral\SDK\Test\TestCase;
 
@@ -29,7 +27,7 @@ class PlatformTest extends TestCase
         $sdk = $this->getSDK();
 
         $sdk->mockRegistry()
-            ->add(new RefreshMock());
+            ->add(new Mock());
 
         $sdk->platform()->auth()->setData(array(
             'refresh_token_expires_in'  => 1,
@@ -46,8 +44,8 @@ class PlatformTest extends TestCase
         $sdk = $this->getSDK();
 
         $sdk->mockRegistry()
-            ->add(new RefreshMock())
-            ->add(new GenericMock('GET', '/foo', array('foo' => 'bar')));
+            ->refreshMock()
+            ->add(new Mock('GET', '/foo', array('foo' => 'bar')));
 
         $sdk->platform()->auth()->setData(array(
             'expires_in'  => 1,
@@ -66,7 +64,7 @@ class PlatformTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $sdk->mockRegistry()->add(new LogoutMock());
+        $sdk->mockRegistry()->logoutMock();
 
         $sdk->platform()->logout();
 
@@ -107,7 +105,7 @@ class PlatformTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $sdk->mockRegistry()->add(new GenericMock('GET', '/foo', array('foo' => 'bar')));
+        $sdk->mockRegistry()->add(new Mock('GET', '/foo', array('foo' => 'bar')));
 
         $request = $sdk->platform()->inflateRequest(new Request('GET', '/foo'));
 

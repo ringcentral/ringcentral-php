@@ -244,7 +244,7 @@ class Subscription extends EventDispatcher
             throw new Exception('Subscription is not alive');
         }
 
-        $this->_pubnub = $this->_pubnubFactory->getPubnub(array(
+        $this->_pubnub = $this->_pubnubFactory->pubnub(array(
             'publish_key'   => 'convince-pubnub-its-okay',
             'subscribe_key' => $this->_subscription['deliveryMode']['subscriberKey']
         ));
