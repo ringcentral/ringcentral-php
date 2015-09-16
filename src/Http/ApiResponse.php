@@ -84,30 +84,42 @@ class ApiResponse
     /**
      * Parses response body as JSON
      * Result is cached internally
-     * @param bool $asObject
-     * @return stdClass|array
+     * @return stdClass
      * @throws Exception
      */
-    public function json($asObject = true)
+    public function json()
     {
 
         if (!$this->isContentType('application/json')) {
             throw new Exception('Response is not JSON');
         }
 
-        if (($asObject && empty($this->_jsonAsObject)) || (!$asObject && empty($this->_jsonAsArray))) {
-
-            $json = Utils::json_parse($this->text(), !$asObject);
-
-            if ($asObject) {
-                $this->_jsonAsObject = $json;
-            } else {
-                $this->_jsonAsArray = $json;
-            }
-
+        if (empty($this->_jsonAsObject)) {
+            $this->_jsonAsObject = Utils::json_parse($this->text(), false);
         }
 
-        return $asObject ? $this->_jsonAsObject : $this->_jsonAsArray;
+        return $this->_jsonAsObject;
+
+    }
+
+    /**
+     * Parses response body as JSON and returns an array
+     * Result is cached internally
+     * @return array
+     * @throws Exception
+     */
+    public function jsonArray()
+    {
+
+        if (!$this->isContentType('application/json')) {
+            throw new Exception('Response is not JSON');
+        }
+
+        if (empty($this->_jsonAsArray)) {
+            $this->_jsonAsArray = Utils::json_parse($this->text(), true);
+        }
+
+        return $this->_jsonAsArray;
 
     }
 

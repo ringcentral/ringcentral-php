@@ -25,6 +25,7 @@ class Platform
     protected $_appSecret;
     protected $_appName;
     protected $_appVersion;
+    protected $_userAgent;
 
     /** @var Auth */
     protected $_auth;
@@ -44,6 +45,11 @@ class Platform
 
         $this->_auth = new Auth();
         $this->_client = $client;
+
+        $this->_userAgent = (!empty($this->_appName) ? ($this->_appName . (!empty($this->_appVersion) ? '/' . $this->_appVersion : '') . ' ') : '') .
+                            php_uname('s') . '/' . php_uname('r') . ' ' .
+                            'PHP/' . phpversion() . ' ' .
+                            'RCPHPSDK/' . SDK::VERSION;
 
     }
 
@@ -116,7 +122,7 @@ class Platform
             'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
         ));
 
-        $this->_auth->setData($response->json(false));
+        $this->_auth->setData($response->jsonArray());
 
         return $response;
 
@@ -141,7 +147,7 @@ class Platform
             "refresh_token_ttl" => self::REFRESH_TOKEN_TTL
         ));
 
-        $this->_auth->setData($response->json(false));
+        $this->_auth->setData($response->jsonArray());
 
         return $response;
 
@@ -185,14 +191,9 @@ class Platform
 
         }
 
-        $ua = (!empty($this->_appName) ? ($this->_appName . (!empty($this->_appVersion) ? '/' . $this->_appVersion : '') . ' ') : '') .
-              php_uname('s') . '/' . php_uname('r') . ' ' .
-              'PHP/' . phpversion() . ' ' .
-              'RCPHPSDK/' . SDK::VERSION;
-
         /** @var RequestInterface $request */
-        $request = $request->withAddedHeader('User-Agent', $ua)
-                           ->withAddedHeader('RC-User-Agent', $ua);
+        $request = $request->withAddedHeader('User-Agent', $this->_userAgent)
+                           ->withAddedHeader('RC-User-Agent', $this->_userAgent);
 
         $uri = new Uri($this->createUrl((string)$request->getUri(), array('addServer' => true)));
 
