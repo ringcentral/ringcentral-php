@@ -30,15 +30,17 @@ directory structure.
 3. Add the following line to your `composer.json` or create the one from scratch:
   
     ```json
-    {
-        "minimum-stability": "dev"
-    }
+        "repositories": [
+        {
+            "type": "vcs",
+            "url": "http://github.com/knoxcard/ringcentral-php"
+        }]
     ```
   
 2. Run the Composer command to install the latest version of SDK:
   
     ```sh
-    $ php composer.phar require ringcentral/ringcentral-php
+    $ php composer.phar require knoxcard/ringcentral-php
     ```
 
 3. Require Composer's autoloader in your PHP script (assuming it is in the same directory where you installed Composer):
