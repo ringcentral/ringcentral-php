@@ -31,7 +31,7 @@
   "require": {
     "ext-curl": "*",
     "php": ">=5.3.29",
-    "guzzlehttp/psr7": "dev-master",
+    "guzzle/psr7": "dev-master",
     "pubnub/pubnub": "~3.7",
     "symfony/event-dispatcher": "^2.7"
   },
