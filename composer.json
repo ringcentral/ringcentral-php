@@ -30,7 +30,7 @@
     {
       "type": "vcs",
       "url": "http://github.com/guzzle/psr7"
-    },
+    }
   ],
   "require": {
     "ext-curl": "*",
