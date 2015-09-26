@@ -57,7 +57,7 @@ class Subscription extends EventDispatcher
 
     protected $_keepPolling = false;
 
-    public function __construct(PubnubFactory $pubnubFactory, Platform $platform)
+    function __construct(PubnubFactory $pubnubFactory, Platform $platform)
     {
 
         $this->_platform = $platform;
@@ -68,7 +68,7 @@ class Subscription extends EventDispatcher
     /**
      * @return Pubnub|PubnubMock
      */
-    public function pubnub()
+    function pubnub()
     {
         return $this->_pubnub;
     }
@@ -78,7 +78,7 @@ class Subscription extends EventDispatcher
      * @return ApiResponse
      * @throws Exception
      */
-    public function register(array $options = array())
+    function register(array $options = array())
     {
         if ($this->alive()) {
             return $this->renew($options);
@@ -87,29 +87,29 @@ class Subscription extends EventDispatcher
         }
     }
 
-    public function setKeepPolling($flag = false)
+    function setKeepPolling($flag = false)
     {
         $this->_keepPolling = !empty($flag);
     }
 
-    public function keepPolling()
+    function keepPolling()
     {
         return $this->_keepPolling;
     }
 
-    public function addEvents(array $events)
+    function addEvents(array $events)
     {
         $this->_eventFilters = array_merge($this->_eventFilters, $events);
         return $this;
     }
 
-    public function setEvents(array $events)
+    function setEvents(array $events)
     {
         $this->_eventFilters = $events;
         return $this;
     }
 
-    public function subscribe(array $options = array())
+    function subscribe(array $options = array())
     {
 
         if (!empty($options['events'])) {
@@ -125,7 +125,7 @@ class Subscription extends EventDispatcher
                 )
             ));
 
-            $this->setSubscription($response->json(false));
+            $this->setSubscription($response->jsonArray());
             $this->subscribeAtPubnub();
 
             //TODO Subscription renewal when everything will become async
@@ -144,7 +144,7 @@ class Subscription extends EventDispatcher
 
     }
 
-    public function renew(array $options = array())
+    function renew(array $options = array())
     {
 
         if (!empty($options['events'])) {
@@ -161,7 +161,7 @@ class Subscription extends EventDispatcher
                 'eventFilters' => $this->getFullEventFilters()
             ));
 
-            $this->setSubscription($response->json(false));
+            $this->setSubscription($response->jsonArray());
 
             $this->dispatch(self::EVENT_RENEW_SUCCESS, new SuccessEvent($response));
 
@@ -177,7 +177,7 @@ class Subscription extends EventDispatcher
 
     }
 
-    public function remove()
+    function remove()
     {
 
         if (!$this->alive()) {
@@ -204,7 +204,7 @@ class Subscription extends EventDispatcher
 
     }
 
-    public function alive()
+    function alive()
     {
         return (!empty($this->_subscription) &&
                 !empty($this->_subscription['deliveryMode']) &&
@@ -213,7 +213,7 @@ class Subscription extends EventDispatcher
     }
 
 
-    public function subscription()
+    function subscription()
     {
         return $this->_subscription;
     }
@@ -224,7 +224,7 @@ class Subscription extends EventDispatcher
         return $this;
     }
 
-    protected function reset()
+    function reset()
     {
 
         if ($this->_pubnub && $this->alive()) {
@@ -270,6 +270,18 @@ class Subscription extends EventDispatcher
         //TODO Since pubnub blocks everything this is probably the only place where we can intercept the process and do subscription renew
         //$this->renew();
 
+        $message = $this->decrypt($message);
+        //print 'Message received: ' . $message . PHP_EOL;
+
+        $this->dispatch(self::EVENT_NOTIFICATION, new NotificationEvent($message));
+
+        return $this->_keepPolling;
+
+    }
+
+    protected function decrypt($message)
+    {
+
         if (!$this->alive()) {
             throw new Exception('Subscription is not alive');
         }
@@ -287,11 +299,7 @@ class Subscription extends EventDispatcher
 
         }
 
-        //print 'Message received: ' . $message . PHP_EOL;
-
-        $this->dispatch(self::EVENT_NOTIFICATION, new NotificationEvent($message));
-
-        return $this->_keepPolling;
+        return $message;
 
     }
 

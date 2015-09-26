@@ -137,7 +137,7 @@ class ApiResponseTest extends TestCase
         $this->assertEquals('{"foo":"bar"}', $r->text());
         $this->assertEquals('bar', $r->json()->foo);
 
-        $asArray = $r->json(false);
+        $asArray = $r->jsonArray();
         $this->assertEquals('bar', $asArray['foo']);
 
     }

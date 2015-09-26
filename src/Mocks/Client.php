@@ -25,18 +25,8 @@ class Client extends HttpClient
      */
     protected function loadResponse(RequestInterface $request)
     {
-
         $mock = $this->_registry->find($request);
-
-        if (empty($mock)) {
-            throw new Exception(sprintf(
-                'Mock for "%s" has not been found in registry',
-                $request->getUri()
-            ));
-        }
-
         return new ApiResponse($request, $mock->response($request));
-
     }
 
 }
