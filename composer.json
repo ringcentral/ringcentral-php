@@ -28,6 +28,7 @@
       "type": "git"
     }
   ],
+  "minimum-stability": "dev",
   "require": {
     "ext-curl": "*",
     "php": ">=5.3.29",
