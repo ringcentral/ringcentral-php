@@ -204,8 +204,8 @@ $request = $rcsdk->createMultipartBuilder()
                      ),
                      'faxResolution' => 'High',
                  ))
-                 ->addAttachment('Plain Text', 'file.txt')
-                 ->addAttachment(fopen('path/to/file', 'r'))
+                 ->add('Plain Text', 'file.txt')
+                 ->add(fopen('path/to/file', 'r'))
                  ->request('/account/~/extension/~/fax'); // also has optional $method argument
 
 $response = $platform->sendRequest($request);
