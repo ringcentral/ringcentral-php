@@ -1,6 +1,6 @@
 <?php
 
-use GuzzleHttp\Psr7\Request;
+use RingCentral\Psr7\Request;
 use RingCentral\SDK\Mocks\Mock;
 use RingCentral\SDK\SDK;
 use RingCentral\SDK\Test\TestCase;
