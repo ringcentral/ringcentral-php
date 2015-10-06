@@ -3,10 +3,9 @@
 namespace RingCentral\SDK\Http;
 
 use Exception;
-use GuzzleHttp\Psr7\Request;
+use RingCentral\Psr7\Request;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\StreamInterface;
-use RingCentral\SDK\SDK;
 
 class Client
 {

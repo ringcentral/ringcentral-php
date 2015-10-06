@@ -27,21 +27,13 @@ directory structure.
     More info about installation on [Linux / Unix / OSX](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
     and [Windows](https://getcomposer.org/doc/00-intro.md#installation-windows).
 
-3. Add the following line to your `composer.json` or create the one from scratch:
-  
-    ```json
-    {
-        "minimum-stability": "dev"
-    }
-    ```
-  
-2. Run the Composer command to install the latest version of SDK:
+3. Run the Composer command to install the latest version of SDK:
   
     ```sh
     $ php composer.phar require ringcentral/ringcentral-php
     ```
 
-3. Require Composer's autoloader in your PHP script (assuming it is in the same directory where you installed Composer):
+4. Require Composer's autoloader in your PHP script (assuming it is in the same directory where you installed Composer):
     
     ```php
     require('vendor/autoload.php');

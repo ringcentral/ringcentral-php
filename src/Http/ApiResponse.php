@@ -53,7 +53,7 @@ class ApiResponse
             $body = "HTTP/1.1 " . $status . " OK\r\n" . $body;
         }
 
-        $this->_response = \GuzzleHttp\Psr7\parse_response($body);
+        $this->_response = \RingCentral\Psr7\parse_response($body);
 
     }
 
