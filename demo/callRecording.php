@@ -38,9 +38,7 @@ foreach ($callLogRecords as $callLogRecord) {
     $ext = ($apiResponse->response()->getHeader('Content-Type')[0] == 'audio/mpeg')
       ? 'mp3' : 'wav';
 
-    $fp = fopen("recording_${id}.${ext}", 'w');
-    fwrite($fp, $apiResponse->raw());
-    fclose($fp);
+    file_put_contents("recording_${id}.${ext}", $apiResponse->raw());
 
     print "Wrote Recording for Call Log Record ${id}" . PHP_EOL;
 
