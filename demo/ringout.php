@@ -4,7 +4,10 @@ require_once(__DIR__ . '/_bootstrap.php');
 
 use RingCentral\SDK\SDK;
 
-$credentials = require(__DIR__ . '/_credentials.php');
+$credentials_file = count($argv) > 1 
+  ? $argv[1] : __DIR__ . '/_credentials.json';
+
+$credentials = json_decode(file_get_contents($credentials_file), true);
 
 // Create SDK instance
 
@@ -19,8 +22,8 @@ $platform->login($credentials['username'], $credentials['extension'], $credentia
 // Make a call
 
 $response = $platform->post('/account/~/extension/~/ringout', array(
-    'from' => array('phoneNumber' => '15551112233'),
-    'to'   => array('phoneNumber' => $credentials['mobileNumber'])
+    'from' => array('phoneNumber' => $credentials['fromPhoneNumber']),
+    'to'   => array('phoneNumber' => $credentials['toPhoneNumber'])
 ));
 
 $json = $response->json();
