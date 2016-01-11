@@ -82,7 +82,7 @@ $sdk->platform()->loggedIn();
 Authenticate user:
 
 ```php
-$sdk->getPlatform()->login('username', 'extension (or leave blank)', 'password'); // change true to false to not remember user
+$sdk->platform()->login('username', 'extension (or leave blank)', 'password'); // change true to false to not remember user
 ```
 
 ### Authentication lifecycle
@@ -94,7 +94,7 @@ Platform class performs token refresh procedure if needed. You can save authenti
 file_put_contents($file, json_encode($platform->auth()->data(), JSON_PRETTY_PRINT));
 
 // and then next time during application bootstrap before any authentication checks:
-$sdk->getPlatform()->auth->setData(json_decode(file_get_contents($file));
+$sdk->platform()->auth->setData(json_decode(file_get_contents($file));
 ```
 
 **Important!** You have to manually maintain synchronization of SDK's between requests if you share authentication.
@@ -217,6 +217,8 @@ return array(
     'server'       => 'https://platform.devtest.ringcentral.com', // for production - https://platform.ringcentral.com
     'smsNumber'    => '18882223344', // any of SMS-enabled numbers on your RingCentral account
     'mobileNumber' => '16501112233', // your own mobile number to which script will send sms
+    'dateFrom'     => 'yyyy-mm-dd',
+    'dateTo'       => 'yyyy-mm-dd'
 );
 ```
 
