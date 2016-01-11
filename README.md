@@ -82,7 +82,7 @@ $sdk->platform()->loggedIn();
 Authenticate user:
 
 ```php
-$sdk->getPlatform()->login('username', 'extension (or leave blank)', 'password'); // change true to false to not remember user
+$sdk->Platform()->login('username', 'extension (or leave blank)', 'password');
 ```
 
 ### Authentication lifecycle
@@ -91,10 +91,10 @@ Platform class performs token refresh procedure if needed. You can save authenti
 
 ```js
 // when application is going to be stopped
-file_put_contents($file, json_encode($platform->auth()->data(), JSON_PRETTY_PRINT));
+file_put_contents($file, json_encode($sdk->platform()->auth()->data(), JSON_PRETTY_PRINT));
 
 // and then next time during application bootstrap before any authentication checks:
-$sdk->getPlatform()->auth->setData(json_decode(file_get_contents($file));
+$sdk->platform()->auth->setData(json_decode(file_get_contents($file));
 ```
 
 **Important!** You have to manually maintain synchronization of SDK's between requests if you share authentication.
