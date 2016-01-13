@@ -205,7 +205,7 @@ $response = $platform->sendRequest($request);
 
 # How to demo?
 
-Clone the repo and create a file `demo/_credentials.php`:
+Clone the repo and create a file `demo/_credentials.php` copy the contents from the file 'demo/_credentialsSample.php' as shown below:
 
 ```php
 return array(
