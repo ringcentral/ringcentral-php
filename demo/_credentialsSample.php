@@ -2,7 +2,7 @@
 
 return array(
     'username'     => '18881112233', // your RingCentral account phone number
-    'extension'    => null, // or number
+    'extension'    =>  null, // or number
     'password'     => 'yourPassword',
     'appKey'       => 'yourAppKey',
     'appSecret'    => 'yourAppSecret',
