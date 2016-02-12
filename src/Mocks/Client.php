@@ -16,6 +16,7 @@ class Client extends HttpClient
     public function __construct(Registry $registry)
     {
         $this->_registry = $registry;
+        parent::__construct();
     }
 
     /**

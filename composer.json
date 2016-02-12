@@ -24,10 +24,11 @@
   ],
   "require": {
     "ext-curl": "*",
-    "php": ">=5.3.29",
-    "ringcentral/psr7": "^1.2.0",
+    "php": ">=5.5.0",
+    "guzzlehttp/psr7": "^1.2.2",
     "pubnub/pubnub": "dev-develop",
-    "symfony/event-dispatcher": "^2.7"
+    "symfony/event-dispatcher": "^3.0.1",
+    "guzzlehttp/guzzle": "^6.1"
   },
   "require-dev": {
     "phpunit/phpunit": "*",

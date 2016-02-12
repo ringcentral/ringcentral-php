@@ -2,8 +2,8 @@
 
 namespace RingCentral\SDK\Http;
 
-use RingCentral\Psr7\MultipartStream;
-use RingCentral\Psr7\Request;
+use GuzzleHttp\Psr7\MultipartStream;
+use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\StreamInterface;
 
@@ -109,7 +109,7 @@ class MultipartBuilder
 
             } elseif ($content instanceof StreamInterface) {
 
-                $type = \RingCentral\Psr7\mimetype_from_filename($basename);
+                $type = \GuzzleHttp\Psr7\mimetype_from_filename($basename);
 
                 if (!$type) {
                     throw new \InvalidArgumentException('Content-Type header was not provided and cannot be auto-discovered');

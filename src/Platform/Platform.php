@@ -3,7 +3,7 @@
 namespace RingCentral\SDK\Platform;
 
 use Exception;
-use RingCentral\Psr7\Uri;
+use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\RequestInterface;
 use RingCentral\SDK\Http\ApiException;
 use RingCentral\SDK\Http\ApiResponse;
