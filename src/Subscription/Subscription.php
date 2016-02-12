@@ -25,6 +25,10 @@ class Subscription extends EventDispatcher
     const EVENT_RENEW_ERROR = 'renewError';
     const EVENT_SUBSCRIBE_SUCCESS = 'subscribeSuccess';
     const EVENT_SUBSCRIBE_ERROR = 'subscribeError';
+    const EVENT_TIMEOUT = 'timeout';
+
+    const RENEW_HANDICAP = 120; // 2 minutes
+    const SUBSCRIBE_TIMEOUT = 60; // 1 minute
 
     /** @var Platform */
     protected $_platform;
@@ -151,8 +155,8 @@ class Subscription extends EventDispatcher
             $this->setEvents($options['events']);
         }
 
-        if (!$this->alive()) {
-            throw new Exception('Subscription is not alive');
+        if (!$this->subscribed()) {
+            throw new Exception('No subscription');
         }
 
         try {
@@ -180,8 +184,8 @@ class Subscription extends EventDispatcher
     function remove()
     {
 
-        if (!$this->alive()) {
-            throw new Exception('Subscription is not alive');
+        if (!$this->subscribed()) {
+            throw new Exception('No subscription');
         }
 
         try {
@@ -204,7 +208,7 @@ class Subscription extends EventDispatcher
 
     }
 
-    function alive()
+    function subscribed()
     {
         return (!empty($this->_subscription) &&
                 !empty($this->_subscription['deliveryMode']) &&
@@ -212,6 +216,15 @@ class Subscription extends EventDispatcher
                 !empty($this->_subscription['deliveryMode']['address']));
     }
 
+    function alive()
+    {
+        return $this->subscribed() && (time() < $this->expirationTime());
+    }
+
+    function expirationTime()
+    {
+        return strtotime($this->_subscription['expirationTime']) - self::RENEW_HANDICAP;
+    }
 
     function subscription()
     {
@@ -249,9 +262,28 @@ class Subscription extends EventDispatcher
             'subscribe_key' => $this->_subscription['deliveryMode']['subscriberKey']
         ));
 
-        $this->_pubnub->subscribe($this->_subscription['deliveryMode']['address'], array($this, 'notify'));
+        $this->_pubnub->setSubscribeTimeout(self::SUBSCRIBE_TIMEOUT);
+
+        $this->_pubnub->subscribe($this->_subscription['deliveryMode']['address'], array($this, 'notify'), 0, false,
+            array($this, 'pubnubTimeoutHandler')
+        );
 
         return $this;
+
+    }
+
+    /**
+     * Attention, this function is NOT PUBLIC!!! The only reason it's public is due to PHP 5.3 limitations
+     * @protected
+     */
+    public function pubnubTimeoutHandler()
+    {
+
+        $this->dispatch(self::EVENT_TIMEOUT);
+
+        if ($this->subscribed() && !$this->alive()) {
+            $this->renew();
+        }
 
     }
 
@@ -265,12 +297,20 @@ class Subscription extends EventDispatcher
     public function notify($pubnubMessage)
     {
 
+        if (!empty($pubnubMessage['error'])) {
+            //'error' => true,
+            //'service' => 'cURL',
+            //'status' => -1,
+            //'message' => 'request timeout',
+            //'payload' => "Pubnub request timeout. Maximum timeout: " . $this->curlTimeout . " seconds" .
+            //    ". Requested URL: " . $curlResponseURL
+            return $this->_keepPolling;
+        }
+
         $message = $pubnubMessage['message'];
 
-        //TODO Since pubnub blocks everything this is probably the only place where we can intercept the process and do subscription renew
-        //$this->renew();
-
         $message = $this->decrypt($message);
+
         //print 'Message received: ' . $message . PHP_EOL;
 
         $this->dispatch(self::EVENT_NOTIFICATION, new NotificationEvent($message));
@@ -282,8 +322,8 @@ class Subscription extends EventDispatcher
     protected function decrypt($message)
     {
 
-        if (!$this->alive()) {
-            throw new Exception('Subscription is not alive');
+        if (!$this->subscribed()) {
+            throw new Exception('No subscription');
         }
 
         if ($this->_subscription['deliveryMode']['encryption'] && $this->_subscription['deliveryMode']['encryptionKey']) {

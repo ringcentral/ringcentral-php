@@ -4,12 +4,10 @@ require_once(__DIR__ . '/_bootstrap.php');
 
 use RingCentral\SDK\SDK;
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
+use RingCentral\SDK\Subscription\Events\SuccessEvent;
 use RingCentral\SDK\Subscription\Subscription;
 
-$credentials_file = count($argv) > 1 
-  ? $argv[1] : __DIR__ . '/_credentials.json';
-
-$credentials = json_decode(file_get_contents($credentials_file), true);
+$credentials = require('_credentials.php');
 
 // Create SDK instance
 
@@ -26,8 +24,9 @@ $platform->login($credentials['username'], $credentials['extension'], $credentia
 $subscription = $rcsdk->createSubscription();
 
 $subscription->addEvents(array(
-	'/account/~/extension/~/message-store',
-	'/account/~/extension/~/presence'));
+    '/account/~/extension/~/message-store',
+    '/account/~/extension/~/presence'
+));
 
 $subscription->setKeepPolling(true);
 
@@ -37,10 +36,14 @@ $subscription->addListener(Subscription::EVENT_NOTIFICATION, function (Notificat
 
 print 'Subscribing' . PHP_EOL;
 
+$subscription->addListener(Subscription::EVENT_TIMEOUT, function () {
+    print 'Timeout' . PHP_EOL;
+});
+
+$subscription->addListener(Subscription::EVENT_RENEW_SUCCESS, function (SuccessEvent $e) {
+    print 'Renewed' . PHP_EOL;
+});
+
 $subscription->register();
 
 print 'End' . PHP_EOL;
-
-while (1>0) {
-	sleep(1);
-}

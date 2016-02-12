@@ -15,15 +15,15 @@ class PubnubMock extends Pubnub
     {
 
         parent::__construct($options);
-        $this->observer = new EventDispatcher();
+        $this->eventDispatcher = new EventDispatcher();
 
     }
 
-    public function subscribe($channel, $cb, $timeToken = 0, $presence = false)
+    public function subscribe($channel, $callback, $timeToken = 0, $presence = false, $timeoutHandler = null)
     {
 
-        $this->observer->addListener('message', function (PubnubEvent $e) use ($cb) {
-            call_user_func($cb, $e->getData());
+        $this->eventDispatcher->addListener('message', function (PubnubEvent $e) use ($callback) {
+            call_user_func($callback, $e->getData());
         });
 
     }
@@ -31,7 +31,7 @@ class PubnubMock extends Pubnub
     public function receiveMessage($message)
     {
 
-        $this->observer->dispatch('message', new PubnubEvent(array(
+        $this->eventDispatcher->dispatch('message', new PubnubEvent(array(
             'message'   => $message,
             'channel'   => null,
             'timeToken' => time()
