@@ -7,9 +7,11 @@ use RingCentral\SDK\Subscription\Events\NotificationEvent;
 use RingCentral\SDK\Subscription\Events\SuccessEvent;
 use RingCentral\SDK\Subscription\Subscription;
 
+
 $credentials = require('_credentials.php');
 
-// Create SDK instance
+
+$credentials = require(__DIR__ . '/_credentials.php');
 
 $rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server'], 'Demo', '1.0.0');
 
@@ -39,7 +41,7 @@ print 'Subscribing' . PHP_EOL;
 $subscription->addListener(Subscription::EVENT_TIMEOUT, function () {
     print 'Timeout' . PHP_EOL;
 });
-
+ 
 $subscription->addListener(Subscription::EVENT_RENEW_SUCCESS, function (SuccessEvent $e) {
     print 'Renewed' . PHP_EOL;
 });
