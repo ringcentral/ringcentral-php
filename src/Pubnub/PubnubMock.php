@@ -19,11 +19,11 @@ class PubnubMock extends Pubnub
 
     }
 
-    public function subscribe($channel, $cb, $timeToken = 0, $presence = false)
+    public function subscribe($channel, $callback, $timeToken = 0, $presence = false, $timeoutHandler = null)
     {
 
-        $this->observer->addListener('message', function (PubnubEvent $e) use ($cb) {
-            call_user_func($cb, $e->getData());
+        $this->observer->addListener('message', function (PubnubEvent $e) use ($callback) {
+            call_user_func($callback, $e->getData());
         });
 
     }
