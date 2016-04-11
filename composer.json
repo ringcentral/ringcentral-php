@@ -25,10 +25,10 @@
   "require": {
     "ext-curl": "*",
     "php": ">=5.5.0",
-    "guzzlehttp/psr7": "^1.2.2",
-    "pubnub/pubnub": "dev-develop",
-    "symfony/event-dispatcher": "^3.0.1",
-    "guzzlehttp/guzzle": "^6.1"
+    "guzzlehttp/psr7": "^1.2.3",
+    "pubnub/pubnub": "^3.8.1",
+    "symfony/event-dispatcher": "^3.0.4",
+    "guzzlehttp/guzzle": "^6.2"
   },
   "require-dev": {
     "phpunit/phpunit": "*",

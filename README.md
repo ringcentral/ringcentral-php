@@ -5,7 +5,7 @@
 
 # Requirements
 
-- PHP 5.3.29+
+- PHP 5.5+
 - CURL extension
 - MCrypt extension
 
