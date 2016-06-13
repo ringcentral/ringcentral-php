@@ -103,6 +103,47 @@ class Platform
         }
     }
 
+
+    /**
+     * @param string $options['redirectUri']
+     * @param string $options['state']
+     * @param string $options['brandId']
+     * @param string $options['display']
+     * @param string $options['prompt']
+     * @param array  $options
+     * @throws ApiException
+     * @return ApiResponse
+     */
+    public function authUrl($options = array())
+    {
+        return $this->createUrl(self::AUTHORIZE_ENDPOINT . '?' . http_build_query(
+            array (
+            'response_type' => 'code',
+            'redirect_uri'  => isset($options['redirectUri']) ? $options['redirectUri'] : '',
+            'client_id'     => $this->_appKey,
+            'state'         => isset($options['state']) ? $options['state'] : '',
+            'brand_id '     => isset($options['brandId']) ? $options['brandId'] : '',
+            'display'       => isset($options['display']) ? $options['display'] : '',  
+            'prompt'        => isset($options['prompt']) ? $options['prompt'] : ''
+        )), array(
+            'addServer'     => 'true'
+        ));
+    }
+
+
+    /**
+     * @param string  $url
+     * @throws ApiException
+     * @return ApiResponse
+     */
+    public function parseAuthRedirectUrl($url) 
+    {
+        parse_str($url,$qsArray);
+        $qs = array(
+                'code' => $qsArray['code']
+        );
+        return $qs;
+    }
     /**
      * @param string $username
      * @param string $extension
@@ -110,17 +151,24 @@ class Platform
      * @throws ApiException
      * @return ApiResponse
      */
-    public function login($username = '', $extension = '', $password = '')
+    public function login($options = array())
     {
+        $requestHeaders = array_key_exists('code', $options) ? array(
+                'grant_type'        => 'authorization_code',
+                'code'              => $options['code'],
+                'redirect_uri'      => $options['redirectUri'],
+                'access_token_ttl'  => self::ACCESS_TOKEN_TTL,
+                'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
+            ) : array(
+                'grant_type'        => 'password',
+                'username'          => $options['username'],
+                'extension'         => isset($options['extension']) ? $options['extension'] : null,
+                'password'          => $options['password'],
+                'access_token_ttl'  => self::ACCESS_TOKEN_TTL,
+                'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
+            );
 
-        $response = $this->requestToken(self::TOKEN_ENDPOINT, array(
-            'grant_type'        => 'password',
-            'username'          => $username,
-            'extension'         => $extension ? $extension : null,
-            'password'          => $password,
-            'access_token_ttl'  => self::ACCESS_TOKEN_TTL,
-            'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
-        ));
+        $response = $this->requestToken(self::TOKEN_ENDPOINT, $requestHeaders);   
 
         $this->_auth->setData($response->jsonArray());
 
