@@ -17,6 +17,7 @@ class Platform
     const REFRESH_TOKEN_TTL = 604800; // 1 week
     const TOKEN_ENDPOINT = '/restapi/oauth/token';
     const REVOKE_ENDPOINT = '/restapi/oauth/revoke';
+    const AUTHORIZE_ENDPOINT = '/restapi/oauth/authorize';
     const API_VERSION = 'v1.0';
     const URL_PREFIX = '/restapi';
 
@@ -94,6 +95,16 @@ class Platform
 
     }
 
+
+    public function loggedIn()
+    {
+        try {
+            return $this->_auth->accessTokenValid() || $this->refresh();
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
     /**
      * @param string $options['redirectUri']
      * @param string $options['state']
@@ -104,18 +115,18 @@ class Platform
      * @throws ApiException
      * @return ApiResponse
      */
-    public function authUrl($options = array())
+    public function authUrl($options)
     {
 
         return $this->createUrl(self::AUTHORIZE_ENDPOINT . '?' . http_build_query(
             array (
             'response_type' => 'code',
-            'redirect_uri'  => isset($options['redirectUri']) ? $options['redirectUri'] : '',
+            'redirect_uri'  => $options['redirectUri'] ? $options['redirectUri'] : null,
             'client_id'     => $this->_appKey,
-            'state'         => isset($options['state']) ? $options['state'] : '',
-            'brand_id '     => isset($options['brandId']) ? $options['brandId'] : '',
-            'display'       => isset($options['display']) ? $options['display'] : '',  
-            'prompt'        => isset($options['prompt']) ? $options['prompt'] : ''
+            'state'         => $options['state'] ? $options['state'] : null,
+            'brand_id'      => $options['brandId'] ? $options['brandId'] : null,
+            'display'       => $options['display'] ? $options['display'] : null,  
+            'prompt'        => $options['prompt'] ? $options['prompt'] : null
         )), array(
             'addServer'     => 'true'
         ));
@@ -130,10 +141,9 @@ class Platform
     {
 
         parse_str($url,$qsArray);
-        $qs = array(
+        return array(
                 'code' => $qsArray['code']
         );
-        return $qs;
     }
 
 
@@ -147,37 +157,28 @@ class Platform
     public function login($options)
     {
        
-        $qs = array();
-
-        foreach (func_get_args() as $key) 
-        {
-            if(isset($key["code"]) && isset($key["redirectUri"]))
-            {
-                $qs["code"] = $key["code"];
-                $qs["redirectUri"] = $key["redirectUri"];
-            }
-            if(isset($key["username"]) && isset($key["extension"]) && isset($key["password"]))
-            {
-                $qs["username"] = $key["username"];
-                $qs["extension"] = $key["extension"];
-                $qs["password"] = $key["password"];
-            }    
+        if(is_string($options)){
+           $options = array(
+                            'username'  => func_get_arg(0),
+                            'extension' => func_get_arg(1) ? func_get_arg(1) : null,
+                            'password'  => func_get_arg(2)
+                            );
         }
-
-        $response = array_key_exists('code', $qs) ? $this->requestToken(self::TOKEN_ENDPOINT, array(
+        
+        $response = !empty($options['code']) ? $this->requestToken(self::TOKEN_ENDPOINT, array(
             
             'grant_type'        => 'authorization_code',
-            'code'              => $qs['code'],
-            'redirect_uri'      => $qs['redirectUri'],
+            'code'              => $options['code'],
+            'redirect_uri'      => $options['redirectUri'],
             'access_token_ttl'  => self::ACCESS_TOKEN_TTL,
             'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
 
         )) :$this->requestToken(self::TOKEN_ENDPOINT, array(
             
             'grant_type'        => 'password',
-            'username'          => $qs['username'],
-            'extension'         => $qs['extension'] ? $qs['extension'] : null,
-            'password'          => $qs["password"],
+            'username'          => $options['username'],
+            'extension'         => $options['extension'] ? $options['extension'] : null,
+            'password'          => $options["password"],
             'access_token_ttl'  => self::ACCESS_TOKEN_TTL,
             'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
 
