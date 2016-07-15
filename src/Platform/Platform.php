@@ -17,6 +17,7 @@ class Platform
     const REFRESH_TOKEN_TTL = 604800; // 1 week
     const TOKEN_ENDPOINT = '/restapi/oauth/token';
     const REVOKE_ENDPOINT = '/restapi/oauth/revoke';
+    const AUTHORIZE_ENDPOINT = '/restapi/oauth/authorize';
     const API_VERSION = 'v1.0';
     const URL_PREFIX = '/restapi';
 
@@ -94,6 +95,7 @@ class Platform
 
     }
 
+
     public function loggedIn()
     {
         try {
@@ -104,22 +106,82 @@ class Platform
     }
 
     /**
+     * @param string $options['redirectUri']
+     * @param string $options['state']
+     * @param string $options['brandId']
+     * @param string $options['display']
+     * @param string $options['prompt']
+     * @param array  $options
+     * @throws ApiException
+     * @return ApiResponse
+     */
+    public function authUrl($options)
+    {
+
+        return $this->createUrl(self::AUTHORIZE_ENDPOINT . '?' . http_build_query(
+            array (
+            'response_type' => 'code',
+            'redirect_uri'  => $options['redirectUri'] ? $options['redirectUri'] : null,
+            'client_id'     => $this->_appKey,
+            'state'         => $options['state'] ? $options['state'] : null,
+            'brand_id'      => $options['brandId'] ? $options['brandId'] : null,
+            'display'       => $options['display'] ? $options['display'] : null,  
+            'prompt'        => $options['prompt'] ? $options['prompt'] : null
+        )), array(
+            'addServer'     => 'true'
+        ));
+    }
+
+    /**
+     * @param string  $url
+     * @throws ApiException
+     * @return ApiResponse
+     */
+    public function parseAuthRedirectUrl($url) 
+    {
+
+        parse_str($url,$qsArray);
+        return array(
+                'code' => $qsArray['code']
+        );
+    }
+
+
+    /**
      * @param string $username
      * @param string $extension
      * @param string $password
      * @throws ApiException
      * @return ApiResponse
      */
-    public function login($username = '', $extension = '', $password = '')
+    public function login($options)
     {
-
-        $response = $this->requestToken(self::TOKEN_ENDPOINT, array(
-            'grant_type'        => 'password',
-            'username'          => $username,
-            'extension'         => $extension ? $extension : null,
-            'password'          => $password,
+       
+        if(is_string($options)){
+           $options = array(
+                            'username'  => func_get_arg(0),
+                            'extension' => func_get_arg(1) ? func_get_arg(1) : null,
+                            'password'  => func_get_arg(2)
+                            );
+        }
+        
+        $response = !empty($options['code']) ? $this->requestToken(self::TOKEN_ENDPOINT, array(
+            
+            'grant_type'        => 'authorization_code',
+            'code'              => $options['code'],
+            'redirect_uri'      => $options['redirectUri'],
             'access_token_ttl'  => self::ACCESS_TOKEN_TTL,
             'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
+
+        )) :$this->requestToken(self::TOKEN_ENDPOINT, array(
+            
+            'grant_type'        => 'password',
+            'username'          => $options['username'],
+            'extension'         => $options['extension'] ? $options['extension'] : null,
+            'password'          => $options["password"],
+            'access_token_ttl'  => self::ACCESS_TOKEN_TTL,
+            'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
+
         ));
 
         $this->_auth->setData($response->jsonArray());
