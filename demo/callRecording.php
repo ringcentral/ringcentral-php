@@ -5,9 +5,11 @@ require_once(__DIR__ . '/_bootstrap.php');
 use RingCentral\SDK\SDK;
 
 
+
 // Create SDK instance
 
 $credentials = require(__DIR__ . '/_credentials.php');
+
 
 $rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server'], 'Demo', '1.0.0');
 
@@ -31,41 +33,34 @@ $callLogRecords = $platform->get('/account/~/extension/~/call-log', array(
   $status = "Success";
   $dir = $credentials['dateFrom'];
   $fname = "recordings_${dir}.csv";
-  $fdir = "/DownloadRecordings/Recordings/${dir}";
-
-  // check if the directory exists
-  // mkdir('/AllianceRecordings/Recordings/${dir}', 0700);
+  $fdir = "/Recordings/${dir}";
 
   if (is_dir($fdir) === false)
   {
     mkdir($fdir, 0777, true);
-    // mkdir("/AllianceRecordings/JSON/${dir}", 0755, true);
   }
 
   $file = fopen($fname,'w');
+
   $fileHeaders = array("RecordingID","ContentURI","Filename","DownloadStatus");
+
   fputcsv($file, $fileHeaders);
+
   $fileContents = array();
 
 
-  
-
   $timePerRecording = 6;
-  
+
   foreach ($callLogRecords as $i => $callLogRecord) {
 
     $id = $callLogRecord->recording->id;
-    
-    print "Downloading Call Log Record ${id}" . PHP_EOL;
+
 
     $uri = $callLogRecord->recording->contentUri;
 
-    print "The contentURI is : ${uri}";
-
-    print "Retrieving ${uri}" . PHP_EOL;
 
     $apiResponse = $platform->get($callLogRecord->recording->contentUri);
-    
+
     $ext = ($apiResponse->response()->getHeader('Content-Type')[0] == 'audio/mpeg')
       ? 'mp3' : 'wav';
 
@@ -79,11 +74,7 @@ $callLogRecords = $platform->get('/account/~/extension/~/call-log', array(
         $status = "failure";
     }
 
-    print "Wrote Recording for Call Log Record ${id}" . PHP_EOL;
-
     file_put_contents("${fdir}/recording_${id}.json", json_encode($callLogRecord));
-
-    print "Wrote Metadata for Call Log Record ${id}" . PHP_EOL;
 
     $end=microtime(true);
 
@@ -93,7 +84,6 @@ $callLogRecords = $platform->get('/account/~/extension/~/call-log', array(
       sleep($timePerRecording-$time);
     }
 
-   
     $fileContents = array($id, $uri, $filename, $status);
     fputcsv($file, $fileContents);
 

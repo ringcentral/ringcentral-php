@@ -3,12 +3,21 @@
 namespace RingCentral\SDK\Http;
 
 use Exception;
-use RingCentral\Psr7\Request;
+use GuzzleHttp\Client as GuzzleClient;
+use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\StreamInterface;
 
 class Client
 {
+
+    /** @var GuzzleClient */
+    private $_guzzle;
+
+    public function __construct()
+    {
+        $this->_guzzle = new GuzzleClient();
+    }
 
     /**
      * @param RequestInterface $request
@@ -18,15 +27,16 @@ class Client
     public function send(RequestInterface $request)
     {
 
-        $response = null;
+        /** @var ApiResponse $apiResponse */
+        $apiResponse = null;
 
         try {
 
-            $response = $this->loadResponse($request);
+            $apiResponse = $this->loadResponse($request);
 
-            if ($response->ok()) {
+            if ($apiResponse->ok()) {
 
-                return $response;
+                return $apiResponse;
 
             } else {
 
@@ -37,11 +47,11 @@ class Client
         } catch (Exception $e) {
 
             // The following means that request failed completely
-            if (empty($response)) {
-                $response = new ApiResponse($request);
+            if (empty($apiResponse)) {
+                $apiResponse = new ApiResponse($request);
             }
 
-            throw new ApiException($response, $e);
+            throw new ApiException($apiResponse, $e);
 
         }
 
@@ -55,58 +65,19 @@ class Client
     protected function loadResponse(RequestInterface $request)
     {
 
-        $ch = null;
-
-        try {
-
-            $ch = curl_init();
-
-            if (!$ch) {
-                throw new Exception('Cannot initialize a cURL handle');
-            }
-
-            curl_setopt($ch, CURLOPT_URL, $request->getUri());
-
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $request->getMethod());
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_HEADER, true);
-
-            if (($request->getMethod() == 'PUT' || $request->getMethod() == 'POST')) {
-
-                if (stristr($request->getHeaderLine('Content-Type'), 'multipart/form-data')) {
-                    $request = $request->withHeader('Expect', '');
-                }
-
-                if ($request->getBody()->isSeekable()) {
-                    $request->getBody()->rewind();
-                }
-
-            }
-
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getRequestHeaders($request));
-
-            if ($request->getMethod() == 'PUT' || $request->getMethod() == 'POST') {
-                curl_setopt($ch, CURLOPT_POST, true);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, (string)$request->getBody()); //TODO Handle streams
-            }
-
-            $body = curl_exec($ch);
-
-            $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
-            curl_close($ch);
-
-            return new ApiResponse($request, $body, $status);
-
-        } catch (Exception $e) {
-
-            if ($ch) {
-                curl_close($ch);
-            }
-
-            throw $e;
-
+        //TODO Is it needed?
+        if (stristr($request->getHeaderLine('Content-Type'), 'multipart/form-data')) {
+            $request = $request->withHeader('Expect', '');
         }
+
+        //TODO Is it needed?
+        if ($request->getBody()->isSeekable()) {
+            $request->getBody()->rewind();
+        }
+
+        $response = $this->_guzzle->send($request);
+
+        return new ApiResponse($request, $response);
 
     }
 

@@ -27,7 +27,7 @@ class ApiResponseTest extends TestCase
             "{\"baz\" : \"qux\"}\n" .
             "--Boundary_1245_945802293_1394135045248--\n";
 
-        $r = new ApiResponse(null, $goodMultipartMixedResponse, 207);
+        $r = new ApiResponse(null, ApiResponse::createResponse($goodMultipartMixedResponse, 207));
         $parts = $r->multipart();
 
         $this->assertEquals(2, count($parts));
@@ -58,7 +58,7 @@ class ApiResponseTest extends TestCase
             "{\"message\" : \"object not found\"}\n" .
             "--Boundary_1245_945802293_1394135045248--\n";
 
-        $r = new ApiResponse(null, $multipartMixedResponseWithErrorPart, 207);
+        $r = new ApiResponse(null, ApiResponse::createResponse($multipartMixedResponseWithErrorPart, 207));
         $parts = $r->multipart();
 
         $this->assertEquals(2, count($parts));
@@ -87,7 +87,7 @@ class ApiResponseTest extends TestCase
             "{\"foo\" : \"bar\"}\n" .
             "--Boundary_1245_945802293_1394135045248--\n";
 
-        $r3 = new ApiResponse(null, $badMultipartMixedResponse, 207);
+        $r3 = new ApiResponse(null, ApiResponse::createResponse($badMultipartMixedResponse, 207));
         $r3->multipart();
 
     }
@@ -99,7 +99,7 @@ class ApiResponseTest extends TestCase
     public function testMultipartOnNotAMultipartResponse()
     {
 
-        $r3 = new ApiResponse(null, "Content-Type: text/plain\n\nWhatever", 207);
+        $r3 = new ApiResponse(null, ApiResponse::createResponse("Content-Type: text/plain\n\nWhatever", 207));
         $r3->multipart();
 
     }
@@ -124,7 +124,7 @@ class ApiResponseTest extends TestCase
             "{\"foo\" : \"bar\"}\n" .
             "--Boundary_1245_945802293_1394135045248--\n";
 
-        $r3 = new ApiResponse(null, $response, 207);
+        $r3 = new ApiResponse(null, ApiResponse::createResponse($response, 207));
         $r3->multipart();
 
     }
@@ -132,7 +132,7 @@ class ApiResponseTest extends TestCase
     public function testGetJson()
     {
 
-        $r = new ApiResponse(null, "content-type: application/json\n\n{\"foo\":\"bar\"}", 200);
+        $r = new ApiResponse(null, ApiResponse::createResponse("content-type: application/json\n\n{\"foo\":\"bar\"}", 200));
 
         $this->assertEquals('{"foo":"bar"}', $r->text());
         $this->assertEquals('bar', $r->json()->foo);
@@ -149,7 +149,7 @@ class ApiResponseTest extends TestCase
     public function testGetJsonWithNotJSON()
     {
 
-        $r = new ApiResponse(null, "content-type: application/not-a-json\n\nfoo", 200);
+        $r = new ApiResponse(null, ApiResponse::createResponse("content-type: application/not-a-json\n\nfoo", 200));
         $r->json();
 
     }
@@ -161,7 +161,7 @@ class ApiResponseTest extends TestCase
     public function testGetJsonWithCorruptedJSON()
     {
 
-        $r = new ApiResponse(null, "content-type: application/json\n\n{\"foo\";\"bar\"}", 200);
+        $r = new ApiResponse(null, ApiResponse::createResponse("content-type: application/json\n\n{\"foo\";\"bar\"}", 200));
         $r->json();
 
     }
@@ -173,7 +173,7 @@ class ApiResponseTest extends TestCase
     public function testGetJsonWithEmptyJSON()
     {
 
-        $r = new ApiResponse(null, "content-type: application/json\n\nnull", 200);
+        $r = new ApiResponse(null, ApiResponse::createResponse("content-type: application/json\n\nnull", 200));
         $r->json();
 
     }

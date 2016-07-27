@@ -14,7 +14,7 @@ all:
 
 .PHONY: install
 install:
-	composer install --prefer-source --no-interaction
+	composer install --prefer-dist --no-interaction
 
 .PHONY: coveralls
 coveralls:

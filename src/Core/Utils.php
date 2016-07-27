@@ -18,6 +18,10 @@ class Utils
 
         $parsed = \json_decode($json, $assoc, $depth);
 
+        //if (JSON_ERROR_NONE !== json_last_error()) {
+        //    throw new \RuntimeException('JSON Error: Unable to parse into JSON: ' . json_last_error());
+        //}
+
         $error = json_last_error();
 
         switch ($error) {

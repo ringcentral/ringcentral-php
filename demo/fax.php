@@ -4,7 +4,6 @@ require_once(__DIR__ . '/_bootstrap.php');
 
 use RingCentral\SDK\SDK;
 
-
 // Create SDK instance
 
 $credentials = require(__DIR__ . '/_credentials.php');

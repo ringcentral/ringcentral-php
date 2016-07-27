@@ -5,7 +5,7 @@
 
 # Requirements
 
-- PHP 5.3.29+
+- PHP 5.5+
 - CURL extension
 - MCrypt extension
 
@@ -205,7 +205,7 @@ $response = $platform->sendRequest($request);
 
 # How to demo?
 
-Clone the repo and create a file `demo/_credentials.php`:
+Clone the repo and create a file `demo/_credentials.php` copy the contents from the file 'demo/_credentialsSample.php' as shown below:
 
 ```php
 return array(
@@ -217,6 +217,8 @@ return array(
     'server'       => 'https://platform.devtest.ringcentral.com', // for production - https://platform.ringcentral.com
     'smsNumber'    => '18882223344', // any of SMS-enabled numbers on your RingCentral account
     'mobileNumber' => '16501112233', // your own mobile number to which script will send sms
+    'dateFrom'     => 'yyyy-mm-dd',
+    'dateTo'       => 'yyyy-mm-dd'
 );
 ```
 

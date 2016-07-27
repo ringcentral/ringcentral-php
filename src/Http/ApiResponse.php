@@ -32,28 +32,16 @@ class ApiResponse
     /** @var RequestInterface */
     protected $_request;
 
-    protected $_raw;
-
     /**
      * TODO Support strams
-     * @param RequestInterface $request Reqeuest used to get the response
-     * @param mixed            $body    Stream body
-     * @param int              $status  Status code for the response, if any
+     * @param RequestInterface  $request  Reqeuest used to get the response
+     * @param ResponseInterface $response Response
      */
-    public function __construct(RequestInterface $request = null, $body = null, $status = 200)
+    public function __construct(RequestInterface $request = null, ResponseInterface $response = null)
     {
 
         $this->_request = $request;
-        $this->_raw = $body;
-
-        $body = (string)$body;
-
-        // Make the HTTP message complete
-        if (substr($body, 0, 5) !== 'HTTP/') {
-            $body = "HTTP/1.1 " . $status . " OK\r\n" . $body;
-        }
-
-        $this->_response = \RingCentral\Psr7\parse_response($body);
+        $this->_response = $response;
 
     }
 
@@ -168,7 +156,9 @@ class ApiResponse
             // Step 3. Create status info object
 
             $statusInfoPart = array_shift($parts);
-            $statusInfoObj = new self(null, trim($statusInfoPart), $this->response()->getStatusCode());
+            $statusInfoObj = new self(null,
+                self::createResponse(trim($statusInfoPart), $this->response()->getStatusCode())
+            );
             $statusInfo = $statusInfoObj->json()->response;
 
             // Step 4. Parse all parts into Response objects
@@ -177,7 +167,7 @@ class ApiResponse
 
                 $partInfo = $statusInfo[$i];
 
-                $this->_multiparts[] = new self(null, trim($part), $partInfo->status);
+                $this->_multiparts[] = new self(null, self::createResponse(trim($part), $partInfo->status));
 
             }
 
@@ -265,6 +255,20 @@ class ApiResponse
     protected function getContentType()
     {
         return $this->response()->getHeaderLine('content-type');
+    }
+
+    static function createResponse($body = '', $status = 200)
+    {
+
+        // Make the HTTP message complete
+        if (substr($body, 0, 5) !== 'HTTP/') {
+            $body = "HTTP/1.1 " . $status . " Foo\r\n" . $body;
+        }
+
+        $response = \GuzzleHttp\Psr7\parse_response((string)$body);
+
+        return $response->withStatus($status);
+
     }
 
 }

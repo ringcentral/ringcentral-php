@@ -2,7 +2,9 @@
 
 namespace RingCentral\SDK\Mocks;
 
+use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 
 class Mock
 {
@@ -23,11 +25,11 @@ class Mock
     /**
      * Factory method that creates Response object based on given Request object
      * @param RequestInterface $request
-     * @return string
+     * @return ResponseInterface
      */
     public function response(RequestInterface $request)
     {
-        return self::createBody($this->_json, $this->_status);
+        return new Response($this->_status, array('content-type' => 'application/json'), json_encode($this->_json));
     }
 
     public function path()
@@ -50,33 +52,6 @@ class Mock
         return (stristr($request->getUri()->getPath(), $this->_path) &&
                 strtoupper($request->getMethod()) == $this->_method
         );
-    }
-
-    /**
-     * Helper function to generate response headers + body as text
-     * @param array $body
-     * @param int   $status
-     * @param array $headers
-     * @return string
-     */
-    protected static function createBody(
-        array $body = array(),
-        $status = 200,
-        array $headers = array('content-type' => 'application/json')
-    ) {
-
-        $res = array('HTTP/1.1 ' . $status . ' ReasonPhrase Not Implemented In Mocks');
-
-        foreach ($headers as $k => $v) {
-            $res[] = $k . ': ' . $v;
-        }
-
-        $res[] = '';
-
-        $res[] = json_encode($body);
-
-        return join("\n", $res);
-
     }
 
 }
