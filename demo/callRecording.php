@@ -50,17 +50,17 @@ $callLogRecords = $platform->get('/account/~/extension/~/call-log', array(
 
 
   $timePerRecording = 6;
-  
+
   foreach ($callLogRecords as $i => $callLogRecord) {
 
     $id = $callLogRecord->recording->id;
-    
+
 
     $uri = $callLogRecord->recording->contentUri;
 
 
     $apiResponse = $platform->get($callLogRecord->recording->contentUri);
-    
+
     $ext = ($apiResponse->response()->getHeader('Content-Type')[0] == 'audio/mpeg')
       ? 'mp3' : 'wav';
 
@@ -83,7 +83,7 @@ $callLogRecords = $platform->get('/account/~/extension/~/call-log', array(
     if($time < $timePerRecording) {
       sleep($timePerRecording-$time);
     }
-  
+
     $fileContents = array($id, $uri, $filename, $status);
     fputcsv($file, $fileContents);
 

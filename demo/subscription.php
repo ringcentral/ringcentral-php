@@ -41,7 +41,7 @@ print 'Subscribing' . PHP_EOL;
 $subscription->addListener(Subscription::EVENT_TIMEOUT, function () {
     print 'Timeout' . PHP_EOL;
 });
- 
+
 $subscription->addListener(Subscription::EVENT_RENEW_SUCCESS, function (SuccessEvent $e) {
     print 'Renewed' . PHP_EOL;
 });
