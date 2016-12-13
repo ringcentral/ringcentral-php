@@ -8,8 +8,6 @@ use Pubnub\PubnubAES;
 use RingCentral\SDK\Core\Utils;
 use RingCentral\SDK\Http\ApiResponse;
 use RingCentral\SDK\Platform\Platform;
-use RingCentral\SDK\pubnub\PubnubFactory;
-use RingCentral\SDK\Pubnub\PubnubMock;
 use RingCentral\SDK\Subscription\Events\ErrorEvent;
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
 use RingCentral\SDK\Subscription\Events\SuccessEvent;
@@ -56,21 +54,17 @@ class Subscription extends EventDispatcher
     /** @var Pubnub */
     protected $_pubnub;
 
-    /** @var PubnubFactory */
-    protected $_pubnubFactory;
-
     protected $_keepPolling = false;
 
-    function __construct(PubnubFactory $pubnubFactory, Platform $platform)
+    function __construct(Platform $platform)
     {
 
         $this->_platform = $platform;
-        $this->_pubnubFactory = $pubnubFactory;
 
     }
 
     /**
-     * @return Pubnub|PubnubMock
+     * @return Pubnub
      */
     function pubnub()
     {
@@ -257,7 +251,7 @@ class Subscription extends EventDispatcher
             throw new Exception('Subscription is not alive');
         }
 
-        $this->_pubnub = $this->_pubnubFactory->pubnub(array(
+        $this->_pubnub = new Pubnub(array(
             'publish_key'   => 'convince-pubnub-its-okay',
             'subscribe_key' => $this->_subscription['deliveryMode']['subscriberKey']
         ));

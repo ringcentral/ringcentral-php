@@ -1,16 +1,10 @@
 <?php
 
-use GuzzleHttp\Psr7\Request;
 use RingCentral\SDK\SDK;
 use RingCentral\SDK\Test\TestCase;
 
 class SDKTest extends TestCase
 {
-    public function testConstructor()
-    {
-        $sdk = new SDK('foo', 'bar', 'baz', 'SDKTests', SDK::VERSION);
-        $this->assertNotEquals($sdk->platform(), null);
-    }
 
     private function connectToLiveServer($server)
     {
@@ -18,8 +12,8 @@ class SDKTest extends TestCase
         $sdk = new SDK('foo', 'bar', $server);
 
         $res = $sdk->platform()
-            ->get('', array(), array(), array('skipAuthCheck' => true))
-            ->json();
+                   ->get('', array(), array(), array('skipAuthCheck' => true))
+                   ->json();
 
         $this->assertEquals('v1.0', $res->uriString);
 
@@ -35,9 +29,9 @@ class SDKTest extends TestCase
         $this->connectToLiveServer(SDK::SERVER_SANDBOX);
     }
 
-    public function testMultipartBuilder()
+    public function testMultipartBuilderGetter()
     {
-        $this->getSDK(false)->createMultipartBuilder();
+        $this->getSDK(array(), false)->createMultipartBuilder();
     }
 
 }

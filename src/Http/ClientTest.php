@@ -6,12 +6,10 @@ use RingCentral\SDK\Test\TestCase;
 class ClientTest extends TestCase
 {
 
-    public function testRequestFactory()
+    public function testQueryString()
     {
 
-        $client = new Client();
-
-        // Query string
+        $client = new Client($this->createGuzzle());
 
         $r = $client->createRequest('GET', 'http://whatever:8080/path', array('foo' => 'bar', 'baz' => 'qux'));
 
@@ -21,27 +19,47 @@ class ClientTest extends TestCase
         $this->assertEquals('/path', $r->getUri()->getPath());
         $this->assertEquals('foo=bar&baz=qux', $r->getUri()->getQuery());
 
-        // URLEncoded
+    }
+
+    public function testURLEncoded()
+    {
+
+        $client = new Client($this->createGuzzle());
 
         $r = $client->createRequest('POST', 'http://whatever:8080/path', null, array('foo' => 'bar', 'baz' => 'qux'),
             array('content-type' => 'application/x-www-form-urlencoded'));
 
         $this->assertEquals('foo=bar&baz=qux', $r->getBody());
 
-        // JSON
+    }
+
+    public function testJSON()
+    {
+
+        $client = new Client($this->createGuzzle());
 
         $r = $client->createRequest('POST', 'http://whatever', null, array('foo' => 'bar', 'baz' => 'qux'),
             array('content-type' => 'application/json'));
 
         $this->assertEquals('{"foo":"bar","baz":"qux"}', $r->getBody());
 
-        // JSON by default
+    }
+
+    public function testJSONByDefault()
+    {
+
+        $client = new Client($this->createGuzzle());
 
         $r = $client->createRequest('POST', 'http://whatever', null, array('foo' => 'bar', 'baz' => 'qux'));
 
         $this->assertEquals('{"foo":"bar","baz":"qux"}', $r->getBody());
 
-        // Foo content type
+    }
+
+    public function testFooContentType()
+    {
+
+        $client = new Client($this->createGuzzle());
 
         $r = $client->createRequest('POST', 'http://whatever', null, 'foo-encoded-text',
             array('content-type' => 'foo'));

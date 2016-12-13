@@ -26,9 +26,6 @@ class PlatformTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $sdk->mockRegistry()
-            ->add(new Mock());
-
         $sdk->platform()->auth()->setData(array(
             'refresh_token_expires_in'  => 1,
             'refresh_token_expire_time' => 1
@@ -41,11 +38,10 @@ class PlatformTest extends TestCase
     public function testAutomaticRefresh()
     {
 
-        $sdk = $this->getSDK();
-
-        $sdk->mockRegistry()
-            ->refreshMock()
-            ->add(new Mock('GET', '/foo', array('foo' => 'bar')));
+        $sdk = $this->getSDK(array(
+            $this->refreshMock(),
+            $this->createResponse('GET', '/foo', array('foo' => 'bar'))
+        ));
 
         $sdk->platform()->auth()->setData(array(
             'expires_in'  => 1,
@@ -62,9 +58,9 @@ class PlatformTest extends TestCase
     public function testLogout()
     {
 
-        $sdk = $this->getSDK();
-
-        $sdk->mockRegistry()->logoutMock();
+        $sdk = $this->getSDK(array(
+            $this->logoutMock()
+        ));
 
         $sdk->platform()->logout();
 
@@ -103,9 +99,9 @@ class PlatformTest extends TestCase
     public function testProcessRequest()
     {
 
-        $sdk = $this->getSDK();
-
-        $sdk->mockRegistry()->add(new Mock('GET', '/foo', array('foo' => 'bar')));
+        $sdk = $this->getSDK(array(
+            $this->createResponse('GET', '/foo', array('foo' => 'bar'))
+        ));
 
         $request = $sdk->platform()->inflateRequest(new Request('GET', '/foo'));
 

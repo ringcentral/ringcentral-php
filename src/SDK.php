@@ -2,12 +2,11 @@
 
 namespace RingCentral\SDK;
 
+use GuzzleHttp\Client as GuzzleClient;
 use RingCentral\SDK\Http\Client as HttpClient;
+use RingCentral\SDK\Http\Client;
 use RingCentral\SDK\Http\MultipartBuilder;
-use RingCentral\SDK\Mocks\Client as MockClient;
-use RingCentral\SDK\Mocks\Registry;
 use RingCentral\SDK\Platform\Platform;
-use RingCentral\SDK\Pubnub\PubnubFactory;
 use RingCentral\SDK\Subscription\Subscription;
 
 class SDK
@@ -17,17 +16,14 @@ class SDK
     const SERVER_PRODUCTION = 'https://platform.ringcentral.com';
     const SERVER_SANDBOX = 'https://platform.devtest.ringcentral.com';
 
-    /** @var Registry */
-    protected $_mockRegistry;
+    /** @var Client */
+    protected $_client;
 
     /** @var Platform */
     protected $_platform;
 
-    /** @var PubnubFactory */
-    protected $_pubnubFactory;
-
     /** @var HttpClient */
-    protected $_client;
+    protected $_guzzle;
 
     public function __construct(
         $appKey,
@@ -35,8 +31,7 @@ class SDK
         $server,
         $appName = '',
         $appVersion = '',
-        $useHttpMock = false,
-        $usePubnubMock = false
+        $guzzle = null
     ) {
 
         $pattern = "/[^a-z0-9-_.]/i";
@@ -44,21 +39,12 @@ class SDK
         $appName = preg_replace($pattern, '', $appName);
         $appVersion = preg_replace($pattern, '', $appVersion);
 
-        $this->_mockRegistry = new Registry();
+        $this->_guzzle = $guzzle ? $guzzle : new GuzzleClient();
 
-        $this->_pubnubFactory = new PubnubFactory($usePubnubMock);
-
-        $this->_client = $useHttpMock
-            ? new MockClient($this->_mockRegistry)
-            : new HttpClient();
+        $this->_client = new Client($this->_guzzle);
 
         $this->_platform = new Platform($this->_client, $appKey, $appSecret, $server, $appName, $appVersion);
 
-    }
-
-    public function mockRegistry()
-    {
-        return $this->_mockRegistry;
     }
 
     public function platform()
@@ -68,7 +54,7 @@ class SDK
 
     public function createSubscription()
     {
-        return new Subscription($this->_pubnubFactory, $this->_platform);
+        return new Subscription($this->_platform);
     }
 
     public function createMultipartBuilder()

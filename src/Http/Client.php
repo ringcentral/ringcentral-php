@@ -14,14 +14,14 @@ class Client
     /** @var GuzzleClient */
     private $_guzzle;
 
-    public function __construct()
+    public function __construct($guzzle)
     {
-        $this->_guzzle = new GuzzleClient();
+        $this->_guzzle = $guzzle;
     }
 
     /**
      * @param RequestInterface $request
-     * @return $this
+     * @return ApiResponse
      * @throws ApiException
      */
     public function send(RequestInterface $request)

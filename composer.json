@@ -24,6 +24,7 @@
   ],
   "require": {
     "ext-curl": "*",
+    "ext-mcrypt": "*",
     "php": ">=5.5.0",
     "guzzlehttp/psr7": "^1.2.3",
     "pubnub/pubnub": "^3.8.1",
