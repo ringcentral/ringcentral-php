@@ -66,7 +66,7 @@ class ApiResponse
      */
     public function raw()
     {
-        return $this->_raw;
+        return $this->body();
     }
 
     /**

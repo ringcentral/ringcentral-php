@@ -45,7 +45,7 @@ if ($smsNumber) {
         ->post('/account/~/extension/~/sms', array(
             'from' => array('phoneNumber' => $smsNumber),
             'to'   => array(
-                array('phoneNumber' => $credentials['toPhoneNumber']),
+                array('phoneNumber' => $credentials['mobileNumber']),
             ),
             'text' => 'Test from PHP',
         ));

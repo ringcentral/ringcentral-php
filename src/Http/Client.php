@@ -75,7 +75,7 @@ class Client
             $request->getBody()->rewind();
         }
 
-        $response = $this->_guzzle->send($request);
+        $response = $this->_guzzle->send($request, array('exceptions' => false));
 
         return new ApiResponse($request, $response);
 

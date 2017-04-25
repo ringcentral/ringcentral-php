@@ -16,21 +16,40 @@ $platform = $rcsdk->platform();
 
 $platform->login($credentials['username'], $credentials['extension'], $credentials['password']);
 
+// Find SMS-enabled phone number that belongs to extension
+
+$phoneNumbers = $platform->get('/account/~/extension/~/phone-number', array('perPage' => 'max'))->json()->records;
+
+$smsNumber = null;
+
+foreach ($phoneNumbers as $phoneNumber) {
+
+    if (in_array('MmsSender', $phoneNumber->features)) {
+
+        $smsNumber = $phoneNumber->phoneNumber;
+
+        break;
+
+    }
+
+}
+
+print 'MMS Phone Number: ' . $smsNumber . PHP_EOL;
+
 // Send Fax
 
 $request = $rcsdk->createMultipartBuilder()
                  ->setBody(array(
-                     'to'         => array(
-                         array('phoneNumber' => $credentials['username']),
+                     'from' => array('phoneNumber' => $smsNumber),
+                     'to'   => array(
+                         array('phoneNumber' => $credentials['mobileNumber']),
                      ),
-                     'faxResolution' => 'High',
                  ))
-                 ->add('Plain Text', 'file.txt')
                  ->add(fopen('https://developers.ringcentral.com/assets/images/ico_case_crm.png', 'r'))
-                 ->request('/account/~/extension/~/fax');
+                 ->request('/account/~/extension/~/sms');
 
 //print $request->getBody() . PHP_EOL;
 
 $response = $platform->sendRequest($request);
 
-print 'Sent Fax ' . $response->json()->uri . PHP_EOL;
+print 'Sent MMS ' . $response->json()->uri . PHP_EOL;
