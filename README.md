@@ -82,14 +82,14 @@ $sdk->platform()->loggedIn();
 Authenticate user:
 
 ```php
-$sdk->platform()->login('username', 'extension (or leave blank)', 'password'); // change true to false to not remember user
+$sdk->platform()->login('username', 'extension (or leave blank)', 'password');
 ```
 
 ### Authentication lifecycle
 
 Platform class performs token refresh procedure if needed. You can save authentication between requests in CGI mode:
 
-```js
+```php
 // when application is going to be stopped
 file_put_contents($file, json_encode($platform->auth()->data(), JSON_PRETTY_PRINT));
 

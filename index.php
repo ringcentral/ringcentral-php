@@ -16,12 +16,19 @@ if (!$argv || !in_array('skipSMS', $argv)) {
 	print "Test 4: sms.php - skipping...\n";
 }
 
-if (!$argv || !in_array('skipRingOut', $argv)) {
-	print "Test 5: ringout.php\n";
-    require(__DIR__ . '/demo/ringout.php');
+if (!$argv || !in_array('skipMMS', $argv)) {
+	print "Test 5: mms.php\n";
+    require(__DIR__ . '/demo/mms.php');
 } else {
-	print "Test 5: ringout.php - skipping...\n";
+	print "Test 5: mms.php - skipping...\n";
 }
 
-print "Test 6: subscription.php\n";
+if (!$argv || !in_array('skipRingOut', $argv)) {
+	print "Test 6: ringout.php\n";
+    require(__DIR__ . '/demo/ringout.php');
+} else {
+	print "Test 6: ringout.php - skipping...\n";
+}
+
+print "Test 7: subscription.php\n";
 require(__DIR__ . '/demo/subscription.php');
