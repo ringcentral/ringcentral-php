@@ -1,6 +1,7 @@
 <?php
 
 use RingCentral\SDK\Http\ApiException;
+use RingCentral\SDK\SDK;
 use RingCentral\SDK\Subscription\Events\ErrorEvent;
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
 use RingCentral\SDK\Subscription\Events\SuccessEvent;
@@ -9,6 +10,17 @@ use RingCentral\SDK\Test\TestCase;
 
 class SubscriptionTest extends TestCase
 {
+
+    /**
+     * @param $sdk
+     * @return Subscription
+     */
+    protected function createSubscription(SDK $sdk)
+    {
+        $s = $sdk->createSubscription();
+        $s->setSkipSubscribe(true);
+        return $s;
+    }
 
     public function testPresenceDecryption()
     {
@@ -25,7 +37,7 @@ class SubscriptionTest extends TestCase
 
         $t = $this;
 
-        $s = $sdk->createSubscription();
+        $s = $this->createSubscription($sdk);
 
         $s->addEvents(array('/restapi/v1.0/account/~/extension/1/presence'))
           ->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) use (&$executed, &$t) {
@@ -77,7 +89,7 @@ class SubscriptionTest extends TestCase
 
         $t = $this;
 
-        $s = $sdk->createSubscription();
+        $s = $this->createSubscription($sdk);
 
         $s->addEvents(array('/restapi/v1.0/account/~/extension/1/presence'))
           ->addListener(Subscription::EVENT_NOTIFICATION,
@@ -106,10 +118,10 @@ class SubscriptionTest extends TestCase
             $this->subscriptionMock()
         ));
 
-        $s = $sdk->createSubscription()
-                 ->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        $s = $this->createSubscription($sdk);
+        $res = $s->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
 
-        $this->assertEquals('/restapi/v1.0/account/~/extension/1/presence', $s->json()->eventFilters[0]);
+        $this->assertEquals('/restapi/v1.0/account/~/extension/1/presence', $res->json()->eventFilters[0]);
 
     }
 
@@ -124,8 +136,8 @@ class SubscriptionTest extends TestCase
             $this->createResponse('POST', '/subscription', array('message' => 'Expected Error'), 400)
         ));
 
-        $sdk->createSubscription()
-            ->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        $this->createSubscription($sdk)
+             ->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
 
     }
 
@@ -140,15 +152,15 @@ class SubscriptionTest extends TestCase
 
         $self = $this;
 
-        $s1 = $sdk->createSubscription();
+        $s = $this->createSubscription($sdk);
 
-        $s1->addListener(Subscription::EVENT_SUBSCRIBE_SUCCESS, function (SuccessEvent $event) use (&$self, &$spy) {
+        $s->addListener(Subscription::EVENT_SUBSCRIBE_SUCCESS, function (SuccessEvent $event) use (&$self, &$spy) {
             $self->assertEquals('/restapi/v1.0/account/~/extension/1/presence',
                 $event->apiResponse()->json()->eventFilters[0]);
             $spy = true;
         });
 
-        $s1->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        $s->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
 
         $this->assertEquals(true, $spy);
 
@@ -165,15 +177,15 @@ class SubscriptionTest extends TestCase
 
         $self = $this;
 
-        $s2 = $sdk->createSubscription();
+        $s = $this->createSubscription($sdk);
 
-        $s2->addListener(Subscription::EVENT_SUBSCRIBE_ERROR, function (ErrorEvent $event) use (&$self, &$spy) {
+        $s->addListener(Subscription::EVENT_SUBSCRIBE_ERROR, function (ErrorEvent $event) use (&$self, &$spy) {
             //$self->assertEquals('Expected Error', $event->exception()->getMessage());
             $spy = true;
         });
 
         try {
-            $s2->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+            $s->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
         } catch (ApiException $e) {
         }
 
@@ -189,7 +201,7 @@ class SubscriptionTest extends TestCase
             $this->createResponse('PUT', '/subscription/foo-bar-baz', array('ok' => 'ok'))
         ));
 
-        $s = $sdk->createSubscription();
+        $s = $this->createSubscription($sdk);
 
         $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
         $s->renew(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
@@ -210,7 +222,7 @@ class SubscriptionTest extends TestCase
             $this->createResponse('PUT', '/subscription/foo-bar-baz', array('message' => 'Expected Error'), 400)
         ));
 
-        $s = $sdk->createSubscription();
+        $s = $this->createSubscription($sdk);
         $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
         $s->renew(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
 
@@ -224,7 +236,7 @@ class SubscriptionTest extends TestCase
             $this->createResponse('PUT', '/subscription/foo-bar-baz', array('ok' => 'ok'))
         ));
 
-        $s = $sdk->createSubscription();
+        $s = $this->createSubscription($sdk);
 
         $s->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
         $s->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
@@ -241,7 +253,7 @@ class SubscriptionTest extends TestCase
             $this->createResponse('DELETE', '/subscription/foo-bar-baz', array('ok' => 'ok'))
         ));
 
-        $s = $sdk->createSubscription();
+        $s = $this->createSubscription($sdk);
         $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
         $s->remove();
 
@@ -261,7 +273,7 @@ class SubscriptionTest extends TestCase
             $this->createResponse('DELETE', '/subscription/foo-bar-baz', array('message' => 'Expected Error'), 400)
         ));
 
-        $s = $sdk->createSubscription();
+        $s = $this->createSubscription($sdk);
         $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
         $s->remove();
 
@@ -272,7 +284,7 @@ class SubscriptionTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $s = $sdk->createSubscription();
+        $s = $this->createSubscription($sdk);
         $this->assertEquals(false, $s->keepPolling());
         $s->setKeepPolling(true);
         $this->assertEquals(true, $s->keepPolling());

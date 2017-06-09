@@ -24,16 +24,15 @@
   ],
   "require": {
     "ext-curl": "*",
-    "ext-mcrypt": "*",
-    "php": ">=5.5.0",
-    "guzzlehttp/psr7": "^1.2.3",
-    "pubnub/pubnub": "^3.8.1",
-    "symfony/event-dispatcher": "^3.0.4",
-    "guzzlehttp/guzzle": "^6.2"
+    "php": ">=5.6.0",
+    "guzzlehttp/psr7": "^1.4.2",
+    "pubnub/pubnub": "^4.0.0",
+    "symfony/event-dispatcher": "^3.3.2",
+    "guzzlehttp/guzzle": "^6.2.3"
   },
   "require-dev": {
-    "phpunit/phpunit": "*",
-    "satooshi/php-coveralls": "1.0.0"
+    "phpunit/phpunit": "^5.7.20",
+    "satooshi/php-coveralls": "2.0.x-dev"
   },
   "autoload": {
     "psr-4": {

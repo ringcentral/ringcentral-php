@@ -3,8 +3,12 @@
 namespace RingCentral\SDK\Subscription;
 
 use Exception;
-use Pubnub\Pubnub;
-use Pubnub\PubnubAES;
+use PubNub\Callbacks\SubscribeCallback;
+use PubNub\Enums\PNStatusCategory;
+use PubNub\Exceptions\PubNubUnsubscribeException;
+use PubNub\PNConfiguration;
+use PubNub\PubNub;
+use PubNub\PubNubCrypto;
 use RingCentral\SDK\Core\Utils;
 use RingCentral\SDK\Http\ApiResponse;
 use RingCentral\SDK\Platform\Platform;
@@ -12,6 +16,45 @@ use RingCentral\SDK\Subscription\Events\ErrorEvent;
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
 use RingCentral\SDK\Subscription\Events\SuccessEvent;
 use Symfony\Component\EventDispatcher\EventDispatcher;
+
+class PubnubCallback extends SubscribeCallback
+{
+    protected $_subscription;
+
+    function __construct(Subscription $subscription)
+    {
+        $this->_subscription = $subscription;
+    }
+
+    function status($pubnub, $status)
+    {
+
+        if (!$this->_subscription->keepPolling()) {
+            $sub = $this->_subscription->subscription();
+            $e = new PubNubUnsubscribeException();
+            $e->setChannels($sub['deliveryMode']['address']);
+            throw $e;
+        }
+
+        $cat = $status->getCategory();
+
+        if ($cat === PNStatusCategory::PNUnexpectedDisconnectCategory ||
+            $cat === PNStatusCategory::PNTimeoutCategory
+        ) {
+            $this->_subscription->pubnubTimeoutHandler();
+        }
+
+    }
+
+    function message($pubnub, $message)
+    {
+        return $this->_subscription->notify($message);
+    }
+
+    function presence($pubnub, $presence)
+    {
+    }
+}
 
 class Subscription extends EventDispatcher
 {
@@ -56,6 +99,8 @@ class Subscription extends EventDispatcher
 
     protected $_keepPolling = false;
 
+    protected $_skipSubscribe = false;
+
     function __construct(Platform $platform)
     {
 
@@ -93,6 +138,16 @@ class Subscription extends EventDispatcher
     function keepPolling()
     {
         return $this->_keepPolling;
+    }
+
+    function setSkipSubscribe($flag = false)
+    {
+        $this->_skipSubscribe = !empty($flag);
+    }
+
+    function skipSubscribe()
+    {
+        return $this->_skipSubscribe;
     }
 
     function addEvents(array $events)
@@ -251,16 +306,22 @@ class Subscription extends EventDispatcher
             throw new Exception('Subscription is not alive');
         }
 
-        $this->_pubnub = new Pubnub(array(
-            'publish_key'   => 'convince-pubnub-its-okay',
-            'subscribe_key' => $this->_subscription['deliveryMode']['subscriberKey']
-        ));
+        $pnconf = new PNConfiguration();
 
-        $this->_pubnub->setSubscribeTimeout(self::SUBSCRIBE_TIMEOUT);
+        $pnconf->setSubscribeKey($this->_subscription['deliveryMode']['subscriberKey']);
+        $pnconf->setPublishKey('convince-pubnub-its-okay');
+        $pnconf->setSubscribeTimeout(self::SUBSCRIBE_TIMEOUT);
 
-        $this->_pubnub->subscribe($this->_subscription['deliveryMode']['address'], array($this, 'notify'), 0, false,
-            array($this, 'pubnubTimeoutHandler')
-        );
+        $subscribeCallback = new PubnubCallback($this);
+
+        $this->_pubnub = new PubNub($pnconf);
+        $this->_pubnub->addListener($subscribeCallback);
+
+        if (!$this->_skipSubscribe) {
+            $this->_pubnub->subscribe()
+                          ->channels($this->_subscription['deliveryMode']['address'])
+                          ->execute();
+        }
 
         return $this;
 
@@ -322,14 +383,14 @@ class Subscription extends EventDispatcher
 
         if ($this->_subscription['deliveryMode']['encryption'] && $this->_subscription['deliveryMode']['encryptionKey']) {
 
-            $aes = new PubnubAES();
+            $aes = new PubNubCrypto($this->_subscription['deliveryMode']['encryptionKey']);
 
-            $message = mcrypt_decrypt(MCRYPT_RIJNDAEL_128,
-                base64_decode($this->_subscription['deliveryMode']['encryptionKey']),
+            $message = $aes->unPadPKCS7(openssl_decrypt(
                 base64_decode($message),
-                MCRYPT_MODE_ECB);
+                'AES-128-ECB',
+                base64_decode($this->_subscription['deliveryMode']['encryptionKey']), OPENSSL_RAW_DATA | OPENSSL_ZERO_PADDING), 128);
 
-            $message = Utils::json_parse($aes->unPadPKCS7($message, 128), true); // PUBNUB itself always decode as array
+            $message = Utils::json_parse($message, true); // PUBNUB itself always decode as array
 
         }
 
