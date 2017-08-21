@@ -14,6 +14,7 @@ all:
 
 .PHONY: install
 install:
+	composer global update
 	composer install --prefer-dist --no-interaction
 
 .PHONY: coveralls
