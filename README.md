@@ -165,6 +165,22 @@ try {
 }
 ```
 
+### How to debug HTTP
+
+You can set up any HTTPS sniffer (e.g. proxy server, like Charles) and route SDK traffic to it by providing a custom
+Guzzle Client instance:
+
+```php
+use GuzzleHttp\Client as GuzzleClient;
+
+$guzzle = new GuzzleClient([
+    'proxy' => 'localhost:8888',
+    'verify' => false
+]);
+    
+$rcsdk = new SDK("key", "secret", SDK::SERVER_PRODUCTION, 'Demo', '1.0.0', $guzzle);
+```
+
 # Subscriptions
 
 ```php

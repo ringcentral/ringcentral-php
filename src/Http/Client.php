@@ -167,7 +167,7 @@ class Client
 
         // Body
 
-        if ($contentType) {
+        if ($contentType && !empty($body)) {
 
             switch (strtolower($contentType)) {
                 case 'application/json':
