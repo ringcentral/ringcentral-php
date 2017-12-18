@@ -59,7 +59,7 @@ Please keep in mind that bundled dependencies may interfere with your other depe
 ## Initialization
 
 ```php
-$sdk = new RingCentral\SDK\SDK('appKey', 'appSecret', RingCentral\SDK\SDK::SERVER_SANDBOX);
+$sdk = new RingCentral\SDK\SDK('clientId', 'clientSecret', RingCentral\SDK\SDK::SERVER_SANDBOX);
 ```
 
 You also may supply custom AppName and AppVersion parameters with your application codename and version. These parameters
@@ -67,7 +67,7 @@ are optional but they will help a lot to identify your application in API logs a
 Allowed characters for AppName and AppVersion are: letters, digits, hyphen, dot and underscore.
 
 ```php
-$sdk = new RingCentral\SDK\SDK('appKey', 'appSecret', RingCentral\SDK\SDK::SERVER_SANDBOX, 'MyApp', '1.0.0');
+$sdk = new RingCentral\SDK\SDK('clientId', 'clientSecret', RingCentral\SDK\SDK::SERVER_SANDBOX, 'MyApp', '1.0.0');
 ```
 
 For production use `RingCentral\SDK\SDK::SERVER_PRODUCTION` constant. Or type in the server URL by hand.
@@ -178,7 +178,7 @@ $guzzle = new GuzzleClient([
     'verify' => false
 ]);
     
-$rcsdk = new SDK("key", "secret", SDK::SERVER_PRODUCTION, 'Demo', '1.0.0', $guzzle);
+$rcsdk = new SDK("clientId", "clientSecret", SDK::SERVER_PRODUCTION, 'Demo', '1.0.0', $guzzle);
 ```
 
 # Subscriptions
@@ -229,8 +229,8 @@ return array(
     'username'     => '18881112233', // your RingCentral account phone number
     'extension'    => null, // or number
     'password'     => 'yourPassword',
-    'appKey'       => 'yourAppKey',
-    'appSecret'    => 'yourAppSecret',
+    'clientId'     => 'yourClientId',
+    'clientSecret' => 'yourClientSecret',
     'server'       => 'https://platform.devtest.ringcentral.com', // for production - https://platform.ringcentral.com
     'smsNumber'    => '18882223344', // any of SMS-enabled numbers on your RingCentral account
     'mobileNumber' => '16501112233', // your own mobile number to which script will send sms
