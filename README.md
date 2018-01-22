@@ -20,22 +20,22 @@ The installation of composer is local by default. We suggest that you install it
 directory structure.
 
 1. Install composer:
-    
+
     ```sh
     $ curl -sS https://getcomposer.org/installer | php
     ```
-    
+
     More info about installation on [Linux / Unix / OSX](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
     and [Windows](https://getcomposer.org/doc/00-intro.md#installation-windows).
 
 3. Run the Composer command to install the latest version of SDK:
-  
+
     ```sh
     $ php composer.phar require ringcentral/ringcentral-php
     ```
 
 4. Require Composer's autoloader in your PHP script (assuming it is in the same directory where you installed Composer):
-    
+
     ```php
     require('vendor/autoload.php');
     ```
@@ -47,13 +47,13 @@ directory structure.
 1. Download [PHAR file](https://github.com/ringcentral/ringcentral-php/releases/latest)
 
 2. Require files:
-  
+
     ```php
     require('path-to-sdk/ringcentral.phar');
     ```
 
 Please keep in mind that bundled dependencies may interfere with your other dependencies.
-  
+
 # Basic Usage
 
 ## Initialization
@@ -111,8 +111,8 @@ $apiResponse = $sdk->platform()->put('/account/~/extension/~', array(...));
 $apiResponse = $sdk->platform()->delete('/account/~/extension/~');
 
 print_r($apiResponse->json()); // stdClass will be returned or exception if Content-Type is not JSON
-print_r($apiResponse->request()); // PSR-7's RequestInterface compatible instance used to perform HTTP request 
-print_r($apiResponse->response()); // PSR-7's ResponseInterface compatible instance used as HTTP response 
+print_r($apiResponse->request()); // PSR-7's RequestInterface compatible instance used to perform HTTP request
+print_r($apiResponse->response()); // PSR-7's ResponseInterface compatible instance used as HTTP response
 ```
 
 ### Multipart response
@@ -156,12 +156,12 @@ try {
 
     // In order to get Request and Response used to perform transaction:
     $apiResponse = $e->apiResponse();
-    print_r($apiResponse->request()); 
+    print_r($apiResponse->request());
     print_r($apiResponse->response());
-    
+
     // Another way to get message, but keep in mind, that there could be no response if request has failed completely
     print '  Message: ' . $e->apiResponse->response()->error() . PHP_EOL;
-    
+
 }
 ```
 
@@ -177,11 +177,30 @@ $guzzle = new GuzzleClient([
     'proxy' => 'localhost:8888',
     'verify' => false
 ]);
-    
+
 $rcsdk = new SDK("clientId", "clientSecret", SDK::SERVER_PRODUCTION, 'Demo', '1.0.0', $guzzle);
 ```
 
 # Subscriptions
+
+## Webhook Subscriptions
+
+```php
+$apiResponse = $sdk->platform()->post('/subscription', array(
+    'eventFilters' => array(
+        '/restapi/v1.0/account/~/extension/~/message-store',
+        '/restapi/v1.0/account/~/extension/~/presence'
+    ),
+    'deliveryMode' => array(
+        'transportType' => 'WebHook',
+        'address' => 'https://consumer-host.example.com/consumer/path'
+    )
+));
+```
+
+When webhook subscription is created, it will send a request with `validation-token` in headers to webhook address. Webhook address should return a success request with `validation-token` in headers to finish webhook register.
+
+## Pubnub Subscriptions
 
 ```php
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
@@ -190,11 +209,11 @@ use RingCentral\SDK\Subscription\Subscription;
 $subscription = $sdk->createSubscription()
                      ->addEvents(array('/restapi/v1.0/account/~/extension/~/presence'))
                      ->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
-                
+
                          print_r($e->getPayload());
-                
+
                      });
-                     
+
 $apiResponse = $subscription->register();
 ```
 
