@@ -198,6 +198,8 @@ $apiResponse = $sdk->platform()->post('/subscription', array(
 ));
 ```
 
+When webhook subscription is created, it will send a request with `validation-token` in headers to webhook address. Webhook address should return a success request with `validation-token` in headers.
+
 ## Pubnub Subscriptions
 
 ```php
