@@ -22,8 +22,8 @@ class Platform
     const URL_PREFIX = '/restapi';
 
     protected $_server;
-    protected $_appKey;
-    protected $_appSecret;
+    protected $_clientId;
+    protected $_clientSecret;
     protected $_appName;
     protected $_appVersion;
     protected $_userAgent;
@@ -34,11 +34,11 @@ class Platform
     /** @var Client */
     protected $_client;
 
-    public function __construct(Client $client, $appKey, $appSecret, $server, $appName = '', $appVersion = '')
+    public function __construct(Client $client, $clientId, $clientSecret, $server, $appName = '', $appVersion = '')
     {
 
-        $this->_appKey = $appKey;
-        $this->_appSecret = $appSecret;
+        $this->_clientId = $clientId;
+        $this->_clientSecret = $clientSecret;
         $this->_appName = empty($appName) ? 'Unnamed' : $appName;
         $this->_appVersion = empty($appVersion) ? '0.0.0' : $appVersion;
 
@@ -125,7 +125,7 @@ class Platform
             'client_id'     => $this->_appKey,
             'state'         => $options['state'] ? $options['state'] : null,
             'brand_id'      => $options['brandId'] ? $options['brandId'] : null,
-            'display'       => $options['display'] ? $options['display'] : null,  
+            'display'       => $options['display'] ? $options['display'] : null,
             'prompt'        => $options['prompt'] ? $options['prompt'] : null
         )), array(
             'addServer'     => 'true'
@@ -137,7 +137,7 @@ class Platform
      * @throws ApiException
      * @return ApiResponse
      */
-    public function parseAuthRedirectUrl($url) 
+    public function parseAuthRedirectUrl($url)
     {
 
         parse_str($url,$qsArray);
@@ -156,7 +156,7 @@ class Platform
      */
     public function login($options)
     {
-       
+
         if(is_string($options)){
            $options = array(
                             'username'  => func_get_arg(0),
@@ -164,9 +164,9 @@ class Platform
                             'password'  => func_get_arg(2)
                             );
         }
-        
+
         $response = !empty($options['code']) ? $this->requestToken(self::TOKEN_ENDPOINT, array(
-            
+
             'grant_type'        => 'authorization_code',
             'code'              => $options['code'],
             'redirect_uri'      => $options['redirectUri'],
@@ -174,7 +174,7 @@ class Platform
             'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
 
         )) :$this->requestToken(self::TOKEN_ENDPOINT, array(
-            
+
             'grant_type'        => 'password',
             'username'          => $options['username'],
             'extension'         => $options['extension'] ? $options['extension'] : null,
@@ -366,7 +366,7 @@ class Platform
 
     protected function apiKey()
     {
-        return base64_encode($this->_appKey . ':' . $this->_appSecret);
+        return base64_encode($this->_clientId . ':' . $this->_clientSecret);
     }
 
     protected function authHeader()

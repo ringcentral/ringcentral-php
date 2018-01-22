@@ -26,8 +26,8 @@ class SDK
     protected $_guzzle;
 
     public function __construct(
-        $appKey,
-        $appSecret,
+        $clientId,
+        $clientSecret,
         $server,
         $appName = '',
         $appVersion = '',
@@ -43,7 +43,7 @@ class SDK
 
         $this->_client = new Client($this->_guzzle);
 
-        $this->_platform = new Platform($this->_client, $appKey, $appSecret, $server, $appName, $appVersion);
+        $this->_platform = new Platform($this->_client, $clientId, $clientSecret, $server, $appName, $appVersion);
 
     }
 

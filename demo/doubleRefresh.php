@@ -8,8 +8,8 @@ use RingCentral\SDK\SDK;
 
 $credentials = require(__DIR__ . '/_credentials.php');
 
-$rcsdk1 = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server'], 'Demo', '1.0.0');
-$rcsdk2 = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server'], 'Demo', '1.0.0');
+$rcsdk1 = new SDK($credentials['clientId'], $credentials['clientSecret'], $credentials['server'], 'Demo', '1.0.0');
+$rcsdk2 = new SDK($credentials['clientId'], $credentials['clientSecret'], $credentials['server'], 'Demo', '1.0.0');
 
 $platform1 = $rcsdk1->platform();
 $platform2 = $rcsdk2->platform();

@@ -9,7 +9,7 @@ use RingCentral\SDK\SDK;
 
 $credentials = require(__DIR__ . '/_credentials.php');
 
-$rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server'], 'Demo', '1.0.0');
+$rcsdk = new SDK($credentials['clientId'], $credentials['clientSecret'], $credentials['server'], 'Demo', '1.0.0');
 
 $platform = $rcsdk->platform();
 
