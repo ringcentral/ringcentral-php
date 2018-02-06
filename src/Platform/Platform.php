@@ -122,7 +122,7 @@ class Platform
             array (
             'response_type' => 'code',
             'redirect_uri'  => $options['redirectUri'] ? $options['redirectUri'] : null,
-            'client_id'     => $this->_appKey,
+            'client_id'     => $this->_clientId,
             'state'         => $options['state'] ? $options['state'] : null,
             'brand_id'      => $options['brandId'] ? $options['brandId'] : null,
             'display'       => $options['display'] ? $options['display'] : null,
