@@ -206,13 +206,11 @@ When webhook subscription is created, it will send a request with `validation-to
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
 use RingCentral\SDK\Subscription\Subscription;
 
-$subscription = $sdk->createSubscription()
-                     ->addEvents(array('/restapi/v1.0/account/~/extension/~/presence'))
-                     ->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
-
-                         print_r($e->getPayload());
-
-                     });
+$subscription = $sdk->createSubscription();
+subscription->addEvents(array('/restapi/v1.0/account/~/extension/~/presence'))
+subscription->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
+    print_r($e->getPayload());
+});
 
 $apiResponse = $subscription->register();
 ```
