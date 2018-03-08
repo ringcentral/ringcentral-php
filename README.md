@@ -207,8 +207,8 @@ use RingCentral\SDK\Subscription\Events\NotificationEvent;
 use RingCentral\SDK\Subscription\Subscription;
 
 $subscription = $sdk->createSubscription();
-subscription->addEvents(array('/restapi/v1.0/account/~/extension/~/presence'))
-subscription->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
+$subscription->addEvents(array('/restapi/v1.0/account/~/extension/~/presence'))
+$subscription->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
     print_r($e->getPayload());
 });
 
