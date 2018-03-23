@@ -14,6 +14,11 @@ class Client
     /** @var GuzzleClient */
     private $_guzzle;
 
+    /**
+     * Client constructor.
+     *
+     * @param GuzzleClient $guzzle
+     */
     public function __construct($guzzle)
     {
         $this->_guzzle = $guzzle;
@@ -21,40 +26,31 @@ class Client
 
     /**
      * @param RequestInterface $request
+     *
+     * @throws ApiException If the response did not return a 2XX status code.
+     *
      * @return ApiResponse
-     * @throws ApiException
      */
     public function send(RequestInterface $request)
     {
-
-        /** @var ApiResponse $apiResponse */
         $apiResponse = null;
 
         try {
-
             $apiResponse = $this->loadResponse($request);
 
             if ($apiResponse->ok()) {
-
                 return $apiResponse;
-
             } else {
-
                 throw new Exception('Response has unsuccessful status');
-
             }
-
         } catch (Exception $e) {
-
             // The following means that request failed completely
             if (empty($apiResponse)) {
                 $apiResponse = new ApiResponse($request);
             }
 
             throw new ApiException($apiResponse, $e);
-
         }
-
     }
 
     /**
@@ -87,7 +83,7 @@ class Client
      * @param null|string|array                          $queryParams
      * @param null|string|array|resource|StreamInterface $body Message body.
      * @param null|array                                 $headers
-     * @throws Exception
+     *
      * @return RequestInterface
      */
     public function createRequest($method, $url, $queryParams = array(), $body = null, $headers = array())
@@ -122,7 +118,7 @@ class Client
      * @param null|string|array                          $queryParams
      * @param null|string|array|resource|StreamInterface $body Message body.
      * @param null|array                                 $headers
-     * @throws Exception
+     *
      * @return array
      */
     protected function parseProperties($method, $url, $queryParams = array(), $body = null, $headers = array())

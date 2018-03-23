@@ -36,6 +36,9 @@ class ApiException extends Exception
 
     }
 
+    /**
+     * @return ApiResponse
+     */
     public function apiResponse()
     {
         return $this->_apiResponse;

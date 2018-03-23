@@ -20,6 +20,9 @@ class MultipartBuilder
         return $this;
     }
 
+    /**
+     * @return null
+     */
     public function boundary()
     {
         return $this->_boundary;

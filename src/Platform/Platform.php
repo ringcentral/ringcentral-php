@@ -12,7 +12,6 @@ use RingCentral\SDK\SDK;
 
 class Platform
 {
-
     const ACCESS_TOKEN_TTL = 3600; // 60 minutes
     const REFRESH_TOKEN_TTL = 604800; // 1 week
     const TOKEN_ENDPOINT = '/restapi/oauth/token';
@@ -21,11 +20,22 @@ class Platform
     const API_VERSION = 'v1.0';
     const URL_PREFIX = '/restapi';
 
+    /** @var string */
     protected $_server;
+
+    /** @var string */
     protected $_clientId;
+
+    /** @var string */
     protected $_clientSecret;
+
+    /** @var string */
     protected $_appName;
+
+    /** @var string */
     protected $_appVersion;
+
+    /** @var string */
     protected $_userAgent;
 
     /** @var Auth */
@@ -34,6 +44,16 @@ class Platform
     /** @var Client */
     protected $_client;
 
+    /**
+     * Platform constructor.
+     *
+     * @param Client $client
+     * @param string $clientId
+     * @param string $clientSecret
+     * @param string $server
+     * @param string $appName
+     * @param string $appVersion
+     */
     public function __construct(Client $client, $clientId, $clientSecret, $server, $appName = '', $appVersion = '')
     {
 
@@ -54,6 +74,9 @@ class Platform
 
     }
 
+    /**
+     * @return Auth
+     */
     public function auth()
     {
         return $this->_auth;
@@ -62,6 +85,7 @@ class Platform
     /**
      * @param string $path
      * @param array  $options
+     *
      * @return string
      */
     public function createUrl($path = '', $options = array())
@@ -95,7 +119,16 @@ class Platform
 
     }
 
-
+    /**
+     * This function has mixed purposes. On the face of it, it can used to return a boolean value which represents
+     * whether or not the platform has been configured with valid authentication tokens.
+     *
+     * However, it also does much more than that. If the access token is expired BUT the refresh token is valid, then
+     * this function takes it upon itself to use that refresh token to automatically request brand new tokens, which it
+     * then sets and uses.
+     *
+     * @return bool True if the access token is value OR it is able to request new tokens successfully, otherwise false
+     */
     public function loggedIn()
     {
         try {
@@ -106,14 +139,18 @@ class Platform
     }
 
     /**
-     * @param string $options['redirectUri']
-     * @param string $options['state']
-     * @param string $options['brandId']
-     * @param string $options['display']
-     * @param string $options['prompt']
-     * @param array  $options
-     * @throws ApiException
-     * @return ApiResponse
+     * Create and return a URL that can be used for authenticating/logging in to RingCentral.
+     *
+     * @param array $options An array containing information that will be added to the generated URL.
+     *                       $options = [
+     *                           'redirectUri' => (string) The callback URI to use once authentication is complete.
+     *                           'state'       => (string)
+     *                           'brandId'     => (string)
+     *                           'display'     => (string)
+     *                           'prompt'      => (string)
+     *                       ]
+     *
+     * @return string
      */
     public function authUrl($options)
     {
@@ -133,9 +170,9 @@ class Platform
     }
 
     /**
-     * @param string  $url
-     * @throws ApiException
-     * @return ApiResponse
+     * @param string $url
+     *
+     * @return array
      */
     public function parseAuthRedirectUrl($url)
     {
@@ -146,18 +183,19 @@ class Platform
         );
     }
 
-
     /**
      * @param string $username
      * @param string $extension
      * @param string $password
-     * @throws ApiException
+     *
+     * @throws ApiException If there is an issue with the token request.
+     * @throws Exception    If it fails to retrieve/parse JSON data from he response.
+     *
      * @return ApiResponse
      */
     public function login($options)
     {
-
-        if(is_string($options)){
+        if (is_string($options)) {
            $options = array(
                             'username'  => func_get_arg(0),
                             'extension' => func_get_arg(1) ? func_get_arg(1) : null,
@@ -191,8 +229,12 @@ class Platform
     }
 
     /**
+     * Attempt to request new access and refresh tokens using the existing refresh token.
+     *
+     * @throws ApiException If the existing refresh token is invalid or there is an issue with the request.
+     * @throws Exception    If it fails to retrieve/parse JSON data from he response.
+     *
      * @return ApiResponse
-     * @throws ApiException
      */
     public function refresh()
     {
@@ -216,8 +258,10 @@ class Platform
     }
 
     /**
+     * @throws ApiException If an error occurs making the request.
+     * @throws Exception    If an error occurs parsing the response from the request.
+     *
      * @return ApiResponse
-     * @throws ApiException
      */
     public function logout()
     {
@@ -233,12 +277,16 @@ class Platform
     }
 
     /**
-     * Convenience helper used for processing requests (even externally created)
-     * Performs access token refresh if needed
+     * Convenience helper used for processing requests (even externally created).
+     * Performs access token refresh if needed.
      * Then adds Authorization header and API server to URI
+     *
      * @param RequestInterface $request
      * @param array            $options
-     * @throws ApiException
+     *
+     * @throws ApiException If an error occurs making the refresh request.
+     * @throws Exception    If an error occurs parsing the response from the refresh request.
+     *
      * @return RequestInterface
      */
     public function inflateRequest(RequestInterface $request, $options = array())
@@ -265,10 +313,15 @@ class Platform
 
     /**
      * Method sends the request (even externally created) to API server using client
+     *
      * @param RequestInterface $request
      * @param array            $options
-     * @throws ApiException
+     *
+     * @throws ApiException If an error occurs making the refresh request as part of inflateRequest()
+     * @throws Exception    If an error occurs parsing the response from the refresh request as part of inflateRequest()
+     *
      * @return ApiResponse
+
      */
     public function sendRequest(RequestInterface $request, $options = array())
     {
@@ -282,13 +335,18 @@ class Platform
      * @param array  $queryParameters
      * @param array  $headers
      * @param array  $options
-     * @throws ApiException
+     *
+     * @throws ApiException If an error occurs making the request.
+     * @throws Exception    If an error occurs parsing the response from the request.
+     *
      * @return ApiResponse
      */
     public function get($url = '', $queryParameters = array(), array $headers = array(), $options = array())
     {
-        return $this->sendRequest($this->_client->createRequest('GET', $url, $queryParameters, null, $headers),
-            $options);
+        return $this->sendRequest(
+            $this->_client->createRequest('GET', $url, $queryParameters, null, $headers),
+            $options
+        );
     }
 
     /**
@@ -297,7 +355,10 @@ class Platform
      * @param array  $queryParameters
      * @param array  $headers
      * @param array  $options
-     * @throws ApiException
+     *
+     * @throws ApiException If an error occurs making the request.
+     * @throws Exception    If an error occurs parsing the response from the request.
+     *
      * @return ApiResponse
      */
     public function post(
@@ -307,8 +368,10 @@ class Platform
         array $headers = array(),
         $options = array()
     ) {
-        return $this->sendRequest($this->_client->createRequest('POST', $url, $queryParameters, $body, $headers),
-            $options);
+        return $this->sendRequest(
+            $this->_client->createRequest('POST', $url, $queryParameters, $body, $headers),
+            $options
+        );
     }
 
     /**
@@ -317,7 +380,10 @@ class Platform
      * @param array  $queryParameters
      * @param array  $headers
      * @param array  $options
-     * @throws ApiException
+     *
+     * @throws ApiException If an error occurs making the request.
+     * @throws Exception    If an error occurs parsing the response from the request.
+     *
      * @return ApiResponse
      */
     public function put(
@@ -327,8 +393,10 @@ class Platform
         array $headers = array(),
         $options = array()
     ) {
-        return $this->sendRequest($this->_client->createRequest('PUT', $url, $queryParameters, $body, $headers),
-            $options);
+        return $this->sendRequest(
+            $this->_client->createRequest('PUT', $url, $queryParameters, $body, $headers),
+            $options
+        );
     }
 
     /**
@@ -336,18 +404,27 @@ class Platform
      * @param array  $queryParameters
      * @param array  $headers
      * @param array  $options
-     * @throws ApiException
+     *
+     * @throws ApiException If an error occurs making the request.
+     * @throws Exception    If an error occurs parsing the response from the request.
+     *
      * @return ApiResponse
      */
     public function delete($url = '', $queryParameters = array(), array $headers = array(), $options = array())
     {
-        return $this->sendRequest($this->_client->createRequest('DELETE', $url, $queryParameters, null, $headers),
-            $options);
+        return $this->sendRequest(
+            $this->_client->createRequest('DELETE', $url, $queryParameters, null, $headers),
+            $options
+        );
     }
 
     /**
      * @param string $path
      * @param array  $body
+     *
+     * @throws ApiException If an error occurs making the request.
+     * @throws Exception    If an error occurs parsing the response from the request.
+     *
      * @return ApiResponse
      */
     protected function requestToken($path = '', $body = array())
@@ -364,16 +441,28 @@ class Platform
 
     }
 
+    /**
+     * @return string
+     */
     protected function apiKey()
     {
         return base64_encode($this->_clientId . ':' . $this->_clientSecret);
     }
 
+    /**
+     * @return string
+     */
     protected function authHeader()
     {
         return $this->_auth->tokenType() . ' ' . $this->_auth->accessToken();
     }
 
+    /**
+     * @throws ApiException If an error occurs making the refresh request.
+     * @throws Exception    If an error occurs parsing the response from the refresh request.
+     *
+     * @return void
+     */
     protected function ensureAuthentication()
     {
         if (!$this->_auth->accessTokenValid()) {

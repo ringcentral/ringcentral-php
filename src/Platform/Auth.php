@@ -2,29 +2,52 @@
 
 namespace RingCentral\SDK\Platform;
 
-use stdClass;
-
 class Auth
 {
-
+    /** @var string */
     protected $token_type;
 
+    /** @var string */
     protected $access_token;
+
+    /** @var int */
     protected $expires_in;
+
+    /** @var int */
     protected $expire_time;
 
+    /** @var string */
     protected $refresh_token;
+
+    /** @var int */
     protected $refresh_token_expires_in;
+
+    /** @var int */
     protected $refresh_token_expire_time;
 
+    /** @var string */
     protected $scope;
+
+    /** @var string */
     protected $owner_id;
 
+    /**
+     * Auth constructor.
+     */
     public function __construct()
     {
         $this->reset();
     }
 
+    /**
+     * Set the auth data using the provided data array.
+     * Only updates provided fields i.e. any field not provided does NOT get reset.
+     * Does nothing if an empty array is provided. Use reset() if you with to clear existing data.
+     *
+     * @param array $data Any auth data to set.
+     *
+     * @return $this
+     */
     public function setData(array $data = array())
     {
 
@@ -82,6 +105,11 @@ class Auth
 
     }
 
+    /**
+     * Reset all auth fields.
+     *
+     * @return $this
+     */
     public function reset()
     {
 
@@ -103,7 +131,9 @@ class Auth
     }
 
     /**
-     * @return stdClass
+     * Get all auth data.
+     *
+     * @return array An array containing all of the currently set auth data.
      */
     public function data()
     {
@@ -122,29 +152,53 @@ class Auth
 
     }
 
+    /**
+     * Get the access token.
+     *
+     * @return string
+     */
     public function accessToken()
     {
         return $this->access_token;
     }
 
+    /**
+     * Get the refresh token.
+     *
+     * @return string
+     */
     public function refreshToken()
     {
         return $this->refresh_token;
     }
 
+    /**
+     * Get the token type.
+     *
+     * @return string
+     */
     public function tokenType()
     {
         return $this->token_type;
     }
 
+    /**
+     * Return whether or not the access token is valid (i.e. not expired).
+     *
+     * @return bool True if the access token is valid, otherwise false.
+     */
     public function accessTokenValid()
     {
         return $this->expire_time > time();
     }
 
+    /**
+     * Return whether or not the refresh token is valid (i.e. not expired).
+     *
+     * @return bool True if the access token is valid, otherwise false.
+     */
     public function refreshTokenValid()
     {
         return $this->refresh_token_expire_time > time();
     }
-
 }
