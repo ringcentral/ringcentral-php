@@ -11,6 +11,9 @@ class Utils
      * @param string $json
      * @param bool   $assoc
      * @param int    $depth
+     * 
+     * @throws InvalidArgumentException
+     * 
      * @return mixed
      */
     static function json_parse($json = '', $assoc = false, $depth = 512)

@@ -19,13 +19,28 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
 
 class PubnubCallback extends SubscribeCallback
 {
+    /** @var Subscription */
     protected $_subscription;
 
+    /**
+     * PubnubCallback constructor.
+     *
+     * @param Subscription $subscription
+     */
     function __construct(Subscription $subscription)
     {
         $this->_subscription = $subscription;
     }
 
+    /**
+     * @param $pubnub
+     * @param $status
+     *
+     * @throws PubNubUnsubscribeException
+     * @throws Exception
+     *
+     * @return void
+     */
     function status($pubnub, $status)
     {
 
@@ -46,6 +61,14 @@ class PubnubCallback extends SubscribeCallback
 
     }
 
+    /**
+     * @param $pubnub
+     * @param $message
+     *
+     * @throws Exception
+     *
+     * @return bool
+     */
     function message($pubnub, $message)
     {
         return $this->_subscription->notify($message);
@@ -77,6 +100,7 @@ class Subscription extends EventDispatcher
     /** @var string[] */
     protected $_eventFilters = array();
 
+    /** @var array */
     protected $_subscription = array(
         'eventFilters'   => array(),
         'expirationTime' => '', // 2014-03-12T19:54:35.613Z
@@ -103,9 +127,7 @@ class Subscription extends EventDispatcher
 
     function __construct(Platform $platform)
     {
-
         $this->_platform = $platform;
-
     }
 
     /**
@@ -118,8 +140,10 @@ class Subscription extends EventDispatcher
 
     /**
      * @param array $options
-     * @return ApiResponse
+     *
      * @throws Exception
+     *
+     * @return ApiResponse|$this
      */
     function register(array $options = array())
     {
@@ -130,38 +154,71 @@ class Subscription extends EventDispatcher
         }
     }
 
+    /**
+     * @param bool $flag
+     *
+     * @return void
+     */
     function setKeepPolling($flag = false)
     {
         $this->_keepPolling = !empty($flag);
     }
 
+    /**
+     * @return bool
+     */
     function keepPolling()
     {
         return $this->_keepPolling;
     }
 
+    /**
+     * @param bool $flag
+     *
+     * @return void
+     */
     function setSkipSubscribe($flag = false)
     {
         $this->_skipSubscribe = !empty($flag);
     }
 
+    /**
+     * @return bool
+     */
     function skipSubscribe()
     {
         return $this->_skipSubscribe;
     }
 
+    /**
+     * @param array $events
+     *
+     * @return $this
+     */
     function addEvents(array $events)
     {
         $this->_eventFilters = array_merge($this->_eventFilters, $events);
         return $this;
     }
 
+    /**
+     * @param array $events
+     *
+     * @return $this
+     */
     function setEvents(array $events)
     {
         $this->_eventFilters = $events;
         return $this;
     }
 
+    /**
+     * @param array $options
+     *
+     * @throws Exception
+     *
+     * @return ApiResponse
+     */
     function subscribe(array $options = array())
     {
 
@@ -197,6 +254,13 @@ class Subscription extends EventDispatcher
 
     }
 
+    /**
+     * @param array $options
+     *
+     * @throws Exception
+     *
+     * @return $this
+     */
     function renew(array $options = array())
     {
 
@@ -230,6 +294,11 @@ class Subscription extends EventDispatcher
 
     }
 
+    /**
+     * @throws Exception
+     *
+     * @return ApiResponse
+     */
     function remove()
     {
 
@@ -257,6 +326,9 @@ class Subscription extends EventDispatcher
 
     }
 
+    /**
+     * @return bool
+     */
     function subscribed()
     {
         return (!empty($this->_subscription) &&
@@ -265,21 +337,35 @@ class Subscription extends EventDispatcher
                 !empty($this->_subscription['deliveryMode']['address']));
     }
 
+    /**
+     * @return bool
+     */
     function alive()
     {
         return $this->subscribed() && (time() < $this->expirationTime());
     }
 
+    /**
+     * @return int
+     */
     function expirationTime()
     {
         return strtotime($this->_subscription['expirationTime']) - self::RENEW_HANDICAP;
     }
 
+    /**
+     * @return array
+     */
     function subscription()
     {
         return $this->_subscription;
     }
 
+    /**
+     * @param array $subscription
+     *
+     * @return $this
+     */
     function setSubscription($subscription)
     {
         $this->_subscription = $subscription;
@@ -298,7 +384,11 @@ class Subscription extends EventDispatcher
 
     }
 
-
+    /**
+     * @throws Exception
+     *
+     * @return $this
+     */
     protected function subscribeAtPubnub()
     {
 
@@ -330,6 +420,8 @@ class Subscription extends EventDispatcher
     /**
      * Attention, this function is NOT PUBLIC!!! The only reason it's public is due to PHP 5.3 limitations
      * @protected
+     *
+     * @throws Exception
      */
     public function pubnubTimeoutHandler()
     {
@@ -346,8 +438,10 @@ class Subscription extends EventDispatcher
      * Attention, this function is NOT PUBLIC!!! The only reason it's public is due to PHP 5.3 limitations
      * @protected
      * @param $pubnubMessage
-     * @return bool
+     *
      * @throws Exception
+     *
+     * @return bool
      */
     public function notify($pubnubMessage)
     {
@@ -374,6 +468,13 @@ class Subscription extends EventDispatcher
 
     }
 
+    /**
+     * @param $message
+     *
+     * @throws Exception
+     *
+     * @return bool|mixed|string
+     */
     protected function decrypt($message)
     {
 
@@ -385,10 +486,15 @@ class Subscription extends EventDispatcher
 
             $aes = new PubNubCrypto($this->_subscription['deliveryMode']['encryptionKey']);
 
-            $message = $aes->unPadPKCS7(openssl_decrypt(
-                base64_decode($message),
-                'AES-128-ECB',
-                base64_decode($this->_subscription['deliveryMode']['encryptionKey']), OPENSSL_RAW_DATA | OPENSSL_ZERO_PADDING), 128);
+            $message = $aes->unPadPKCS7(
+                openssl_decrypt(
+                    base64_decode($message),
+                    'AES-128-ECB',
+                    base64_decode($this->_subscription['deliveryMode']['encryptionKey']),
+                    OPENSSL_RAW_DATA | OPENSSL_ZERO_PADDING
+                ),
+                128
+            );
 
             $message = Utils::json_parse($message, true); // PUBNUB itself always decode as array
 
@@ -398,6 +504,9 @@ class Subscription extends EventDispatcher
 
     }
 
+    /**
+     * @return array
+     */
     protected function getFullEventFilters()
     {
         $events = array();

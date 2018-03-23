@@ -93,8 +93,10 @@ class ApiResponse
     /**
      * Parses response body as JSON and returns an array
      * Result is cached internally
-     * @return array
+     *
      * @throws Exception
+     *
+     * @return array
      */
     public function jsonArray()
     {

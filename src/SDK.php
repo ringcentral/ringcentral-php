@@ -3,8 +3,8 @@
 namespace RingCentral\SDK;
 
 use GuzzleHttp\Client as GuzzleClient;
-use RingCentral\SDK\Http\Client as HttpClient;
 use RingCentral\SDK\Http\Client;
+use RingCentral\SDK\Http\Client as HttpClient;
 use RingCentral\SDK\Http\MultipartBuilder;
 use RingCentral\SDK\Platform\Platform;
 use RingCentral\SDK\Subscription\Subscription;
@@ -25,6 +25,16 @@ class SDK
     /** @var HttpClient */
     protected $_guzzle;
 
+    /**
+     * SDK constructor.
+     *
+     * @param string       $clientId
+     * @param string       $clientSecret
+     * @param string       $server
+     * @param string       $appName
+     * @param string       $appVersion
+     * @param GuzzleClient $guzzle
+     */
     public function __construct(
         $clientId,
         $clientSecret,
@@ -47,16 +57,25 @@ class SDK
 
     }
 
+    /**
+     * @return Platform
+     */
     public function platform()
     {
         return $this->_platform;
     }
 
+    /**
+     * @return Subscription
+     */
     public function createSubscription()
     {
         return new Subscription($this->_platform);
     }
 
+    /**
+     * @return MultipartBuilder
+     */
     public function createMultipartBuilder()
     {
         return new MultipartBuilder();
