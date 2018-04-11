@@ -59,7 +59,7 @@ Please keep in mind that bundled dependencies may interfere with your other depe
 ## Initialization
 
 ```php
-$sdk = new RingCentral\SDK\SDK('clientId', 'clientSecret', RingCentral\SDK\SDK::SERVER_SANDBOX);
+$rcsdk = new RingCentral\SDK\SDK('clientId', 'clientSecret', RingCentral\SDK\SDK::SERVER_SANDBOX);
 ```
 
 You also may supply custom AppName and AppVersion parameters with your application codename and version. These parameters
@@ -67,7 +67,7 @@ are optional but they will help a lot to identify your application in API logs a
 Allowed characters for AppName and AppVersion are: letters, digits, hyphen, dot and underscore.
 
 ```php
-$sdk = new RingCentral\SDK\SDK('clientId', 'clientSecret', RingCentral\SDK\SDK::SERVER_SANDBOX, 'MyApp', '1.0.0');
+$rcsdk = new RingCentral\SDK\SDK('clientId', 'clientSecret', RingCentral\SDK\SDK::SERVER_SANDBOX, 'MyApp', '1.0.0');
 ```
 
 For production use `RingCentral\SDK\SDK::SERVER_PRODUCTION` constant. Or type in the server URL by hand.
@@ -77,13 +77,13 @@ For production use `RingCentral\SDK\SDK::SERVER_PRODUCTION` constant. Or type in
 Check authentication status:
 
 ```php
-$sdk->platform()->loggedIn();
+$rcsdk->platform()->loggedIn();
 ```
 
 Authenticate user:
 
 ```php
-$sdk->platform()->login('username', 'extension (or leave blank)', 'password');
+$rcsdk->platform()->login('username', 'extension (or leave blank)', 'password');
 ```
 
 ### Authentication lifecycle
@@ -92,10 +92,10 @@ Platform class performs token refresh procedure if needed. You can save authenti
 
 ```php
 // when application is going to be stopped
-file_put_contents($file, json_encode($platform->auth()->data(), JSON_PRETTY_PRINT));
+file_put_contents($file, json_encode($rcsdk->platform()->auth()->data(), JSON_PRETTY_PRINT));
 
 // and then next time during application bootstrap before any authentication checks:
-$sdk->platform()->auth->setData(json_decode(file_get_contents($file), true);
+$rcsdk->platform()->auth->setData(json_decode(file_get_contents($file), true);
 ```
 
 **Important!** You have to manually maintain synchronization of SDK's between requests if you share authentication.
@@ -105,10 +105,10 @@ semaphor and pause other pending requests while one of them is performing refres
 ## Performing API call
 
 ```php
-$apiResponse = $sdk->platform()->get('/account/~/extension/~');
-$apiResponse = $sdk->platform()->post('/account/~/extension/~', array(...));
-$apiResponse = $sdk->platform()->put('/account/~/extension/~', array(...));
-$apiResponse = $sdk->platform()->delete('/account/~/extension/~');
+$apiResponse = $rcsdk->platform()->get('/account/~/extension/~');
+$apiResponse = $rcsdk->platform()->post('/account/~/extension/~', array(...));
+$apiResponse = $rcsdk->platform()->put('/account/~/extension/~', array(...));
+$apiResponse = $rcsdk->platform()->delete('/account/~/extension/~');
 
 print_r($apiResponse->json()); // stdClass will be returned or exception if Content-Type is not JSON
 print_r($apiResponse->request()); // PSR-7's RequestInterface compatible instance used to perform HTTP request
@@ -121,7 +121,7 @@ Loading of multiple comma-separated IDs will result in HTTP 207 with `Content-Ty
 be parsed into multiple sub-responses:
 
 ```php
-$presences = $sdk->platform()
+$presences = $rcsdk->platform()
                  ->get('/account/~/extension/id1,id2/presence')
                  ->multipart();
 
@@ -133,7 +133,7 @@ print 'Presence loaded ' .
 ### Send SMS - Make POST request
 
 ```php
-$apiResponse = $sdk->platform()->post('/account/~/extension/~/sms', array(
+$apiResponse = $rcsdk->platform()->post('/account/~/extension/~/sms', array(
     'from' => array('phoneNumber' => 'your-ringcentral-sms-number'),
     'to'   => array(
         array('phoneNumber' => 'mobile-number'),
@@ -147,7 +147,7 @@ $apiResponse = $sdk->platform()->post('/account/~/extension/~/sms', array(
 ```php
 try {
 
-    $sdk->platform()->get('/account/~/whatever');
+    $rcsdk->platform()->get('/account/~/whatever');
 
 } catch (\RingCentral\SDK\Http\ApiException $e) {
 
@@ -186,7 +186,7 @@ $rcsdk = new SDK("clientId", "clientSecret", SDK::SERVER_PRODUCTION, 'Demo', '1.
 ## Webhook Subscriptions
 
 ```php
-$apiResponse = $sdk->platform()->post('/subscription', array(
+$apiResponse = $rcsdk->platform()->post('/subscription', array(
     'eventFilters' => array(
         '/restapi/v1.0/account/~/extension/~/message-store',
         '/restapi/v1.0/account/~/extension/~/presence'
@@ -206,7 +206,7 @@ When webhook subscription is created, it will send a request with `validation-to
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
 use RingCentral\SDK\Subscription\Subscription;
 
-$subscription = $sdk->createSubscription();
+$subscription = $rcsdk->createSubscription();
 $subscription->addEvents(array('/restapi/v1.0/account/~/extension/~/presence'))
 $subscription->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
     print_r($e->getPayload());
@@ -234,7 +234,7 @@ $request = $rcsdk->createMultipartBuilder()
                  ->add(fopen('path/to/file', 'r'))
                  ->request('/account/~/extension/~/fax'); // also has optional $method argument
 
-$response = $platform->sendRequest($request);
+$response = $rcsdk->platform()->sendRequest($request);
 ```
 
 # How to demo?
