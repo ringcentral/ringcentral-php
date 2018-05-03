@@ -209,9 +209,9 @@ use RingCentral\SDK\Subscription\Subscription;
 $subscription = $rcsdk->createSubscription();
 $subscription->addEvents(array('/restapi/v1.0/account/~/extension/~/presence'))
 $subscription->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
-    print_r($e->getPayload());
+    print_r($e->payload());
 });
-
+$subscription->setKeepPolling(true);
 $apiResponse = $subscription->register();
 ```
 
