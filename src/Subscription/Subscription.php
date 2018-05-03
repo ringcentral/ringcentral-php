@@ -445,27 +445,11 @@ class Subscription extends EventDispatcher
      */
     public function notify($pubnubMessage)
     {
-
-        if (!empty($pubnubMessage['error'])) {
-            //'error' => true,
-            //'service' => 'cURL',
-            //'status' => -1,
-            //'message' => 'request timeout',
-            //'payload' => "Pubnub request timeout. Maximum timeout: " . $this->curlTimeout . " seconds" .
-            //    ". Requested URL: " . $curlResponseURL
-            return $this->_keepPolling;
-        }
-
-        $message = $pubnubMessage['message'];
-
+        $message = $pubnubMessage->getMessage();
         $message = $this->decrypt($message);
-
         //print 'Message received: ' . $message . PHP_EOL;
-
         $this->dispatch(self::EVENT_NOTIFICATION, new NotificationEvent($message));
-
         return $this->_keepPolling;
-
     }
 
     /**
