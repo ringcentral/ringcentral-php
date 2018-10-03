@@ -207,7 +207,7 @@ $apiResponse = $rcsdk->platform()->post('/subscription', array(
 
 When webhook subscription is created, it will send a request with `validation-token` in headers to webhook address. Webhook address should return a success request with `validation-token` in headers to finish webhook register.
 
-## Pubnub Subscriptions
+## PubNub Subscriptions
 
 ```php
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
@@ -222,7 +222,7 @@ $subscription->addListener(Subscription::EVENT_NOTIFICATION, function (Notificat
 $apiResponse = $subscription->register();
 ```
 
-Please keep in mind that due to limitations of PUBNUB library, which is synchronous, subscriptions may expire and must
+Please keep in mind that due to limitations of the PubNub library, which is synchronous, subscriptions may expire and must
 be re-created manually.
 
 # Multipart Requests
