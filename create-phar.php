@@ -101,7 +101,7 @@ try {
 
     $credentials = require('demo/_credentials.php');
 
-    $sdk = new RingCentral\SDK\SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server']);
+    $sdk = new RingCentral\SDK\SDK($credentials['clientId'], $credentials['clientSecret'], $credentials['server']);
 
     $sdk->platform()->login($credentials['username'], $credentials['extension'], $credentials['password']);
 
