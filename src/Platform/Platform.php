@@ -386,6 +386,31 @@ class Platform
      *
      * @return ApiResponse
      */
+    public function patch(
+        $url = '',
+        $body = null,
+        $queryParameters = array(),
+        array $headers = array(),
+        $options = array()
+    ) {
+        return $this->sendRequest(
+            $this->_client->createRequest('PATCH', $url, $queryParameters, $body, $headers),
+            $options
+        );
+    }    
+    
+    /**
+     * @param string $url
+     * @param array  $body
+     * @param array  $queryParameters
+     * @param array  $headers
+     * @param array  $options
+     *
+     * @throws ApiException If an error occurs making the request.
+     * @throws Exception    If an error occurs parsing the response from the request.
+     *
+     * @return ApiResponse
+     */
     public function put(
         $url = '',
         $body = null,
