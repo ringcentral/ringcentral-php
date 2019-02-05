@@ -143,7 +143,7 @@ class ApiResponse
 
             $parts = explode('--' . $boundary . '', $this->text()); //TODO Handle as stream
 
-            if (empty($parts[0])) {
+            if (empty(trim($parts[0]))) {
                 array_shift($parts);
             }
 
