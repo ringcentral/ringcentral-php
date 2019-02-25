@@ -7,6 +7,7 @@ use RingCentral\SDK\Subscription\Events\NotificationEvent;
 use RingCentral\SDK\Subscription\Events\SuccessEvent;
 use RingCentral\SDK\Subscription\Subscription;
 use RingCentral\SDK\Test\TestCase;
+use PubNub\Models\Consumer\PubSub\PNMessageResult;
 
 class SubscriptionTest extends TestCase
 {
@@ -60,9 +61,9 @@ class SubscriptionTest extends TestCase
 
         $s->register();
 
-        $s->notify(array(
-            'message' => $aesMessage
-        ));
+        $result = new PNMessageResult($aesMessage, NULL, NULL, NULL, NULL);
+
+        $s->notify($result);
 
         $this->assertTrue($executed, 'make sure that callback has been called');
 
@@ -103,9 +104,9 @@ class SubscriptionTest extends TestCase
 
         $s->register();
 
-        $s->notify(array(
-            'message' => array_merge(array(), $expected)
-        ));
+        $result = new PNMessageResult(array_merge(array(), $expected), NULL, NULL, NULL, NULL);
+
+        $s->notify($result);
 
         $this->assertTrue($executed, 'make sure that callback has been called');
 
