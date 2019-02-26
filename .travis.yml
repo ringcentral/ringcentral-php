@@ -3,7 +3,6 @@ language: php
 php:
   - 7
   - 5.6
-  - hhvm
 before_script:
   - make install
 script:
@@ -11,9 +10,6 @@ script:
 after_script:
   - make coveralls
 matrix:
-  allow_failures:
-    - php:
-      - hhvm
   fast_finish: true
 before_deploy:
   - make phar
