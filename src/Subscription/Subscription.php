@@ -6,6 +6,7 @@ use Exception;
 use PubNub\Callbacks\SubscribeCallback;
 use PubNub\Enums\PNStatusCategory;
 use PubNub\Exceptions\PubNubUnsubscribeException;
+use PubNub\Models\Consumer\PubSub\PNMessageResult;
 use PubNub\PNConfiguration;
 use PubNub\PubNub;
 use PubNub\PubNubCrypto;
@@ -62,8 +63,8 @@ class PubnubCallback extends SubscribeCallback
     }
 
     /**
-     * @param $pubnub
-     * @param $message
+     * @param PubNub $pubnub
+     * @param PNMessageResult $message
      *
      * @throws Exception
      *
@@ -437,7 +438,7 @@ class Subscription extends EventDispatcher
     /**
      * Attention, this function is NOT PUBLIC!!! The only reason it's public is due to PHP 5.3 limitations
      * @protected
-     * @param $pubnubMessage
+     * @param PNMessageResult $pubnubMessage
      *
      * @throws Exception
      *
