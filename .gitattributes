@@ -5,7 +5,8 @@ demo/ export-ignore
 .gitattributes export-ignore
 .travis.yml export-ignore
 CONTRIBUTING.md export-ignore
-Makefile export-ignore
 create-phar.php export-ignore
+Dockerfile export-ignore
 index.php export-ignore
+Makefile export-ignore
 phpunit.xml export-ignore
