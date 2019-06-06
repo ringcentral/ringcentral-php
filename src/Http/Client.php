@@ -123,17 +123,23 @@ class Client
      */
     protected function parseProperties($method, $url, $queryParams = array(), $body = null, $headers = array())
     {
-
         // URL
-
+        $query = "";
         if (!empty($queryParams) && is_array($queryParams)) {
-            $queryParams = http_build_query($queryParams);
+            foreach ($queryParams as $key => $value) {
+              if (is_array($value)){
+                foreach ($value as $val) {
+                  $query .= $key."=".$val."&";
+                }
+              }else{
+                $query .= $key."=".$value."&";
+              }
+            }
         }
 
-        if (!empty($queryParams)) {
-            $url = $url . (stristr($url, '?') ? '&' : '?') . $queryParams;
+        if ($query != "") {
+            $url = $url . (stristr($url, '?') ? '&' : '?') . $query;
         }
-
         // Headers
 
         $contentType = null;
