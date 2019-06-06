@@ -129,10 +129,10 @@ class Client
             foreach ($queryParams as $key => $value) {
               if (is_array($value)){
                 foreach ($value as $val) {
-                  $query .= $key."=".$val."&";
+                  $query .= $key."=".urlencode($val)."&";
                 }
               }else{
-                $query .= $key."=".$value."&";
+                $query .= $key."=".urlencode($value)."&";
               }
             }
         }
