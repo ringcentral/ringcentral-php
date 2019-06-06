@@ -136,7 +136,7 @@ class Client
               }
             }
         }
-
+        $query = rtrim($query,'&');
         if ($query != "") {
             $url = $url . (stristr($url, '?') ? '&' : '?') . $query;
         }
