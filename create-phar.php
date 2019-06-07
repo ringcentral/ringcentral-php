@@ -4,13 +4,11 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 
 exec('rm -rf ' . __DIR__ . '/dist/phar');
 
-@mkdir('./dist/phar');
-@unlink('./dist/ringcentral.phar');
-@unlink('./dist/phar/composer.json');
-@unlink('./dist/phar/composer.lock');
+@mkdir(__DIR__ . '/dist');
+@mkdir(__DIR__ . '/dist/phar');
 
 $phar = new Phar(
-    './dist/ringcentral.phar',
+    __DIR__ . '/dist/ringcentral.phar',
     FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::KEY_AS_FILENAME,
     'ringcentral.phar'
 );
@@ -55,34 +53,31 @@ function listDir($root, $path, $phar)
 
 }
 
+$branch = shell_exec("git branch | grep \* | cut -d ' ' -f2");
+
+print 'Branch:' . $branch . PHP_EOL;
+
 $json = array(
     'type'              => 'project',
     'minimum-stability' => 'dev',
     'require'           => array(
-        'ringcentral/ringcentral-php' => 'dev-master'
-    )
-);
-
-if (!empty($argv) && in_array('develop', $argv)) {
-    $json['require']['ringcentral/ringcentral-php'] = 'dev-develop';
-}
-
-if (!empty($argv) && in_array('local', $argv)) {
-    $json['repositories'] = array(
+        'ringcentral/ringcentral-php' => 'dev-' . $branch
+    ),
+    'repositories' => array(
         array(
             'url'  => __DIR__,
             'type' => 'vcs'
         )
-    );
-}
+    )
+);
 
 print 'Composer config:' . PHP_EOL;
 print_r($json);
 print PHP_EOL . PHP_EOL;
 
-file_put_contents('./dist/phar/composer.json', json_encode($json));
+file_put_contents(__DIR__ . '/dist/phar/composer.json', json_encode($json));
 
-exec('cd ' . __DIR__ . '/dist/phar && composer install --prefer-source --no-interaction --no-dev');
+exec('cd ' . __DIR__ . '/dist/phar && composer install --prefer-dist --no-interaction --no-dev');
 
 listDir(__DIR__ . '/dist/phar/vendor', '', $phar);
 
@@ -90,7 +85,7 @@ $phar->setStub($phar->createDefaultStub("autoload.php"));
 
 /////
 
-require('./dist/ringcentral.phar');
+require(__DIR__ . '/dist/ringcentral.phar');
 
 try {
 

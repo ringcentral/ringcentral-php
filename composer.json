@@ -1,6 +1,32 @@
 {
   "name": "ringcentral/ringcentral-php",
   "type": "library",
+  "scripts": {
+    "test": "phpunit --configuration ./phpunit.xml",
+    "coveralls": "coveralls -v",
+    "phar": "php ./create-phar.php"
+  },
+  "require": {
+    "ext-curl": "*",
+    "php": ">=5.6.0",
+    "guzzlehttp/psr7": "^1.4.2",
+    "pubnub/pubnub": "^4.0.0",
+    "symfony/event-dispatcher": "^2.7|^3.3.2|^4.0",
+    "guzzlehttp/guzzle": "^6.2.3"
+  },
+  "suggest": {
+    "ext-openssl": "to decrypt PubNub messages"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7.27",
+    "symfony/event-dispatcher": "^2.7",
+    "php-coveralls/php-coveralls": "^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "RingCentral\\SDK\\": "src/"
+    }
+  },
   "description": "RingCentral Connect Platform PHP SDK",
   "keywords": [
     "php",
@@ -21,25 +47,5 @@
       "name": "RingCentral, Inc.",
       "email": "devsupport@ringcentral.com"
     }
-  ],
-  "require": {
-    "ext-curl": "*",
-    "php": ">=5.6.0",
-    "guzzlehttp/psr7": "^1.4.2",
-    "pubnub/pubnub": "^4.0.0",
-    "symfony/event-dispatcher": "^2.7|^3.3.2|^4.0",
-    "guzzlehttp/guzzle": "^6.2.3"
-  },
-  "suggest": {
-    "ext-openssl": "to decrypt PubNub messages"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^5.7.26",
-    "satooshi/php-coveralls": "^2.1.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "RingCentral\\SDK\\": "src/"
-    }
-  }
+  ]
 }

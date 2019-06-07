@@ -31,7 +31,7 @@ class SDKTest extends TestCase
 
     public function testMultipartBuilderGetter()
     {
-        $this->getSDK(array(), false)->createMultipartBuilder();
+        $this->assertNotNull($this->getSDK(array(), false)->createMultipartBuilder());
     }
 
 }

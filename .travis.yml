@@ -1,24 +1,27 @@
 dist: trusty
 language: php
 php:
-  - 7
+  - 7.3
+  - 7.2
+  - 7.1
   - 5.6
 before_script:
-  - make install
+  - composer update
+  - composer install --prefer-dist --no-interaction
 script:
-  - make test
+  - composer test
 after_script:
-  - make coveralls
+  - composer coveralls
 matrix:
   fast_finish: true
 before_deploy:
-  - make phar
+  - composer phar
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
   file: ./dist/ringcentral.phar
   skip_cleanup: true
   on:
-    php: 7
+    php: 7.3
     tags: true
     repo: ringcentral/ringcentral-php
