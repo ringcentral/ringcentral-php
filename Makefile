@@ -1,34 +1,15 @@
-.PHONY: test
-test:
-	./vendor/bin/phpunit --configuration ./phpunit.xml
+.PHONY: docker-build-5
+docker-build-5:
+	docker build -t ringcentral-php-sdk-5 -f Dockerfile5 .
 
-.PHONY: phar
-phar:
-	php ./create-phar.php ${args}
-# Use "make phar args=develop" to build phar on develop branch
+.PHONY: docker-build-7
+docker-build-7:
+	docker build -t ringcentral-php-sdk-7 -f Dockerfile7 .
 
-.PHONY: all
-all:
-	make test
-	make phar
+.PHONY: docker-login-5
+docker-login-5:
+	docker run -v $(shell pwd):/opt/sdk --name ringcentral-php-sdk-5 -i ringcentral-php-sdk-5 /bin/bash
 
-.PHONY: install
-install:
-	composer update
-	composer install --prefer-dist --no-interaction
-
-.PHONY: coveralls
-coveralls:
-	./vendor/bin/coveralls -v
-
-.PHONY: docker-shell
-docker-shell:
-	eval "$(boot2docker shellinit)"
-
-.PHONY: docker-login
-docker-login:
-	docker run -t -i -v $(shell pwd):/opt/sdk ringcentral-php-sdk /bin/bash
-
-.PHONY: docker-build
-docker-build:
-	docker build -t ringcentral-php-sdk .
+.PHONY: docker-login-7
+docker-login-7:
+	docker run -v $(shell pwd):/opt/sdk -i -t ringcentral-php-sdk-7 /bin/bash

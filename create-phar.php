@@ -1,16 +1,15 @@
 <?php
 
+use RingCentral\SDK\SDK;
 use Symfony\Component\Config\Definition\Exception\Exception;
 
 exec('rm -rf ' . __DIR__ . '/dist/phar');
 
-@mkdir('./dist/phar');
-@unlink('./dist/ringcentral.phar');
-@unlink('./dist/phar/composer.json');
-@unlink('./dist/phar/composer.lock');
+@mkdir(__DIR__ . '/dist');
+@mkdir(__DIR__ . '/dist/phar');
 
 $phar = new Phar(
-    './dist/ringcentral.phar',
+    __DIR__ . '/dist/ringcentral.phar',
     FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::KEY_AS_FILENAME,
     'ringcentral.phar'
 );
@@ -55,19 +54,26 @@ function listDir($root, $path, $phar)
 
 }
 
+$branch = getenv('TRAVIS_BRANCH');
+if (!$branch) {
+    $branch = trim(shell_exec("git branch | grep \* | cut -d ' ' -f2"));
+}
+if (!$branch || (getenv('CI') && preg_match('/\d+\.\d+\.\d+/m', $branch))) {
+    $branch = 'master';
+}
+
+print 'Branch:' . $branch . PHP_EOL;
+
 $json = array(
     'type'              => 'project',
     'minimum-stability' => 'dev',
     'require'           => array(
-        'ringcentral/ringcentral-php' => 'dev-master'
+        'ringcentral/ringcentral-php' => 'dev-' . $branch
     )
 );
 
-if (!empty($argv) && in_array('develop', $argv)) {
-    $json['require']['ringcentral/ringcentral-php'] = 'dev-develop';
-}
-
-if (!empty($argv) && in_array('local', $argv)) {
+// Travis will take the same branch from Github, locally since we have a non-shallow Git repo we can use it
+if (!getenv('CI')) {
     $json['repositories'] = array(
         array(
             'url'  => __DIR__,
@@ -80,9 +86,9 @@ print 'Composer config:' . PHP_EOL;
 print_r($json);
 print PHP_EOL . PHP_EOL;
 
-file_put_contents('./dist/phar/composer.json', json_encode($json));
+file_put_contents(__DIR__ . '/dist/phar/composer.json', json_encode($json));
 
-exec('cd ' . __DIR__ . '/dist/phar && composer install --prefer-source --no-interaction --no-dev');
+exec('cd ' . __DIR__ . '/dist/phar && composer install --prefer-dist --no-interaction --no-dev');
 
 listDir(__DIR__ . '/dist/phar/vendor', '', $phar);
 
@@ -90,22 +96,13 @@ $phar->setStub($phar->createDefaultStub("autoload.php"));
 
 /////
 
-require('./dist/ringcentral.phar');
+require(__DIR__ . '/dist/ringcentral.phar');
 
 try {
 
-    if (!file_exists('demo/_credentials.php')) {
-        print 'Connection check skipped.';
-        exit;
-    }
+    $sdk = new RingCentral\SDK\SDK('xxx', 'xxx', 'https://platform.ringcentral.com');
 
-    $credentials = require('demo/_credentials.php');
-
-    $sdk = new RingCentral\SDK\SDK($credentials['clientId'], $credentials['clientSecret'], $credentials['server']);
-
-    $sdk->platform()->login($credentials['username'], $credentials['extension'], $credentials['password']);
-
-    $t = $sdk->platform()->get('/restapi/v1.0');
+    $t = $sdk->platform()->get('/restapi/v1.0', array(), array(), array('skipAuthCheck' => true));
 
     print 'Connected to API server ' . $t->json()->uri . ', version ' . $t->json()->versionString . PHP_EOL;
 
