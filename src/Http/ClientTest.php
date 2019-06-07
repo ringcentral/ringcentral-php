@@ -11,13 +11,13 @@ class ClientTest extends TestCase
 
         $client = new Client($this->createGuzzle());
 
-        $r = $client->createRequest('GET', 'http://whatever:8080/path', array('foo' => 'bar', 'baz' => 'qux'));
+        $r = $client->createRequest('GET', 'http://whatever:8080/path', array('foo' => 'bar', 'baz' => 'qux', 'a2z' => array('abc', 'xyz')));
 
         $this->assertEquals('http', $r->getUri()->getScheme());
         $this->assertEquals('whatever', $r->getUri()->getHost());
         $this->assertEquals('8080', $r->getUri()->getPort());
         $this->assertEquals('/path', $r->getUri()->getPath());
-        $this->assertEquals('foo=bar&baz=qux', $r->getUri()->getQuery());
+        $this->assertEquals('foo=bar&baz=qux&a2z=abc&a2z=xyz', $r->getUri()->getQuery());
 
     }
 
