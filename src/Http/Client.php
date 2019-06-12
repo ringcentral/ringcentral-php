@@ -71,7 +71,7 @@ class Client
             $request->getBody()->rewind();
         }
 
-        $response = $this->_guzzle->send($request, array('exceptions' => false));
+        $response = $this->_guzzle->send($request, ['exceptions' => false]);
 
         return new ApiResponse($request, $response);
 
@@ -86,7 +86,7 @@ class Client
      *
      * @return RequestInterface
      */
-    public function createRequest($method, $url, $queryParams = array(), $body = null, $headers = array())
+    public function createRequest($method, $url, $queryParams = [], $body = null, $headers = [])
     {
 
         $properties = $this->parseProperties($method, $url, $queryParams, $body, $headers);
@@ -102,7 +102,7 @@ class Client
     protected function getRequestHeaders(RequestInterface $request)
     {
 
-        $headers = array();
+        $headers = [];
 
         foreach (array_keys($request->getHeaders()) as $name) {
             $headers[] = $name . ': ' . $request->getHeaderLine($name);
@@ -121,7 +121,7 @@ class Client
      *
      * @return array
      */
-    protected function parseProperties($method, $url, $queryParams = array(), $body = null, $headers = array())
+    protected function parseProperties($method, $url, $queryParams = [], $body = null, $headers = [])
     {
         // URL
         $query = "";
@@ -188,12 +188,12 @@ class Client
 
         // Create request
 
-        return array(
+        return [
             'method'  => $method,
             'url'     => $url,
             'headers' => $headers,
             'body'    => $body,
-        );
+        ];
 
     }
 

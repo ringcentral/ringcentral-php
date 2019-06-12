@@ -99,25 +99,25 @@ class Subscription extends EventDispatcher
     protected $_platform;
 
     /** @var string[] */
-    protected $_eventFilters = array();
+    protected $_eventFilters = [];
 
     /** @var array */
-    protected $_subscription = array(
-        'eventFilters'   => array(),
+    protected $_subscription = [
+        'eventFilters'   => [],
         'expirationTime' => '', // 2014-03-12T19:54:35.613Z
         'expiresIn'      => 0,
-        'deliveryMode'   => array(
+        'deliveryMode'   => [
             'transportType' => 'PubNub',
             'encryption'    => false,
             'address'       => '',
             'subscriberKey' => '',
             'secretKey'     => ''
-        ),
+        ],
         'id'             => '',
         'creationTime'   => '', // 2014-03-12T19:54:35.613Z
         'status'         => '', // Active
         'uri'            => ''
-    );
+    ];
 
     /** @var Pubnub */
     protected $_pubnub;
@@ -146,7 +146,7 @@ class Subscription extends EventDispatcher
      *
      * @return ApiResponse|$this
      */
-    function register(array $options = array())
+    function register(array $options = [])
     {
         if ($this->alive()) {
             return $this->renew($options);
@@ -220,7 +220,7 @@ class Subscription extends EventDispatcher
      *
      * @return ApiResponse
      */
-    function subscribe(array $options = array())
+    function subscribe(array $options = [])
     {
 
         if (!empty($options['events'])) {
@@ -229,12 +229,12 @@ class Subscription extends EventDispatcher
 
         try {
 
-            $response = $this->_platform->post('/restapi/v1.0/subscription', array(
+            $response = $this->_platform->post('/restapi/v1.0/subscription', [
                 'eventFilters' => $this->getFullEventFilters(),
-                'deliveryMode' => array(
+                'deliveryMode' => [
                     'transportType' => 'PubNub'
-                )
-            ));
+                ]
+            ]);
 
             $this->setSubscription($response->jsonArray());
             $this->subscribeAtPubnub();
@@ -262,7 +262,7 @@ class Subscription extends EventDispatcher
      *
      * @return $this
      */
-    function renew(array $options = array())
+    function renew(array $options = [])
     {
 
         if (!empty($options['events'])) {
@@ -275,9 +275,9 @@ class Subscription extends EventDispatcher
 
         try {
 
-            $response = $this->_platform->put('/restapi/v1.0/subscription/' . $this->_subscription['id'], array(
+            $response = $this->_platform->put('/restapi/v1.0/subscription/' . $this->_subscription['id'], [
                 'eventFilters' => $this->getFullEventFilters()
-            ));
+            ]);
 
             $this->setSubscription($response->jsonArray());
 
@@ -494,7 +494,7 @@ class Subscription extends EventDispatcher
      */
     protected function getFullEventFilters()
     {
-        $events = array();
+        $events = [];
         foreach ($this->_eventFilters as $event) {
             $events[] = $this->_platform->createUrl($event);
         }

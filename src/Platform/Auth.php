@@ -48,7 +48,7 @@ class Auth
      *
      * @return $this
      */
-    public function setData(array $data = array())
+    public function setData(array $data = [])
     {
 
         if (empty($data)) {
@@ -138,7 +138,7 @@ class Auth
     public function data()
     {
 
-        return array(
+        return [
             'token_type'                => $this->token_type,
             'access_token'              => $this->access_token,
             'expires_in'                => $this->expires_in,
@@ -148,7 +148,7 @@ class Auth
             'refresh_token_expire_time' => $this->refresh_token_expire_time,
             'scope'                     => $this->scope,
             'owner_id'                  => $this->owner_id,
-        );
+        ];
 
     }
 

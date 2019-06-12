@@ -14,10 +14,10 @@ use RingCentral\SDK\SDK;
 abstract class TestCase extends BaseTestCase
 {
 
-    protected function createResponse($method = 'GET', $path = '', array $json = array(), $status = 200)
+    protected function createResponse($method = 'GET', $path = '', array $json = [], $status = 200)
     {
 
-        $res = new Response($status, array('content-type' => 'application/json'), json_encode($json));
+        $res = new Response($status, ['content-type' => 'application/json'], json_encode($json));
 
         //if ($status >= 400) {
         //    return new RequestException(
@@ -31,21 +31,21 @@ abstract class TestCase extends BaseTestCase
 
     }
 
-    protected function createGuzzle(array $responses = array())
+    protected function createGuzzle(array $responses = [])
     {
         $mock = new MockHandler($responses);
         $handler = HandlerStack::create($mock);
-        return new Client(array('handler' => $handler));
+        return new Client(['handler' => $handler]);
 
     }
 
-    protected function getSDK(array $responses = array(), $authorized = true)
+    protected function getSDK(array $responses = [], $authorized = true)
     {
 
         date_default_timezone_set('UTC');
 
         if ($authorized) {
-            $responses = array_merge(array($this->authenticationMock()), $responses);
+            $responses = array_merge([$this->authenticationMock()], $responses);
         }
 
         $guzzle = $this->createGuzzle($responses);
@@ -62,7 +62,7 @@ abstract class TestCase extends BaseTestCase
 
     function authenticationMock()
     {
-        return $this->createResponse('POST', '/restapi/oauth/token', array(
+        return $this->createResponse('POST', '/restapi/oauth/token', [
             'access_token'             => 'ACCESS_TOKEN',
             'token_type'               => 'bearer',
             'expires_in'               => 3600,
@@ -71,12 +71,12 @@ abstract class TestCase extends BaseTestCase
             'scope'                    => 'SMS RCM Foo Boo',
             'expireTime'               => time() + 3600,
             'owner_id'                 => 'foo'
-        ));
+        ]);
     }
 
     function logoutMock()
     {
-        return $this->createResponse('POST', '/restapi/oauth/revoke', array());
+        return $this->createResponse('POST', '/restapi/oauth/revoke', []);
     }
 
     function presenceSubscriptionMock($id = '1', $detailed = true)
@@ -84,11 +84,11 @@ abstract class TestCase extends BaseTestCase
 
         $expiresIn = 15 * 60 * 60;
 
-        return $this->createResponse('POST', '/restapi/v1.0/subscription', array(
-            'eventFilters'   => array('/restapi/v1.0/account/~/extension/' . $id . '/presence' . ($detailed ? '?detailedTelephonyState=true' : '')),
+        return $this->createResponse('POST', '/restapi/v1.0/subscription', [
+            'eventFilters'   => ['/restapi/v1.0/account/~/extension/' . $id . '/presence' . ($detailed ? '?detailedTelephonyState=true' : '')],
             'expirationTime' => date('c', time() + $expiresIn),
             'expiresIn'      => $expiresIn,
-            'deliveryMode'   => array(
+            'deliveryMode'   => [
                 'transportType'       => 'PubNub',
                 'encryption'          => true,
                 'address'             => '123_foo',
@@ -96,12 +96,12 @@ abstract class TestCase extends BaseTestCase
                 'secretKey'           => 'sec-c-bar',
                 'encryptionAlgorithm' => 'AES',
                 'encryptionKey'       => 'e0bMTqmumPfFUbwzppkSbA=='
-            ),
+            ],
             'creationTime'   => date('c'),
             'id'             => 'foo-bar-baz',
             'status'         => 'Active',
             'uri'            => 'https=>//platform.ringcentral.com/restapi/v1.0/subscription/foo-bar-baz'
-        ));
+        ]);
 
     }
 
@@ -109,7 +109,7 @@ abstract class TestCase extends BaseTestCase
     {
 
         $body = !$failure
-            ? array(
+            ? [
                 'access_token'             => 'ACCESS_TOKEN_FROM_REFRESH',
                 'token_type'               => 'bearer',
                 'expires_in'               => $expiresIn,
@@ -118,8 +118,8 @@ abstract class TestCase extends BaseTestCase
                 'scope'                    => 'SMS RCM Foo Boo',
                 'expireTime'               => time() + 3600,
                 'owner_id'                 => 'foo'
-            )
-            : array('message' => 'Wrong token (mock)');
+            ]
+            : ['message' => 'Wrong token (mock)'];
 
         $status = !$failure ? 200 : 400;
 
@@ -129,25 +129,25 @@ abstract class TestCase extends BaseTestCase
 
     function subscriptionMock(
         $expiresIn = 54000,
-        array $eventFilters = array('/restapi/v1.0/account/~/extension/1/presence')
+        array $eventFilters = ['/restapi/v1.0/account/~/extension/1/presence']
     ) {
 
-        return $this->createResponse('POST', '/restapi/v1.0/subscription', array(
+        return $this->createResponse('POST', '/restapi/v1.0/subscription', [
             'eventFilters'   => $eventFilters,
             'expirationTime' => date('c', time() + $expiresIn),
             'expiresIn'      => $expiresIn,
-            'deliveryMode'   => array(
+            'deliveryMode'   => [
                 'transportType' => 'PubNub',
                 'encryption'    => false,
                 'address'       => '123_foo',
                 'subscriberKey' => 'sub-c-foo',
                 'secretKey'     => 'sec-c-bar'
-            ),
+            ],
             'id'             => 'foo-bar-baz',
             'creationTime'   => date('c'),
             'status'         => 'Active',
             'uri'            => 'https=>//platform.ringcentral.com/restapi/v1.0/subscription/foo-bar-baz'
-        ));
+        ]);
 
     }
 

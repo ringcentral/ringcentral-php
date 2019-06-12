@@ -2,22 +2,22 @@
   "name": "ringcentral/ringcentral-php",
   "type": "library",
   "scripts": {
-    "test": "phpunit --configuration ./phpunit.xml",
+    "test": "phpunit --configuration phpunit.xml",
     "coveralls": "php-coveralls -v",
     "phar": [
       "phar-builder package composer.json",
       "php create-phar.php"
     ],
-    "unphar": "php -r '$phar = new Phar(\"dist/ringcentral.phar\"); $phar->extractTo(\"./dist/phar\");'"
+    "unphar": "php -r '$phar = new Phar(\"dist/ringcentral.phar\"); $phar->extractTo(\"dist/phar\");'"
   },
   "require": {
     "ext-curl": "*",
     "ext-json": "*",
-    "php": ">=5.6.0",
+    "php": ">=7.1",
     "guzzlehttp/psr7": "^1.4.2",
     "pubnub/pubnub": "^4.0.0",
     "symfony/event-dispatcher": "^2|^3|^4",
-    "guzzlehttp/guzzle": "^6.2.3"
+    "guzzlehttp/guzzle": "^6.3.3"
   },
   "suggest": {
     "ext-openssl": "to decrypt PubNub messages"
