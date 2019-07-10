@@ -52,7 +52,7 @@ class MultipartBuilderTest extends TestCase
 
         $builder = new MultipartBuilder();
 
-        $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
+        $builder->setBody(['to' => ['phoneNumber' => 'foo'], 'faxResolution' => 'High'])
                 ->setBoundary('boundary')
                 ->add('plain text', 'plain.txt');
 
@@ -71,7 +71,7 @@ class MultipartBuilderTest extends TestCase
 
         $builder = new MultipartBuilder();
 
-        $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
+        $builder->setBody(['to' => ['phoneNumber' => 'foo'], 'faxResolution' => 'High'])
                 ->setBoundary('boundary')
                 ->add('plain text');
 
@@ -105,7 +105,7 @@ class MultipartBuilderTest extends TestCase
 
         $builder = new MultipartBuilder();
 
-        $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
+        $builder->setBody(['to' => ['phoneNumber' => 'foo'], 'faxResolution' => 'High'])
                 ->setBoundary('boundary')
                 ->add(\GuzzleHttp\Psr7\stream_for('streamed'), 'streamed.txt')
                 ->add(new Stream(fopen($this->fname, 'r')));
@@ -123,7 +123,7 @@ class MultipartBuilderTest extends TestCase
 
         $builder = new MultipartBuilder();
 
-        $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
+        $builder->setBody(['to' => ['phoneNumber' => 'foo'], 'faxResolution' => 'High'])
                 ->setBoundary('boundary')
                 ->add(\GuzzleHttp\Psr7\stream_for('streamed'));
 
@@ -138,7 +138,7 @@ class MultipartBuilderTest extends TestCase
 
         $builder = new MultipartBuilder();
 
-        $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
+        $builder->setBody(['to' => ['phoneNumber' => 'foo'], 'faxResolution' => 'High'])
                 ->setBoundary('boundary')
                 ->add(\GuzzleHttp\Psr7\stream_for('streamed'), 'streamed');
 
@@ -166,7 +166,7 @@ class MultipartBuilderTest extends TestCase
 
         $builder = new MultipartBuilder();
 
-        $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
+        $builder->setBody(['to' => ['phoneNumber' => 'foo'], 'faxResolution' => 'High'])
                 ->setBoundary('boundary')
                 ->add(fopen($this->fname, 'r'));
 
@@ -194,9 +194,9 @@ class MultipartBuilderTest extends TestCase
 
         $builder = new MultipartBuilder();
 
-        $builder->setBody(array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High'))
+        $builder->setBody(['to' => ['phoneNumber' => 'foo'], 'faxResolution' => 'High'])
                 ->setBoundary('boundary')
-                ->add('plain text', 'plain.txt', array('Content-Type' => 'text/custom'));
+                ->add('plain text', 'plain.txt', ['Content-Type' => 'text/custom']);
 
         $request = $builder->request('/fax');
 
@@ -211,7 +211,7 @@ class MultipartBuilderTest extends TestCase
     {
 
         $builder = new MultipartBuilder();
-        $body = array('to' => array('phoneNumber' => 'foo'), 'faxResolution' => 'High');
+        $body = ['to' => ['phoneNumber' => 'foo'], 'faxResolution' => 'High'];
 
         $builder->setBody($body);
 

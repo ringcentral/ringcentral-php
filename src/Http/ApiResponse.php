@@ -123,7 +123,7 @@ class ApiResponse
 
         if (empty($this->_multiparts)) {
 
-            $this->_multiparts = array();
+            $this->_multiparts = [];
 
             if (!$this->isContentType('multipart/mixed')) {
                 throw new Exception('Response is not multipart');

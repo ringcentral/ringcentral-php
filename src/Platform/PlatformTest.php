@@ -26,10 +26,10 @@ class PlatformTest extends TestCase
 
         $sdk = $this->getSDK();
 
-        $sdk->platform()->auth()->setData(array(
+        $sdk->platform()->auth()->setData([
             'refresh_token_expires_in'  => 1,
             'refresh_token_expire_time' => 1
-        ));
+        ]);
 
         $sdk->platform()->refresh();
 
@@ -38,15 +38,15 @@ class PlatformTest extends TestCase
     public function testAutomaticRefresh()
     {
 
-        $sdk = $this->getSDK(array(
+        $sdk = $this->getSDK([
             $this->refreshMock(),
-            $this->createResponse('GET', '/foo', array('foo' => 'bar'))
-        ));
+            $this->createResponse('GET', '/foo', ['foo' => 'bar'])
+        ]);
 
-        $sdk->platform()->auth()->setData(array(
+        $sdk->platform()->auth()->setData([
             'expires_in'  => 1,
             'expire_time' => 1
-        ));
+        ]);
 
         $this->assertEquals('bar', $sdk->platform()->get('/foo')->json()->foo);
 
@@ -58,9 +58,9 @@ class PlatformTest extends TestCase
     public function testLogout()
     {
 
-        $sdk = $this->getSDK(array(
+        $sdk = $this->getSDK([
             $this->logoutMock()
-        ));
+        ]);
 
         $sdk->platform()->logout();
 
@@ -78,20 +78,20 @@ class PlatformTest extends TestCase
 
         $this->assertEquals(
             'https://whatever/restapi/v1.0/account/~/extension/~?_method=POST&access_token=ACCESS_TOKEN',
-            $sdk->platform()->createUrl('/account/~/extension/~', array(
+            $sdk->platform()->createUrl('/account/~/extension/~', [
                 'addServer' => true,
                 'addMethod' => 'POST',
                 'addToken'  => true
-            ))
+            ])
         );
 
         $this->assertEquals(
             'https://foo/account/~/extension/~?_method=POST&access_token=ACCESS_TOKEN',
-            $sdk->platform()->createUrl('https://foo/account/~/extension/~', array(
+            $sdk->platform()->createUrl('https://foo/account/~/extension/~', [
                 'addServer' => true,
                 'addMethod' => 'POST',
                 'addToken'  => true
-            ))
+            ])
         );
 
     }
@@ -99,9 +99,9 @@ class PlatformTest extends TestCase
     public function testProcessRequest()
     {
 
-        $sdk = $this->getSDK(array(
-            $this->createResponse('GET', '/foo', array('foo' => 'bar'))
-        ));
+        $sdk = $this->getSDK([
+            $this->createResponse('GET', '/foo', ['foo' => 'bar'])
+        ]);
 
         $request = $sdk->platform()->inflateRequest(new Request('GET', '/foo'));
 

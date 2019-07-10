@@ -7,7 +7,7 @@ use Symfony\Component\EventDispatcher\Event;
 class NotificationEvent extends Event
 {
     /** @var array */
-    protected $payload = array();
+    protected $payload = [];
 
     /**
      * NotificationEvent constructor.

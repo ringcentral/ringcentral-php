@@ -12,7 +12,7 @@ class SDKTest extends TestCase
         $sdk = new SDK('foo', 'bar', $server);
 
         $res = $sdk->platform()
-                   ->get('', array(), array(), array('skipAuthCheck' => true))
+                   ->get('', [], [], ['skipAuthCheck' => true])
                    ->json();
 
         $this->assertEquals('v1.0', $res->uriString);
@@ -31,7 +31,7 @@ class SDKTest extends TestCase
 
     public function testMultipartBuilderGetter()
     {
-        $this->assertNotNull($this->getSDK(array(), false)->createMultipartBuilder());
+        $this->assertNotNull($this->getSDK([], false)->createMultipartBuilder());
     }
 
 }

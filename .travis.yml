@@ -1,8 +1,9 @@
 dist: trusty
 language: php
 php:
-  - 7
-  - 5.6
+  - 7.3
+  - 7.2
+  - 7.1
 before_script:
   - composer update
   - composer install --prefer-dist --no-interaction
@@ -19,6 +20,6 @@ deploy:
   file: ./dist/ringcentral.phar
   skip_cleanup: true
   on:
-    php: 7
+    php: 7.3
     tags: true
     repo: ringcentral/ringcentral-php

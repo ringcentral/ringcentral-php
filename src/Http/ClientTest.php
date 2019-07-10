@@ -11,7 +11,7 @@ class ClientTest extends TestCase
 
         $client = new Client($this->createGuzzle());
 
-        $r = $client->createRequest('GET', 'http://whatever:8080/path', array('foo' => 'bar', 'baz' => 'qux', 'a2z' => array('abc', 'xyz')));
+        $r = $client->createRequest('GET', 'http://whatever:8080/path', ['foo' => 'bar', 'baz' => 'qux', 'a2z' => ['abc', 'xyz']]);
 
         $this->assertEquals('http', $r->getUri()->getScheme());
         $this->assertEquals('whatever', $r->getUri()->getHost());
@@ -26,8 +26,8 @@ class ClientTest extends TestCase
 
         $client = new Client($this->createGuzzle());
 
-        $r = $client->createRequest('POST', 'http://whatever:8080/path', null, array('foo' => 'bar', 'baz' => 'qux'),
-            array('content-type' => 'application/x-www-form-urlencoded'));
+        $r = $client->createRequest('POST', 'http://whatever:8080/path', null, ['foo' => 'bar', 'baz' => 'qux'],
+            ['content-type' => 'application/x-www-form-urlencoded']);
 
         $this->assertEquals('foo=bar&baz=qux', $r->getBody());
 
@@ -38,8 +38,8 @@ class ClientTest extends TestCase
 
         $client = new Client($this->createGuzzle());
 
-        $r = $client->createRequest('POST', 'http://whatever', null, array('foo' => 'bar', 'baz' => 'qux'),
-            array('content-type' => 'application/json'));
+        $r = $client->createRequest('POST', 'http://whatever', null, ['foo' => 'bar', 'baz' => 'qux'],
+            ['content-type' => 'application/json']);
 
         $this->assertEquals('{"foo":"bar","baz":"qux"}', $r->getBody());
 
@@ -50,7 +50,7 @@ class ClientTest extends TestCase
 
         $client = new Client($this->createGuzzle());
 
-        $r = $client->createRequest('POST', 'http://whatever', null, array('foo' => 'bar', 'baz' => 'qux'));
+        $r = $client->createRequest('POST', 'http://whatever', null, ['foo' => 'bar', 'baz' => 'qux']);
 
         $this->assertEquals('{"foo":"bar","baz":"qux"}', $r->getBody());
 
@@ -62,7 +62,7 @@ class ClientTest extends TestCase
         $client = new Client($this->createGuzzle());
 
         $r = $client->createRequest('POST', 'http://whatever', null, 'foo-encoded-text',
-            array('content-type' => 'foo'));
+            ['content-type' => 'foo']);
 
         $this->assertEquals('foo-encoded-text', $r->getBody());
 

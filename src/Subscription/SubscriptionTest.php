@@ -26,9 +26,9 @@ class SubscriptionTest extends TestCase
     public function testPresenceDecryption()
     {
 
-        $sdk = $this->getSDK(array(
+        $sdk = $this->getSDK([
             $this->presenceSubscriptionMock()
-        ));
+        ]);
 
         $executed = false;
         $aesMessage = 'gkw8EU4G1SDVa2/hrlv6+0ViIxB7N1i1z5MU/Hu2xkIKzH6yQzhr3vIc27IAN558kTOkacqE5DkLpRdnN1orwtIBsUHmPM' .
@@ -40,18 +40,18 @@ class SubscriptionTest extends TestCase
 
         $s = $this->createSubscription($sdk);
 
-        $s->addEvents(array('/restapi/v1.0/account/~/extension/1/presence'))
+        $s->addEvents(['/restapi/v1.0/account/~/extension/1/presence'])
           ->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) use (&$executed, &$t) {
 
-              $expected = array(
+              $expected = [
                   "timestamp" => "2014-03-12T20:47:54.712+0000",
-                  "body"      => array(
+                  "body"      => [
                       "extensionId"     => 402853446008,
                       "telephonyStatus" => "OnHold"
-                  ),
+                  ],
                   "event"     => "/restapi/v1.0/account/~/extension/402853446008/presence",
                   "uuid"      => "db01e7de-5f3c-4ee5-ab72-f8bd3b77e308"
-              );
+              ];
 
               $t->assertEquals($expected, $e->payload());
 
@@ -72,27 +72,27 @@ class SubscriptionTest extends TestCase
     public function testPlainSubscription()
     {
 
-        $sdk = $this->getSDK(array(
+        $sdk = $this->getSDK([
             $this->subscriptionMock()
-        ));
+        ]);
 
         $executed = false;
 
-        $expected = array(
+        $expected = [
             "timestamp" => "2014-03-12T20:47:54.712+0000",
-            "body"      => array(
+            "body"      => [
                 "extensionId"     => 402853446008,
                 "telephonyStatus" => "OnHold"
-            ),
+            ],
             "event"     => "/restapi/v1.0/account/~/extension/402853446008/presence",
             "uuid"      => "db01e7de-5f3c-4ee5-ab72-f8bd3b77e308"
-        );
+        ];
 
         $t = $this;
 
         $s = $this->createSubscription($sdk);
 
-        $s->addEvents(array('/restapi/v1.0/account/~/extension/1/presence'))
+        $s->addEvents(['/restapi/v1.0/account/~/extension/1/presence'])
           ->addListener(Subscription::EVENT_NOTIFICATION,
               function (NotificationEvent $e) use (&$executed, $expected, &$t) {
 
@@ -104,7 +104,7 @@ class SubscriptionTest extends TestCase
 
         $s->register();
 
-        $result = new PNMessageResult(array_merge(array(), $expected), NULL, NULL, NULL, NULL);
+        $result = new PNMessageResult(array_merge([], $expected), NULL, NULL, NULL, NULL);
 
         $s->notify($result);
 
@@ -115,12 +115,12 @@ class SubscriptionTest extends TestCase
     public function testSubscribeWithEvents()
     {
 
-        $sdk = $this->getSDK(array(
+        $sdk = $this->getSDK([
             $this->subscriptionMock()
-        ));
+        ]);
 
         $s = $this->createSubscription($sdk);
-        $res = $s->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        $res = $s->register(['events' => ['/restapi/v1.0/account/~/extension/1/presence']]);
 
         $this->assertEquals('/restapi/v1.0/account/~/extension/1/presence', $res->json()->eventFilters[0]);
 
@@ -133,12 +133,12 @@ class SubscriptionTest extends TestCase
     public function testSubscribeErrorWithEvents()
     {
 
-        $sdk = $this->getSDK(array(
-            $this->createResponse('POST', '/subscription', array('message' => 'Expected Error'), 400)
-        ));
+        $sdk = $this->getSDK([
+            $this->createResponse('POST', '/subscription', ['message' => 'Expected Error'], 400)
+        ]);
 
         $this->createSubscription($sdk)
-             ->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+             ->register(['events' => ['/restapi/v1.0/account/~/extension/1/presence']]);
 
     }
 
@@ -147,9 +147,9 @@ class SubscriptionTest extends TestCase
 
         $spy = false;
 
-        $sdk = $this->getSDK(array(
+        $sdk = $this->getSDK([
             $this->subscriptionMock()
-        ));
+        ]);
 
         $self = $this;
 
@@ -161,7 +161,7 @@ class SubscriptionTest extends TestCase
             $spy = true;
         });
 
-        $s->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        $s->register(['events' => ['/restapi/v1.0/account/~/extension/1/presence']]);
 
         $this->assertEquals(true, $spy);
 
@@ -172,9 +172,9 @@ class SubscriptionTest extends TestCase
 
         $spy = false;
 
-        $sdk = $this->getSDK(array(
-            $this->createResponse('POST', '/subscription', array('message' => 'Expected Error'), 400)
-        ));
+        $sdk = $this->getSDK([
+            $this->createResponse('POST', '/subscription', ['message' => 'Expected Error'], 400)
+        ]);
 
         $self = $this;
 
@@ -186,7 +186,7 @@ class SubscriptionTest extends TestCase
         });
 
         try {
-            $s->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+            $s->register(['events' => ['/restapi/v1.0/account/~/extension/1/presence']]);
         } catch (ApiException $e) {
         }
 
@@ -197,17 +197,17 @@ class SubscriptionTest extends TestCase
     public function testRenew()
     {
 
-        $sdk = $this->getSDK(array(
+        $sdk = $this->getSDK([
             $this->subscriptionMock(),
-            $this->createResponse('PUT', '/subscription/foo-bar-baz', array('ok' => 'ok'))
-        ));
+            $this->createResponse('PUT', '/subscription/foo-bar-baz', ['ok' => 'ok'])
+        ]);
 
         $s = $this->createSubscription($sdk);
 
-        $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
-        $s->renew(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        $s->subscribe(['events' => ['/restapi/v1.0/account/~/extension/1/presence']]);
+        $s->renew(['events' => ['/restapi/v1.0/account/~/extension/1/presence']]);
 
-        $this->assertEquals(array('ok' => 'ok'), $s->subscription());
+        $this->assertEquals(['ok' => 'ok'], $s->subscription());
 
     }
 
@@ -218,44 +218,44 @@ class SubscriptionTest extends TestCase
     public function testRenewError()
     {
 
-        $sdk = $this->getSDK(array(
+        $sdk = $this->getSDK([
             $this->subscriptionMock(),
-            $this->createResponse('PUT', '/subscription/foo-bar-baz', array('message' => 'Expected Error'), 400)
-        ));
+            $this->createResponse('PUT', '/subscription/foo-bar-baz', ['message' => 'Expected Error'], 400)
+        ]);
 
         $s = $this->createSubscription($sdk);
-        $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
-        $s->renew(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        $s->subscribe(['events' => ['/restapi/v1.0/account/~/extension/1/presence']]);
+        $s->renew(['events' => ['/restapi/v1.0/account/~/extension/1/presence']]);
 
     }
 
     public function testRegister()
     {
 
-        $sdk = $this->getSDK(array(
+        $sdk = $this->getSDK([
             $this->subscriptionMock(),
-            $this->createResponse('PUT', '/subscription/foo-bar-baz', array('ok' => 'ok'))
-        ));
+            $this->createResponse('PUT', '/subscription/foo-bar-baz', ['ok' => 'ok'])
+        ]);
 
         $s = $this->createSubscription($sdk);
 
-        $s->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
-        $s->register(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        $s->register(['events' => ['/restapi/v1.0/account/~/extension/1/presence']]);
+        $s->register(['events' => ['/restapi/v1.0/account/~/extension/1/presence']]);
 
-        $this->assertEquals(array('ok' => 'ok'), $s->subscription());
+        $this->assertEquals(['ok' => 'ok'], $s->subscription());
 
     }
 
     public function testRemove()
     {
 
-        $sdk = $this->getSDK(array(
+        $sdk = $this->getSDK([
             $this->subscriptionMock(),
-            $this->createResponse('DELETE', '/subscription/foo-bar-baz', array('ok' => 'ok'))
-        ));
+            $this->createResponse('DELETE', '/subscription/foo-bar-baz', ['ok' => 'ok'])
+        ]);
 
         $s = $this->createSubscription($sdk);
-        $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        $s->subscribe(['events' => ['/restapi/v1.0/account/~/extension/1/presence']]);
         $s->remove();
 
         $this->assertEquals(null, $s->subscription());
@@ -269,13 +269,13 @@ class SubscriptionTest extends TestCase
     public function testRemoveError()
     {
 
-        $sdk = $this->getSDK(array(
+        $sdk = $this->getSDK([
             $this->subscriptionMock(),
-            $this->createResponse('DELETE', '/subscription/foo-bar-baz', array('message' => 'Expected Error'), 400)
-        ));
+            $this->createResponse('DELETE', '/subscription/foo-bar-baz', ['message' => 'Expected Error'], 400)
+        ]);
 
         $s = $this->createSubscription($sdk);
-        $s->subscribe(array('events' => array('/restapi/v1.0/account/~/extension/1/presence')));
+        $s->subscribe(['events' => ['/restapi/v1.0/account/~/extension/1/presence']]);
         $s->remove();
 
     }
