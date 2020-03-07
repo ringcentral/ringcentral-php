@@ -16,7 +16,7 @@
     "php": ">=7.1",
     "guzzlehttp/psr7": "^1.4.2",
     "pubnub/pubnub": "^4.0.0",
-    "symfony/event-dispatcher": "^2|^3|^4",
+    "symfony/event-dispatcher": "^2|^3|^4|^5",
     "guzzlehttp/guzzle": "^6.3.3"
   },
   "suggest": {
