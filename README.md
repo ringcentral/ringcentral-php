@@ -102,7 +102,7 @@ Platform class performs token refresh procedure if needed. You can save authenti
 file_put_contents($file, json_encode($rcsdk->platform()->auth()->data(), JSON_PRETTY_PRINT));
 
 // and then next time during application bootstrap before any authentication checks:
-$rcsdk->platform()->auth->setData(json_decode(file_get_contents($file), true);
+$rcsdk->platform()->auth->setData(json_decode(file_get_contents($file), true));
 ```
 
 **Important!** You have to manually maintain synchronization of SDK's between requests if you share authentication.
