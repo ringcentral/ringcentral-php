@@ -241,14 +241,14 @@ class Subscription extends EventDispatcher
 
             //TODO Subscription renewal when everything will become async
 
-            $this->dispatch(self::EVENT_SUBSCRIBE_SUCCESS, new SuccessEvent($response));
+            $this->dispatch(new SuccessEvent($response), self::EVENT_SUBSCRIBE_SUCCESS);
 
             return $response;
 
         } catch (Exception $e) {
 
             $this->reset();
-            $this->dispatch(self::EVENT_SUBSCRIBE_ERROR, new ErrorEvent($e));
+            $this->dispatch(new ErrorEvent($e), self::EVENT_SUBSCRIBE_ERROR);
             throw $e;
 
         }
@@ -281,14 +281,14 @@ class Subscription extends EventDispatcher
 
             $this->setSubscription($response->jsonArray());
 
-            $this->dispatch(self::EVENT_RENEW_SUCCESS, new SuccessEvent($response));
+            $this->dispatch(new SuccessEvent($response), self::EVENT_RENEW_SUCCESS);
 
             return $this;
 
         } catch (Exception $e) {
 
             $this->reset();
-            $this->dispatch(self::EVENT_RENEW_ERROR, new ErrorEvent($e));
+            $this->dispatch(new ErrorEvent($e), self::EVENT_RENEW_ERROR);
             throw $e;
 
         }
@@ -313,14 +313,14 @@ class Subscription extends EventDispatcher
 
             $this->reset();
 
-            $this->dispatch(self::EVENT_REMOVE_SUCCESS, new SuccessEvent($response));
+            $this->dispatch(new SuccessEvent($response), self::EVENT_REMOVE_SUCCESS);
 
             return $response;
 
         } catch (Exception $e) {
 
             $this->reset();
-            $this->dispatch(self::EVENT_REMOVE_ERROR, new ErrorEvent($e));
+            $this->dispatch(new ErrorEvent($e), self::EVENT_REMOVE_ERROR);
             throw $e;
 
         }
@@ -449,7 +449,7 @@ class Subscription extends EventDispatcher
         $message = $pubnubMessage->getMessage();
         $message = $this->decrypt($message);
         //print 'Message received: ' . $message . PHP_EOL;
-        $this->dispatch(self::EVENT_NOTIFICATION, new NotificationEvent($message));
+        $this->dispatch(new NotificationEvent($message), self::EVENT_NOTIFICATION);
         return $this->_keepPolling;
     }
 

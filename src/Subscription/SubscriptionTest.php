@@ -126,12 +126,11 @@ class SubscriptionTest extends TestCase
 
     }
 
-    /**
-     * @expectedException \RingCentral\SDK\Http\ApiException
-     * @expectedExceptionMessage Expected Error
-     */
     public function testSubscribeErrorWithEvents()
     {
+
+        $this->expectException(\RingCentral\SDK\Http\ApiException::class);
+        $this->expectExceptionMessage('Expected Error');
 
         $sdk = $this->getSDK([
             $this->createResponse('POST', '/subscription', ['message' => 'Expected Error'], 400)
@@ -211,12 +210,11 @@ class SubscriptionTest extends TestCase
 
     }
 
-    /**
-     * @expectedException \RingCentral\SDK\Http\ApiException
-     * @expectedExceptionMessage Expected Error
-     */
     public function testRenewError()
     {
+
+        $this->expectException(\RingCentral\SDK\Http\ApiException::class);
+        $this->expectExceptionMessage('Expected Error');
 
         $sdk = $this->getSDK([
             $this->subscriptionMock(),
@@ -262,12 +260,10 @@ class SubscriptionTest extends TestCase
 
     }
 
-    /**
-     * @expectedException \RingCentral\SDK\Http\ApiException
-     * @expectedExceptionMessage Expected Error
-     */
     public function testRemoveError()
     {
+        $this->expectException(\RingCentral\SDK\Http\ApiException::class);
+        $this->expectExceptionMessage('Expected Error');
 
         $sdk = $this->getSDK([
             $this->subscriptionMock(),

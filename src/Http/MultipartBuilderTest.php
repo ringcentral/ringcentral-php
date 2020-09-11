@@ -9,7 +9,7 @@ class MultipartBuilderTest extends TestCase
 
     private $fname;
 
-    public function setup()
+    public function setup(): void
     {
 
         $this->fname = tempnam('/tmp', 'tfile') . '.txt';
@@ -22,7 +22,7 @@ class MultipartBuilderTest extends TestCase
 
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
 
         if (file_exists($this->fname)) {
@@ -62,12 +62,11 @@ class MultipartBuilderTest extends TestCase
 
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage File name was not provided and cannot be auto-discovered
-     */
     public function testContentPlainTextWithNoName()
     {
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('File name was not provided and cannot be auto-discovered');
 
         $builder = new MultipartBuilder();
 
@@ -114,12 +113,11 @@ class MultipartBuilderTest extends TestCase
 
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage File name was not provided and cannot be auto-discovered
-     */
     public function testStreamWithNoName()
     {
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('File name was not provided and cannot be auto-discovered');
 
         $builder = new MultipartBuilder();
 
@@ -129,12 +127,11 @@ class MultipartBuilderTest extends TestCase
 
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Content-Type header was not provided and cannot be auto-discovered
-     */
     public function testStreamWithUnknownExtension()
     {
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Content-Type header was not provided and cannot be auto-discovered');
 
         $builder = new MultipartBuilder();
 

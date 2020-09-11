@@ -67,12 +67,10 @@ class ApiResponseTest extends TestCase
 
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage JSON Error: Syntax error, malformed JSON
-     */
     public function testMultipartCorruptedResponse()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('JSON Error: Syntax error, malformed JSON');
 
         $badMultipartMixedResponse =
             "Content-Type: multipart/mixed; boundary=Boundary_1245_945802293_1394135045248\n" .
@@ -92,24 +90,20 @@ class ApiResponseTest extends TestCase
 
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Response is not multipart
-     */
     public function testMultipartOnNotAMultipartResponse()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Response is not multipart');
 
         $r3 = new ApiResponse(null, ApiResponse::createResponse("Content-Type: text/plain\n\nWhatever", 207));
         $r3->multipart();
 
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Boundary not found
-     */
     public function testMultipartWitoutBoundary()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Boundary not found');
 
         $response =
             "Content-Type: multipart/mixed\n" .
@@ -142,36 +136,31 @@ class ApiResponseTest extends TestCase
 
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Response is not JSON
-     */
     public function testGetJsonWithNotJSON()
     {
+
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Response is not JSON');
 
         $r = new ApiResponse(null, ApiResponse::createResponse("content-type: application/not-a-json\n\nfoo", 200));
         $r->json();
 
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage JSON Error: Syntax error, malformed JSON
-     */
     public function testGetJsonWithCorruptedJSON()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('JSON Error: Syntax error, malformed JSON');
 
         $r = new ApiResponse(null, ApiResponse::createResponse("content-type: application/json\n\n{\"foo\";\"bar\"}", 200));
         $r->json();
 
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage JSON Error: Result is empty after parsing
-     */
     public function testGetJsonWithEmptyJSON()
     {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('JSON Error: Result is empty after parsing');
 
         $r = new ApiResponse(null, ApiResponse::createResponse("content-type: application/json\n\nnull", 200));
         $r->json();
