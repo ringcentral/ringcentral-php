@@ -17,12 +17,11 @@ class PlatformTest extends TestCase
 
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Refresh token has expired
-     */
     public function testRefreshWithOutdatedToken()
     {
+
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Refresh token has expired');
 
         $sdk = $this->getSDK();
 
@@ -110,8 +109,8 @@ class PlatformTest extends TestCase
         $this->assertEquals($request->getHeaderLine('User-Agent'), $request->getHeaderLine('RC-User-Agent'));
 
         $this->assertTrue(!!$request->getHeaderLine('User-Agent'));
-        $this->assertContains('RCPHPSDK/' . SDK::VERSION, $request->getHeaderLine('User-Agent'));
-        $this->assertContains('SDKTests/' . SDK::VERSION, $request->getHeaderLine('User-Agent'));
+        $this->assertStringContainsString('RCPHPSDK/' . SDK::VERSION, $request->getHeaderLine('User-Agent'));
+        $this->assertStringContainsString('SDKTests/' . SDK::VERSION, $request->getHeaderLine('User-Agent'));
 
     }
 
