@@ -1,10 +1,11 @@
 dist: trusty
 language: php
 php:
+  - 8.0
+  - 8.1
   - 7.4
   - 7.3
   - 7.2
-  - 7.1.18
 before_script:
   - composer update
   - composer install --prefer-dist --no-interaction
