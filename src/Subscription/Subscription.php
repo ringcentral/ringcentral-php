@@ -469,7 +469,7 @@ class Subscription extends EventDispatcher
 
         if ($this->_subscription['deliveryMode']['encryption'] && $this->_subscription['deliveryMode']['encryptionKey']) {
 
-            $aes = new PubNubCrypto($this->_subscription['deliveryMode']['encryptionKey']);
+            $aes = new PubNubCrypto($this->_subscription['deliveryMode']['encryptionKey'], false);
 
             $message = $aes->unPadPKCS7(
                 openssl_decrypt(
