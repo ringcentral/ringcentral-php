@@ -267,7 +267,7 @@ class ApiResponse
             $body = "HTTP/1.1 " . $status . " Foo\r\n" . $body;
         }
 
-        $response = \GuzzleHttp\Psr7\parse_response((string)$body);
+        $response = \GuzzleHttp\Psr7\Message::parseResponse((string)$body);
 
         return $response->withStatus($status);
 

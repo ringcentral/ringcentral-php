@@ -106,7 +106,7 @@ class MultipartBuilderTest extends TestCase
 
         $builder->setBody(['to' => ['phoneNumber' => 'foo'], 'faxResolution' => 'High'])
                 ->setBoundary('boundary')
-                ->add(\GuzzleHttp\Psr7\stream_for('streamed'), 'streamed.txt')
+                ->add(\GuzzleHttp\Psr7\Utils::streamFor('streamed'), 'streamed.txt')
                 ->add(new Stream(fopen($this->fname, 'r')));
 
         $this->assertEquals($expected, (string)$builder->request('/fax')->getBody());
@@ -123,7 +123,7 @@ class MultipartBuilderTest extends TestCase
 
         $builder->setBody(['to' => ['phoneNumber' => 'foo'], 'faxResolution' => 'High'])
                 ->setBoundary('boundary')
-                ->add(\GuzzleHttp\Psr7\stream_for('streamed'));
+                ->add(\GuzzleHttp\Psr7\Utils::streamFor('streamed'));
 
     }
 
@@ -137,7 +137,7 @@ class MultipartBuilderTest extends TestCase
 
         $builder->setBody(['to' => ['phoneNumber' => 'foo'], 'faxResolution' => 'High'])
                 ->setBoundary('boundary')
-                ->add(\GuzzleHttp\Psr7\stream_for('streamed'), 'streamed');
+                ->add(\GuzzleHttp\Psr7\Utils::streamFor('streamed'), 'streamed');
 
     }
 

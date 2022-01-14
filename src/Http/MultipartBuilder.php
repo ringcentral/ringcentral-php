@@ -112,7 +112,7 @@ class MultipartBuilder
 
             } elseif ($content instanceof StreamInterface) {
 
-                $type = \GuzzleHttp\Psr7\mimetype_from_filename($basename);
+                $type = \GuzzleHttp\Psr7\MimeType::fromFilename($basename);
 
                 if (!$type) {
                     throw new \InvalidArgumentException('Content-Type header was not provided and cannot be auto-discovered');
