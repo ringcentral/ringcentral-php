@@ -143,6 +143,8 @@ class Platform
      *                           'brandId'     => (string)
      *                           'display'     => (string)
      *                           'prompt'      => (string)
+     *                           'code_challenge'         => (string) Used to facilitate PKCE auth flows
+     *                           'code_challenge_method'  => (string) Used to facilitate PKCE auth flows
      *                           ]
      * @return string
      */
@@ -151,13 +153,15 @@ class Platform
 
         return $this->createUrl(self::AUTHORIZE_ENDPOINT . '?' . http_build_query(
                 [
-                    'response_type' => 'code',
-                    'redirect_uri'  => $options['redirectUri'] ? $options['redirectUri'] : null,
-                    'client_id'     => $this->_clientId,
-                    'state'         => $options['state'] ? $options['state'] : null,
-                    'brand_id'      => $options['brandId'] ? $options['brandId'] : null,
-                    'display'       => $options['display'] ? $options['display'] : null,
-                    'prompt'        => $options['prompt'] ? $options['prompt'] : null
+                    'response_type'  => 'code',
+                    'redirect_uri'   => $options['redirectUri'] ? $options['redirectUri'] : null,
+                    'client_id'      => $this->_clientId,
+                    'state'          => $options['state'] ? $options['state'] : null,
+                    'brand_id'       => $options['brandId'] ? $options['brandId'] : null,
+                    'display'        => $options['display'] ? $options['display'] : null,
+                    'prompt'         => $options['prompt'] ? $options['prompt'] : null,
+                    'code_challenge' => $options['code_challenge'] ? $options['code_challenge'] : null,
+                    'code_challenge_method' => $options['code_challenge_method'] ? $options['code_challenge_method'] : null
                 ]), [
             'addServer' => 'true'
         ]);
@@ -202,6 +206,15 @@ class Platform
             'access_token_ttl'  => self::ACCESS_TOKEN_TTL,
             'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
 
+            ] + (!empty($options['codeVerifier']) ? [ 'code_verifier' => $options['codeVerifier'] ] : [])
+	
+	) : !empty($options['jwt']) ? $this->requestToken(self::TOKEN_ENDPOINT, [
+
+            'grant_type'        => 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+            'assertion'         => $options['jwt'],
+            'access_token_ttl'  => self::ACCESS_TOKEN_TTL,
+            'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
+
         ]) : $this->requestToken(self::TOKEN_ENDPOINT, [
 
             'grant_type'        => 'password',
@@ -211,7 +224,7 @@ class Platform
             'access_token_ttl'  => self::ACCESS_TOKEN_TTL,
             'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
 
-        ]);
+	]);
 
         $this->_auth->setData($response->jsonArray());
 
