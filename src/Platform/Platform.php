@@ -208,7 +208,7 @@ class Platform
 
             ] + (!empty($options['codeVerifier']) ? [ 'code_verifier' => $options['codeVerifier'] ] : [])
 	
-	) : !empty($options['jwt']) ? $this->requestToken(self::TOKEN_ENDPOINT, [
+	) : (!empty($options['jwt']) ? $this->requestToken(self::TOKEN_ENDPOINT, [
 
             'grant_type'        => 'urn:ietf:params:oauth:grant-type:jwt-bearer',
             'assertion'         => $options['jwt'],
@@ -224,7 +224,7 @@ class Platform
             'access_token_ttl'  => self::ACCESS_TOKEN_TTL,
             'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
 
-	]);
+	]));
 
         $this->_auth->setData($response->jsonArray());
 
