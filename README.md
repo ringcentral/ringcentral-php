@@ -12,7 +12,7 @@ __[Voice](https://developer.ringcentral.com/api-products/voice), [SMS/MMS](https
 
 # Requirements
 
-- PHP 5.6+
+- PHP 7.2+
 - CURL extension
 - MCrypt extension
 
