@@ -78,7 +78,7 @@ class PlatformTest extends TestCase
 	   'state' => 'bar',
 	   'client_id' => 'baz'
 	));
-	$this->assertEquals( $url, "https://platform.ringcentral.com/restapi/oauth/authorize?redirect_uri=foo&client_id=baz&state=bar" );
+	$this->assertEquals( $url, "https://whatever/restapi/oauth/authorize?response_type=code&redirect_uri=foo&client_id=whatever&state=bar" );
     }
     
     public function testApiUrl()
