@@ -8,6 +8,8 @@ use RingCentral\SDK\Subscription\Events\SuccessEvent;
 use RingCentral\SDK\Subscription\Subscription;
 use RingCentral\SDK\Test\TestCase;
 use PubNub\Models\Consumer\PubSub\PNMessageResult;
+use PubNub\PNConfiguration;
+use PubNub\PubNub;
 
 class SubscriptionTest extends TestCase
 {
@@ -292,6 +294,8 @@ class SubscriptionTest extends TestCase
     {
         $sdk = $this->getSDK();
         $s = $this->createSubscription($sdk);
+        $pnconf = new PNConfiguration();
+        $s->_pubnub = new PubNub($pnconf);
 	$pn = $s->pubnub();
 	$this->assertNotNull($pn);
     }
