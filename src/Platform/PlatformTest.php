@@ -73,7 +73,7 @@ class PlatformTest extends TestCase
     public function testAuthUrl()
     {
         $sdk = $this->getSDK();
-	$url = $sdk->authUrl(array(
+	$url = $sdk->platform()->authUrl(array(
 	   'redirectUri' => 'foo',
 	   'state' => 'bar',
 	   'client_id' => 'baz'
