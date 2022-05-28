@@ -70,6 +70,17 @@ class PlatformTest extends TestCase
 
     }
 
+    public function testAuthUrl()
+    {
+        $sdk = $this->getSDK();
+	$url = $sdk->authUrl(array(
+	   'redirectUri' => 'foo',
+	   'state' => 'bar',
+	   'client_id' => 'baz'
+	));
+	$this->assertEquals( $url, "https://platform.ringcentral.com/restapi/oauth/authorize?redirect_uri=foo&client_id=baz&state=bar" );
+    }
+    
     public function testApiUrl()
     {
 
