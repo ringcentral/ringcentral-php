@@ -290,14 +290,14 @@ class SubscriptionTest extends TestCase
 
     }
 
-    public function testGetPubnub()
+    public function testGetNullPubnub()
     {
         $sdk = $this->getSDK();
         $s = $this->createSubscription($sdk);
-        $pnconf = new PNConfiguration();
-        $s->_pubnub = new PubNub($pnconf);
+	//$pnconf = new PNConfiguration();
+        //$s->_pubnub = new PubNub($pnconf);
 	$pn = $s->pubnub();
-	$this->assertNotNull($pn);
+	$this->assertNull($pn);
     }
 
 }
