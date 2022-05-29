@@ -150,18 +150,17 @@ class Platform
      */
     public function authUrl($options)
     {
-
         return $this->createUrl(self::AUTHORIZE_ENDPOINT . '?' . http_build_query(
                 [
-                    'response_type'  => 'code',
-                    'redirect_uri'   => $options['redirectUri'] ? $options['redirectUri'] : null,
-                    'client_id'      => $this->_clientId,
-                    'state'          => $options['state'] ? $options['state'] : null,
-                    'brand_id'       => $options['brandId'] ? $options['brandId'] : null,
-                    'display'        => $options['display'] ? $options['display'] : null,
-                    'prompt'         => $options['prompt'] ? $options['prompt'] : null,
-                    'code_challenge' => $options['code_challenge'] ? $options['code_challenge'] : null,
-                    'code_challenge_method' => $options['code_challenge_method'] ? $options['code_challenge_method'] : null
+                    'response_type'         => 'code',
+                    'redirect_uri'          => $options['redirectUri'] ? $options['redirectUri'] : null,
+                    'client_id'             => $this->_clientId,
+                    'state'                 => array_key_exists('state',$options) ? $options['state'] : null,
+                    'brand_id'              => array_key_exists('brandId',$options) ? $options['brandId'] : null,
+                    'display'               => array_key_exists('display',$options) ? $options['display'] : null,
+                    'prompt'                => array_key_exists('prompt',$options) ? $options['prompt'] : null,
+                    'code_challenge'        => array_key_exists('code_challenge',$options) ? $options['code_challenge'] : null,
+                    'code_challenge_method' => array_key_exists('code_challenge_method',$options) ? $options['code_challenge_method'] : null
                 ]), [
             'addServer' => 'true'
         ]);

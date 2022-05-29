@@ -70,6 +70,17 @@ class PlatformTest extends TestCase
 
     }
 
+    public function testAuthUrl()
+    {
+        $sdk = $this->getSDK();
+	$url = $sdk->platform()->authUrl(array(
+	   'redirectUri' => 'foo',
+	   'state' => 'bar',
+	   'client_id' => 'baz'
+	));
+	$this->assertEquals( $url, "https://whatever/restapi/oauth/authorize?response_type=code&redirect_uri=foo&client_id=whatever&state=bar" );
+    }
+    
     public function testApiUrl()
     {
 
