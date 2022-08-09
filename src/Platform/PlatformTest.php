@@ -96,6 +96,21 @@ class PlatformTest extends TestCase
         );
 
         $this->assertEquals(
+            'https://whatever/rcvideo/v2/account/~/extension/~/bridges',
+            $sdk->platform()->createUrl('/rcvideo/v2/account/~/extension/~/bridges')
+        );
+
+        $this->assertEquals(
+            'https://whatever/scim/v2/ServiceProviderConfig',
+            $sdk->platform()->createUrl('/scim/v2/ServiceProviderConfig')
+        );
+
+        $this->assertEquals(
+            'https://whatever/analytics/phone/performance/v1/accounts/accountId/calls/aggregate',
+            $sdk->platform()->createUrl('/analytics/phone/performance/v1/accounts/accountId/calls/aggregate')
+        );
+
+        $this->assertEquals(
             'https://foo/account/~/extension/~?_method=POST&access_token=ACCESS_TOKEN',
             $sdk->platform()->createUrl('https://foo/account/~/extension/~', [
                 'addServer' => true,

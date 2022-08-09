@@ -19,6 +19,12 @@ class Platform
     const AUTHORIZE_ENDPOINT = '/restapi/oauth/authorize';
     const API_VERSION = 'v1.0';
     const URL_PREFIX = '/restapi';
+    const KNOWN_PREFIXES = array(
+       URL_PREFIX,
+       '/rcvideo',
+       '/analytics',
+       '/scim'
+    );
 
     /** @var string */
     protected $_server;
@@ -96,7 +102,11 @@ class Platform
             $builtUrl .= $this->_server;
         }
 
-        if (!stristr($path, self::URL_PREFIX) && !$hasHttp) {
+        if (!array_reduce(self::KNOWN_PREFIXES,
+                          function ($result, $key) use($path) {
+			    if ($result) { return $result; } else { return str_starts_with( $path, $key ); }
+                          },
+                          FALSE) and !$hasHttp) {
             $builtUrl .= self::URL_PREFIX . '/' . self::API_VERSION;
         }
 
