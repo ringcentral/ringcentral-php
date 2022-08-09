@@ -83,7 +83,6 @@ class PlatformTest extends TestCase
     
     public function testApiUrl()
     {
-
         $sdk = $this->getSDK();
 
         $this->assertEquals(
@@ -96,18 +95,31 @@ class PlatformTest extends TestCase
         );
 
         $this->assertEquals(
+            'https://whatever/restapi/v1.0/account/~/extension/~',
+            $sdk->platform()->createUrl('/account/~/extension/~', [
+                'addServer' => true
+	    ])
+        );
+	
+        $this->assertEquals(
             'https://whatever/rcvideo/v2/account/~/extension/~/bridges',
-            $sdk->platform()->createUrl('/rcvideo/v2/account/~/extension/~/bridges')
+	    $sdk->platform()->createUrl('/rcvideo/v2/account/~/extension/~/bridges', [
+                'addServer' => true
+            ])
         );
 
         $this->assertEquals(
             'https://whatever/scim/v2/ServiceProviderConfig',
-            $sdk->platform()->createUrl('/scim/v2/ServiceProviderConfig')
+            $sdk->platform()->createUrl('/scim/v2/ServiceProviderConfig', [
+                'addServer' => true
+            ])
         );
 
         $this->assertEquals(
             'https://whatever/analytics/phone/performance/v1/accounts/accountId/calls/aggregate',
-            $sdk->platform()->createUrl('/analytics/phone/performance/v1/accounts/accountId/calls/aggregate')
+            $sdk->platform()->createUrl('/analytics/phone/performance/v1/accounts/accountId/calls/aggregate', [
+                'addServer' => true
+            ])
         );
 
         $this->assertEquals(

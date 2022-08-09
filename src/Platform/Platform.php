@@ -98,15 +98,15 @@ class Platform
         $builtUrl = '';
         $hasHttp = stristr($path, 'http://') || stristr($path, 'https://');
 
-        if (!empty($options['addServer']) && !$hasHttp) {
+        if (!empty($options['addServer']) && $options['addServer'] == TRUE && !$hasHttp) {
             $builtUrl .= $this->_server;
         }
-
+	
         if (!array_reduce(self::KNOWN_PREFIXES,
                           function ($result, $key) use($path) {
 			    if ($result) { return $result; } else { return str_starts_with( $path, $key ); }
                           },
-                          FALSE) and !$hasHttp) {
+                          FALSE) && !$hasHttp) {
             $builtUrl .= self::URL_PREFIX . '/' . self::API_VERSION;
         }
 
