@@ -20,7 +20,7 @@ class Platform
     const API_VERSION = 'v1.0';
     const URL_PREFIX = '/restapi';
     const KNOWN_PREFIXES = array(
-       URL_PREFIX,
+       self::URL_PREFIX,
        '/rcvideo',
        '/analytics',
        '/scim'
