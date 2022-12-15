@@ -23,6 +23,7 @@ class Platform
        self::URL_PREFIX,
        '/rcvideo',
        '/analytics',
+       '/ai',
        '/scim'
     );
 

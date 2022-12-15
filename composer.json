@@ -44,7 +44,7 @@
       "include-dev": false
     }
   },
-  "description": "RingCentral Connect Platform PHP SDK",
+  "description": "RingCentral Platform PHP SDK",
   "keywords": [
     "php",
     "sdk",
@@ -61,8 +61,8 @@
       "email": "kirill.konshin@ringcentral.com"
     },
     {
-      "name": "RingCentral, Inc.",
-      "email": "devsupport@ringcentral.com"
+      "name": "Byrne Reese",
+      "email": "byrne.reese@ringcentral.com"
     }
   ]
 }
