@@ -162,8 +162,7 @@ class Client
             $headers['content-type'] = $contentType;
         }
 
-        if (!$accept) {
-            $accept = 'application/json';
+        if ($accept) {
             $headers['accept'] = $accept;
         }
 
