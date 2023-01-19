@@ -68,4 +68,28 @@ class ClientTest extends TestCase
 
     }
 
+    public function testNoAccept()
+    {
+
+        $client = new Client($this->createGuzzle());
+
+        $r = $client->createRequest('POST', 'http://whatever', null, 'foo-encoded-text',
+            []);
+
+        $this->assertEquals(0, count($r->getHeader('Accept')));
+
+    }
+
+    public function testAccept()
+    {
+
+        $client = new Client($this->createGuzzle());
+
+        $r = $client->createRequest('POST', 'http://whatever', null, 'foo-encoded-text',
+            ['accept' => 'application/text']);
+
+        $this->assertEquals(1, count($r->getHeader('Accept')));
+        $this->assertEquals('application/text', $r->getHeader('Accept')[0]);
+
+    }
 }
