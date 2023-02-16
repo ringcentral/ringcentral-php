@@ -21,7 +21,9 @@ class Platform
     const URL_PREFIX = '/restapi';
     const KNOWN_PREFIXES = array(
        self::URL_PREFIX,
-       '/rcvideo',
+       '/rcvideo', '/video',
+       '/webinar',
+       '/team-messaging',
        '/analytics',
        '/ai',
        '/scim'

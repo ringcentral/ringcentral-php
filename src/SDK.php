@@ -12,7 +12,7 @@ use RingCentral\SDK\Subscription\Subscription;
 class SDK
 {
 
-    const VERSION = '2.3.4';
+    const VERSION = '2.3.5';
     const SERVER_PRODUCTION = 'https://platform.ringcentral.com';
     const SERVER_SANDBOX = 'https://platform.devtest.ringcentral.com';
 
