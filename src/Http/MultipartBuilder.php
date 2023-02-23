@@ -73,7 +73,7 @@ class MultipartBuilder
 
         }
 
-        $basename = basename($uri);
+        $basename = basename($uri ? '');
 
         if (empty($basename)) {
             throw new \InvalidArgumentException('File name was not provided and cannot be auto-discovered');
