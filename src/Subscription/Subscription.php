@@ -398,6 +398,7 @@ class Subscription extends EventDispatcher
         }
 
         $pnconf = new PNConfiguration();
+        $pnconf->setUserId("ringcentral-php");
 
         $pnconf->setSubscribeKey($this->_subscription['deliveryMode']['subscriberKey']);
         $pnconf->setPublishKey('convince-pubnub-its-okay');
