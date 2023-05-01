@@ -398,8 +398,8 @@ class Subscription extends EventDispatcher
         }
 
         $pnconf = new PNConfiguration();
-        $pnconf->setUuid("ringcentral-php");
 
+        $pnconf->setUuid($this->_platform->auth()->data()['owner_id']);
         $pnconf->setSubscribeKey($this->_subscription['deliveryMode']['subscriberKey']);
         $pnconf->setPublishKey('convince-pubnub-its-okay');
         $pnconf->setSubscribeTimeout(self::SUBSCRIBE_TIMEOUT);
