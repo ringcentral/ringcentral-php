@@ -52,7 +52,7 @@ class MultipartBuilder
     public function add($content, $filename = '', array $headers = [], $name = '')
     {
 
-        $uri = null;
+        $uri = '';
 
         if (!empty($filename)) {
 
