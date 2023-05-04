@@ -19,6 +19,7 @@ jobs:
           php-version: ${{ matrix.php-version }}
           coverage: pcov
           tools: composer:v2
+          ini-values: phar.readonly=0
       - name: Composer update
         run: composer update
       - name: Install dependencies
