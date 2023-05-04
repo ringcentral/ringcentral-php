@@ -29,10 +29,9 @@ jobs:
       - name: Build phar
         run: composer phar
       - name: Coveralls
-        uses: coverallsapp/github-action@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: ./dist/coverage/lcov.info
+        run: composer coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
       - name: Release
         if: matrix.php-version == '7.4' && startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
