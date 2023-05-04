@@ -32,6 +32,7 @@ jobs:
         uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: ./dist/coverage/lcov.info
       - name: Release
         if: matrix.php-version == '7.4' && startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
