@@ -448,7 +448,7 @@ class Platform
      */
     protected function requestToken($path = '', $body = [])
     {
-        if (isset($body['grant_type']) && $body['grant_type'] == 'password') {
+        if (!empty($body['grant_type']) && $body['grant_type'] == 'password') {
             trigger_error(
                 'Username/password authentication is deprecated. Please migrate to the JWT grant type.',
                 E_USER_DEPRECATED
