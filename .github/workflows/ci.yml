@@ -28,10 +28,12 @@ jobs:
         run: composer test
       - name: Build phar
         run: composer phar
-      - name: Coveralls
-        run: composer coveralls
+      - name: Upload coverage results to Coveralls
         env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          composer global require php-coveralls/php-coveralls
+          php-coveralls --coverage_clover=dist/coverage/clover.xml -v
       - name: Release
         if: matrix.php-version == '7.4' && startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1

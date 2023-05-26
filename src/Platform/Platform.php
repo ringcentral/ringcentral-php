@@ -104,7 +104,7 @@ class Platform
         if (!empty($options['addServer']) && $options['addServer'] == TRUE && !$hasHttp) {
             $builtUrl .= $this->_server;
         }
-	
+
         if (!array_reduce(self::KNOWN_PREFIXES,
                           function ($result, $key) use($path) {
 			    if ($result) { return $result; } else { return str_starts_with( $path, $key ); }
@@ -219,7 +219,7 @@ class Platform
             'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
 
             ] + (!empty($options['codeVerifier']) ? [ 'code_verifier' => $options['codeVerifier'] ] : [])
-	
+
 	) : (!empty($options['jwt']) ? $this->requestToken(self::TOKEN_ENDPOINT, [
 
             'grant_type'        => 'urn:ietf:params:oauth:grant-type:jwt-bearer',
@@ -448,7 +448,12 @@ class Platform
      */
     protected function requestToken($path = '', $body = [])
     {
-
+        if (!empty($body['grant_type']) && $body['grant_type'] == 'password') {
+            trigger_error(
+                'Username/password authentication is deprecated. Please migrate to the JWT grant type.',
+                E_USER_DEPRECATED
+            );
+        }
         $headers = [
             'Authorization' => 'Basic ' . $this->apiKey(),
             'Content-Type'  => 'application/x-www-form-urlencoded'
