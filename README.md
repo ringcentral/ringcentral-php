@@ -86,10 +86,20 @@ Check authentication status:
 $rcsdk->platform()->loggedIn();
 ```
 
-Authenticate user:
+Authenticate user with jwt:
 
 ```php
-$rcsdk->platform()->login('username', 'extension (or leave blank)', 'password');
+$rcsdk->platform()->login([
+    'jwt': 'your_jwt_token'
+]);
+```
+
+Authenticate user with authorization code:
+
+```php
+$rcsdk->platform()->login([
+    'code': 'authorization code from RingCentral login redirect uri'
+]);
 ```
 
 ### Authentication lifecycle
@@ -206,15 +216,49 @@ $apiResponse = $rcsdk->platform()->post('/subscription', array(
 
 When webhook subscription is created, it will send a request with `validation-token` in headers to webhook address. Webhook address should return a success request with `validation-token` in headers to finish webhook register.
 
+## WebSocket Subscriptions
+
+```php
+use RingCentral\SDK\WebSocket\WebSocket;
+use RingCentral\SDK\WebSocket\Subscription;
+use RingCentral\SDK\WebSocket\Events\NotificationEvent;
+
+// connect websocket
+$websocket = $rcsdk->initWebSocket();
+$websocket->addListener(WebSocket::EVENT_READY, function (SuccessEvent $e) {
+    print 'Websocket Ready' . PHP_EOL;
+    print 'Connection Details' . print_r($e->apiResponse()->body(), true) . PHP_EOL;
+});
+$websocket->addListener(WebSocket::EVENT_ERROR, function (ErrorEvent $e) {
+    print 'Websocket Error' . PHP_EOL;
+});
+$websocket->connect();
+
+// create subscription
+$subscription = $rcsdk->createSubscription();
+$subscription->addEvents(array(
+    '/restapi/v1.0/account/~/extension/~/presence',
+    '/restapi/v1.0/account/~/extension/~/message-store/instant?type=SMS'
+));
+$subscription->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
+    print 'Notification ' . print_r($e->payload(), true) . PHP_EOL;
+});
+$subscription->register();
+```
+
+We need to create websocket connection before creating subscription. When websocket connection get error, need to re-created websocket and subscription manually.
+
 ## PubNub Subscriptions
+
+This is **deprecated**, please use WebSocket Subscription.
 
 ```php
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
-use RingCentral\SDK\Subscription\Subscription;
+use RingCentral\SDK\Subscription\PubnubSubscription;
 
-$subscription = $rcsdk->createSubscription();
+$subscription = $rcsdk->createSubscription('Pubnub);
 $subscription->addEvents(array('/restapi/v1.0/account/~/extension/~/presence'))
-$subscription->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
+$subscription->addListener(PubnubSubscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
     print_r($e->payload());
 });
 $subscription->setKeepPolling(true);

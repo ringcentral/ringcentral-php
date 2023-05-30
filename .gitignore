@@ -6,3 +6,4 @@ demo/_credentials[0-9].json
 dist
 vendor
 .phpunit.result.cache
+.DS_Store

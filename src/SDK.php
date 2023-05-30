@@ -2,12 +2,15 @@
 
 namespace RingCentral\SDK;
 
+use Exception;
 use GuzzleHttp\Client as GuzzleClient;
 use RingCentral\SDK\Http\Client;
 use RingCentral\SDK\Http\Client as HttpClient;
 use RingCentral\SDK\Http\MultipartBuilder;
 use RingCentral\SDK\Platform\Platform;
-use RingCentral\SDK\Subscription\Subscription;
+use RingCentral\SDK\Subscription\PubnubSubscription;
+use RingCentral\SDK\WebSocket\WebSocket;
+use RingCentral\SDK\WebSocket\Subscription as WebSocketSubscription;
 
 class SDK
 {
@@ -21,6 +24,9 @@ class SDK
 
     /** @var Platform */
     protected $_platform;
+
+    /** @var WebSocket */
+    protected $_websocket;
 
     /** @var HttpClient */
     protected $_guzzle;
@@ -66,11 +72,17 @@ class SDK
     }
 
     /**
-     * @return Subscription
+     * @return PubnubSubscription | WebSocketSubscription
      */
-    public function createSubscription()
+    public function createSubscription(string $type = 'WebSocket')
     {
-        return new Subscription($this->_platform);
+        if ($type == 'Pubnub') {
+            return new PubnubSubscription($this->_platform);
+        }
+        if (empty($this->websocket())) {
+            throw new \Exception('WebSocket is not initialized');
+        }
+        return new WebSocketSubscription($this->platform(), $this->websocket());
     }
 
     /**
@@ -81,4 +93,27 @@ class SDK
         return new MultipartBuilder();
     }
 
+    /**
+     * @return WebSocket
+     */
+    public function initWebSocket()
+    {
+        if (!$this->_websocket) {
+            $this->_websocket = new WebSocket($this->_platform);
+        }
+        return $this->_websocket;
+    }
+
+    public function disconnectWebSocket()
+    {
+        if ($this->_websocket) {
+            $this->_websocket->close();
+        }
+        $this->_websocket = null;
+    }
+
+    public function websocket()
+    {
+        return $this->_websocket;
+    }
 }

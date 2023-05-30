@@ -5,7 +5,7 @@ use RingCentral\SDK\SDK;
 use RingCentral\SDK\Subscription\Events\ErrorEvent;
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
 use RingCentral\SDK\Subscription\Events\SuccessEvent;
-use RingCentral\SDK\Subscription\Subscription;
+use RingCentral\SDK\Subscription\PubnubSubscription;
 use RingCentral\SDK\Test\TestCase;
 use PubNub\Models\Consumer\PubSub\PNMessageResult;
 use PubNub\PNConfiguration;
@@ -16,11 +16,11 @@ class SubscriptionTest extends TestCase
 
     /**
      * @param $sdk
-     * @return Subscription
+     * @return PubnubSubscription
      */
     protected function createSubscription(SDK $sdk)
     {
-        $s = $sdk->createSubscription();
+        $s = $sdk->createSubscription('Pubnub');
         $s->setSkipSubscribe(true);
         return $s;
     }
@@ -43,7 +43,7 @@ class SubscriptionTest extends TestCase
         $s = $this->createSubscription($sdk);
 
         $s->addEvents(['/restapi/v1.0/account/~/extension/1/presence'])
-          ->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) use (&$executed, &$t) {
+          ->addListener(PubnubSubscription::EVENT_NOTIFICATION, function (NotificationEvent $e) use (&$executed, &$t) {
 
               $expected = [
                   "timestamp" => "2014-03-12T20:47:54.712+0000",
@@ -95,7 +95,7 @@ class SubscriptionTest extends TestCase
         $s = $this->createSubscription($sdk);
 
         $s->addEvents(['/restapi/v1.0/account/~/extension/1/presence'])
-          ->addListener(Subscription::EVENT_NOTIFICATION,
+          ->addListener(PubnubSubscription::EVENT_NOTIFICATION,
               function (NotificationEvent $e) use (&$executed, $expected, &$t) {
 
                   $t->assertEquals($expected, $e->payload());
@@ -156,7 +156,7 @@ class SubscriptionTest extends TestCase
 
         $s = $this->createSubscription($sdk);
 
-        $s->addListener(Subscription::EVENT_SUBSCRIBE_SUCCESS, function (SuccessEvent $event) use (&$self, &$spy) {
+        $s->addListener(PubnubSubscription::EVENT_SUBSCRIBE_SUCCESS, function (SuccessEvent $event) use (&$self, &$spy) {
             $self->assertEquals('/restapi/v1.0/account/~/extension/1/presence',
                 $event->apiResponse()->json()->eventFilters[0]);
             $spy = true;
@@ -181,7 +181,7 @@ class SubscriptionTest extends TestCase
 
         $s = $this->createSubscription($sdk);
 
-        $s->addListener(Subscription::EVENT_SUBSCRIBE_ERROR, function (ErrorEvent $event) use (&$self, &$spy) {
+        $s->addListener(PubnubSubscription::EVENT_SUBSCRIBE_ERROR, function (ErrorEvent $event) use (&$self, &$spy) {
             //$self->assertEquals('Expected Error', $event->exception()->getMessage());
             $spy = true;
         });

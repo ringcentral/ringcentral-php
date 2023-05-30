@@ -12,6 +12,10 @@ set_error_handler(function ($errno, $errstr, $errfile, $errline) {
     if (!(error_reporting() & $errno)) {
         return;
     }
+    if ($errno === E_USER_DEPRECATED) {
+        print 'Deprecated: ' . $errstr . PHP_EOL;
+        return true;
+    }
     throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
 });
 
