@@ -80,7 +80,7 @@ class SDK
             return new PubnubSubscription($this->_platform);
         }
         if (empty($this->websocket())) {
-            throw new \Exception('WebSocket is not initialized');
+            throw new Exception('WebSocket is not initialized');
         }
         return new WebSocketSubscription($this->platform(), $this->websocket());
     }
