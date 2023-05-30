@@ -11,9 +11,8 @@ class ApiException extends Exception
     /** @var array */
     private $_apiResponse;
 
-    public function __construct(
-        ApiResponse $apiRespponse,
-    ) {
+    public function __construct(ApiResponse $apiRespponse)
+    {
 
         $this->_apiResponse = $apiRespponse;
 
