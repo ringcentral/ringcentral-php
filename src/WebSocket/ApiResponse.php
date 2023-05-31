@@ -19,12 +19,12 @@ class ApiResponse
     /** @var WebSocket */
     protected $_wsc;
 
-    public function __construct(array $response, array $body = [])
+    public function __construct(array $response, array $body = null)
     {
         $this->_requestId = $response['messageId'];
         $this->_status = $response['status'];
         $this->_headers = $response['headers'];
-        $this->_body = $body;
+        $this->_body = $body ?? [];
         $this->_wsc = $response['wsc'] ?? null;
     }
 
