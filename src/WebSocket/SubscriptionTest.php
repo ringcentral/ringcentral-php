@@ -8,6 +8,7 @@ use RingCentral\SDK\Test\TestCase;
 use RingCentral\SDK\WebSocket\Subscription;
 use RingCentral\SDK\WebSocket\Events\SuccessEvent;
 use RingCentral\SDK\WebSocket\Events\ErrorEvent;
+use RingCentral\SDK\WebSocket\Events\NotificationEvent;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\RequestInterface;
 use React\Socket\ConnectorInterface;
@@ -110,6 +111,10 @@ class WebSocketSubscriptionTest extends TestCase
         $subscription->addListener(Subscription::EVENT_RENEW_SUCCESS, function (SuccessEvent $e) use (&$renewEvent) {
             $renewEvent = $e;
         });
+        $notificationEvent = null;
+        $subscription->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) use (&$notificationEvent) {
+            $notificationEvent = $e;
+        });
         $subscription->register();
         $responseMessage = '
         [
@@ -148,6 +153,30 @@ class WebSocketSubscriptionTest extends TestCase
         $subscription->register();
         $mockConnection->emit('message', [$responseMessage]);
         $this->assertTrue($renewEvent !== null);
+        $notificationMessage = '
+        [
+            {
+              "type": "ServerNotification",
+              "messageId": "6419467329489567279",
+              "status": 200,
+              "headers": {
+                  "RCRequestId":"99a94bf2-f155-11ea-9414-005056bf7145"
+                }
+             },
+            {
+              "uuid":"6419467329489567279",
+              "event":"/restapi/v1.0/account/100132871000/extension/100132871000/message-store/instant?type=SMS",
+              "timestamp":"2020-09-07T22:00:54.071Z",
+              "subscriptionId":"3ef793d9-34e3-4218-a865-e15856cd1599",
+              "ownerId":"400132871015",
+              "body": {
+                   "id":"872888015"
+              }
+            }
+        ]
+        ';
+        $mockConnection->emit('message', [$notificationMessage]);
+        $this->assertTrue($notificationEvent !== null);
     }
 
     public function testRegisterError()
@@ -194,9 +223,11 @@ class WebSocketSubscriptionTest extends TestCase
         $subscription->addListener(Subscription::EVENT_RENEW_ERROR, function (ErrorEvent $e) use (&$renewError) {
             $renewError = $e;
         });
-        $subscription->register(array(
-            '/restapi/v1.0/account/~/extension/~/presence'
-        ));
+        $subscription->register([
+            'events' => array(
+                '/restapi/v1.0/account/~/extension/~/presence'
+            )
+        ]);
         $responseMessage = '
         [
             {
@@ -214,12 +245,21 @@ class WebSocketSubscriptionTest extends TestCase
         ';
         $mockConnection->emit('message', [$responseMessage]);
         $this->assertTrue($subcribeError !== null);
+        $this->assertTrue($subcribeError->exception()->getMessage() === 'Subscription failed');
+        $this->assertTrue($subcribeError->exception()->apiResponse()->error() === 'Subscription failed');
         $this->assertTrue(!$subscription->subscribed());
         $subscription->setSubscription([
             'id' => 'xxxxx'
         ]);
-        $subscription->register();
+        $subscription->register([
+            'events' => array(
+                '/restapi/v1.0/account/~/extension/~/presence',
+                '/restapi/v1.0/account/~/extension/~/message-store'
+            )
+        ]);
         $mockConnection->emit('message', [$responseMessage]);
         $this->assertTrue($renewError !== null);
+        $subscription->reset();
+        $this->assertTrue(!$subscription->subscribed());
     }
 }

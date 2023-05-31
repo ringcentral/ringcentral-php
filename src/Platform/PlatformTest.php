@@ -17,6 +17,19 @@ class PlatformTest extends TestCase
 
     }
 
+    public function testLoginWithPassword()
+    {
+        $sdk = $this->getSDK(
+            [
+                $this->authenticationMock(),
+            ],
+            false
+        );
+        $sdk->platform()->login('username', 'extension', 'password');
+        $authData = $sdk->platform()->auth()->data();
+        $this->assertTrue(!empty($authData['access_token']));
+    }
+
     public function testRefreshWithOutdatedToken()
     {
 
