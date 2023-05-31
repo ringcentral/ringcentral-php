@@ -77,6 +77,10 @@ class SDK
     public function createSubscription(string $type = 'WebSocket')
     {
         if ($type == 'Pubnub') {
+            trigger_error(
+                'PubNub support is deprecated. Please migrate your application to WebSockets.',
+                E_USER_DEPRECATED
+            );
             return new PubnubSubscription($this->_platform);
         }
         if (empty($this->websocket())) {
