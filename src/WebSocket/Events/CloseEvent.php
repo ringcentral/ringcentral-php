@@ -15,7 +15,7 @@ class CloseEvent extends Event
      *
      * @param array $response
      */
-    public function __construct(array $code, array $reason)
+    public function __construct(string $code = null, string $reason = null)
     {
         $this->_code = $code;
         $this->_reason = $reason;

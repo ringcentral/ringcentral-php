@@ -4,7 +4,7 @@ namespace RingCentral\SDK\WebSocket;
 
 use Exception;
 use Symfony\Component\EventDispatcher\EventDispatcher;
-use React\EventLoop\Factory;
+use Ratchet\Client\Connector;
 use RingCentral\SDK\Core\Utils;
 use RingCentral\SDK\Platform\Platform;
 use RingCentral\SDK\WebSocket\ApiRequest;
@@ -25,7 +25,7 @@ class WebSocket extends EventDispatcher
     protected $_platform;
 
     /** @var WebSocket */
-    protected $_socket;
+    protected $_connection;
 
     /** @var bool */
     protected $_ready;
@@ -44,31 +44,34 @@ class WebSocket extends EventDispatcher
         $this->_responseCallbacks = [];
     }
 
-    public function connect() {
+    public function connect(Connector $connector = null) {
         try {
-            $this->_connect();
+            return $this->_connect($connector);
         } catch (Exception $e) {
             $this->dispatch(new ErrorEvent($e), self::EVENT_ERROR);
             throw $e;
         }
     }
 
-    protected function _connect() {
+    protected function _connect(Connector $connector = null) {
         $tokenResponse = $this->_platform->post('/restapi/oauth/wstoken');
         $this->_wsToken = $tokenResponse->json();
         $authHeaders = [
             'Authorization' => 'Bearer ' . $this->_wsToken->ws_access_token
         ];
-        \Ratchet\Client\connect($this->_wsToken->uri, [], $authHeaders)->then(function($conn) {
-            $this->_socket = $conn;
-            $this->_socket->on('message', function($msg) {
+        if (null === $connector) {
+            $connector = new Connector();
+        }
+        return $connector($this->_wsToken->uri, [], $authHeaders)->then(function($conn) {
+            $this->_connection = $conn;
+            $this->_connection->on('message', function($msg) {
                 $this->handleMessages($msg);
             });
-            $this->_socket->on('close', function($code = null, $reason = null) {
+            $this->_connection->on('close', function($code = null, $reason = null) {
                 $this->clear();
                 $this->dispatch(new CloseEvent($code, $reason), self::EVENT_CLOSE);
             });
-            $this->_socket->on('error', function(Exception $e) {
+            $this->_connection->on('error', function(Exception $e) {
                 $this->clear();
                 $this->dispatch(new ErrorEvent($e), self::EVENT_ERROR);
             });
@@ -83,11 +86,11 @@ class WebSocket extends EventDispatcher
             $readyCallback = function() use ($data, &$readyCallback) {
                 $this->removeListener(self::EVENT_READY, $readyCallback);
                 $readyCallback = null;
-                $this->_socket->send($data);
+                $this->_connection->send($data);
             };
             $this->addListener(self::EVENT_READY, $readyCallback);
         } else {
-            $this->_socket->send($data);
+            $this->_connection->send($data);
         }
     }
 
@@ -97,8 +100,8 @@ class WebSocket extends EventDispatcher
     }
 
     public function close() {
-        if ($this->_socket) {
-            $this->_socket->close();
+        if ($this->_connection) {
+            $this->_connection->close();
             $this->clear();
         }
     }
@@ -106,7 +109,10 @@ class WebSocket extends EventDispatcher
     protected function handleMessages($msg) {
         $data = Utils::json_parse($msg, true);
         $response = $data[0];
-        $body = $data[1];
+        $body = null;
+        if (isset($data[1])) {
+            $body = $data[1];
+        }
         if ($response['type'] === 'ConnectionDetails') {
             if (empty($this->_connectionDetails)) {
                 $this->_connectionDetails = new ApiResponse($response, $body);
@@ -135,12 +141,19 @@ class WebSocket extends EventDispatcher
         }
     }
 
-    protected function clear() {
+    protected function clear()
+    {
         $this->_ready = false;
-        $this->_socket = null;
+        $this->_connection = null;
     }
 
-    public function ready() {
+    public function ready()
+    {
         return $this->_ready;
+    }
+
+    public function connection()
+    {
+        return $this->_connection;
     }
 }
