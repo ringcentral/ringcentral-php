@@ -16,7 +16,7 @@ use RingCentral\SDK\Platform\Platform;
 use RingCentral\SDK\Subscription\Events\ErrorEvent;
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
 use RingCentral\SDK\Subscription\Events\SuccessEvent;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use RingCentral\SDK\Subscription\SubscriptionBase;
 
 class PubnubCallback extends SubscribeCallback
 {
@@ -28,7 +28,7 @@ class PubnubCallback extends SubscribeCallback
      *
      * @param Subscription $subscription
      */
-    function __construct(Subscription $subscription)
+    function __construct(PubnubSubscription $subscription)
     {
         $this->_subscription = $subscription;
     }
@@ -80,44 +80,13 @@ class PubnubCallback extends SubscribeCallback
     }
 }
 
-class Subscription extends EventDispatcher
+class PubnubSubscription extends SubscriptionBase
 {
-
-    const EVENT_NOTIFICATION = 'notification';
-    const EVENT_REMOVE_SUCCESS = 'removeSuccess';
-    const EVENT_REMOVE_ERROR = 'removeError';
-    const EVENT_RENEW_SUCCESS = 'renewSuccess';
-    const EVENT_RENEW_ERROR = 'renewError';
-    const EVENT_SUBSCRIBE_SUCCESS = 'subscribeSuccess';
-    const EVENT_SUBSCRIBE_ERROR = 'subscribeError';
-    const EVENT_TIMEOUT = 'timeout';
-
     const RENEW_HANDICAP = 120; // 2 minutes
     const SUBSCRIBE_TIMEOUT = 60; // 1 minute
 
     /** @var Platform */
     protected $_platform;
-
-    /** @var string[] */
-    protected $_eventFilters = [];
-
-    /** @var array */
-    protected $_subscription = [
-        'eventFilters'   => [],
-        'expirationTime' => '', // 2014-03-12T19:54:35.613Z
-        'expiresIn'      => 0,
-        'deliveryMode'   => [
-            'transportType' => 'PubNub',
-            'encryption'    => false,
-            'address'       => '',
-            'subscriberKey' => '',
-            'secretKey'     => ''
-        ],
-        'id'             => '',
-        'creationTime'   => '', // 2014-03-12T19:54:35.613Z
-        'status'         => '', // Active
-        'uri'            => ''
-    ];
 
     /** @var Pubnub */
     protected $_pubnub;
@@ -189,28 +158,6 @@ class Subscription extends EventDispatcher
     function skipSubscribe()
     {
         return $this->_skipSubscribe;
-    }
-
-    /**
-     * @param array $events
-     *
-     * @return $this
-     */
-    function addEvents(array $events)
-    {
-        $this->_eventFilters = array_merge($this->_eventFilters, $events);
-        return $this;
-    }
-
-    /**
-     * @param array $events
-     *
-     * @return $this
-     */
-    function setEvents(array $events)
-    {
-        $this->_eventFilters = $events;
-        return $this;
     }
 
     /**
@@ -354,25 +301,6 @@ class Subscription extends EventDispatcher
         return strtotime($this->_subscription['expirationTime']) - self::RENEW_HANDICAP;
     }
 
-    /**
-     * @return array
-     */
-    function subscription()
-    {
-        return $this->_subscription;
-    }
-
-    /**
-     * @param array $subscription
-     *
-     * @return $this
-     */
-    function setSubscription($subscription)
-    {
-        $this->_subscription = $subscription;
-        return $this;
-    }
-
     function reset()
     {
 
@@ -489,18 +417,4 @@ class Subscription extends EventDispatcher
         return $message;
 
     }
-
-    /**
-     * @return array
-     */
-    protected function getFullEventFilters()
-    {
-        $events = [];
-        foreach ($this->_eventFilters as $event) {
-            $events[] = $this->_platform->createUrl($event);
-        }
-        return $events;
-    }
-
-
 }

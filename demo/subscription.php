@@ -5,7 +5,7 @@ require_once(__DIR__ . '/_bootstrap.php');
 use RingCentral\SDK\SDK;
 use RingCentral\SDK\Subscription\Events\NotificationEvent;
 use RingCentral\SDK\Subscription\Events\SuccessEvent;
-use RingCentral\SDK\Subscription\Subscription;
+use RingCentral\SDK\Subscription\PubnubSubscription;
 
 
 $credentials = require('_credentials.php');
@@ -23,7 +23,7 @@ $platform->login($credentials['username'], $credentials['extension'], $credentia
 
 // Subscription
 
-$subscription = $rcsdk->createSubscription();
+$subscription = $rcsdk->createSubscription('Pubnub');
 
 $subscription->addEvents(array(
     '/account/~/extension/~/message-store',
@@ -32,17 +32,17 @@ $subscription->addEvents(array(
 
 $subscription->setKeepPolling(true);
 
-$subscription->addListener(Subscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
+$subscription->addListener(PubnubSubscription::EVENT_NOTIFICATION, function (NotificationEvent $e) {
     print 'Notification' . print_r($e->payload(), true) . PHP_EOL;
 });
 
 print 'Subscribing' . PHP_EOL;
 
-$subscription->addListener(Subscription::EVENT_TIMEOUT, function () {
+$subscription->addListener(PubnubSubscription::EVENT_TIMEOUT, function () {
     print 'Timeout' . PHP_EOL;
 });
 
-$subscription->addListener(Subscription::EVENT_RENEW_SUCCESS, function (SuccessEvent $e) {
+$subscription->addListener(PubnubSubscription::EVENT_RENEW_SUCCESS, function (SuccessEvent $e) {
     print 'Renewed' . PHP_EOL;
 });
 

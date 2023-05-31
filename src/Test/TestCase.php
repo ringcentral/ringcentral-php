@@ -53,7 +53,9 @@ abstract class TestCase extends BaseTestCase
         $sdk = new SDK('whatever', 'whatever', 'https://whatever', 'SDKTests', SDK::VERSION, $guzzle);
 
         if ($authorized) {
-            $sdk->platform()->login('18881112233', null, 'password');
+            $sdk->platform()->login([
+                'jwt' => 'whatever',
+            ]);
         }
 
         return $sdk;
