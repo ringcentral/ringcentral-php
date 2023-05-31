@@ -145,6 +145,8 @@ class WebSocketSubscriptionTest extends TestCase
         ';
         $mockConnection->emit('message', [$responseMessage]);
         $this->assertTrue($successEvent !== null);
+        $this->assertTrue($successEvent->apiResponse()->body()['id'] == '3ef793d9-34e3-4218-a865-e15856cd1599');
+        $this->assertTrue($successEvent->apiResponse()->headers()['Server'] == 'nginx');
         $this->assertTrue($subscription->subscribed());
         $subscription->setEvents(array(
             '/restapi/v1.0/account/~/extension/~/presence',
@@ -177,6 +179,7 @@ class WebSocketSubscriptionTest extends TestCase
         ';
         $mockConnection->emit('message', [$notificationMessage]);
         $this->assertTrue($notificationEvent !== null);
+        $this->assertTrue($notificationEvent->payload()['body']['id'] === '872888015');
     }
 
     public function testRegisterError()

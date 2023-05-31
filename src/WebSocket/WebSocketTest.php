@@ -193,6 +193,8 @@ class WebSocketTest extends TestCase
         $this->assertTrue($errorEvent !== null);
         $mockConnection->emit('close', ['code', 'reason']);
         $this->assertTrue($closeEvent !== null);
+        $this->assertTrue($closeEvent->code() == 'code');
+        $this->assertTrue($closeEvent->reason() == 'reason');
         $websocket->close();
         $this->assertTrue($websocket->connection() === null);
     }
