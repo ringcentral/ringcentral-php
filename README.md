@@ -90,7 +90,7 @@ Authenticate user with jwt:
 
 ```php
 $rcsdk->platform()->login([
-    'jwt': 'your_jwt_token'
+    'jwt' => 'your_jwt_token'
 ]);
 ```
 
@@ -98,7 +98,7 @@ Authenticate user with authorization code:
 
 ```php
 $rcsdk->platform()->login([
-    'code': 'authorization code from RingCentral login redirect uri'
+    'code' => 'authorization code from RingCentral login redirect uri'
 ]);
 ```
 
