@@ -93,7 +93,7 @@ class PlatformTest extends TestCase
 	));
 	$this->assertEquals( $url, "https://whatever/restapi/oauth/authorize?response_type=code&redirect_uri=foo&client_id=whatever&state=bar" );
     }
-    
+
     public function testApiUrl()
     {
         $sdk = $this->getSDK();
@@ -113,7 +113,7 @@ class PlatformTest extends TestCase
                 'addServer' => true
 	    ])
         );
-	
+
         $this->assertEquals(
             'https://whatever/rcvideo/v2/account/~/extension/~/bridges',
 	    $sdk->platform()->createUrl('/rcvideo/v2/account/~/extension/~/bridges', [
@@ -124,6 +124,13 @@ class PlatformTest extends TestCase
         $this->assertEquals(
             'https://whatever/scim/v2/ServiceProviderConfig',
             $sdk->platform()->createUrl('/scim/v2/ServiceProviderConfig', [
+                'addServer' => true
+            ])
+        );
+
+        $this->assertEquals(
+            'https://whatever/cx/some-api',
+            $sdk->platform()->createUrl('/cx/some-api', [
                 'addServer' => true
             ])
         );
