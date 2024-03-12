@@ -7,7 +7,6 @@ use RingCentral\SDK\Http\ApiException;
 use RingCentral\SDK\WebSocket\WebSocket;
 use RingCentral\SDK\WebSocket\ApiResponse;
 use RingCentral\SDK\WebSocket\Events\SuccessEvent;
-use React\Promise\RejectedPromise;
 use React\Promise\Promise;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\RequestInterface;
@@ -64,7 +63,7 @@ class WebSocketTest extends TestCase
         $connector = $this->createMock(Connector::class);
         $connector->expects($this->once())
             ->method('__invoke')
-            ->willReturn(new RejectedPromise(new Exception('Connect error')));
+            ->willReturn(React\Promise\reject(new Exception('Connect error')));
         $loop = $this->getMockBuilder('React\EventLoop\LoopInterface')->getMock();
         $sdk = $this->getSDK([
             $this->createResponse('POST', '/restapi/oauth/wstoken', [
@@ -122,7 +121,7 @@ class WebSocketTest extends TestCase
         $connection = $websocket->connection();
         $this->assertTrue($connection === $mockConnection);
         $connectionDetailMessage = '
-        [ 
+        [
             {
               "type": "ConnectionDetails",
               "messageId": "156eec30-f154-11ea-9629-005056bf7145",
@@ -132,7 +131,7 @@ class WebSocketTest extends TestCase
                    "sequence": 1
                   },
               "headers": {
-                    "RCRequestId": "156eec30-f154-11ea-9629-005056bf7145" 
+                    "RCRequestId": "156eec30-f154-11ea-9629-005056bf7145"
                   }
              },
             {
@@ -143,7 +142,7 @@ class WebSocketTest extends TestCase
               "idleTimeout": 1800,
               "absoluteTimeout": 86400,
               "maxActiveRequests": 10
-             } 
+             }
         ]
         ';
         $mockConnection->emit('message', [$connectionDetailMessage]);
@@ -151,13 +150,13 @@ class WebSocketTest extends TestCase
         $this->assertTrue($readyEvent !== null);
         $readyEvent = null;
         $connectionDetailMessageEmpaty = '
-        [ 
+        [
             {
               "type": "ConnectionDetails",
               "messageId": "156eec30-f154-11ea-9629-005056bf7145",
               "status": 200,
               "headers": {
-                    "RCRequestId": "156eec30-f154-11ea-9629-005056bf7145" 
+                    "RCRequestId": "156eec30-f154-11ea-9629-005056bf7145"
                 }
              }
         ]

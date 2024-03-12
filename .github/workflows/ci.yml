@@ -20,8 +20,6 @@ jobs:
           coverage: pcov
           tools: composer:v2
           ini-values: phar.readonly=0
-      - name: Composer update
-        run: composer update
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction
       - name: Run tests
