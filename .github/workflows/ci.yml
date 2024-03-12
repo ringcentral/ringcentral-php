@@ -29,6 +29,7 @@ jobs:
       - name: Build phar
         run: composer phar
       - name: Upload coverage results to Coveralls
+        if: matrix.php-version == '7.4'
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
