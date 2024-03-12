@@ -26,7 +26,8 @@ class Platform
        '/team-messaging',
        '/analytics',
        '/ai',
-       '/scim'
+       '/scim',
+       '/cx'
     );
 
     /** @var string */
