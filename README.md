@@ -65,7 +65,7 @@ Please keep in mind that bundled dependencies may interfere with your other depe
 ## Initialization
 
 ```php
-$rcsdk = new RingCentral\SDK\SDK('clientId', 'clientSecret', RingCentral\SDK\SDK::SERVER_SANDBOX);
+$rcsdk = new RingCentral\SDK\SDK('clientId', 'clientSecret', RingCentral\SDK\SDK::SERVER_PRODUCTION);
 ```
 
 You also may supply custom AppName and AppVersion parameters with your application codename and version. These parameters
@@ -73,7 +73,7 @@ are optional but they will help a lot to identify your application in API logs a
 Allowed characters for AppName and AppVersion are: letters, digits, hyphen, dot and underscore.
 
 ```php
-$rcsdk = new RingCentral\SDK\SDK('clientId', 'clientSecret', RingCentral\SDK\SDK::SERVER_SANDBOX, 'MyApp', '1.0.0');
+$rcsdk = new RingCentral\SDK\SDK('clientId', 'clientSecret', RingCentral\SDK\SDK::SERVER_PRODUCTION, 'MyApp', '1.0.0');
 ```
 
 For production use `RingCentral\SDK\SDK::SERVER_PRODUCTION` constant. Or type in the server URL by hand.
@@ -298,7 +298,7 @@ return array(
     'password'     => 'yourPassword',
     'clientId'     => 'yourClientId',
     'clientSecret' => 'yourClientSecret',
-    'server'       => 'https://platform.devtest.ringcentral.com', // for production - https://platform.ringcentral.com
+    'server'       => 'https://platform.ringcentral.com', // for production - https://platform.ringcentral.com
     'smsNumber'    => '18882223344', // any of SMS-enabled numbers on your RingCentral account
     'mobileNumber' => '16501112233', // your own mobile number to which script will send sms
     'dateFrom'     => 'yyyy-mm-dd',

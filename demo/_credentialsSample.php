@@ -6,7 +6,7 @@ return array(
     'password'     => 'yourPassword',
     'clientId'     => 'yourClientId',
     'clientSecret' => 'yourClientSecret',
-    'server'       => 'https://platform.devtest.ringcentral.com', // for production - https://platform.ringcentral.com
+    'server'       => 'https://platform.ringcentral.com', // for production - https://platform.ringcentral.com
     'smsNumber'    => '18882223344', // any of SMS-enabled numbers on your RingCentral account
     'mobileNumber' => '16501112233', // your own mobile number to which script will send sms
     'dateFrom'	   => 'yyyy-mm-dd',  // dateFrom
