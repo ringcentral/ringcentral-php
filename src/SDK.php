@@ -17,7 +17,6 @@ class SDK
 
     const VERSION = '2.3.6';
     const SERVER_PRODUCTION = 'https://platform.ringcentral.com';
-    const SERVER_SANDBOX = 'https://platform.devtest.ringcentral.com';
 
     /** @var Client */
     protected $_client;

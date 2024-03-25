@@ -23,12 +23,6 @@ class SDKTest extends TestCase
     {
         $this->connectToLiveServer(SDK::SERVER_PRODUCTION);
     }
-
-    public function testSandbox()
-    {
-        $this->connectToLiveServer(SDK::SERVER_SANDBOX);
-    }
-
     public function testMultipartBuilderGetter()
     {
         $this->assertNotNull($this->getSDK([], false)->createMultipartBuilder());
