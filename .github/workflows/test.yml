@@ -1,11 +1,8 @@
-name: CI Pipeline
+name: Test
 
 on: [push, pull_request]
-
-## Github Actions for PHP SDK
-
 jobs:
-  build:
+  Test:
     runs-on: ubuntu-latest
     strategy:
       matrix:

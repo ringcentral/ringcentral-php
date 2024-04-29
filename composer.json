@@ -1,5 +1,5 @@
 {
-  "name": "ringcentral/ringcentral-php",
+  "name": "sm/sm-rc-php",
   "type": "library",
   "scripts": {
     "test": "phpunit --configuration phpunit.xml",
@@ -42,7 +42,9 @@
       "entry-point": "./vendor/autoload.php",
       "skip-shebang": true,
       "include": [],
-      "excluded": ["vendor/bin"],
+      "excluded": [
+        "vendor/bin"
+      ],
       "include-dev": false
     }
   },
