@@ -1,5 +1,5 @@
 {
-  "name": "sm/sm-rc-php",
+  "name": "smmpoc/sm-rc-php",
   "type": "library",
   "scripts": {
     "test": "phpunit --configuration phpunit.xml",
@@ -61,12 +61,8 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Kirill Konshin",
-      "email": "kirill.konshin@ringcentral.com"
-    },
-    {
-      "name": "Byrne Reese",
-      "email": "byrne.reese@ringcentral.com"
+      "name": "Sushil Mall",
+      "email": "sushil.mall@ringcentral.com"
     }
   ]
 }
