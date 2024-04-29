@@ -30,10 +30,16 @@ jobs:
         run: composer test
       - name: Build phar
         run: composer phar
-      - name: Release
+      - name: Prepare Release
         if: matrix.php-version == '7.4' && startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
           files: ./dist/ringcentral.phar
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish to Packagist
+        env:
+          PACKAGIST_TOKEN: ${{ secrets.PACKAGIST_TOKEN }}
+        run: |
+          composer config --global --auth http-basic.repo.packagist.com token $PACKAGIST_TOKEN
+          composer update --no-interaction    
