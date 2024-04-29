@@ -34,10 +34,3 @@ jobs:
         run: |
           composer global require php-coveralls/php-coveralls
           php-coveralls --coverage_clover=dist/coverage/clover.xml -v
-      - name: Release
-        if: matrix.php-version == '7.4' && startsWith(github.ref, 'refs/tags/')
-        uses: softprops/action-gh-release@v1
-        with:
-          files: ./dist/ringcentral.phar
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
