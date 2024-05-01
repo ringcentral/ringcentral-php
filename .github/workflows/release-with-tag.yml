@@ -1,9 +1,9 @@
-name: CI Pipeline
+name: Release
 
-on: [push, pull_request]
-
-## Github Actions for PHP SDK
-
+on:
+  push:
+    tags:
+      - '*'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,13 +30,6 @@ jobs:
         run: composer test
       - name: Build phar
         run: composer phar
-      - name: Upload coverage results to Coveralls
-        if: matrix.php-version == '7.4'
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          composer global require php-coveralls/php-coveralls
-          php-coveralls --coverage_clover=dist/coverage/clover.xml -v
       - name: Release
         if: matrix.php-version == '7.4' && startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
