@@ -20,14 +20,15 @@ class Platform
     const API_VERSION = 'v1.0';
     const URL_PREFIX = '/restapi';
     const KNOWN_PREFIXES = array(
-       self::URL_PREFIX,
-       '/rcvideo', '/video',
-       '/webinar',
-       '/team-messaging',
-       '/analytics',
-       '/ai',
-       '/scim',
-       '/cx'
+        self::URL_PREFIX,
+        '/rcvideo',
+        '/video',
+        '/webinar',
+        '/team-messaging',
+        '/analytics',
+        '/ai',
+        '/scim',
+        '/cx'
     );
 
     /** @var string */
@@ -77,9 +78,9 @@ class Platform
         $this->_client = $client;
 
         $this->_userAgent = (!empty($this->_appName) ? ($this->_appName . (!empty($this->_appVersion) ? '/' . $this->_appVersion : '') . ' ') : '') .
-                            php_uname('s') . '/' . php_uname('r') . ' ' .
-                            'PHP/' . phpversion() . ' ' .
-                            'RCPHPSDK/' . SDK::VERSION;
+            php_uname('s') . '/' . php_uname('r') . ' ' .
+            'PHP/' . phpversion() . ' ' .
+            'RCPHPSDK/' . SDK::VERSION;
 
     }
 
@@ -106,11 +107,19 @@ class Platform
             $builtUrl .= $this->_server;
         }
 
-        if (!array_reduce(self::KNOWN_PREFIXES,
-                          function ($result, $key) use($path) {
-			    if ($result) { return $result; } else { return str_starts_with( $path, $key ); }
-                          },
-                          FALSE) && !$hasHttp) {
+        if (
+            !array_reduce(
+                self::KNOWN_PREFIXES,
+                function ($result, $key) use ($path) {
+                    if ($result) {
+                        return $result;
+                    } else {
+                        return str_starts_with($path, $key);
+                    }
+                },
+                FALSE
+            ) && !$hasHttp
+        ) {
             $builtUrl .= self::URL_PREFIX . '/' . self::API_VERSION;
         }
 
@@ -165,17 +174,18 @@ class Platform
     public function authUrl($options)
     {
         return $this->createUrl(self::AUTHORIZE_ENDPOINT . '?' . http_build_query(
-                [
-                    'response_type'         => 'code',
-                    'redirect_uri'          => $options['redirectUri'] ? $options['redirectUri'] : null,
-                    'client_id'             => $this->_clientId,
-                    'state'                 => array_key_exists('state',$options) ? $options['state'] : null,
-                    'brand_id'              => array_key_exists('brandId',$options) ? $options['brandId'] : null,
-                    'display'               => array_key_exists('display',$options) ? $options['display'] : null,
-                    'prompt'                => array_key_exists('prompt',$options) ? $options['prompt'] : null,
-                    'code_challenge'        => array_key_exists('code_challenge',$options) ? $options['code_challenge'] : null,
-                    'code_challenge_method' => array_key_exists('code_challenge_method',$options) ? $options['code_challenge_method'] : null
-                ]), [
+            [
+                'response_type' => 'code',
+                'redirect_uri' => $options['redirectUri'] ? $options['redirectUri'] : null,
+                'client_id' => $this->_clientId,
+                'state' => array_key_exists('state', $options) ? $options['state'] : null,
+                'brand_id' => array_key_exists('brandId', $options) ? $options['brandId'] : null,
+                'display' => array_key_exists('display', $options) ? $options['display'] : null,
+                'prompt' => array_key_exists('prompt', $options) ? $options['prompt'] : null,
+                'code_challenge' => array_key_exists('code_challenge', $options) ? $options['code_challenge'] : null,
+                'code_challenge_method' => array_key_exists('code_challenge_method', $options) ? $options['code_challenge_method'] : null
+            ]
+        ), [
             'addServer' => 'true'
         ]);
     }
@@ -205,39 +215,41 @@ class Platform
     {
         if (is_string($options)) {
             $options = [
-                'username'  => func_get_arg(0),
+                'username' => func_get_arg(0),
                 'extension' => func_get_arg(1) ? func_get_arg(1) : null,
-                'password'  => func_get_arg(2)
+                'password' => func_get_arg(2)
             ];
         }
 
-        $response = !empty($options['code']) ? $this->requestToken(self::TOKEN_ENDPOINT, [
+        $response = !empty($options['code']) ? $this->requestToken(
+            self::TOKEN_ENDPOINT,
+            [
 
-            'grant_type'        => 'authorization_code',
-            'code'              => $options['code'],
-            'redirect_uri'      => $options['redirectUri'],
-            'access_token_ttl'  => self::ACCESS_TOKEN_TTL,
-            'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
+                'grant_type' => 'authorization_code',
+                'code' => $options['code'],
+                'redirect_uri' => $options['redirectUri'],
+                'access_token_ttl' => self::ACCESS_TOKEN_TTL,
+                'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
 
-            ] + (!empty($options['codeVerifier']) ? [ 'code_verifier' => $options['codeVerifier'] ] : [])
+            ] + (!empty($options['codeVerifier']) ? ['code_verifier' => $options['codeVerifier']] : [])
 
-	) : (!empty($options['jwt']) ? $this->requestToken(self::TOKEN_ENDPOINT, [
+        ) : (!empty($options['jwt']) ? $this->requestToken(self::TOKEN_ENDPOINT, [
 
-            'grant_type'        => 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-            'assertion'         => $options['jwt'],
-            'access_token_ttl'  => self::ACCESS_TOKEN_TTL,
-            'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
+                'grant_type' => 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+                'assertion' => $options['jwt'],
+                'access_token_ttl' => self::ACCESS_TOKEN_TTL,
+                'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
 
-        ]) : $this->requestToken(self::TOKEN_ENDPOINT, [
+            ]) : $this->requestToken(self::TOKEN_ENDPOINT, [
 
-            'grant_type'        => 'password',
-            'username'          => $options['username'],
-            'extension'         => $options['extension'] ? $options['extension'] : null,
-            'password'          => $options["password"],
-            'access_token_ttl'  => self::ACCESS_TOKEN_TTL,
-            'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
+                        'grant_type' => 'password',
+                        'username' => $options['username'],
+                        'extension' => $options['extension'] ? $options['extension'] : null,
+                        'password' => $options["password"],
+                        'access_token_ttl' => self::ACCESS_TOKEN_TTL,
+                        'refresh_token_ttl' => self::REFRESH_TOKEN_TTL
 
-	]));
+                    ]));
 
         $this->_auth->setData($response->jsonArray());
 
@@ -260,9 +272,9 @@ class Platform
 
         // Synchronous
         $response = $this->requestToken(self::TOKEN_ENDPOINT, [
-            "grant_type"        => "refresh_token",
-            "refresh_token"     => $this->_auth->refreshToken(),
-            "access_token_ttl"  => self::ACCESS_TOKEN_TTL,
+            "grant_type" => "refresh_token",
+            "refresh_token" => $this->_auth->refreshToken(),
+            "access_token_ttl" => self::ACCESS_TOKEN_TTL,
             "refresh_token_ttl" => self::REFRESH_TOKEN_TTL
         ]);
 
@@ -314,9 +326,9 @@ class Platform
 
         /** @var RequestInterface $request */
         $request = $request->withAddedHeader('User-Agent', $this->_userAgent)
-                           ->withAddedHeader('RC-User-Agent', $this->_userAgent);
+            ->withAddedHeader('RC-User-Agent', $this->_userAgent);
 
-        $uri = new Uri($this->createUrl((string)$request->getUri(), ['addServer' => true]));
+        $uri = new Uri($this->createUrl((string) $request->getUri(), ['addServer' => true]));
 
         return $request->withUri($uri);
 
@@ -432,10 +444,10 @@ class Platform
      * @throws Exception    If an error occurs parsing the response from the request.
      * @throws ApiException If an error occurs making the request.
      */
-    public function delete($url = '', $queryParameters = [], array $headers = [], $options = [])
+    public function delete($url = '', $body = null, $queryParameters = [], array $headers = [], $options = [])
     {
         return $this->sendRequest(
-            $this->_client->createRequest('DELETE', $url, $queryParameters, null, $headers),
+            $this->_client->createRequest('DELETE', $url, $queryParameters, $body, $headers),
             $options
         );
     }
@@ -457,7 +469,7 @@ class Platform
         }
         $headers = [
             'Authorization' => 'Basic ' . $this->apiKey(),
-            'Content-Type'  => 'application/x-www-form-urlencoded'
+            'Content-Type' => 'application/x-www-form-urlencoded'
         ];
 
         $request = $this->_client->createRequest('POST', $path, null, $body, $headers);
