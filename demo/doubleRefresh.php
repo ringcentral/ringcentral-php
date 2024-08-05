@@ -1,12 +1,12 @@
 <?php
 
-require_once(__DIR__ . '/_bootstrap.php');
+require_once (__DIR__ . '/_bootstrap.php');
 
 use RingCentral\SDK\SDK;
 
 // Create SDK instance
 
-$credentials = require(__DIR__ . '/_credentials.php');
+$credentials = require (__DIR__ . '/_credentials.php');
 
 $rcsdk1 = new SDK($credentials['clientId'], $credentials['clientSecret'], $credentials['server'], 'Demo', '1.0.0');
 $rcsdk2 = new SDK($credentials['clientId'], $credentials['clientSecret'], $credentials['server'], 'Demo', '1.0.0');
@@ -14,7 +14,7 @@ $rcsdk2 = new SDK($credentials['clientId'], $credentials['clientSecret'], $crede
 $platform1 = $rcsdk1->platform();
 $platform2 = $rcsdk2->platform();
 
-$platform1->login($credentials['username'], $credentials['extension'], $credentials['password']);
+$platform1->login(["jwt" => $credentials['RC_JWT']]);
 
 print 'Platform1 Authorized' . PHP_EOL;
 
