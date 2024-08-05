@@ -1,13 +1,13 @@
 <?php
 
-require_once(__DIR__ . '/_bootstrap.php');
+require_once (__DIR__ . '/_bootstrap.php');
 
 use RingCentral\SDK\SDK;
 
 
 // Create SDK instance
 
-$credentials = require(__DIR__ . '/_credentials.php');
+$credentials = require (__DIR__ . '/_credentials.php');
 
 $rcsdk = new SDK($credentials['appKey'], $credentials['appSecret'], $credentials['server'], 'Demo', '1.0.0');
 
@@ -15,7 +15,7 @@ $platform = $rcsdk->platform();
 
 // Authorize
 
-$platform->login($credentials['username'], $credentials['extension'], $credentials['password']);
+$platform->login(["jwt" => $credentials['RC_JWT']]);
 
 // Find SMS-enabled phone number that belongs to extension
 
@@ -28,6 +28,7 @@ $response = $platform->post('/subscription', array(
         'transportType' => 'WebHook',
         'address' => $credentials['webhookUri']
     )
-));
+)
+);
 
 print 'Webhook Subscription ' . $response->json() . PHP_EOL;
