@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -713,7 +705,7 @@
                             <a href="classes/GuzzleHttp-ClientInterface.html"><abbr title="\GuzzleHttp\ClientInterface">ClientInterface</abbr></a>,                             <a href="classes/Psr-Http-Client-ClientInterface.html"><abbr title="\Psr\Http\Client\ClientInterface">ClientInterface</abbr></a>                    </span>
     
             <span class="phpdocumentor-element__extends">
-            Uses
+            uses
                             <a href="classes/GuzzleHttp-ClientTrait.html"><abbr title="\GuzzleHttp\ClientTrait">ClientTrait</abbr></a>                    </span>
     </h2>
 
@@ -732,6 +724,7 @@
         
 
 
+
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/GuzzleHttp-Client.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -746,6 +739,8 @@
                                              
                                     </dd>
                                             </dl>
+
+
 
 
 
@@ -777,7 +772,7 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Client.html#property_config">$config</a>
+    <a class="" href="classes/GuzzleHttp-Client.html#property_config">$config</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
@@ -791,187 +786,186 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Client.html#method___call">__call()</a>
+    <a class="-deprecated" href="classes/GuzzleHttp-Client.html#method___call">__call()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>|<a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Client.html#method___construct">__construct()</a>
+    <a class="" href="classes/GuzzleHttp-Client.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Clients accept an array of constructor parameters.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-ClientTrait.html#method_delete">delete()</a>
+    <a class="" href="classes/GuzzleHttp-ClientTrait.html#method_delete">delete()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a>    </span>
 </dt>
 <dd>Create and send an HTTP DELETE request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-ClientTrait.html#method_deleteAsync">deleteAsync()</a>
+    <a class="" href="classes/GuzzleHttp-ClientTrait.html#method_deleteAsync">deleteAsync()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
 <dd>Create and send an asynchronous HTTP DELETE request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-ClientTrait.html#method_get">get()</a>
+    <a class="" href="classes/GuzzleHttp-ClientTrait.html#method_get">get()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a>    </span>
 </dt>
 <dd>Create and send an HTTP GET request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-ClientTrait.html#method_getAsync">getAsync()</a>
+    <a class="" href="classes/GuzzleHttp-ClientTrait.html#method_getAsync">getAsync()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
 <dd>Create and send an asynchronous HTTP GET request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Client.html#method_getConfig">getConfig()</a>
+    <a class="-deprecated" href="classes/GuzzleHttp-Client.html#method_getConfig">getConfig()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Get a client configuration option.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-ClientTrait.html#method_head">head()</a>
+    <a class="" href="classes/GuzzleHttp-ClientTrait.html#method_head">head()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a>    </span>
 </dt>
 <dd>Create and send an HTTP HEAD request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-ClientTrait.html#method_headAsync">headAsync()</a>
+    <a class="" href="classes/GuzzleHttp-ClientTrait.html#method_headAsync">headAsync()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
 <dd>Create and send an asynchronous HTTP HEAD request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-ClientTrait.html#method_patch">patch()</a>
+    <a class="" href="classes/GuzzleHttp-ClientTrait.html#method_patch">patch()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a>    </span>
 </dt>
 <dd>Create and send an HTTP PATCH request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-ClientTrait.html#method_patchAsync">patchAsync()</a>
+    <a class="" href="classes/GuzzleHttp-ClientTrait.html#method_patchAsync">patchAsync()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
 <dd>Create and send an asynchronous HTTP PATCH request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-ClientTrait.html#method_post">post()</a>
+    <a class="" href="classes/GuzzleHttp-ClientTrait.html#method_post">post()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a>    </span>
 </dt>
 <dd>Create and send an HTTP POST request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-ClientTrait.html#method_postAsync">postAsync()</a>
+    <a class="" href="classes/GuzzleHttp-ClientTrait.html#method_postAsync">postAsync()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
 <dd>Create and send an asynchronous HTTP POST request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-ClientTrait.html#method_put">put()</a>
+    <a class="" href="classes/GuzzleHttp-ClientTrait.html#method_put">put()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a>    </span>
 </dt>
 <dd>Create and send an HTTP PUT request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-ClientTrait.html#method_putAsync">putAsync()</a>
+    <a class="" href="classes/GuzzleHttp-ClientTrait.html#method_putAsync">putAsync()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
 <dd>Create and send an asynchronous HTTP PUT request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Client.html#method_request">request()</a>
+    <a class="" href="classes/GuzzleHttp-Client.html#method_request">request()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a>    </span>
 </dt>
 <dd>Create and send an HTTP request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Client.html#method_requestAsync">requestAsync()</a>
+    <a class="" href="classes/GuzzleHttp-Client.html#method_requestAsync">requestAsync()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
 <dd>Create and send an asynchronous HTTP request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Client.html#method_send">send()</a>
+    <a class="" href="classes/GuzzleHttp-Client.html#method_send">send()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a>    </span>
 </dt>
 <dd>Send an HTTP request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Client.html#method_sendAsync">sendAsync()</a>
+    <a class="" href="classes/GuzzleHttp-Client.html#method_sendAsync">sendAsync()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
 <dd>Asynchronously send an HTTP request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Client.html#method_sendRequest">sendRequest()</a>
+    <a class="" href="classes/GuzzleHttp-Client.html#method_sendRequest">sendRequest()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a>    </span>
 </dt>
 <dd>The HttpClient PSR (PSR-18) specify this method.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-Client.html#method_applyOptions">applyOptions()</a>
+    <a class="" href="classes/GuzzleHttp-Client.html#method_applyOptions">applyOptions()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-RequestInterface.html"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>    </span>
 </dt>
 <dd>Applies the array of request options to a request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-Client.html#method_buildUri">buildUri()</a>
+    <a class="" href="classes/GuzzleHttp-Client.html#method_buildUri">buildUri()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-UriInterface.html"><abbr title="\Psr\Http\Message\UriInterface">UriInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-Client.html#method_configureDefaults">configureDefaults()</a>
+    <a class="" href="classes/GuzzleHttp-Client.html#method_configureDefaults">configureDefaults()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Configures the default options for a client.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-Client.html#method_invalidBody">invalidBody()</a>
+    <a class="" href="classes/GuzzleHttp-Client.html#method_invalidBody">invalidBody()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Exception-InvalidArgumentException.html"><abbr title="\GuzzleHttp\Exception\InvalidArgumentException">InvalidArgumentException</abbr></a>    </span>
 </dt>
 <dd>Return an InvalidArgumentException with pre-set message.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-Client.html#method_prepareDefaults">prepareDefaults()</a>
+    <a class="" href="classes/GuzzleHttp-Client.html#method_prepareDefaults">prepareDefaults()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Merges default options into the array.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-Client.html#method_transfer">transfer()</a>
+    <a class="" href="classes/GuzzleHttp-Client.html#method_transfer">transfer()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
 <dd>Transfers the given request and applies request options.</dd>
 
     </dl>
-
 
 
 
@@ -1006,6 +1000,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
@@ -1015,6 +1010,8 @@
     
         <section class="phpdocumentor-description"><p>Default request options</p>
 </section>
+
+    
 
     
 
@@ -1052,6 +1049,14 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+                <div class="phpdocumentor-admonition">
+        <svg class="phpdocumentor-admonition__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <article>
+                <p>Client::__call will be removed in guzzlehttp/guzzle:8.0.</p>
+
+            </article>
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1072,22 +1077,8 @@
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/GuzzleHttp-Client.html#method___call#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">deprecated</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Client::__call will be removed in guzzlehttp/guzzle:8.0.</p>
-</section>
-
-                                    </dd>
-                                            </dl>
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1121,6 +1112,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Here's an example of creating a client using a base_uri and an array of
 default request options to apply to each request:</p>
 <pre class="prettyprint"><code class="prettyprint">$client = new Client([
@@ -1179,6 +1171,8 @@ into relative URIs. Can be a string or instance of UriInterface.</li>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1206,6 +1200,7 @@ into relative URIs. Can be a string or instance of UriInterface.</li>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well.</p>
@@ -1250,6 +1245,8 @@ contain the query string as well.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a></span>
@@ -1282,6 +1279,7 @@ contain the query string as well.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well. Use an array to provide a URL
@@ -1309,6 +1307,8 @@ template and additional variables to use in the URL template expansion.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1344,6 +1344,7 @@ template and additional variables to use in the URL template expansion.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well.</p>
@@ -1388,6 +1389,8 @@ contain the query string as well.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a></span>
@@ -1420,6 +1423,7 @@ contain the query string as well.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well. Use an array to provide a URL
@@ -1447,6 +1451,8 @@ template and additional variables to use in the URL template expansion.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1482,6 +1488,14 @@ template and additional variables to use in the URL template expansion.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+                <div class="phpdocumentor-admonition">
+        <svg class="phpdocumentor-admonition__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <article>
+                <p>Client::getConfig will be removed in guzzlehttp/guzzle:8.0.</p>
+
+            </article>
+        </div>
+    
         <section class="phpdocumentor-description"><p>These options include default request options of the client, a &quot;handler&quot;
 (if utilized by the concrete client), and a &quot;base_uri&quot; if utilized by
 the concrete client.</p>
@@ -1501,22 +1515,8 @@ the concrete client.</p>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/GuzzleHttp-Client.html#method_getConfig#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">deprecated</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Client::getConfig will be removed in guzzlehttp/guzzle:8.0.</p>
-</section>
-
-                                    </dd>
-                                            </dl>
+    
 
     
 </article>
@@ -1546,6 +1546,7 @@ the concrete client.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well.</p>
@@ -1590,6 +1591,8 @@ contain the query string as well.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a></span>
@@ -1622,6 +1625,7 @@ contain the query string as well.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well. Use an array to provide a URL
@@ -1649,6 +1653,8 @@ template and additional variables to use in the URL template expansion.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1684,6 +1690,7 @@ template and additional variables to use in the URL template expansion.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well.</p>
@@ -1728,6 +1735,8 @@ contain the query string as well.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a></span>
@@ -1760,6 +1769,7 @@ contain the query string as well.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well. Use an array to provide a URL
@@ -1787,6 +1797,8 @@ template and additional variables to use in the URL template expansion.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1822,6 +1834,7 @@ template and additional variables to use in the URL template expansion.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well.</p>
@@ -1866,6 +1879,8 @@ contain the query string as well.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a></span>
@@ -1898,6 +1913,7 @@ contain the query string as well.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well. Use an array to provide a URL
@@ -1925,6 +1941,8 @@ template and additional variables to use in the URL template expansion.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1960,6 +1978,7 @@ template and additional variables to use in the URL template expansion.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well.</p>
@@ -2004,6 +2023,8 @@ contain the query string as well.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a></span>
@@ -2036,6 +2057,7 @@ contain the query string as well.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well. Use an array to provide a URL
@@ -2063,6 +2085,8 @@ template and additional variables to use in the URL template expansion.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2098,6 +2122,7 @@ template and additional variables to use in the URL template expansion.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well.</p>
@@ -2151,6 +2176,8 @@ contain the query string as well.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a></span>
@@ -2183,6 +2210,7 @@ contain the query string as well.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Use an absolute path to override the base path of the client, or a
 relative path to append to the base path of the client. The URL can
 contain the query string as well. Use an array to provide a URL
@@ -2222,6 +2250,8 @@ template and additional variables to use in the URL template expansion.</p>
 
     
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
@@ -2254,6 +2284,7 @@ template and additional variables to use in the URL template expansion.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2295,6 +2326,8 @@ request and to the transfer. See \GuzzleHttp\RequestOptions.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a></span>
@@ -2328,6 +2361,7 @@ request and to the transfer. See \GuzzleHttp\RequestOptions.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2350,6 +2384,8 @@ request and to the transfer. See \GuzzleHttp\RequestOptions.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2385,6 +2421,7 @@ request and to the transfer. See \GuzzleHttp\RequestOptions.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -2397,6 +2434,8 @@ request and to the transfer. See \GuzzleHttp\RequestOptions.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2433,6 +2472,7 @@ request and to the transfer. See \GuzzleHttp\RequestOptions.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2450,6 +2490,8 @@ request and to the transfer. See \GuzzleHttp\RequestOptions.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2485,6 +2527,7 @@ request and to the transfer. See \GuzzleHttp\RequestOptions.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2502,6 +2545,8 @@ request and to the transfer. See \GuzzleHttp\RequestOptions.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2538,6 +2583,7 @@ request and to the transfer. See \GuzzleHttp\RequestOptions.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2548,6 +2594,8 @@ request and to the transfer. See \GuzzleHttp\RequestOptions.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2581,6 +2629,9 @@ request and to the transfer. See \GuzzleHttp\RequestOptions.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -2616,6 +2667,7 @@ request and to the transfer. See \GuzzleHttp\RequestOptions.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2628,6 +2680,8 @@ request and to the transfer. See \GuzzleHttp\RequestOptions.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2663,6 +2717,7 @@ request and to the transfer. See \GuzzleHttp\RequestOptions.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The URI of the request is not modified and the request options are used
 as-is without merging in default options.</p>
 </section>
@@ -2686,6 +2741,8 @@ as-is without merging in default options.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2808,39 +2865,39 @@ as-is without merging in default options.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/GuzzleHttp-Client.html#property_config">$config<a href="classes/GuzzleHttp-Client.html"></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Client.html#property_config">$config</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/GuzzleHttp-Client.html#method___call">__call()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Client.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/GuzzleHttp-ClientTrait.html#method_delete">delete()</a></li>
-                                            <li><a href="classes/GuzzleHttp-ClientTrait.html#method_deleteAsync">deleteAsync()</a></li>
-                                            <li><a href="classes/GuzzleHttp-ClientTrait.html#method_get">get()</a></li>
-                                            <li><a href="classes/GuzzleHttp-ClientTrait.html#method_getAsync">getAsync()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Client.html#method_getConfig">getConfig()</a></li>
-                                            <li><a href="classes/GuzzleHttp-ClientTrait.html#method_head">head()</a></li>
-                                            <li><a href="classes/GuzzleHttp-ClientTrait.html#method_headAsync">headAsync()</a></li>
-                                            <li><a href="classes/GuzzleHttp-ClientTrait.html#method_patch">patch()</a></li>
-                                            <li><a href="classes/GuzzleHttp-ClientTrait.html#method_patchAsync">patchAsync()</a></li>
-                                            <li><a href="classes/GuzzleHttp-ClientTrait.html#method_post">post()</a></li>
-                                            <li><a href="classes/GuzzleHttp-ClientTrait.html#method_postAsync">postAsync()</a></li>
-                                            <li><a href="classes/GuzzleHttp-ClientTrait.html#method_put">put()</a></li>
-                                            <li><a href="classes/GuzzleHttp-ClientTrait.html#method_putAsync">putAsync()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Client.html#method_request">request()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Client.html#method_requestAsync">requestAsync()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Client.html#method_send">send()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Client.html#method_sendAsync">sendAsync()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Client.html#method_sendRequest">sendRequest()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Client.html#method_applyOptions">applyOptions()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Client.html#method_buildUri">buildUri()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Client.html#method_configureDefaults">configureDefaults()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Client.html#method_invalidBody">invalidBody()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Client.html#method_prepareDefaults">prepareDefaults()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Client.html#method_transfer">transfer()</a></li>
+                                            <li class="-deprecated"><a href="classes/GuzzleHttp-Client.html#method___call">__call()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Client.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-ClientTrait.html#method_delete">delete()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-ClientTrait.html#method_deleteAsync">deleteAsync()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-ClientTrait.html#method_get">get()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-ClientTrait.html#method_getAsync">getAsync()</a></li>
+                                            <li class="-deprecated"><a href="classes/GuzzleHttp-Client.html#method_getConfig">getConfig()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-ClientTrait.html#method_head">head()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-ClientTrait.html#method_headAsync">headAsync()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-ClientTrait.html#method_patch">patch()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-ClientTrait.html#method_patchAsync">patchAsync()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-ClientTrait.html#method_post">post()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-ClientTrait.html#method_postAsync">postAsync()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-ClientTrait.html#method_put">put()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-ClientTrait.html#method_putAsync">putAsync()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Client.html#method_request">request()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Client.html#method_requestAsync">requestAsync()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Client.html#method_send">send()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Client.html#method_sendAsync">sendAsync()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Client.html#method_sendRequest">sendRequest()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Client.html#method_applyOptions">applyOptions()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Client.html#method_buildUri">buildUri()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Client.html#method_configureDefaults">configureDefaults()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Client.html#method_invalidBody">invalidBody()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Client.html#method_prepareDefaults">prepareDefaults()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Client.html#method_transfer">transfer()</a></li>
                                     </ul>
             </li>
                     </ul>

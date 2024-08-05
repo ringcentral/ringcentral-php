@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -720,6 +712,7 @@
 
             <p class="phpdocumentor-summary">Stores HTTP cookies.</p>
 
+
     <section class="phpdocumentor-description"><p>It extracts cookies from HTTP requests, and returns them in HTTP responses.
 CookieJarInterface instances automatically expire contained cookies when
 necessary. Subclasses are also responsible for storing and retrieving
@@ -752,7 +745,9 @@ cookies from a file, database, etc.</p>
 </section>
 
                                     </dd>
-                                            </dl>
+                                                                </dl>
+
+
 
 
 
@@ -778,42 +773,42 @@ cookies from a file, database, etc.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_clear">clear()</a>
+    <a class="" href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_clear">clear()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Remove cookies currently held in the cookie jar.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_clearSessionCookies">clearSessionCookies()</a>
+    <a class="" href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_clearSessionCookies">clearSessionCookies()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Discard all sessions cookies.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_extractCookies">extractCookies()</a>
+    <a class="" href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_extractCookies">extractCookies()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Extract cookies from an HTTP response and store them in the CookieJar.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_setCookie">setCookie()</a>
+    <a class="" href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_setCookie">setCookie()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Sets a cookie in the cookie jar.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_toArray">toArray()</a>
+    <a class="" href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_toArray">toArray()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Converts the cookie jar to an array.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_withCookieHeader">withCookieHeader()</a>
+    <a class="" href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_withCookieHeader">withCookieHeader()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-RequestInterface.html"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>    </span>
 </dt>
@@ -858,6 +853,7 @@ cookies from a file, database, etc.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Invoking this method without arguments will empty the whole cookie jar.
 If given a $domain argument only cookies belonging to that domain will
 be removed. If given a $domain and $path argument, cookies belonging to
@@ -900,6 +896,8 @@ removed.</p>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -927,12 +925,15 @@ removed.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Removes cookies that don't have an expire field or a have a discard
 field set to true. To be called when the user agent shuts down according
 to RFC 2965.</p>
 </section>
 
     
+    
+
     
 
     
@@ -964,6 +965,7 @@ to RFC 2965.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -985,6 +987,8 @@ to RFC 2965.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1017,6 +1021,7 @@ to RFC 2965.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1029,6 +1034,8 @@ to RFC 2965.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1071,6 +1078,9 @@ to RFC 2965.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1104,6 +1114,7 @@ to RFC 2965.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>If no matching cookies are found in the cookie jar, then no Cookie
 header is added to the request and the same request is returned.</p>
 </section>
@@ -1120,6 +1131,8 @@ header is added to the request and the same request is returned.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1245,12 +1258,12 @@ header is added to the request and the same request is returned.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Methods</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_clear">clear()</a></li>
-                                                    <li><a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_clearSessionCookies">clearSessionCookies()</a></li>
-                                                    <li><a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_extractCookies">extractCookies()</a></li>
-                                                    <li><a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_setCookie">setCookie()</a></li>
-                                                    <li><a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_toArray">toArray()</a></li>
-                                                    <li><a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_withCookieHeader">withCookieHeader()</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_clear">clear()</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_clearSessionCookies">clearSessionCookies()</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_extractCookies">extractCookies()</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_setCookie">setCookie()</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_toArray">toArray()</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Cookie-CookieJarInterface.html#method_withCookieHeader">withCookieHeader()</a></li>
                                             </ul>
                 </li>
             

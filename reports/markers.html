@@ -55,7 +55,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -233,10 +233,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -549,10 +545,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -576,7 +568,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -678,14 +670,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -764,6 +756,10 @@
                             </tr>
                                                                                                 <tr>
                                 <td class="phpdocumentor-cell"><a href="reports/markers.html#vendor/ratchet/rfc6455/src/Handshake/ServerNegotiator.php">vendor/ratchet/rfc6455/src/Handshake/ServerNegotiator.php</a></td>
+                                <td class="phpdocumentor-cell">2</td>
+                            </tr>
+                                                                                                <tr>
+                                <td class="phpdocumentor-cell"><a href="reports/markers.html#vendor/ratchet/rfc6455/src/Messaging/Frame.php">vendor/ratchet/rfc6455/src/Messaging/Frame.php</a></td>
                                 <td class="phpdocumentor-cell">2</td>
                             </tr>
                                                                                                 <tr>
@@ -870,7 +866,7 @@
                     <tbody>
                                             <tr>
                             <td class="phpdocumentor-cell">TODO</td>
-                            <td class="phpdocumentor-cell">198</td>
+                            <td class="phpdocumentor-cell">200</td>
                             <td class="phpdocumentor-cell">Rename these to include &quot;start&quot;.</td>
                         </tr>
                                         </tbody>
@@ -1159,6 +1155,29 @@ it is not a requirement. This is an implementation detail.</td>
                             <td class="phpdocumentor-cell">Consider extending this interface and moving this there.
       The spec does says the server can fail for this reason, but
 it is not a requirement. This is an implementation detail.</td>
+                        </tr>
+                                        </tbody>
+                </table>
+                            <a id="vendor/ratchet/rfc6455/src/Messaging/Frame.php"></a>
+                <h3><abbr title="vendor/ratchet/rfc6455/src/Messaging/Frame.php">Frame.php</abbr></h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="phpdocumentor-heading">Type</th>
+                        <th class="phpdocumentor-heading">Line</th>
+                        <th class="phpdocumentor-heading">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                                            <tr>
+                            <td class="phpdocumentor-cell">TODO</td>
+                            <td class="phpdocumentor-cell">435</td>
+                            <td class="phpdocumentor-cell">Consider not checking mask, always returning the payload, masked or not</td>
+                        </tr>
+                                            <tr>
+                            <td class="phpdocumentor-cell">TODO</td>
+                            <td class="phpdocumentor-cell">447</td>
+                            <td class="phpdocumentor-cell">This is untested, make sure the substr is right - trying to return the frame w/o the overflow</td>
                         </tr>
                                         </tbody>
                 </table>

@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -732,11 +724,14 @@
             <p class="phpdocumentor-summary">Visitor that connects a child node to its parent node
 as well as its sibling nodes.</p>
 
+
     <section class="phpdocumentor-description"><p>On the child node, the parent node can be accessed through
 <code class="prettyprint">$node-&gt;getAttribute('parent')</code>, the previous
 node can be accessed through <code class="prettyprint">$node-&gt;getAttribute('previous')</code>,
 and the next node can be accessed through <code class="prettyprint">$node-&gt;getAttribute('next')</code>.</p>
 </section>
+
+
 
 
 
@@ -763,13 +758,13 @@ and the next node can be accessed through <code class="prettyprint">$node-&gt;ge
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#property_previous">$previous</a>
+    <a class="" href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#property_previous">$previous</a>
     <span>
                         &nbsp;: <a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#property_stack">$stack</a>
+    <a class="" href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#property_stack">$stack</a>
     <span>
                         &nbsp;: array&lt;string|int, <a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>&gt;            </span>
 </dt>
@@ -783,35 +778,34 @@ and the next node can be accessed through <code class="prettyprint">$node-&gt;ge
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-NodeVisitorAbstract.html#method_afterTraverse">afterTraverse()</a>
+    <a class="" href="classes/PhpParser-NodeVisitorAbstract.html#method_afterTraverse">afterTraverse()</a>
     <span>
                                 &nbsp;: null|array&lt;string|int, <a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>&gt;    </span>
 </dt>
 <dd>Called once after traversal.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#method_beforeTraverse">beforeTraverse()</a>
+    <a class="" href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#method_beforeTraverse">beforeTraverse()</a>
     <span>
                                 &nbsp;: null|array&lt;string|int, <a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>&gt;    </span>
 </dt>
 <dd>Called once before traversal.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#method_enterNode">enterNode()</a>
+    <a class="" href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#method_enterNode">enterNode()</a>
     <span>
                                 &nbsp;: null|int|<a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>|array&lt;string|int, <a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>&gt;    </span>
 </dt>
 <dd>Called when entering a node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#method_leaveNode">leaveNode()</a>
+    <a class="" href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#method_leaveNode">leaveNode()</a>
     <span>
                                 &nbsp;: null|int|<a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>|array&lt;string|int, <a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>&gt;    </span>
 </dt>
 <dd>Called when leaving a node.</dd>
 
     </dl>
-
 
 
 
@@ -846,6 +840,7 @@ and the next node can be accessed through <code class="prettyprint">$node-&gt;ge
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type"><a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>|null</span>
@@ -854,6 +849,8 @@ and the next node can be accessed through <code class="prettyprint">$node-&gt;ge
 
     
     
+    
+
     
 
 </article>
@@ -879,6 +876,7 @@ and the next node can be accessed through <code class="prettyprint">$node-&gt;ge
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, <a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>&gt;</span>
@@ -887,6 +885,8 @@ and the next node can be accessed through <code class="prettyprint">$node-&gt;ge
 
     
     
+    
+
     
 
 </article>
@@ -924,6 +924,7 @@ and the next node can be accessed through <code class="prettyprint">$node-&gt;ge
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Return value semantics:</p>
 <ul>
 <li>null:      $nodes stays as-is</li>
@@ -943,6 +944,8 @@ and the next node can be accessed through <code class="prettyprint">$node-&gt;ge
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -982,6 +985,7 @@ and the next node can be accessed through <code class="prettyprint">$node-&gt;ge
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Return value semantics:</p>
 <ul>
 <li>null:      $nodes stays as-is</li>
@@ -1001,6 +1005,8 @@ and the next node can be accessed through <code class="prettyprint">$node-&gt;ge
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1040,6 +1046,7 @@ and the next node can be accessed through <code class="prettyprint">$node-&gt;ge
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Return value semantics:</p>
 <ul>
 <li>null
@@ -1074,6 +1081,8 @@ traversed. $node stays as-is.</li>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1113,6 +1122,7 @@ traversed. $node stays as-is.</li>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Return value semantics:</p>
 <ul>
 <li>null
@@ -1142,6 +1152,8 @@ traversed. $node stays as-is.</li>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1268,18 +1280,18 @@ traversed. $node stays as-is.</li>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#property_previous">$previous<a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html"></li>
-                                                    <li><a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#property_stack">$stack<a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html"></li>
+                                                    <li class=""><a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#property_previous">$previous</a></li>
+                                                    <li class=""><a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#property_stack">$stack</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/PhpParser-NodeVisitorAbstract.html#method_afterTraverse">afterTraverse()</a></li>
-                                            <li><a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#method_beforeTraverse">beforeTraverse()</a></li>
-                                            <li><a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#method_enterNode">enterNode()</a></li>
-                                            <li><a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#method_leaveNode">leaveNode()</a></li>
+                                            <li class=""><a href="classes/PhpParser-NodeVisitorAbstract.html#method_afterTraverse">afterTraverse()</a></li>
+                                            <li class=""><a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#method_beforeTraverse">beforeTraverse()</a></li>
+                                            <li class=""><a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#method_enterNode">enterNode()</a></li>
+                                            <li class=""><a href="classes/PhpParser-NodeVisitor-NodeConnectingVisitor.html#method_leaveNode">leaveNode()</a></li>
                                     </ul>
             </li>
                     </ul>

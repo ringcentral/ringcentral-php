@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -725,6 +717,7 @@
 
             <p class="phpdocumentor-summary">Evaluates constant expressions.</p>
 
+
     <section class="phpdocumentor-description"><p>This evaluator is able to evaluate all constant expressions (as defined by PHP), which can be
 evaluated without further context. If a subexpression is not of this type, a user-provided
 fallback evaluator is invoked. To support all constant expressions that are also supported by
@@ -740,6 +733,8 @@ following node types:</p>
 point to string conversions are affected by the precision ini setting. Secondly, they are also
 affected by the LC_NUMERIC locale.</p>
 </section>
+
+
 
 
 
@@ -766,7 +761,7 @@ affected by the LC_NUMERIC locale.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/PhpParser-ConstExprEvaluator.html#property_fallbackEvaluator">$fallbackEvaluator</a>
+    <a class="" href="classes/PhpParser-ConstExprEvaluator.html#property_fallbackEvaluator">$fallbackEvaluator</a>
     <span>
                         &nbsp;: callable|null            </span>
 </dt>
@@ -780,58 +775,57 @@ affected by the LC_NUMERIC locale.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-ConstExprEvaluator.html#method___construct">__construct()</a>
+    <a class="" href="classes/PhpParser-ConstExprEvaluator.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Create a constant expression evaluator.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateDirectly">evaluateDirectly()</a>
+    <a class="" href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateDirectly">evaluateDirectly()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Directly evaluates a constant expression into a PHP value.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateSilently">evaluateSilently()</a>
+    <a class="" href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateSilently">evaluateSilently()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Silently evaluates a constant expression into a PHP value.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluate">evaluate()</a>
+    <a class="" href="classes/PhpParser-ConstExprEvaluator.html#method_evaluate">evaluate()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateArray">evaluateArray()</a>
+    <a class="" href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateArray">evaluateArray()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateBinaryOp">evaluateBinaryOp()</a>
+    <a class="" href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateBinaryOp">evaluateBinaryOp()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateConstFetch">evaluateConstFetch()</a>
+    <a class="" href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateConstFetch">evaluateConstFetch()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateTernary">evaluateTernary()</a>
+    <a class="" href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateTernary">evaluateTernary()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
     </dl>
-
 
 
 
@@ -866,6 +860,7 @@ affected by the LC_NUMERIC locale.</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">callable|null</span>
@@ -874,6 +869,8 @@ affected by the LC_NUMERIC locale.</p>
 
     
     
+    
+
     
 
 </article>
@@ -911,6 +908,7 @@ affected by the LC_NUMERIC locale.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The provided fallback evaluator is invoked whenever a subexpression cannot be evaluated. See
 class doc comment for more information.</p>
 </section>
@@ -927,6 +925,8 @@ class doc comment for more information.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -958,6 +958,7 @@ class doc comment for more information.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>May generate Error exceptions, warnings or notices. Use evaluateSilently() to convert these
 into a ConstExprEvaluationException.</p>
 <p>If some part of the expression cannot be evaluated, the fallback evaluator passed to the
@@ -998,6 +999,8 @@ ConstExprEvaluationException is thrown.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">mixed</span>
@@ -1034,6 +1037,7 @@ ConstExprEvaluationException is thrown.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Thrown Errors, warnings or notices will be converted into a ConstExprEvaluationException.
 The original source of the exception is available through getPrevious().</p>
 <p>If some part of the expression cannot be evaluated, the fallback evaluator passed to the
@@ -1074,6 +1078,8 @@ ConstExprEvaluationException is thrown.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">mixed</span>
@@ -1110,6 +1116,7 @@ ConstExprEvaluationException is thrown.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1120,6 +1127,8 @@ ConstExprEvaluationException is thrown.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1151,6 +1160,7 @@ ConstExprEvaluationException is thrown.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1161,6 +1171,8 @@ ConstExprEvaluationException is thrown.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1196,6 +1208,7 @@ ConstExprEvaluationException is thrown.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1206,6 +1219,8 @@ ConstExprEvaluationException is thrown.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1237,6 +1252,7 @@ ConstExprEvaluationException is thrown.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1247,6 +1263,8 @@ ConstExprEvaluationException is thrown.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1278,6 +1296,7 @@ ConstExprEvaluationException is thrown.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1288,6 +1307,8 @@ ConstExprEvaluationException is thrown.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1406,21 +1427,21 @@ ConstExprEvaluationException is thrown.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/PhpParser-ConstExprEvaluator.html#property_fallbackEvaluator">$fallbackEvaluator<a href="classes/PhpParser-ConstExprEvaluator.html"></li>
+                                                    <li class=""><a href="classes/PhpParser-ConstExprEvaluator.html#property_fallbackEvaluator">$fallbackEvaluator</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/PhpParser-ConstExprEvaluator.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateDirectly">evaluateDirectly()</a></li>
-                                            <li><a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateSilently">evaluateSilently()</a></li>
-                                            <li><a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluate">evaluate()</a></li>
-                                            <li><a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateArray">evaluateArray()</a></li>
-                                            <li><a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateBinaryOp">evaluateBinaryOp()</a></li>
-                                            <li><a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateConstFetch">evaluateConstFetch()</a></li>
-                                            <li><a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateTernary">evaluateTernary()</a></li>
+                                            <li class=""><a href="classes/PhpParser-ConstExprEvaluator.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateDirectly">evaluateDirectly()</a></li>
+                                            <li class=""><a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateSilently">evaluateSilently()</a></li>
+                                            <li class=""><a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluate">evaluate()</a></li>
+                                            <li class=""><a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateArray">evaluateArray()</a></li>
+                                            <li class=""><a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateBinaryOp">evaluateBinaryOp()</a></li>
+                                            <li class=""><a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateConstFetch">evaluateConstFetch()</a></li>
+                                            <li class=""><a href="classes/PhpParser-ConstExprEvaluator.html#method_evaluateTernary">evaluateTernary()</a></li>
                                     </ul>
             </li>
                     </ul>

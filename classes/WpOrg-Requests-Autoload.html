@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -728,10 +720,13 @@
 
             <p class="phpdocumentor-summary">Autoloader for Requests for PHP.</p>
 
+
     <section class="phpdocumentor-description"><p>This autoloader supports the PSR-4 based Requests 2.0.0 classes in a case-sensitive manner
 as the most common server OS-es are case-sensitive and the file names are in mixed case.</p>
 <p>For the PSR-0 Requests 1.x BC-layer, requested classes will be treated case-insensitively.</p>
 </section>
+
+
 
 
 
@@ -758,7 +753,7 @@ as the most common server OS-es are case-sensitive and the file names are in mix
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/WpOrg-Requests-Autoload.html#property_deprecated_classes">$deprecated_classes</a>
+    <a class="" href="classes/WpOrg-Requests-Autoload.html#property_deprecated_classes">$deprecated_classes</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
@@ -773,14 +768,13 @@ as the most common server OS-es are case-sensitive and the file names are in mix
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/WpOrg-Requests-Autoload.html#method_load">load()</a>
+    <a class="" href="classes/WpOrg-Requests-Autoload.html#method_load">load()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Autoloader.</dd>
 
     </dl>
-
 
 
 
@@ -816,74 +810,77 @@ as the most common server OS-es are case-sensitive and the file names are in mix
 
         <p class="phpdocumentor-summary">List of the old PSR-0 class names in lowercase as keys with their PSR-4 case-sensitive name as a value.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
     <span class="phpdocumentor-signature__name">$deprecated_classes</span>
      = <span class="phpdocumentor-signature__default-value">[
     // Interfaces.
-    &#039;requests_auth&#039; =&gt; &#039;\\WpOrg\\Requests\\Auth&#039;,
-    &#039;requests_hooker&#039; =&gt; &#039;\\WpOrg\\Requests\\HookManager&#039;,
-    &#039;requests_proxy&#039; =&gt; &#039;\\WpOrg\\Requests\\Proxy&#039;,
-    &#039;requests_transport&#039; =&gt; &#039;\\WpOrg\\Requests\\Transport&#039;,
+    &#039;requests_auth&#039; =&gt; &#039;\WpOrg\Requests\Auth&#039;,
+    &#039;requests_hooker&#039; =&gt; &#039;\WpOrg\Requests\HookManager&#039;,
+    &#039;requests_proxy&#039; =&gt; &#039;\WpOrg\Requests\Proxy&#039;,
+    &#039;requests_transport&#039; =&gt; &#039;\WpOrg\Requests\Transport&#039;,
     // Classes.
-    &#039;requests_cookie&#039; =&gt; &#039;\\WpOrg\\Requests\\Cookie&#039;,
-    &#039;requests_exception&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception&#039;,
-    &#039;requests_hooks&#039; =&gt; &#039;\\WpOrg\\Requests\\Hooks&#039;,
-    &#039;requests_idnaencoder&#039; =&gt; &#039;\\WpOrg\\Requests\\IdnaEncoder&#039;,
-    &#039;requests_ipv6&#039; =&gt; &#039;\\WpOrg\\Requests\\Ipv6&#039;,
-    &#039;requests_iri&#039; =&gt; &#039;\\WpOrg\\Requests\\Iri&#039;,
-    &#039;requests_response&#039; =&gt; &#039;\\WpOrg\\Requests\\Response&#039;,
-    &#039;requests_session&#039; =&gt; &#039;\\WpOrg\\Requests\\Session&#039;,
-    &#039;requests_ssl&#039; =&gt; &#039;\\WpOrg\\Requests\\Ssl&#039;,
-    &#039;requests_auth_basic&#039; =&gt; &#039;\\WpOrg\\Requests\\Auth\\Basic&#039;,
-    &#039;requests_cookie_jar&#039; =&gt; &#039;\\WpOrg\\Requests\\Cookie\\Jar&#039;,
-    &#039;requests_proxy_http&#039; =&gt; &#039;\\WpOrg\\Requests\\Proxy\\Http&#039;,
-    &#039;requests_response_headers&#039; =&gt; &#039;\\WpOrg\\Requests\\Response\\Headers&#039;,
-    &#039;requests_transport_curl&#039; =&gt; &#039;\\WpOrg\\Requests\\Transport\\Curl&#039;,
-    &#039;requests_transport_fsockopen&#039; =&gt; &#039;\\WpOrg\\Requests\\Transport\\Fsockopen&#039;,
-    &#039;requests_utility_caseinsensitivedictionary&#039; =&gt; &#039;\\WpOrg\\Requests\\Utility\\CaseInsensitiveDictionary&#039;,
-    &#039;requests_utility_filterediterator&#039; =&gt; &#039;\\WpOrg\\Requests\\Utility\\FilteredIterator&#039;,
-    &#039;requests_exception_http&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http&#039;,
-    &#039;requests_exception_transport&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Transport&#039;,
-    &#039;requests_exception_transport_curl&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Transport\\Curl&#039;,
-    &#039;requests_exception_http_304&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status304&#039;,
-    &#039;requests_exception_http_305&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status305&#039;,
-    &#039;requests_exception_http_306&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status306&#039;,
-    &#039;requests_exception_http_400&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status400&#039;,
-    &#039;requests_exception_http_401&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status401&#039;,
-    &#039;requests_exception_http_402&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status402&#039;,
-    &#039;requests_exception_http_403&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status403&#039;,
-    &#039;requests_exception_http_404&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status404&#039;,
-    &#039;requests_exception_http_405&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status405&#039;,
-    &#039;requests_exception_http_406&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status406&#039;,
-    &#039;requests_exception_http_407&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status407&#039;,
-    &#039;requests_exception_http_408&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status408&#039;,
-    &#039;requests_exception_http_409&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status409&#039;,
-    &#039;requests_exception_http_410&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status410&#039;,
-    &#039;requests_exception_http_411&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status411&#039;,
-    &#039;requests_exception_http_412&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status412&#039;,
-    &#039;requests_exception_http_413&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status413&#039;,
-    &#039;requests_exception_http_414&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status414&#039;,
-    &#039;requests_exception_http_415&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status415&#039;,
-    &#039;requests_exception_http_416&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status416&#039;,
-    &#039;requests_exception_http_417&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status417&#039;,
-    &#039;requests_exception_http_418&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status418&#039;,
-    &#039;requests_exception_http_428&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status428&#039;,
-    &#039;requests_exception_http_429&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status429&#039;,
-    &#039;requests_exception_http_431&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status431&#039;,
-    &#039;requests_exception_http_500&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status500&#039;,
-    &#039;requests_exception_http_501&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status501&#039;,
-    &#039;requests_exception_http_502&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status502&#039;,
-    &#039;requests_exception_http_503&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status503&#039;,
-    &#039;requests_exception_http_504&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status504&#039;,
-    &#039;requests_exception_http_505&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status505&#039;,
-    &#039;requests_exception_http_511&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\Status511&#039;,
-    &#039;requests_exception_http_unknown&#039; =&gt; &#039;\\WpOrg\\Requests\\Exception\\Http\\StatusUnknown&#039;,
+    &#039;requests_cookie&#039; =&gt; &#039;\WpOrg\Requests\Cookie&#039;,
+    &#039;requests_exception&#039; =&gt; &#039;\WpOrg\Requests\Exception&#039;,
+    &#039;requests_hooks&#039; =&gt; &#039;\WpOrg\Requests\Hooks&#039;,
+    &#039;requests_idnaencoder&#039; =&gt; &#039;\WpOrg\Requests\IdnaEncoder&#039;,
+    &#039;requests_ipv6&#039; =&gt; &#039;\WpOrg\Requests\Ipv6&#039;,
+    &#039;requests_iri&#039; =&gt; &#039;\WpOrg\Requests\Iri&#039;,
+    &#039;requests_response&#039; =&gt; &#039;\WpOrg\Requests\Response&#039;,
+    &#039;requests_session&#039; =&gt; &#039;\WpOrg\Requests\Session&#039;,
+    &#039;requests_ssl&#039; =&gt; &#039;\WpOrg\Requests\Ssl&#039;,
+    &#039;requests_auth_basic&#039; =&gt; &#039;\WpOrg\Requests\Auth\Basic&#039;,
+    &#039;requests_cookie_jar&#039; =&gt; &#039;\WpOrg\Requests\Cookie\Jar&#039;,
+    &#039;requests_proxy_http&#039; =&gt; &#039;\WpOrg\Requests\Proxy\Http&#039;,
+    &#039;requests_response_headers&#039; =&gt; &#039;\WpOrg\Requests\Response\Headers&#039;,
+    &#039;requests_transport_curl&#039; =&gt; &#039;\WpOrg\Requests\Transport\Curl&#039;,
+    &#039;requests_transport_fsockopen&#039; =&gt; &#039;\WpOrg\Requests\Transport\Fsockopen&#039;,
+    &#039;requests_utility_caseinsensitivedictionary&#039; =&gt; &#039;\WpOrg\Requests\Utility\CaseInsensitiveDictionary&#039;,
+    &#039;requests_utility_filterediterator&#039; =&gt; &#039;\WpOrg\Requests\Utility\FilteredIterator&#039;,
+    &#039;requests_exception_http&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http&#039;,
+    &#039;requests_exception_transport&#039; =&gt; &#039;\WpOrg\Requests\Exception\Transport&#039;,
+    &#039;requests_exception_transport_curl&#039; =&gt; &#039;\WpOrg\Requests\Exception\Transport\Curl&#039;,
+    &#039;requests_exception_http_304&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status304&#039;,
+    &#039;requests_exception_http_305&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status305&#039;,
+    &#039;requests_exception_http_306&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status306&#039;,
+    &#039;requests_exception_http_400&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status400&#039;,
+    &#039;requests_exception_http_401&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status401&#039;,
+    &#039;requests_exception_http_402&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status402&#039;,
+    &#039;requests_exception_http_403&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status403&#039;,
+    &#039;requests_exception_http_404&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status404&#039;,
+    &#039;requests_exception_http_405&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status405&#039;,
+    &#039;requests_exception_http_406&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status406&#039;,
+    &#039;requests_exception_http_407&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status407&#039;,
+    &#039;requests_exception_http_408&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status408&#039;,
+    &#039;requests_exception_http_409&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status409&#039;,
+    &#039;requests_exception_http_410&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status410&#039;,
+    &#039;requests_exception_http_411&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status411&#039;,
+    &#039;requests_exception_http_412&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status412&#039;,
+    &#039;requests_exception_http_413&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status413&#039;,
+    &#039;requests_exception_http_414&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status414&#039;,
+    &#039;requests_exception_http_415&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status415&#039;,
+    &#039;requests_exception_http_416&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status416&#039;,
+    &#039;requests_exception_http_417&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status417&#039;,
+    &#039;requests_exception_http_418&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status418&#039;,
+    &#039;requests_exception_http_428&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status428&#039;,
+    &#039;requests_exception_http_429&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status429&#039;,
+    &#039;requests_exception_http_431&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status431&#039;,
+    &#039;requests_exception_http_500&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status500&#039;,
+    &#039;requests_exception_http_501&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status501&#039;,
+    &#039;requests_exception_http_502&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status502&#039;,
+    &#039;requests_exception_http_503&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status503&#039;,
+    &#039;requests_exception_http_504&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status504&#039;,
+    &#039;requests_exception_http_505&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status505&#039;,
+    &#039;requests_exception_http_511&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\Status511&#039;,
+    &#039;requests_exception_http_unknown&#039; =&gt; &#039;\WpOrg\Requests\Exception\Http\StatusUnknown&#039;,
 ]</span></code>
 
     
     
+    
+
     
 
 </article>
@@ -922,6 +919,7 @@ as the most common server OS-es are case-sensitive and the file names are in mix
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -934,6 +932,8 @@ as the most common server OS-es are case-sensitive and the file names are in mix
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1060,14 +1060,14 @@ as the most common server OS-es are case-sensitive and the file names are in mix
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/WpOrg-Requests-Autoload.html#property_deprecated_classes">$deprecated_classes<a href="classes/WpOrg-Requests-Autoload.html"></li>
+                                                    <li class=""><a href="classes/WpOrg-Requests-Autoload.html#property_deprecated_classes">$deprecated_classes</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/WpOrg-Requests-Autoload.html#method_load">load()</a></li>
+                                            <li class=""><a href="classes/WpOrg-Requests-Autoload.html#method_load">load()</a></li>
                                     </ul>
             </li>
                     </ul>

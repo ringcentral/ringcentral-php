@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -733,6 +725,14 @@
     </aside>
 
         
+            <div class="phpdocumentor-admonition">
+        <svg class="phpdocumentor-admonition__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <article>
+                <p>See <code class="prettyprint">SocketServer</code> instead</p>
+
+            </article>
+        </div>
+    
 
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
@@ -742,16 +742,6 @@
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">deprecated</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.9.0</span>
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>See <code class="prettyprint">SocketServer</code> instead</p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -760,6 +750,8 @@
                                              
                                     </dd>
                                             </dl>
+
+
 
 
 
@@ -792,19 +784,19 @@ incoming streaming connections, such as a normal TCP/IP connection.</dd>    </dl
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Evenement-EventEmitterTrait.html#property_listeners">$listeners</a>
+    <a class="" href="classes/Evenement-EventEmitterTrait.html#property_listeners">$listeners</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Evenement-EventEmitterTrait.html#property_onceListeners">$onceListeners</a>
+    <a class="" href="classes/Evenement-EventEmitterTrait.html#property_onceListeners">$onceListeners</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-Socket-Server.html#property_server">$server</a>
+    <a class="" href="classes/React-Socket-Server.html#property_server">$server</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -818,78 +810,77 @@ incoming streaming connections, such as a normal TCP/IP connection.</dd>    </dl
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Socket-Server.html#method___construct">__construct()</a>
+    <a class="-deprecated" href="classes/React-Socket-Server.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>[Deprecated] `Server`</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Socket-Server.html#method_close">close()</a>
+    <a class="" href="classes/React-Socket-Server.html#method_close">close()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Shuts down this listening socket</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Evenement-EventEmitterTrait.html#method_emit">emit()</a>
+    <a class="" href="classes/Evenement-EventEmitterTrait.html#method_emit">emit()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Socket-Server.html#method_getAddress">getAddress()</a>
+    <a class="" href="classes/React-Socket-Server.html#method_getAddress">getAddress()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
 <dd>Returns the full address (URI) this server is currently listening on</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Evenement-EventEmitterTrait.html#method_listeners">listeners()</a>
+    <a class="" href="classes/Evenement-EventEmitterTrait.html#method_listeners">listeners()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Evenement-EventEmitterTrait.html#method_on">on()</a>
+    <a class="" href="classes/Evenement-EventEmitterTrait.html#method_on">on()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Evenement-EventEmitterTrait.html#method_once">once()</a>
+    <a class="" href="classes/Evenement-EventEmitterTrait.html#method_once">once()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Socket-Server.html#method_pause">pause()</a>
+    <a class="" href="classes/React-Socket-Server.html#method_pause">pause()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Pauses accepting new incoming connections.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Evenement-EventEmitterTrait.html#method_removeAllListeners">removeAllListeners()</a>
+    <a class="" href="classes/Evenement-EventEmitterTrait.html#method_removeAllListeners">removeAllListeners()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Evenement-EventEmitterTrait.html#method_removeListener">removeListener()</a>
+    <a class="" href="classes/Evenement-EventEmitterTrait.html#method_removeListener">removeListener()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Socket-Server.html#method_resume">resume()</a>
+    <a class="" href="classes/React-Socket-Server.html#method_resume">resume()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Resumes accepting new incoming connections.</dd>
 
     </dl>
-
 
 
 
@@ -924,6 +915,7 @@ incoming streaming connections, such as a normal TCP/IP connection.</dd>    </dl
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -932,6 +924,8 @@ incoming streaming connections, such as a normal TCP/IP connection.</dd>    </dl
 
     
     
+    
+
     
 
 </article>
@@ -957,6 +951,7 @@ incoming streaming connections, such as a normal TCP/IP connection.</dd>    </dl
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -965,6 +960,8 @@ incoming streaming connections, such as a normal TCP/IP connection.</dd>    </dl
 
     
     
+    
+
     
 
 </article>
@@ -990,6 +987,7 @@ incoming streaming connections, such as a normal TCP/IP connection.</dd>    </dl
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -998,6 +996,8 @@ incoming streaming connections, such as a normal TCP/IP connection.</dd>    </dl
 
     
     
+    
+
     
 
 </article>
@@ -1031,10 +1031,18 @@ incoming streaming connections, such as a normal TCP/IP connection.</dd>    </dl
 
     <code class="phpdocumentor-code phpdocumentor-signature -deprecated">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$uri</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/React-EventLoop-LoopInterface.html"><abbr title="\React\EventLoop\LoopInterface">LoopInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$loop</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">array()</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$uri</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/React-EventLoop-LoopInterface.html"><abbr title="\React\EventLoop\LoopInterface">LoopInterface</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$loop</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">array()</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+                <div class="phpdocumentor-admonition">
+        <svg class="phpdocumentor-admonition__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <article>
+                <p>See <code class="prettyprint">SocketServer</code> instead</p>
+
+            </article>
+        </div>
+    
         <section class="phpdocumentor-description"><p>This class exists for BC reasons only and should not be used anymore.</p>
 <pre class="prettyprint"><code class="language-php">// deprecated
 $socket = new React\Socket\Server(0);
@@ -1068,7 +1076,7 @@ array without wrapping this in another array under the <code class="prettyprint"
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$loop</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/React-EventLoop-LoopInterface.html"><abbr title="\React\EventLoop\LoopInterface">LoopInterface</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/React-EventLoop-LoopInterface.html"><abbr title="\React\EventLoop\LoopInterface">LoopInterface</abbr></a>|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1090,16 +1098,6 @@ array without wrapping this in another array under the <code class="prettyprint"
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">deprecated</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.9.0</span>
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>See <code class="prettyprint">SocketServer</code> instead</p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -1108,6 +1106,8 @@ array without wrapping this in another array under the <code class="prettyprint"
                                              
                                     </dd>
                                             </dl>
+
+    
 
     
 </article>
@@ -1125,7 +1125,7 @@ array without wrapping this in another array under the <code class="prettyprint"
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/react/socket/src/Server.php"><a href="files/vendor-react-socket-src-server.html"><abbr title="vendor/react/socket/src/Server.php">Server.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 
     </aside>
 
@@ -1137,11 +1137,14 @@ array without wrapping this in another array under the <code class="prettyprint"
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This will stop listening for new incoming connections on this socket.</p>
 <p>Calling this method more than once on the same instance is a NO-OP.</p>
 </section>
 
     
+    
+
     
 
     
@@ -1172,6 +1175,7 @@ array without wrapping this in another array under the <code class="prettyprint"
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1193,6 +1197,8 @@ array without wrapping this in another array under the <code class="prettyprint"
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1208,7 +1214,7 @@ array without wrapping this in another array under the <code class="prettyprint"
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/react/socket/src/Server.php"><a href="files/vendor-react-socket-src-server.html"><abbr title="vendor/react/socket/src/Server.php">Server.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">95</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
     </aside>
 
@@ -1220,6 +1226,7 @@ array without wrapping this in another array under the <code class="prettyprint"
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$address = $socket-&gt;getAddress();
 echo 'Server listening on ' . $address . PHP_EOL;
 </code></pre>
@@ -1238,6 +1245,8 @@ echo 'Server listening on port ' . $port . PHP_EOL;
 </section>
 
     
+    
+
     
 
             <section>
@@ -1276,6 +1285,7 @@ echo 'Server listening on port ' . $port . PHP_EOL;
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1286,6 +1296,8 @@ echo 'Server listening on port ' . $port . PHP_EOL;
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1321,6 +1333,7 @@ echo 'Server listening on port ' . $port . PHP_EOL;
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1338,6 +1351,8 @@ echo 'Server listening on port ' . $port . PHP_EOL;
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1369,6 +1384,7 @@ echo 'Server listening on port ' . $port . PHP_EOL;
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1390,6 +1406,8 @@ echo 'Server listening on port ' . $port . PHP_EOL;
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1405,7 +1423,7 @@ echo 'Server listening on port ' . $port . PHP_EOL;
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/react/socket/src/Server.php"><a href="files/vendor-react-socket-src-server.html"><abbr title="vendor/react/socket/src/Server.php">Server.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">100</span>
+    <span class="phpdocumentor-element-found-in__line">104</span>
 
     </aside>
 
@@ -1417,6 +1435,7 @@ echo 'Server listening on port ' . $port . PHP_EOL;
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Removes the socket resource from the EventLoop and thus stop accepting
 new connections. Note that the listening socket stays active and is not
 closed.</p>
@@ -1442,6 +1461,8 @@ Similarly, calling this after <code class="prettyprint">close()</code> is a NO-O
 </section>
 
     
+    
+
     
 
     
@@ -1472,6 +1493,7 @@ Similarly, calling this after <code class="prettyprint">close()</code> is a NO-O
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1482,6 +1504,8 @@ Similarly, calling this after <code class="prettyprint">close()</code> is a NO-O
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1513,6 +1537,7 @@ Similarly, calling this after <code class="prettyprint">close()</code> is a NO-O
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1534,6 +1559,8 @@ Similarly, calling this after <code class="prettyprint">close()</code> is a NO-O
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1549,7 +1576,7 @@ Similarly, calling this after <code class="prettyprint">close()</code> is a NO-O
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/react/socket/src/Server.php"><a href="files/vendor-react-socket-src-server.html"><abbr title="vendor/react/socket/src/Server.php">Server.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">105</span>
+    <span class="phpdocumentor-element-found-in__line">109</span>
 
     </aside>
 
@@ -1561,6 +1588,7 @@ Similarly, calling this after <code class="prettyprint">close()</code> is a NO-O
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Re-attach the socket resource to the EventLoop after a previous <code class="prettyprint">pause()</code>.</p>
 <pre class="prettyprint"><code class="language-php">$socket-&gt;pause();
 
@@ -1574,6 +1602,8 @@ Similarly, calling this after <code class="prettyprint">close()</code> is a NO-O
 </section>
 
     
+    
+
     
 
     
@@ -1691,26 +1721,26 @@ Similarly, calling this after <code class="prettyprint">close()</code> is a NO-O
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Evenement-EventEmitterTrait.html#property_listeners">$listeners<a href="classes/React-Socket-Server.html"></li>
-                                                    <li><a href="classes/Evenement-EventEmitterTrait.html#property_onceListeners">$onceListeners<a href="classes/React-Socket-Server.html"></li>
-                                                    <li><a href="classes/React-Socket-Server.html#property_server">$server<a href="classes/React-Socket-Server.html"></li>
+                                                    <li class=""><a href="classes/Evenement-EventEmitterTrait.html#property_listeners">$listeners</a></li>
+                                                    <li class=""><a href="classes/Evenement-EventEmitterTrait.html#property_onceListeners">$onceListeners</a></li>
+                                                    <li class=""><a href="classes/React-Socket-Server.html#property_server">$server</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/React-Socket-Server.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/React-Socket-Server.html#method_close">close()</a></li>
-                                            <li><a href="classes/Evenement-EventEmitterTrait.html#method_emit">emit()</a></li>
-                                            <li><a href="classes/React-Socket-Server.html#method_getAddress">getAddress()</a></li>
-                                            <li><a href="classes/Evenement-EventEmitterTrait.html#method_listeners">listeners()</a></li>
-                                            <li><a href="classes/Evenement-EventEmitterTrait.html#method_on">on()</a></li>
-                                            <li><a href="classes/Evenement-EventEmitterTrait.html#method_once">once()</a></li>
-                                            <li><a href="classes/React-Socket-Server.html#method_pause">pause()</a></li>
-                                            <li><a href="classes/Evenement-EventEmitterTrait.html#method_removeAllListeners">removeAllListeners()</a></li>
-                                            <li><a href="classes/Evenement-EventEmitterTrait.html#method_removeListener">removeListener()</a></li>
-                                            <li><a href="classes/React-Socket-Server.html#method_resume">resume()</a></li>
+                                            <li class="-deprecated"><a href="classes/React-Socket-Server.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/React-Socket-Server.html#method_close">close()</a></li>
+                                            <li class=""><a href="classes/Evenement-EventEmitterTrait.html#method_emit">emit()</a></li>
+                                            <li class=""><a href="classes/React-Socket-Server.html#method_getAddress">getAddress()</a></li>
+                                            <li class=""><a href="classes/Evenement-EventEmitterTrait.html#method_listeners">listeners()</a></li>
+                                            <li class=""><a href="classes/Evenement-EventEmitterTrait.html#method_on">on()</a></li>
+                                            <li class=""><a href="classes/Evenement-EventEmitterTrait.html#method_once">once()</a></li>
+                                            <li class=""><a href="classes/React-Socket-Server.html#method_pause">pause()</a></li>
+                                            <li class=""><a href="classes/Evenement-EventEmitterTrait.html#method_removeAllListeners">removeAllListeners()</a></li>
+                                            <li class=""><a href="classes/Evenement-EventEmitterTrait.html#method_removeListener">removeListener()</a></li>
+                                            <li class=""><a href="classes/React-Socket-Server.html#method_resume">resume()</a></li>
                                     </ul>
             </li>
                     </ul>

@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -714,7 +706,7 @@
                             <a href="classes/Psr-Http-Message-StreamInterface.html"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>                    </span>
     
             <span class="phpdocumentor-element__extends">
-            Uses
+            uses
                             <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html"><abbr title="\GuzzleHttp\Psr7\StreamDecoratorTrait">StreamDecoratorTrait</abbr></a>                    </span>
     </h2>
 
@@ -734,6 +726,9 @@
 
             <p class="phpdocumentor-summary">Stream decorator that begins dropping data once the size of the underlying
 stream becomes too full.</p>
+
+
+
 
 
 
@@ -768,13 +763,13 @@ stream becomes too full.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Psr7-DroppingStream.html#property_maxLength">$maxLength</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-DroppingStream.html#property_maxLength">$maxLength</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Psr7-DroppingStream.html#property_stream">$stream</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-DroppingStream.html#property_stream">$stream</a>
     <span>
                         &nbsp;: <a href="classes/Psr-Http-Message-StreamInterface.html"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>            </span>
 </dt>
@@ -788,20 +783,20 @@ stream becomes too full.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method___call">__call()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method___call">__call()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Allow decorators to implement custom methods</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-DroppingStream.html#method___construct">__construct()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-DroppingStream.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method___get">__get()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method___get">__get()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-StreamInterface.html"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>    </span>
 </dt>
@@ -809,105 +804,104 @@ stream becomes too full.</p>
 the constructor of a decorator (e.g., LazyOpenStream).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method___toString">__toString()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method___toString">__toString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_close">close()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_close">close()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_detach">detach()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_detach">detach()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_eof">eof()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_eof">eof()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_getContents">getContents()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_getContents">getContents()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_getMetadata">getMetadata()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_getMetadata">getMetadata()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_getSize">getSize()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_getSize">getSize()</a>
     <span>
                                 &nbsp;: int|null    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_isReadable">isReadable()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_isReadable">isReadable()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_isSeekable">isSeekable()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_isSeekable">isSeekable()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_isWritable">isWritable()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_isWritable">isWritable()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_read">read()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_read">read()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_rewind">rewind()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_rewind">rewind()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_seek">seek()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_seek">seek()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_tell">tell()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_tell">tell()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-DroppingStream.html#method_write">write()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-DroppingStream.html#method_write">write()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Write data to the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_createStream">createStream()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_createStream">createStream()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-StreamInterface.html"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>    </span>
 </dt>
 <dd>Implement in subclasses to dynamically create streams when requested.</dd>
 
     </dl>
-
 
 
 
@@ -942,6 +936,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">int</span>
@@ -950,6 +945,8 @@ the constructor of a decorator (e.g., LazyOpenStream).</dd>
 
     
     
+    
+
     
 
 </article>
@@ -975,6 +972,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type"><a href="classes/Psr-Http-Message-StreamInterface.html"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a></span>
@@ -983,6 +981,8 @@ the constructor of a decorator (e.g., LazyOpenStream).</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1021,6 +1021,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</dd>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1038,6 +1039,8 @@ the constructor of a decorator (e.g., LazyOpenStream).</dd>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1069,6 +1072,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</dd>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1090,6 +1094,8 @@ the constructor of a decorator (e.g., LazyOpenStream).</dd>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1123,6 +1129,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1133,6 +1140,8 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1170,6 +1179,9 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1205,6 +1217,9 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     
     
     
+    
+
+    
 
     
 </article>
@@ -1236,6 +1251,9 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     
     
     
+    
+
+    
 
     
 </article>
@@ -1266,6 +1284,9 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1302,6 +1323,9 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1335,6 +1359,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1345,6 +1370,8 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1377,6 +1404,9 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1413,6 +1443,9 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1447,6 +1480,9 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1483,6 +1519,9 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1516,6 +1555,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1526,6 +1566,8 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1563,6 +1605,9 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     
     
     
+    
+
+    
 
     
 </article>
@@ -1592,6 +1637,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1609,6 +1655,8 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1641,6 +1689,9 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1676,6 +1727,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1688,6 +1740,8 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1730,6 +1784,7 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
     
     
     
+    
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_createStream#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1745,6 +1800,8 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1865,33 +1922,33 @@ the constructor of a decorator (e.g., LazyOpenStream).</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/GuzzleHttp-Psr7-DroppingStream.html#property_maxLength">$maxLength<a href="classes/GuzzleHttp-Psr7-DroppingStream.html"></li>
-                                                    <li><a href="classes/GuzzleHttp-Psr7-DroppingStream.html#property_stream">$stream<a href="classes/GuzzleHttp-Psr7-DroppingStream.html"></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Psr7-DroppingStream.html#property_maxLength">$maxLength</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Psr7-DroppingStream.html#property_stream">$stream</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method___call">__call()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-DroppingStream.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method___get">__get()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method___toString">__toString()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_close">close()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_detach">detach()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_eof">eof()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_getContents">getContents()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_getMetadata">getMetadata()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_getSize">getSize()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_isReadable">isReadable()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_isSeekable">isSeekable()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_isWritable">isWritable()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_read">read()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_rewind">rewind()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_seek">seek()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_tell">tell()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-DroppingStream.html#method_write">write()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_createStream">createStream()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method___call">__call()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-DroppingStream.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method___get">__get()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method___toString">__toString()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_close">close()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_detach">detach()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_eof">eof()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_getContents">getContents()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_getMetadata">getMetadata()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_getSize">getSize()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_isReadable">isReadable()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_isSeekable">isSeekable()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_isWritable">isWritable()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_read">read()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_rewind">rewind()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_seek">seek()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_tell">tell()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-DroppingStream.html#method_write">write()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-StreamDecoratorTrait.html#method_createStream">createStream()</a></li>
                                     </ul>
             </li>
                     </ul>

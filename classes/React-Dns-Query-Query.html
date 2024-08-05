@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -729,6 +721,7 @@
 
             <p class="phpdocumentor-summary">This class represents a single question in a query/response message</p>
 
+
     <section class="phpdocumentor-description"><p>It uses a structure similar to <code class="prettyprint">\React\Dns\Message\Record</code>, but does not
 contain fields for resulting TTL and resulting record data (IPs etc.).</p>
 </section>
@@ -759,6 +752,8 @@ contain fields for resulting TTL and resulting record data (IPs etc.).</p>
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/React-Dns-Query-Query.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -780,19 +775,19 @@ contain fields for resulting TTL and resulting record data (IPs etc.).</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/React-Dns-Query-Query.html#property_class">$class</a>
+    <a class="" href="classes/React-Dns-Query-Query.html#property_class">$class</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/React-Dns-Query-Query.html#property_name">$name</a>
+    <a class="" href="classes/React-Dns-Query-Query.html#property_name">$name</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/React-Dns-Query-Query.html#property_type">$type</a>
+    <a class="" href="classes/React-Dns-Query-Query.html#property_type">$type</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
@@ -806,20 +801,19 @@ contain fields for resulting TTL and resulting record data (IPs etc.).</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Dns-Query-Query.html#method___construct">__construct()</a>
+    <a class="" href="classes/React-Dns-Query-Query.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Dns-Query-Query.html#method_describe">describe()</a>
+    <a class="" href="classes/React-Dns-Query-Query.html#method_describe">describe()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Describes the hostname and query type/class for this query</dd>
 
     </dl>
-
 
 
 
@@ -854,6 +848,7 @@ contain fields for resulting TTL and resulting record data (IPs etc.).</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">int</span>
@@ -863,6 +858,8 @@ contain fields for resulting TTL and resulting record data (IPs etc.).</p>
     
         <section class="phpdocumentor-description"><p>query class (aka QCLASS), see Message::CLASS_IN constant</p>
 </section>
+
+    
 
     
 
@@ -889,6 +886,7 @@ contain fields for resulting TTL and resulting record data (IPs etc.).</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">string</span>
@@ -898,6 +896,8 @@ contain fields for resulting TTL and resulting record data (IPs etc.).</p>
     
         <section class="phpdocumentor-description"><p>query name, i.e. hostname to look up</p>
 </section>
+
+    
 
     
 
@@ -924,6 +924,7 @@ contain fields for resulting TTL and resulting record data (IPs etc.).</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">int</span>
@@ -933,6 +934,8 @@ contain fields for resulting TTL and resulting record data (IPs etc.).</p>
     
         <section class="phpdocumentor-description"><p>query type (aka QTYPE), see Message::TYPE_* constants</p>
 </section>
+
+    
 
     
 
@@ -971,6 +974,7 @@ contain fields for resulting TTL and resulting record data (IPs etc.).</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1005,6 +1009,8 @@ contain fields for resulting TTL and resulting record data (IPs etc.).</p>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1032,6 +1038,7 @@ contain fields for resulting TTL and resulting record data (IPs etc.).</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The output format is supposed to be human readable and is subject to change.
 The format is inspired by RFC 3597 when handling unkown types/classes.</p>
 </section>
@@ -1052,6 +1059,8 @@ The format is inspired by RFC 3597 when handling unkown types/classes.</p>
                     
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1176,17 +1185,17 @@ The format is inspired by RFC 3597 when handling unkown types/classes.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/React-Dns-Query-Query.html#property_class">$class<a href="classes/React-Dns-Query-Query.html"></li>
-                                                    <li><a href="classes/React-Dns-Query-Query.html#property_name">$name<a href="classes/React-Dns-Query-Query.html"></li>
-                                                    <li><a href="classes/React-Dns-Query-Query.html#property_type">$type<a href="classes/React-Dns-Query-Query.html"></li>
+                                                    <li class=""><a href="classes/React-Dns-Query-Query.html#property_class">$class</a></li>
+                                                    <li class=""><a href="classes/React-Dns-Query-Query.html#property_name">$name</a></li>
+                                                    <li class=""><a href="classes/React-Dns-Query-Query.html#property_type">$type</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/React-Dns-Query-Query.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/React-Dns-Query-Query.html#method_describe">describe()</a></li>
+                                            <li class=""><a href="classes/React-Dns-Query-Query.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/React-Dns-Query-Query.html#method_describe">describe()</a></li>
                                     </ul>
             </li>
                     </ul>

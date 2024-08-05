@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -718,10 +710,13 @@
 
             <p class="phpdocumentor-summary">Describes a data stream.</p>
 
+
     <section class="phpdocumentor-description"><p>Typically, an instance will wrap a PHP stream; this interface provides
 a wrapper around the most common operations, including serialization of
 the entire stream to a string.</p>
 </section>
+
+
 
 
 
@@ -749,105 +744,105 @@ the entire stream to a string.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamInterface.html#method___toString">__toString()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamInterface.html#method___toString">__toString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Reads all data from the stream into a string, from the beginning to end.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamInterface.html#method_close">close()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamInterface.html#method_close">close()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Closes the stream and any underlying resources.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamInterface.html#method_detach">detach()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamInterface.html#method_detach">detach()</a>
     <span>
                                 &nbsp;: resource|null    </span>
 </dt>
 <dd>Separates any underlying resources from the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamInterface.html#method_eof">eof()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamInterface.html#method_eof">eof()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns true if the stream is at the end of the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamInterface.html#method_getContents">getContents()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamInterface.html#method_getContents">getContents()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns the remaining contents in a string</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamInterface.html#method_getMetadata">getMetadata()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamInterface.html#method_getMetadata">getMetadata()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;|mixed|null    </span>
 </dt>
 <dd>Get stream metadata as an associative array or retrieve a specific key.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamInterface.html#method_getSize">getSize()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamInterface.html#method_getSize">getSize()</a>
     <span>
                                 &nbsp;: int|null    </span>
 </dt>
 <dd>Get the size of the stream if known.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamInterface.html#method_isReadable">isReadable()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamInterface.html#method_isReadable">isReadable()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether or not the stream is readable.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamInterface.html#method_isSeekable">isSeekable()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamInterface.html#method_isSeekable">isSeekable()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether or not the stream is seekable.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamInterface.html#method_isWritable">isWritable()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamInterface.html#method_isWritable">isWritable()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether or not the stream is writable.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamInterface.html#method_read">read()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamInterface.html#method_read">read()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Read data from the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamInterface.html#method_rewind">rewind()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamInterface.html#method_rewind">rewind()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Seek to the beginning of the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamInterface.html#method_seek">seek()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamInterface.html#method_seek">seek()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Seek to a position in the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamInterface.html#method_tell">tell()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamInterface.html#method_tell">tell()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Returns the current position of the file read/write pointer</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamInterface.html#method_write">write()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamInterface.html#method_write">write()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
@@ -892,6 +887,7 @@ the entire stream to a string.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This method MUST attempt to seek to the beginning of the stream before
 reading data and read the stream until the end is reached.</p>
 <p>Warning: This could attempt to load a large amount of data into memory.</p>
@@ -916,6 +912,8 @@ string casting operations.</p>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -952,6 +950,9 @@ string casting operations.</p>
     
     
     
+    
+
+    
 
     
 </article>
@@ -981,10 +982,13 @@ string casting operations.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>After the stream has been detached, the stream is in an unusable state.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1026,6 +1030,9 @@ string casting operations.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1062,6 +1069,7 @@ string casting operations.</p>
     
     
     
+    
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Psr-Http-Message-StreamInterface.html#method_getContents#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1080,6 +1088,8 @@ reading.</p>
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1113,6 +1123,7 @@ reading.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The keys returned are identical to the keys returned from PHP's
 stream_get_meta_data() function.</p>
 </section>
@@ -1145,6 +1156,8 @@ stream_get_meta_data() function.</p>
                     
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1187,6 +1200,9 @@ value is found, or null if the key is not found.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1227,6 +1243,9 @@ value is found, or null if the key is not found.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1262,6 +1281,9 @@ value is found, or null if the key is not found.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1299,6 +1321,9 @@ value is found, or null if the key is not found.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1333,6 +1358,7 @@ value is found, or null if the key is not found.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1366,6 +1392,8 @@ call returns fewer bytes.</p>
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1404,6 +1432,7 @@ if no bytes are available.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>If the stream is not seekable, this method will raise an exception;
 otherwise, it will perform a seek(0).</p>
 </section>
@@ -1444,6 +1473,8 @@ otherwise, it will perform a seek(0).</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1471,6 +1502,7 @@ otherwise, it will perform a seek(0).</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1525,6 +1557,8 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1555,6 +1589,7 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
     
     
     
+    
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Psr-Http-Message-StreamInterface.html#method_tell#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1572,6 +1607,8 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1610,6 +1647,7 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1641,6 +1679,8 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1764,21 +1804,21 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Methods</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Psr-Http-Message-StreamInterface.html#method___toString">__toString()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-StreamInterface.html#method_close">close()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-StreamInterface.html#method_detach">detach()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-StreamInterface.html#method_eof">eof()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-StreamInterface.html#method_getContents">getContents()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-StreamInterface.html#method_getMetadata">getMetadata()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-StreamInterface.html#method_getSize">getSize()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-StreamInterface.html#method_isReadable">isReadable()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-StreamInterface.html#method_isSeekable">isSeekable()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-StreamInterface.html#method_isWritable">isWritable()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-StreamInterface.html#method_read">read()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-StreamInterface.html#method_rewind">rewind()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-StreamInterface.html#method_seek">seek()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-StreamInterface.html#method_tell">tell()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-StreamInterface.html#method_write">write()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamInterface.html#method___toString">__toString()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamInterface.html#method_close">close()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamInterface.html#method_detach">detach()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamInterface.html#method_eof">eof()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamInterface.html#method_getContents">getContents()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamInterface.html#method_getMetadata">getMetadata()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamInterface.html#method_getSize">getSize()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamInterface.html#method_isReadable">isReadable()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamInterface.html#method_isSeekable">isSeekable()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamInterface.html#method_isWritable">isWritable()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamInterface.html#method_read">read()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamInterface.html#method_rewind">rewind()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamInterface.html#method_seek">seek()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamInterface.html#method_tell">tell()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamInterface.html#method_write">write()</a></li>
                                             </ul>
                 </li>
             

@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -725,6 +717,7 @@
 
             <p class="phpdocumentor-summary">Request redirect middleware.</p>
 
+
     <section class="phpdocumentor-description"><p>Apply this middleware like other middleware using
 <a href="classes/GuzzleHttp-Middleware.html#method_redirect"><abbr title="\GuzzleHttp\Middleware::redirect()">Middleware::redirect()</abbr></a>.</p>
 </section>
@@ -747,6 +740,8 @@
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/GuzzleHttp-RedirectMiddleware.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -766,13 +761,13 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RedirectMiddleware.html#constant_HISTORY_HEADER">HISTORY_HEADER</a>
+    <a class="" href="classes/GuzzleHttp-RedirectMiddleware.html#constant_HISTORY_HEADER">HISTORY_HEADER</a>
     <span>
         &nbsp;= &#039;X-Guzzle-Redirect-History&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RedirectMiddleware.html#constant_STATUS_HISTORY_HEADER">STATUS_HISTORY_HEADER</a>
+    <a class="" href="classes/GuzzleHttp-RedirectMiddleware.html#constant_STATUS_HISTORY_HEADER">STATUS_HISTORY_HEADER</a>
     <span>
         &nbsp;= &#039;X-Guzzle-Redirect-Status-History&#039;                            </span>
 </dt>
@@ -787,15 +782,15 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/GuzzleHttp-RedirectMiddleware.html#property_defaultSettings">$defaultSettings</a>
+    <a class="" href="classes/GuzzleHttp-RedirectMiddleware.html#property_defaultSettings">$defaultSettings</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-RedirectMiddleware.html#property_nextHandler">$nextHandler</a>
+    <a class="" href="classes/GuzzleHttp-RedirectMiddleware.html#property_nextHandler">$nextHandler</a>
     <span>
-                        &nbsp;: callable            </span>
+                        &nbsp;: callable(<a href="classes/Psr-Http-Message-RequestInterface.html"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>, array&lt;string|int, mixed&gt;): <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>            </span>
 </dt>
 
     </dl>
@@ -807,52 +802,51 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-RedirectMiddleware.html#method___construct">__construct()</a>
+    <a class="" href="classes/GuzzleHttp-RedirectMiddleware.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-RedirectMiddleware.html#method___invoke">__invoke()</a>
+    <a class="" href="classes/GuzzleHttp-RedirectMiddleware.html#method___invoke">__invoke()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-RedirectMiddleware.html#method_checkRedirect">checkRedirect()</a>
+    <a class="" href="classes/GuzzleHttp-RedirectMiddleware.html#method_checkRedirect">checkRedirect()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a>|<a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-RedirectMiddleware.html#method_modifyRequest">modifyRequest()</a>
+    <a class="" href="classes/GuzzleHttp-RedirectMiddleware.html#method_modifyRequest">modifyRequest()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-RequestInterface.html"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-RedirectMiddleware.html#method_guardMax">guardMax()</a>
+    <a class="" href="classes/GuzzleHttp-RedirectMiddleware.html#method_guardMax">guardMax()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Check for too many redirects.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-RedirectMiddleware.html#method_redirectUri">redirectUri()</a>
+    <a class="" href="classes/GuzzleHttp-RedirectMiddleware.html#method_redirectUri">redirectUri()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-UriInterface.html"><abbr title="\Psr\Http\Message\UriInterface">UriInterface</abbr></a>    </span>
 </dt>
 <dd>Set the appropriate URL on the request based on the location header.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-RedirectMiddleware.html#method_withTracking">withTracking()</a>
+    <a class="" href="classes/GuzzleHttp-RedirectMiddleware.html#method_withTracking">withTracking()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
 <dd>Enable tracking on promise.</dd>
 
     </dl>
-
 
 
 
@@ -878,6 +872,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -888,6 +883,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -906,6 +903,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -916,6 +914,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -950,6 +950,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
@@ -958,6 +959,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -983,15 +986,16 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">callable</span>
+        <span class="phpdocumentor-signature__type">callable(<a href="classes/Psr-Http-Message-RequestInterface.html"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>, array&lt;string|int, mixed&gt;): <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
     <span class="phpdocumentor-signature__name">$nextHandler</span>
     </code>
 
     
-        <section class="phpdocumentor-description"><p>PromiseInterface</p>
-</section>
+    
+    
 
     
 
@@ -1025,21 +1029,26 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$nextHandler</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable(<a href="classes/Psr-Http-Message-RequestInterface.html"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>, array&lt;string|int, mixed&gt;): <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$nextHandler</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$nextHandler</span>
-                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable(<a href="classes/Psr-Http-Message-RequestInterface.html"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>, array&lt;string|int, mixed&gt;): <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Next handler to invoke.</p>
+</section>
+
             </dd>
             </dl>
+
+    
 
     
 
@@ -1071,6 +1080,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1088,6 +1098,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1123,6 +1135,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1147,6 +1160,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1182,6 +1197,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1206,6 +1222,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1241,6 +1259,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1287,6 +1306,8 @@
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1315,6 +1336,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1339,6 +1361,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1375,6 +1399,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1399,6 +1424,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1521,29 +1548,29 @@
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/GuzzleHttp-RedirectMiddleware.html#constant_HISTORY_HEADER">HISTORY_HEADER</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RedirectMiddleware.html#constant_STATUS_HISTORY_HEADER">STATUS_HISTORY_HEADER</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RedirectMiddleware.html#constant_HISTORY_HEADER">HISTORY_HEADER</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RedirectMiddleware.html#constant_STATUS_HISTORY_HEADER">STATUS_HISTORY_HEADER</a></li>
                                             </ul>
                 </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/GuzzleHttp-RedirectMiddleware.html#property_defaultSettings">$defaultSettings<a href="classes/GuzzleHttp-RedirectMiddleware.html"></li>
-                                                    <li><a href="classes/GuzzleHttp-RedirectMiddleware.html#property_nextHandler">$nextHandler<a href="classes/GuzzleHttp-RedirectMiddleware.html"></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RedirectMiddleware.html#property_defaultSettings">$defaultSettings</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RedirectMiddleware.html#property_nextHandler">$nextHandler</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/GuzzleHttp-RedirectMiddleware.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/GuzzleHttp-RedirectMiddleware.html#method___invoke">__invoke()</a></li>
-                                            <li><a href="classes/GuzzleHttp-RedirectMiddleware.html#method_checkRedirect">checkRedirect()</a></li>
-                                            <li><a href="classes/GuzzleHttp-RedirectMiddleware.html#method_modifyRequest">modifyRequest()</a></li>
-                                            <li><a href="classes/GuzzleHttp-RedirectMiddleware.html#method_guardMax">guardMax()</a></li>
-                                            <li><a href="classes/GuzzleHttp-RedirectMiddleware.html#method_redirectUri">redirectUri()</a></li>
-                                            <li><a href="classes/GuzzleHttp-RedirectMiddleware.html#method_withTracking">withTracking()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-RedirectMiddleware.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-RedirectMiddleware.html#method___invoke">__invoke()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-RedirectMiddleware.html#method_checkRedirect">checkRedirect()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-RedirectMiddleware.html#method_modifyRequest">modifyRequest()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-RedirectMiddleware.html#method_guardMax">guardMax()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-RedirectMiddleware.html#method_redirectUri">redirectUri()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-RedirectMiddleware.html#method_withTracking">withTracking()</a></li>
                                     </ul>
             </li>
                     </ul>

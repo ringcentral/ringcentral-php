@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -720,6 +712,9 @@
 
 
 
+
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/PhpParser-NodeVisitor.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -739,7 +734,7 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/PhpParser-NodeVisitor.html#constant_DONT_TRAVERSE_CHILDREN">DONT_TRAVERSE_CHILDREN</a>
+    <a class="" href="classes/PhpParser-NodeVisitor.html#constant_DONT_TRAVERSE_CHILDREN">DONT_TRAVERSE_CHILDREN</a>
     <span>
         &nbsp;= 1                            </span>
 </dt>
@@ -747,7 +742,7 @@
 of the current node will not be traversed for any visitors.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/PhpParser-NodeVisitor.html#constant_DONT_TRAVERSE_CURRENT_AND_CHILDREN">DONT_TRAVERSE_CURRENT_AND_CHILDREN</a>
+    <a class="" href="classes/PhpParser-NodeVisitor.html#constant_DONT_TRAVERSE_CURRENT_AND_CHILDREN">DONT_TRAVERSE_CURRENT_AND_CHILDREN</a>
     <span>
         &nbsp;= 4                            </span>
 </dt>
@@ -755,7 +750,7 @@ of the current node will not be traversed for any visitors.</dd>
 of the current node will not be traversed for any visitors.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/PhpParser-NodeVisitor.html#constant_REMOVE_NODE">REMOVE_NODE</a>
+    <a class="" href="classes/PhpParser-NodeVisitor.html#constant_REMOVE_NODE">REMOVE_NODE</a>
     <span>
         &nbsp;= 3                            </span>
 </dt>
@@ -763,7 +758,7 @@ of the current node will not be traversed for any visitors.</dd>
 in an array, it will be removed from the array.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/PhpParser-NodeVisitor.html#constant_REPLACE_WITH_NULL">REPLACE_WITH_NULL</a>
+    <a class="" href="classes/PhpParser-NodeVisitor.html#constant_REPLACE_WITH_NULL">REPLACE_WITH_NULL</a>
     <span>
         &nbsp;= 5                            </span>
 </dt>
@@ -772,7 +767,7 @@ the node will be replaced with null. This is not a legal return value if the nod
 of an array, rather than another node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/PhpParser-NodeVisitor.html#constant_STOP_TRAVERSAL">STOP_TRAVERSAL</a>
+    <a class="" href="classes/PhpParser-NodeVisitor.html#constant_STOP_TRAVERSAL">STOP_TRAVERSAL</a>
     <span>
         &nbsp;= 2                            </span>
 </dt>
@@ -790,28 +785,28 @@ STOP_TRAVERSAL, traversal is aborted.</dd>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-NodeVisitor.html#method_afterTraverse">afterTraverse()</a>
+    <a class="" href="classes/PhpParser-NodeVisitor.html#method_afterTraverse">afterTraverse()</a>
     <span>
                                 &nbsp;: null|array&lt;string|int, <a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>&gt;    </span>
 </dt>
 <dd>Called once after traversal.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-NodeVisitor.html#method_beforeTraverse">beforeTraverse()</a>
+    <a class="" href="classes/PhpParser-NodeVisitor.html#method_beforeTraverse">beforeTraverse()</a>
     <span>
                                 &nbsp;: null|array&lt;string|int, <a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>&gt;    </span>
 </dt>
 <dd>Called once before traversal.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-NodeVisitor.html#method_enterNode">enterNode()</a>
+    <a class="" href="classes/PhpParser-NodeVisitor.html#method_enterNode">enterNode()</a>
     <span>
                                 &nbsp;: null|int|<a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>|array&lt;string|int, <a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>&gt;    </span>
 </dt>
 <dd>Called when entering a node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-NodeVisitor.html#method_leaveNode">leaveNode()</a>
+    <a class="" href="classes/PhpParser-NodeVisitor.html#method_leaveNode">leaveNode()</a>
     <span>
                                 &nbsp;: null|int|<a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>|array&lt;string|int, <a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>&gt;    </span>
 </dt>
@@ -846,6 +841,7 @@ STOP_TRAVERSAL, traversal is aborted.</dd>
         <p class="phpdocumentor-summary">If NodeVisitor::enterNode() returns DONT_TRAVERSE_CHILDREN, child nodes
 of the current node will not be traversed for any visitors.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -859,6 +855,8 @@ node and leaveNode() will also be invoked for the current node.</p>
 </section>
 
     
+    
+
     
 
 </article>
@@ -879,6 +877,7 @@ node and leaveNode() will also be invoked for the current node.</p>
         <p class="phpdocumentor-summary">If NodeVisitor::enterNode() returns DONT_TRAVERSE_CURRENT_AND_CHILDREN, child nodes
 of the current node will not be traversed for any visitors.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -892,6 +891,8 @@ leaveNode() will be invoked for visitors that has enterNode() method invoked.</p
 </section>
 
     
+    
+
     
 
 </article>
@@ -912,6 +913,7 @@ leaveNode() will be invoked for visitors that has enterNode() method invoked.</p
         <p class="phpdocumentor-summary">If NodeVisitor::leaveNode() returns REMOVE_NODE for a node that occurs
 in an array, it will be removed from the array.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -925,6 +927,8 @@ removed node.</p>
 </section>
 
     
+    
+
     
 
 </article>
@@ -946,6 +950,7 @@ removed node.</p>
 the node will be replaced with null. This is not a legal return value if the node is part
 of an array, rather than another node.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -956,6 +961,8 @@ of an array, rather than another node.</p>
 
     
     
+    
+
     
 
 </article>
@@ -976,6 +983,7 @@ of an array, rather than another node.</p>
         <p class="phpdocumentor-summary">If NodeVisitor::enterNode() or NodeVisitor::leaveNode() returns
 STOP_TRAVERSAL, traversal is aborted.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -988,6 +996,8 @@ STOP_TRAVERSAL, traversal is aborted.</p>
 </section>
 
     
+    
+
     
 
 </article>
@@ -1025,6 +1035,7 @@ STOP_TRAVERSAL, traversal is aborted.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Return value semantics:</p>
 <ul>
 <li>null:      $nodes stays as-is</li>
@@ -1044,6 +1055,8 @@ STOP_TRAVERSAL, traversal is aborted.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1083,6 +1096,7 @@ STOP_TRAVERSAL, traversal is aborted.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Return value semantics:</p>
 <ul>
 <li>null:      $nodes stays as-is</li>
@@ -1102,6 +1116,8 @@ STOP_TRAVERSAL, traversal is aborted.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1141,6 +1157,7 @@ STOP_TRAVERSAL, traversal is aborted.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Return value semantics:</p>
 <ul>
 <li>null
@@ -1175,6 +1192,8 @@ traversed. $node stays as-is.</li>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1214,6 +1233,7 @@ traversed. $node stays as-is.</li>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Return value semantics:</p>
 <ul>
 <li>null
@@ -1243,6 +1263,8 @@ traversed. $node stays as-is.</li>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1368,21 +1390,21 @@ traversed. $node stays as-is.</li>
                             <li class="phpdocumentor-on-this-page-section__title">Methods</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/PhpParser-NodeVisitor.html#method_afterTraverse">afterTraverse()</a></li>
-                                                    <li><a href="classes/PhpParser-NodeVisitor.html#method_beforeTraverse">beforeTraverse()</a></li>
-                                                    <li><a href="classes/PhpParser-NodeVisitor.html#method_enterNode">enterNode()</a></li>
-                                                    <li><a href="classes/PhpParser-NodeVisitor.html#method_leaveNode">leaveNode()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-NodeVisitor.html#method_afterTraverse">afterTraverse()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-NodeVisitor.html#method_beforeTraverse">beforeTraverse()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-NodeVisitor.html#method_enterNode">enterNode()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-NodeVisitor.html#method_leaveNode">leaveNode()</a></li>
                                             </ul>
                 </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/PhpParser-NodeVisitor.html#constant_DONT_TRAVERSE_CHILDREN">DONT_TRAVERSE_CHILDREN</a></li>
-                                                    <li><a href="classes/PhpParser-NodeVisitor.html#constant_DONT_TRAVERSE_CURRENT_AND_CHILDREN">DONT_TRAVERSE_CURRENT_AND_CHILDREN</a></li>
-                                                    <li><a href="classes/PhpParser-NodeVisitor.html#constant_REMOVE_NODE">REMOVE_NODE</a></li>
-                                                    <li><a href="classes/PhpParser-NodeVisitor.html#constant_REPLACE_WITH_NULL">REPLACE_WITH_NULL</a></li>
-                                                    <li><a href="classes/PhpParser-NodeVisitor.html#constant_STOP_TRAVERSAL">STOP_TRAVERSAL</a></li>
+                                                    <li class=""><a href="classes/PhpParser-NodeVisitor.html#constant_DONT_TRAVERSE_CHILDREN">DONT_TRAVERSE_CHILDREN</a></li>
+                                                    <li class=""><a href="classes/PhpParser-NodeVisitor.html#constant_DONT_TRAVERSE_CURRENT_AND_CHILDREN">DONT_TRAVERSE_CURRENT_AND_CHILDREN</a></li>
+                                                    <li class=""><a href="classes/PhpParser-NodeVisitor.html#constant_REMOVE_NODE">REMOVE_NODE</a></li>
+                                                    <li class=""><a href="classes/PhpParser-NodeVisitor.html#constant_REPLACE_WITH_NULL">REPLACE_WITH_NULL</a></li>
+                                                    <li class=""><a href="classes/PhpParser-NodeVisitor.html#constant_STOP_TRAVERSAL">STOP_TRAVERSAL</a></li>
                                             </ul>
                 </li>
                     </ul>

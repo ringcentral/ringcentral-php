@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -729,8 +721,11 @@
 
             <p class="phpdocumentor-summary">Error handler that collects all errors into an array.</p>
 
+
     <section class="phpdocumentor-description"><p>This allows graceful handling of errors.</p>
 </section>
+
+
 
 
 
@@ -764,7 +759,7 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/PhpParser-ErrorHandler-Collecting.html#property_errors">$errors</a>
+    <a class="" href="classes/PhpParser-ErrorHandler-Collecting.html#property_errors">$errors</a>
     <span>
                         &nbsp;: array&lt;string|int, <a href="classes/PhpParser-Error.html"><abbr title="\PhpParser\Error">Error</abbr></a>&gt;            </span>
 </dt>
@@ -778,35 +773,34 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-ErrorHandler-Collecting.html#method_clearErrors">clearErrors()</a>
+    <a class="" href="classes/PhpParser-ErrorHandler-Collecting.html#method_clearErrors">clearErrors()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Reset/clear collected errors.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-ErrorHandler-Collecting.html#method_getErrors">getErrors()</a>
+    <a class="" href="classes/PhpParser-ErrorHandler-Collecting.html#method_getErrors">getErrors()</a>
     <span>
                                 &nbsp;: array&lt;string|int, <a href="classes/PhpParser-Error.html"><abbr title="\PhpParser\Error">Error</abbr></a>&gt;    </span>
 </dt>
 <dd>Get collected errors.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-ErrorHandler-Collecting.html#method_handleError">handleError()</a>
+    <a class="" href="classes/PhpParser-ErrorHandler-Collecting.html#method_handleError">handleError()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Handle an error generated during lexing, parsing or some other operation.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-ErrorHandler-Collecting.html#method_hasErrors">hasErrors()</a>
+    <a class="" href="classes/PhpParser-ErrorHandler-Collecting.html#method_hasErrors">hasErrors()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Check whether there are any errors.</dd>
 
     </dl>
-
 
 
 
@@ -841,6 +835,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, <a href="classes/PhpParser-Error.html"><abbr title="\PhpParser\Error">Error</abbr></a>&gt;</span>
@@ -850,6 +845,8 @@
     
         <section class="phpdocumentor-description"><p>Collected errors</p>
 </section>
+
+    
 
     
 
@@ -891,6 +888,9 @@
     
     
     
+    
+
+    
 
     
 </article>
@@ -922,6 +922,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -957,6 +960,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -969,6 +973,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1002,6 +1008,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1123,17 +1132,17 @@
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/PhpParser-ErrorHandler-Collecting.html#property_errors">$errors<a href="classes/PhpParser-ErrorHandler-Collecting.html"></li>
+                                                    <li class=""><a href="classes/PhpParser-ErrorHandler-Collecting.html#property_errors">$errors</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/PhpParser-ErrorHandler-Collecting.html#method_clearErrors">clearErrors()</a></li>
-                                            <li><a href="classes/PhpParser-ErrorHandler-Collecting.html#method_getErrors">getErrors()</a></li>
-                                            <li><a href="classes/PhpParser-ErrorHandler-Collecting.html#method_handleError">handleError()</a></li>
-                                            <li><a href="classes/PhpParser-ErrorHandler-Collecting.html#method_hasErrors">hasErrors()</a></li>
+                                            <li class=""><a href="classes/PhpParser-ErrorHandler-Collecting.html#method_clearErrors">clearErrors()</a></li>
+                                            <li class=""><a href="classes/PhpParser-ErrorHandler-Collecting.html#method_getErrors">getErrors()</a></li>
+                                            <li class=""><a href="classes/PhpParser-ErrorHandler-Collecting.html#method_handleError">handleError()</a></li>
+                                            <li class=""><a href="classes/PhpParser-ErrorHandler-Collecting.html#method_hasErrors">hasErrors()</a></li>
                                     </ul>
             </li>
                     </ul>

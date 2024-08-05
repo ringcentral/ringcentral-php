@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -725,6 +717,7 @@
     </aside>
 
             <p class="phpdocumentor-summary">ClassLoader implements a PSR-0, PSR-4 and classmap class loader.</p>
+
 
     <section class="phpdocumentor-description"><p>$loader = new \Composer\Autoload\ClassLoader();</p>
 <pre class="prettyprint"><code class="prettyprint">// register classes with namespaces
@@ -790,6 +783,8 @@ found before giving up.</p>
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/Composer-Autoload-ClassLoader.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -811,80 +806,80 @@ found before giving up.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Composer-Autoload-ClassLoader.html#property_apcuPrefix">$apcuPrefix</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#property_apcuPrefix">$apcuPrefix</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Composer-Autoload-ClassLoader.html#property_classMap">$classMap</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#property_classMap">$classMap</a>
     <span>
                         &nbsp;: array&lt;string, string&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Composer-Autoload-ClassLoader.html#property_classMapAuthoritative">$classMapAuthoritative</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#property_classMapAuthoritative">$classMapAuthoritative</a>
     <span>
                         &nbsp;: bool            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Composer-Autoload-ClassLoader.html#property_fallbackDirsPsr0">$fallbackDirsPsr0</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#property_fallbackDirsPsr0">$fallbackDirsPsr0</a>
     <span>
                         &nbsp;: array&lt;int, string&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Composer-Autoload-ClassLoader.html#property_fallbackDirsPsr4">$fallbackDirsPsr4</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#property_fallbackDirsPsr4">$fallbackDirsPsr4</a>
     <span>
                         &nbsp;: array&lt;int, string&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Composer-Autoload-ClassLoader.html#property_includeFile">$includeFile</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#property_includeFile">$includeFile</a>
     <span>
                         &nbsp;: callable(string): void            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Composer-Autoload-ClassLoader.html#property_missingClasses">$missingClasses</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#property_missingClasses">$missingClasses</a>
     <span>
                         &nbsp;: array&lt;string, bool&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Composer-Autoload-ClassLoader.html#property_prefixDirsPsr4">$prefixDirsPsr4</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#property_prefixDirsPsr4">$prefixDirsPsr4</a>
     <span>
                         &nbsp;: array&lt;string, array&lt;int, string&gt;&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Composer-Autoload-ClassLoader.html#property_prefixesPsr0">$prefixesPsr0</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#property_prefixesPsr0">$prefixesPsr0</a>
     <span>
                         &nbsp;: array&lt;string, array&lt;string, array&lt;int, string&gt;&gt;&gt;            </span>
 </dt>
 <dd>List of PSR-0 prefixes</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Composer-Autoload-ClassLoader.html#property_prefixLengthsPsr4">$prefixLengthsPsr4</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#property_prefixLengthsPsr4">$prefixLengthsPsr4</a>
     <span>
                         &nbsp;: array&lt;string, array&lt;string, int&gt;&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Composer-Autoload-ClassLoader.html#property_registeredLoaders">$registeredLoaders</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#property_registeredLoaders">$registeredLoaders</a>
     <span>
                         &nbsp;: array&lt;string, self&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Composer-Autoload-ClassLoader.html#property_useIncludePath">$useIncludePath</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#property_useIncludePath">$useIncludePath</a>
     <span>
                         &nbsp;: bool            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Composer-Autoload-ClassLoader.html#property_vendorDir">$vendorDir</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#property_vendorDir">$vendorDir</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
@@ -898,13 +893,13 @@ found before giving up.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method___construct">__construct()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_add">add()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_add">add()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -912,13 +907,13 @@ found before giving up.</p>
 appending or prepending to the ones previously set for this prefix.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_addClassMap">addClassMap()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_addClassMap">addClassMap()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_addPsr4">addPsr4()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_addPsr4">addPsr4()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -926,58 +921,58 @@ appending or prepending to the ones previously set for this prefix.</dd>
 appending or prepending to the ones previously set for this namespace.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_findFile">findFile()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_findFile">findFile()</a>
     <span>
                                 &nbsp;: string|false    </span>
 </dt>
 <dd>Finds the path to the file where the class is defined.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_getApcuPrefix">getApcuPrefix()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_getApcuPrefix">getApcuPrefix()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
 <dd>The APCu prefix in use, or null if APCu caching is not enabled.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_getClassMap">getClassMap()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_getClassMap">getClassMap()</a>
     <span>
                                 &nbsp;: array&lt;string, string&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_getFallbackDirs">getFallbackDirs()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_getFallbackDirs">getFallbackDirs()</a>
     <span>
                                 &nbsp;: array&lt;int, string&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_getFallbackDirsPsr4">getFallbackDirsPsr4()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_getFallbackDirsPsr4">getFallbackDirsPsr4()</a>
     <span>
                                 &nbsp;: array&lt;int, string&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_getPrefixes">getPrefixes()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_getPrefixes">getPrefixes()</a>
     <span>
                                 &nbsp;: array&lt;string, array&lt;int, string&gt;&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_getPrefixesPsr4">getPrefixesPsr4()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_getPrefixesPsr4">getPrefixesPsr4()</a>
     <span>
                                 &nbsp;: array&lt;string, array&lt;int, string&gt;&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_getRegisteredLoaders">getRegisteredLoaders()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_getRegisteredLoaders">getRegisteredLoaders()</a>
     <span>
                                 &nbsp;: array&lt;string, self&gt;    </span>
 </dt>
 <dd>Returns the currently registered loaders keyed by their corresponding vendor directories.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_getUseIncludePath">getUseIncludePath()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_getUseIncludePath">getUseIncludePath()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -985,28 +980,28 @@ appending or prepending to the ones previously set for this namespace.</dd>
 for classes.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_isClassMapAuthoritative">isClassMapAuthoritative()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_isClassMapAuthoritative">isClassMapAuthoritative()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Should class lookup fail if not found in the current class map?</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_loadClass">loadClass()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_loadClass">loadClass()</a>
     <span>
                                 &nbsp;: true|null    </span>
 </dt>
 <dd>Loads the given class or interface.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_register">register()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_register">register()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Registers this instance as an autoloader.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_set">set()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_set">set()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -1014,14 +1009,14 @@ for classes.</dd>
 replacing any others previously set for this prefix.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_setApcuPrefix">setApcuPrefix()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_setApcuPrefix">setApcuPrefix()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>APCu prefix to use to cache found/not-found classes, if the extension is enabled.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_setClassMapAuthoritative">setClassMapAuthoritative()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_setClassMapAuthoritative">setClassMapAuthoritative()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -1029,7 +1024,7 @@ replacing any others previously set for this prefix.</dd>
 that have not been registered with the class map.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_setPsr4">setPsr4()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_setPsr4">setPsr4()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -1037,33 +1032,32 @@ that have not been registered with the class map.</dd>
 replacing any others previously set for this namespace.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_setUseIncludePath">setUseIncludePath()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_setUseIncludePath">setUseIncludePath()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Turns on searching the include path for class files.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_unregister">unregister()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_unregister">unregister()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Unregisters this instance as an autoloader.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_findFileWithExtension">findFileWithExtension()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_findFileWithExtension">findFileWithExtension()</a>
     <span>
                                 &nbsp;: string|false    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Composer-Autoload-ClassLoader.html#method_initializeIncludeClosure">initializeIncludeClosure()</a>
+    <a class="" href="classes/Composer-Autoload-ClassLoader.html#method_initializeIncludeClosure">initializeIncludeClosure()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
     </dl>
-
 
 
 
@@ -1098,6 +1092,7 @@ replacing any others previously set for this namespace.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">string|null</span>
@@ -1106,6 +1101,8 @@ replacing any others previously set for this namespace.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1131,6 +1128,7 @@ replacing any others previously set for this namespace.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string, string&gt;</span>
@@ -1139,6 +1137,8 @@ replacing any others previously set for this namespace.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1164,6 +1164,7 @@ replacing any others previously set for this namespace.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">bool</span>
@@ -1172,6 +1173,8 @@ replacing any others previously set for this namespace.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1197,6 +1200,7 @@ replacing any others previously set for this namespace.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;int, string&gt;</span>
@@ -1205,6 +1209,8 @@ replacing any others previously set for this namespace.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1230,6 +1236,7 @@ replacing any others previously set for this namespace.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;int, string&gt;</span>
@@ -1238,6 +1245,8 @@ replacing any others previously set for this namespace.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1263,6 +1272,7 @@ replacing any others previously set for this namespace.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">callable(string): void</span>
@@ -1271,6 +1281,8 @@ replacing any others previously set for this namespace.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1296,6 +1308,7 @@ replacing any others previously set for this namespace.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string, bool&gt;</span>
@@ -1304,6 +1317,8 @@ replacing any others previously set for this namespace.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1329,6 +1344,7 @@ replacing any others previously set for this namespace.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string, array&lt;int, string&gt;&gt;</span>
@@ -1337,6 +1353,8 @@ replacing any others previously set for this namespace.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1363,6 +1381,7 @@ replacing any others previously set for this namespace.</dd>
 
         <p class="phpdocumentor-summary">List of PSR-0 prefixes</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string, array&lt;string, array&lt;int, string&gt;&gt;&gt;</span>
@@ -1373,6 +1392,8 @@ replacing any others previously set for this namespace.</dd>
 </section>
 
     
+    
+
     
 
 </article>
@@ -1398,6 +1419,7 @@ replacing any others previously set for this namespace.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string, array&lt;string, int&gt;&gt;</span>
@@ -1406,6 +1428,8 @@ replacing any others previously set for this namespace.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1431,6 +1455,7 @@ replacing any others previously set for this namespace.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string, self&gt;</span>
@@ -1439,6 +1464,8 @@ replacing any others previously set for this namespace.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1464,6 +1491,7 @@ replacing any others previously set for this namespace.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">bool</span>
@@ -1472,6 +1500,8 @@ replacing any others previously set for this namespace.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1497,6 +1527,7 @@ replacing any others previously set for this namespace.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">string|null</span>
@@ -1505,6 +1536,8 @@ replacing any others previously set for this namespace.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1542,6 +1575,7 @@ replacing any others previously set for this namespace.</dd>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1552,6 +1586,8 @@ replacing any others previously set for this namespace.</dd>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1584,6 +1620,7 @@ appending or prepending to the ones previously set for this prefix.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1619,6 +1656,8 @@ appending or prepending to the ones previously set for this prefix.</p>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1646,6 +1685,7 @@ appending or prepending to the ones previously set for this prefix.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1658,6 +1698,8 @@ appending or prepending to the ones previously set for this prefix.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1690,6 +1732,7 @@ appending or prepending to the ones previously set for this namespace.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1740,6 +1783,8 @@ appending or prepending to the ones previously set for this namespace.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1768,6 +1813,7 @@ appending or prepending to the ones previously set for this namespace.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1780,6 +1826,8 @@ appending or prepending to the ones previously set for this namespace.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1822,6 +1870,9 @@ appending or prepending to the ones previously set for this namespace.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1856,6 +1907,9 @@ appending or prepending to the ones previously set for this namespace.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1896,6 +1950,9 @@ appending or prepending to the ones previously set for this namespace.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1930,6 +1987,9 @@ appending or prepending to the ones previously set for this namespace.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1966,6 +2026,9 @@ appending or prepending to the ones previously set for this namespace.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2000,6 +2063,9 @@ appending or prepending to the ones previously set for this namespace.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -2036,6 +2102,9 @@ appending or prepending to the ones previously set for this namespace.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -2074,6 +2143,9 @@ for classes.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2110,6 +2182,9 @@ for classes.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2144,6 +2219,7 @@ for classes.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2156,6 +2232,8 @@ for classes.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2196,6 +2274,7 @@ for classes.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2208,6 +2287,8 @@ for classes.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2241,6 +2322,7 @@ replacing any others previously set for this prefix.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2262,6 +2344,8 @@ replacing any others previously set for this prefix.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2294,6 +2378,7 @@ replacing any others previously set for this prefix.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2304,6 +2389,8 @@ replacing any others previously set for this prefix.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2337,6 +2424,7 @@ that have not been registered with the class map.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2347,6 +2435,8 @@ that have not been registered with the class map.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2379,6 +2469,7 @@ replacing any others previously set for this namespace.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2420,6 +2511,8 @@ replacing any others previously set for this namespace.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2448,6 +2541,7 @@ replacing any others previously set for this namespace.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2458,6 +2552,8 @@ replacing any others previously set for this namespace.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2492,6 +2588,9 @@ replacing any others previously set for this namespace.</p>
     
     
     
+    
+
+    
 
     
 </article>
@@ -2521,6 +2620,7 @@ replacing any others previously set for this namespace.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2538,6 +2638,8 @@ replacing any others previously set for this namespace.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2574,6 +2676,9 @@ replacing any others previously set for this namespace.</p>
         </div>
     
     
+    
+    
+
     
 
     
@@ -2691,49 +2796,49 @@ replacing any others previously set for this namespace.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Composer-Autoload-ClassLoader.html#property_apcuPrefix">$apcuPrefix<a href="classes/Composer-Autoload-ClassLoader.html"></li>
-                                                    <li><a href="classes/Composer-Autoload-ClassLoader.html#property_classMap">$classMap<a href="classes/Composer-Autoload-ClassLoader.html"></li>
-                                                    <li><a href="classes/Composer-Autoload-ClassLoader.html#property_classMapAuthoritative">$classMapAuthoritative<a href="classes/Composer-Autoload-ClassLoader.html"></li>
-                                                    <li><a href="classes/Composer-Autoload-ClassLoader.html#property_fallbackDirsPsr0">$fallbackDirsPsr0<a href="classes/Composer-Autoload-ClassLoader.html"></li>
-                                                    <li><a href="classes/Composer-Autoload-ClassLoader.html#property_fallbackDirsPsr4">$fallbackDirsPsr4<a href="classes/Composer-Autoload-ClassLoader.html"></li>
-                                                    <li><a href="classes/Composer-Autoload-ClassLoader.html#property_includeFile">$includeFile<a href="classes/Composer-Autoload-ClassLoader.html"></li>
-                                                    <li><a href="classes/Composer-Autoload-ClassLoader.html#property_missingClasses">$missingClasses<a href="classes/Composer-Autoload-ClassLoader.html"></li>
-                                                    <li><a href="classes/Composer-Autoload-ClassLoader.html#property_prefixDirsPsr4">$prefixDirsPsr4<a href="classes/Composer-Autoload-ClassLoader.html"></li>
-                                                    <li><a href="classes/Composer-Autoload-ClassLoader.html#property_prefixesPsr0">$prefixesPsr0<a href="classes/Composer-Autoload-ClassLoader.html"></li>
-                                                    <li><a href="classes/Composer-Autoload-ClassLoader.html#property_prefixLengthsPsr4">$prefixLengthsPsr4<a href="classes/Composer-Autoload-ClassLoader.html"></li>
-                                                    <li><a href="classes/Composer-Autoload-ClassLoader.html#property_registeredLoaders">$registeredLoaders<a href="classes/Composer-Autoload-ClassLoader.html"></li>
-                                                    <li><a href="classes/Composer-Autoload-ClassLoader.html#property_useIncludePath">$useIncludePath<a href="classes/Composer-Autoload-ClassLoader.html"></li>
-                                                    <li><a href="classes/Composer-Autoload-ClassLoader.html#property_vendorDir">$vendorDir<a href="classes/Composer-Autoload-ClassLoader.html"></li>
+                                                    <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#property_apcuPrefix">$apcuPrefix</a></li>
+                                                    <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#property_classMap">$classMap</a></li>
+                                                    <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#property_classMapAuthoritative">$classMapAuthoritative</a></li>
+                                                    <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#property_fallbackDirsPsr0">$fallbackDirsPsr0</a></li>
+                                                    <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#property_fallbackDirsPsr4">$fallbackDirsPsr4</a></li>
+                                                    <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#property_includeFile">$includeFile</a></li>
+                                                    <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#property_missingClasses">$missingClasses</a></li>
+                                                    <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#property_prefixDirsPsr4">$prefixDirsPsr4</a></li>
+                                                    <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#property_prefixesPsr0">$prefixesPsr0</a></li>
+                                                    <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#property_prefixLengthsPsr4">$prefixLengthsPsr4</a></li>
+                                                    <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#property_registeredLoaders">$registeredLoaders</a></li>
+                                                    <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#property_useIncludePath">$useIncludePath</a></li>
+                                                    <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#property_vendorDir">$vendorDir</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_add">add()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_addClassMap">addClassMap()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_addPsr4">addPsr4()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_findFile">findFile()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_getApcuPrefix">getApcuPrefix()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_getClassMap">getClassMap()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_getFallbackDirs">getFallbackDirs()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_getFallbackDirsPsr4">getFallbackDirsPsr4()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_getPrefixes">getPrefixes()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_getPrefixesPsr4">getPrefixesPsr4()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_getRegisteredLoaders">getRegisteredLoaders()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_getUseIncludePath">getUseIncludePath()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_isClassMapAuthoritative">isClassMapAuthoritative()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_loadClass">loadClass()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_register">register()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_set">set()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_setApcuPrefix">setApcuPrefix()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_setClassMapAuthoritative">setClassMapAuthoritative()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_setPsr4">setPsr4()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_setUseIncludePath">setUseIncludePath()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_unregister">unregister()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_findFileWithExtension">findFileWithExtension()</a></li>
-                                            <li><a href="classes/Composer-Autoload-ClassLoader.html#method_initializeIncludeClosure">initializeIncludeClosure()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_add">add()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_addClassMap">addClassMap()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_addPsr4">addPsr4()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_findFile">findFile()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_getApcuPrefix">getApcuPrefix()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_getClassMap">getClassMap()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_getFallbackDirs">getFallbackDirs()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_getFallbackDirsPsr4">getFallbackDirsPsr4()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_getPrefixes">getPrefixes()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_getPrefixesPsr4">getPrefixesPsr4()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_getRegisteredLoaders">getRegisteredLoaders()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_getUseIncludePath">getUseIncludePath()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_isClassMapAuthoritative">isClassMapAuthoritative()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_loadClass">loadClass()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_register">register()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_set">set()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_setApcuPrefix">setApcuPrefix()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_setClassMapAuthoritative">setClassMapAuthoritative()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_setPsr4">setPsr4()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_setUseIncludePath">setUseIncludePath()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_unregister">unregister()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_findFileWithExtension">findFileWithExtension()</a></li>
+                                            <li class=""><a href="classes/Composer-Autoload-ClassLoader.html#method_initializeIncludeClosure">initializeIncludeClosure()</a></li>
                                     </ul>
             </li>
                     </ul>

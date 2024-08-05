@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -728,6 +720,7 @@
 
             <p class="phpdocumentor-summary">A InputDefinition represents a set of valid command line arguments and options.</p>
 
+
     <section class="phpdocumentor-description"><p>Usage:</p>
 <p>$definition = new InputDefinition([
 new InputArgument('name', InputArgument::REQUIRED),
@@ -755,6 +748,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -776,37 +771,37 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_arguments">$arguments</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_arguments">$arguments</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_hasAnArrayArgument">$hasAnArrayArgument</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_hasAnArrayArgument">$hasAnArrayArgument</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_hasOptional">$hasOptional</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_hasOptional">$hasOptional</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_options">$options</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_options">$options</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_requiredCount">$requiredCount</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_requiredCount">$requiredCount</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_shortcuts">$shortcuts</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_shortcuts">$shortcuts</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -820,149 +815,148 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method___construct">__construct()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_addArgument">addArgument()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_addArgument">addArgument()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_addArguments">addArguments()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_addArguments">addArguments()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Adds an array of InputArgument objects.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_addOption">addOption()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_addOption">addOption()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_addOptions">addOptions()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_addOptions">addOptions()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Adds an array of InputOption objects.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArgument">getArgument()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArgument">getArgument()</a>
     <span>
                                 &nbsp;: <a href="classes/Symfony-Component-Console-Input-InputArgument.html"><abbr title="\Symfony\Component\Console\Input\InputArgument">InputArgument</abbr></a>    </span>
 </dt>
 <dd>Returns an InputArgument by name or by position.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArgumentCount">getArgumentCount()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArgumentCount">getArgumentCount()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Returns the number of InputArguments.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArgumentDefaults">getArgumentDefaults()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArgumentDefaults">getArgumentDefaults()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string|bool|int|float|array&lt;string|int, mixed&gt;|null&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArgumentRequiredCount">getArgumentRequiredCount()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArgumentRequiredCount">getArgumentRequiredCount()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Returns the number of required InputArguments.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArguments">getArguments()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArguments">getArguments()</a>
     <span>
                                 &nbsp;: array&lt;string|int, <a href="classes/Symfony-Component-Console-Input-InputArgument.html"><abbr title="\Symfony\Component\Console\Input\InputArgument">InputArgument</abbr></a>&gt;    </span>
 </dt>
 <dd>Gets the array of InputArgument objects.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getOption">getOption()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getOption">getOption()</a>
     <span>
                                 &nbsp;: <a href="classes/Symfony-Component-Console-Input-InputOption.html"><abbr title="\Symfony\Component\Console\Input\InputOption">InputOption</abbr></a>    </span>
 </dt>
 <dd>Returns an InputOption by name.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getOptionDefaults">getOptionDefaults()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getOptionDefaults">getOptionDefaults()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string|bool|int|float|array&lt;string|int, mixed&gt;|null&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getOptionForShortcut">getOptionForShortcut()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getOptionForShortcut">getOptionForShortcut()</a>
     <span>
                                 &nbsp;: <a href="classes/Symfony-Component-Console-Input-InputOption.html"><abbr title="\Symfony\Component\Console\Input\InputOption">InputOption</abbr></a>    </span>
 </dt>
 <dd>Gets an InputOption by shortcut.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getOptions">getOptions()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getOptions">getOptions()</a>
     <span>
                                 &nbsp;: array&lt;string|int, <a href="classes/Symfony-Component-Console-Input-InputOption.html"><abbr title="\Symfony\Component\Console\Input\InputOption">InputOption</abbr></a>&gt;    </span>
 </dt>
 <dd>Gets the array of InputOption objects.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getSynopsis">getSynopsis()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getSynopsis">getSynopsis()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets the synopsis.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_hasArgument">hasArgument()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_hasArgument">hasArgument()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns true if an InputArgument object exists by name or position.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_hasOption">hasOption()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_hasOption">hasOption()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns true if an InputOption object exists by name.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_hasShortcut">hasShortcut()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_hasShortcut">hasShortcut()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns true if an InputOption object exists by shortcut.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_setArguments">setArguments()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_setArguments">setArguments()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Sets the InputArgument objects.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_setDefinition">setDefinition()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_setDefinition">setDefinition()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Sets the definition of the input.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_setOptions">setOptions()</a>
+    <a class="" href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_setOptions">setOptions()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Sets the InputOption objects.</dd>
 
     </dl>
-
 
 
 
@@ -997,6 +991,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1005,6 +1000,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
     
     
+    
+
     
 
 </article>
@@ -1030,6 +1027,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1038,6 +1036,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
     
     
+    
+
     
 
 </article>
@@ -1063,6 +1063,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1071,6 +1072,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
     
     
+    
+
     
 
 </article>
@@ -1096,6 +1099,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1104,6 +1108,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
     
     
+    
+
     
 
 </article>
@@ -1129,6 +1135,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1137,6 +1144,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
     
     
+    
+
     
 
 </article>
@@ -1162,6 +1171,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1170,6 +1180,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
     
     
+    
+
     
 
 </article>
@@ -1207,6 +1219,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1219,6 +1232,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1249,6 +1264,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1281,6 +1297,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1309,6 +1327,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1321,6 +1340,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1351,6 +1372,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1383,6 +1405,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1411,6 +1435,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1423,6 +1448,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1455,6 +1482,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1486,6 +1514,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1526,6 +1556,9 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1565,6 +1598,9 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1600,6 +1636,9 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1641,6 +1680,9 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1679,6 +1721,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1710,6 +1753,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1749,6 +1794,9 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1783,6 +1831,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1795,6 +1844,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1837,6 +1888,9 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1875,6 +1929,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1887,6 +1942,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1927,6 +1984,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1939,6 +1997,8 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1978,6 +2038,7 @@ new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This method can't be used to check if the user included the option when
 executing the command (use getOption() instead).</p>
 </section>
@@ -1994,6 +2055,8 @@ executing the command (use getOption() instead).</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2034,6 +2097,7 @@ executing the command (use getOption() instead).</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2046,6 +2110,8 @@ executing the command (use getOption() instead).</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2086,6 +2152,7 @@ executing the command (use getOption() instead).</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2098,6 +2165,8 @@ executing the command (use getOption() instead).</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2130,6 +2199,7 @@ executing the command (use getOption() instead).</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2140,6 +2210,8 @@ executing the command (use getOption() instead).</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2172,6 +2244,7 @@ executing the command (use getOption() instead).</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2184,6 +2257,8 @@ executing the command (use getOption() instead).</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2302,39 +2377,39 @@ executing the command (use getOption() instead).</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_arguments">$arguments<a href="classes/Symfony-Component-Console-Input-InputDefinition.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_hasAnArrayArgument">$hasAnArrayArgument<a href="classes/Symfony-Component-Console-Input-InputDefinition.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_hasOptional">$hasOptional<a href="classes/Symfony-Component-Console-Input-InputDefinition.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_options">$options<a href="classes/Symfony-Component-Console-Input-InputDefinition.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_requiredCount">$requiredCount<a href="classes/Symfony-Component-Console-Input-InputDefinition.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_shortcuts">$shortcuts<a href="classes/Symfony-Component-Console-Input-InputDefinition.html"></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_arguments">$arguments</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_hasAnArrayArgument">$hasAnArrayArgument</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_hasOptional">$hasOptional</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_options">$options</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_requiredCount">$requiredCount</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#property_shortcuts">$shortcuts</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_addArgument">addArgument()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_addArguments">addArguments()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_addOption">addOption()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_addOptions">addOptions()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArgument">getArgument()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArgumentCount">getArgumentCount()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArgumentDefaults">getArgumentDefaults()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArgumentRequiredCount">getArgumentRequiredCount()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArguments">getArguments()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getOption">getOption()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getOptionDefaults">getOptionDefaults()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getOptionForShortcut">getOptionForShortcut()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getOptions">getOptions()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getSynopsis">getSynopsis()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_hasArgument">hasArgument()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_hasOption">hasOption()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_hasShortcut">hasShortcut()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_setArguments">setArguments()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_setDefinition">setDefinition()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_setOptions">setOptions()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_addArgument">addArgument()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_addArguments">addArguments()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_addOption">addOption()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_addOptions">addOptions()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArgument">getArgument()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArgumentCount">getArgumentCount()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArgumentDefaults">getArgumentDefaults()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArgumentRequiredCount">getArgumentRequiredCount()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getArguments">getArguments()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getOption">getOption()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getOptionDefaults">getOptionDefaults()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getOptionForShortcut">getOptionForShortcut()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getOptions">getOptions()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_getSynopsis">getSynopsis()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_hasArgument">hasArgument()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_hasOption">hasOption()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_hasShortcut">hasShortcut()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_setArguments">setArguments()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_setDefinition">setDefinition()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Input-InputDefinition.html#method_setOptions">setOptions()</a></li>
                                     </ul>
             </li>
                     </ul>

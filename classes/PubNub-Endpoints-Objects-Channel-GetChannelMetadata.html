@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -735,6 +727,9 @@
 
 
 
+
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -754,9 +749,15 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#constant_PATH">PATH</a>
+    <a class="" href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#constant_PATH">PATH</a>
     <span>
         &nbsp;= &quot;/v2/objects/%s/channels/%s&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#constant_RESPONSE_IS_JSON">RESPONSE_IS_JSON</a>
+    <span>
+        &nbsp;= true                            </span>
 </dt>
 
     </dl>
@@ -769,25 +770,37 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#property_cachedTransports">$cachedTransports</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#property_cachedTransports">$cachedTransports</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#property_channel">$channel</a>
+    <a class="" href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#property_channel">$channel</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#property_envelope">$envelope</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#property_customHost">$customHost</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#property_envelope">$envelope</a>
     <span>
                         &nbsp;: <a href="classes/PubNub-Models-ResponseHelpers-PNEnvelope.html"><abbr title="\PubNub\Models\ResponseHelpers\PNEnvelope">PNEnvelope</abbr></a>            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#property_pubnub">$pubnub</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#property_followRedirects">$followRedirects</a>
+    <span>
+                        &nbsp;: mixed            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#property_pubnub">$pubnub</a>
     <span>
                         &nbsp;: <a href="classes/PubNub-PubNub.html"><abbr title="\PubNub\PubNub">PubNub</abbr></a>            </span>
 </dt>
@@ -801,209 +814,214 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method___construct">__construct()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_channel">channel()</a>
+    <a class="" href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_channel">channel()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_clear">clear()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_clear">clear()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Clear cached envelope</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_envelope">envelope()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_envelope">envelope()</a>
     <span>
                                 &nbsp;: <a href="classes/PubNub-Models-ResponseHelpers-PNEnvelope.html"><abbr title="\PubNub\Models\ResponseHelpers\PNEnvelope">PNEnvelope</abbr></a>    </span>
 </dt>
 <dd>Returns an Envelope that contains both result and status.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_sync">sync()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_sync">sync()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Return a Result only.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_buildData">buildData()</a>
+    <a class="" href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_buildData">buildData()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_buildParams">buildParams()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_buildParams">buildParams()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Params build flow: signed &lt;- custom &lt;- default</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_buildPath">buildPath()</a>
+    <a class="" href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_buildPath">buildPath()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_createResponse">createResponse()</a>
+    <a class="" href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_createResponse">createResponse()</a>
     <span>
                                 &nbsp;: <a href="classes/PubNub-Models-Consumer-Objects-Channel-PNGetChannelMetadataResult.html"><abbr title="\PubNub\Models\Consumer\Objects\Channel\PNGetChannelMetadataResult">PNGetChannelMetadataResult</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_customHeaders">customHeaders()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_customHeaders">customHeaders()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_customParams">customParams()</a>
+    <a class="" href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_customParams">customParams()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_defaultHeaders">defaultHeaders()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_defaultHeaders">defaultHeaders()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_defaultParams">defaultParams()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_defaultParams">defaultParams()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_fetchPayload">fetchPayload()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_fetchPayload">fetchPayload()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_getAffectedChannelGroups">getAffectedChannelGroups()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_getAffectedChannelGroups">getAffectedChannelGroups()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_getAffectedChannels">getAffectedChannels()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_getAffectedChannels">getAffectedChannels()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_getAffectedUsers">getAffectedUsers()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_getAffectedUsers">getAffectedUsers()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_getConnectTimeout">getConnectTimeout()</a>
+    <a class="" href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_getConnectTimeout">getConnectTimeout()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_getName">getName()</a>
+    <a class="" href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_getName">getName()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_getOperationType">getOperationType()</a>
+    <a class="" href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_getOperationType">getOperationType()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_getRequestTimeout">getRequestTimeout()</a>
+    <a class="" href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_getRequestTimeout">getRequestTimeout()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_httpMethod">httpMethod()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_getTransport">getTransport()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_httpMethod">httpMethod()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_invokeRequest">invokeRequest()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_invokeRequest">invokeRequest()</a>
     <span>
                                 &nbsp;: <a href="classes/PubNub-Models-ResponseHelpers-PNEnvelope.html"><abbr title="\PubNub\Models\ResponseHelpers\PNEnvelope">PNEnvelope</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_invokeRequestAndCacheIt">invokeRequestAndCacheIt()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_invokeRequestAndCacheIt">invokeRequestAndCacheIt()</a>
     <span>
                                 &nbsp;: <a href="classes/PubNub-Models-ResponseHelpers-PNEnvelope.html"><abbr title="\PubNub\Models\ResponseHelpers\PNEnvelope">PNEnvelope</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_isAuthRequired">isAuthRequired()</a>
+    <a class="" href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_isAuthRequired">isAuthRequired()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_requestOptions">requestOptions()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_requestOptions">requestOptions()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_validateChannelGroups">validateChannelGroups()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_validateChannelGroups">validateChannelGroups()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_validateParams">validateParams()</a>
+    <a class="" href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_validateParams">validateParams()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_validatePublishKey">validatePublishKey()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_validatePublishKey">validatePublishKey()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_validateSecretKey">validateSecretKey()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_validateSecretKey">validateSecretKey()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_validateSubscribeKey">validateSubscribeKey()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_validateSubscribeKey">validateSubscribeKey()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_createStatus">createStatus()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_createStatus">createStatus()</a>
     <span>
                                 &nbsp;: <a href="classes/PubNub-Models-ResponseHelpers-PNStatus.html"><abbr title="\PubNub\Models\ResponseHelpers\PNStatus">PNStatus</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/PubNub-Endpoints-Endpoint.html#method_getDefaultTransport">getDefaultTransport()</a>
+    <a class="" href="classes/PubNub-Endpoints-Endpoint.html#method_getDefaultTransport">getDefaultTransport()</a>
     <span>
                                 &nbsp;: <a href="classes/WpOrg-Requests-Transport.html"><abbr title="\WpOrg\Requests\Transport">Transport</abbr></a>    </span>
 </dt>
 
     </dl>
-
 
 
 
@@ -1029,6 +1047,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1039,6 +1058,39 @@
 
     
     
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_RESPONSE_IS_JSON">
+        RESPONSE_IS_JSON
+        <a href="classes/PubNub-Endpoints-Endpoint.html#constant_RESPONSE_IS_JSON" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">28</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">RESPONSE_IS_JSON</span>
+    = <span class="phpdocumentor-signature__default-value">true</span>
+</code>
+
+
+    
+    
+    
+
     
 
 </article>
@@ -1068,10 +1120,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -1081,6 +1134,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1106,6 +1161,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
@@ -1114,6 +1170,44 @@
 
     
     
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_customHost">
+        $customHost
+        <a href="classes/PubNub-Endpoints-Endpoint.html#property_customHost" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">36</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$customHost</span>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
+
+    
+    
+    
+
     
 
 </article>
@@ -1134,10 +1228,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -1147,6 +1242,44 @@
 
     
     
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_followRedirects">
+        $followRedirects
+        <a href="classes/PubNub-Endpoints-Endpoint.html#property_followRedirects" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">41</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$followRedirects</span>
+     = <span class="phpdocumentor-signature__default-value">true</span></code>
+
+    
+    
+    
+
     
 
 </article>
@@ -1167,10 +1300,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -1180,6 +1314,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1205,7 +1341,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
@@ -1217,6 +1353,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1227,6 +1364,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1258,6 +1397,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1268,6 +1408,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1291,7 +1433,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">301</span>
+    <span class="phpdocumentor-element-found-in__line">307</span>
 
     </aside>
 
@@ -1305,6 +1447,9 @@
         </div>
     
     
+    
+    
+
     
 
     
@@ -1323,7 +1468,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">293</span>
+    <span class="phpdocumentor-element-found-in__line">299</span>
 
     </aside>
 
@@ -1335,10 +1480,13 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>All Errors are wrapped, so no need to use try/catch blocks</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1361,7 +1509,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">274</span>
+    <span class="phpdocumentor-element-found-in__line">280</span>
 
     </aside>
 
@@ -1373,6 +1521,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Errors are thrown explicitly, so catch them with try/catch block</p>
 </section>
 
@@ -1393,6 +1542,8 @@
                                              
                                     </dd>
                                             </dl>
+
+    
 
     
 </article>
@@ -1424,6 +1575,7 @@
     
     
     
+    
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_buildData#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1439,6 +1591,8 @@
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1460,7 +1614,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">190</span>
+    <span class="phpdocumentor-element-found-in__line">196</span>
 
     </aside>
 
@@ -1474,6 +1628,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1510,6 +1667,9 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1538,15 +1698,16 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">createResponse</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$json</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PubNub-Models-Consumer-Objects-Channel-PNGetChannelMetadataResult.html"><abbr title="\PubNub\Models\Consumer\Objects\Channel\PNGetChannelMetadataResult">PNGetChannelMetadataResult</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">createResponse</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$result</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PubNub-Models-Consumer-Objects-Channel-PNGetChannelMetadataResult.html"><abbr title="\PubNub\Models\Consumer\Objects\Channel\PNGetChannelMetadataResult">PNGetChannelMetadataResult</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$json</span>
+                <span class="phpdocumentor-signature__argument__name">$result</span>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -1555,6 +1716,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1578,7 +1741,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">151</span>
+    <span class="phpdocumentor-element-found-in__line">157</span>
 
     </aside>
 
@@ -1591,6 +1754,9 @@
         </div>
     
     
+    
+    
+
     
 
     
@@ -1623,6 +1789,9 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1644,7 +1813,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">146</span>
+    <span class="phpdocumentor-element-found-in__line">152</span>
 
     </aside>
 
@@ -1657,6 +1826,9 @@
         </div>
     
     
+    
+    
+
     
 
     
@@ -1675,7 +1847,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">159</span>
+    <span class="phpdocumentor-element-found-in__line">165</span>
 
     </aside>
 
@@ -1688,6 +1860,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1710,23 +1885,24 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">615</span>
+    <span class="phpdocumentor-element-found-in__line">631</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">fetchPayload</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$json</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">fetchPayload</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$json</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$json</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1750,6 +1926,8 @@
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
@@ -1770,7 +1948,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">559</span>
+    <span class="phpdocumentor-element-found-in__line">575</span>
 
     </aside>
 
@@ -1783,6 +1961,9 @@
         </div>
     
     
+    
+    
+
     
 
     
@@ -1801,7 +1982,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">554</span>
+    <span class="phpdocumentor-element-found-in__line">570</span>
 
     </aside>
 
@@ -1814,6 +1995,9 @@
         </div>
     
     
+    
+    
+
     
 
     
@@ -1832,7 +2016,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">564</span>
+    <span class="phpdocumentor-element-found-in__line">580</span>
 
     </aside>
 
@@ -1845,6 +2029,9 @@
         </div>
     
     
+    
+    
+
     
 
     
@@ -1876,6 +2063,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1912,6 +2102,9 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1946,6 +2139,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1982,12 +2178,49 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">int</span>
             </section>
 
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getTransport">
+        getTransport()
+        <a href="classes/PubNub-Endpoints-Endpoint.html#method_getTransport" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">339</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">getTransport</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2017,6 +2250,9 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2042,7 +2278,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">343</span>
+    <span class="phpdocumentor-element-found-in__line">347</span>
 
     </aside>
 
@@ -2055,6 +2291,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -2077,7 +2316,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">310</span>
+    <span class="phpdocumentor-element-found-in__line">316</span>
 
     </aside>
 
@@ -2088,6 +2327,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
     
     
@@ -2106,6 +2346,8 @@
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2141,6 +2383,9 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2162,7 +2407,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">322</span>
+    <span class="phpdocumentor-element-found-in__line">328</span>
 
     </aside>
 
@@ -2175,6 +2420,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -2197,7 +2445,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">139</span>
+    <span class="phpdocumentor-element-found-in__line">145</span>
 
     </aside>
 
@@ -2208,6 +2456,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2245,6 +2494,8 @@
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2274,6 +2525,7 @@
     
     
     
+    
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_validateParams#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -2291,6 +2543,8 @@
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2306,7 +2560,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">113</span>
+    <span class="phpdocumentor-element-found-in__line">119</span>
 
     </aside>
 
@@ -2317,6 +2571,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
     
     
@@ -2337,6 +2592,8 @@
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2352,7 +2609,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">125</span>
+    <span class="phpdocumentor-element-found-in__line">131</span>
 
     </aside>
 
@@ -2363,6 +2620,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
     
     
@@ -2383,6 +2641,8 @@
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2398,7 +2658,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">107</span>
 
     </aside>
 
@@ -2409,6 +2669,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
     
     
@@ -2429,6 +2690,8 @@
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2444,17 +2707,18 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">525</span>
+    <span class="phpdocumentor-element-found-in__line">541</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">createStatus</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$category</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$responseInfo</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$exception</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PubNub-Models-ResponseHelpers-PNStatus.html"><abbr title="\PubNub\Models\ResponseHelpers\PNStatus">PNStatus</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">createStatus</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$category</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/PubNub-Models-ResponseHelpers-ResponseInfo.html"><abbr title="\PubNub\Models\ResponseHelpers\ResponseInfo">ResponseInfo</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$responseInfo</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/PubNub-Exceptions-PubNubException.html"><abbr title="\PubNub\Exceptions\PubNubException">PubNubException</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$exception</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PubNub-Models-ResponseHelpers-PNStatus.html"><abbr title="\PubNub\Models\ResponseHelpers\PNStatus">PNStatus</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2467,26 +2731,28 @@
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$response</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$responseInfo</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/PubNub-Models-ResponseHelpers-ResponseInfo.html"><abbr title="\PubNub\Models\ResponseHelpers\ResponseInfo">ResponseInfo</abbr></a>|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$exception</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/PubNub-Exceptions-PubNubException.html"><abbr title="\PubNub\Exceptions\PubNubException">PubNubException</abbr></a>|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2510,7 +2776,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php"><a href="files/vendor-pubnub-pubnub-src-pubnub-endpoints-endpoint.html"><abbr title="vendor/pubnub/pubnub/src/PubNub/Endpoints/Endpoint.php">Endpoint.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">573</span>
+    <span class="phpdocumentor-element-found-in__line">589</span>
 
     </aside>
 
@@ -2521,6 +2787,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
     
     
@@ -2539,6 +2806,8 @@
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2659,56 +2928,60 @@
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#constant_PATH">PATH</a></li>
+                                                    <li class=""><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#constant_PATH">PATH</a></li>
+                                                    <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#constant_RESPONSE_IS_JSON">RESPONSE_IS_JSON</a></li>
                                             </ul>
                 </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/PubNub-Endpoints-Endpoint.html#property_cachedTransports">$cachedTransports<a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html"></li>
-                                                    <li><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#property_channel">$channel<a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html"></li>
-                                                    <li><a href="classes/PubNub-Endpoints-Endpoint.html#property_envelope">$envelope<a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html"></li>
-                                                    <li><a href="classes/PubNub-Endpoints-Endpoint.html#property_pubnub">$pubnub<a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html"></li>
+                                                    <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#property_cachedTransports">$cachedTransports</a></li>
+                                                    <li class=""><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#property_channel">$channel</a></li>
+                                                    <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#property_customHost">$customHost</a></li>
+                                                    <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#property_envelope">$envelope</a></li>
+                                                    <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#property_followRedirects">$followRedirects</a></li>
+                                                    <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#property_pubnub">$pubnub</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_channel">channel()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_clear">clear()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_envelope">envelope()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_sync">sync()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_buildData">buildData()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_buildParams">buildParams()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_buildPath">buildPath()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_createResponse">createResponse()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_customHeaders">customHeaders()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_customParams">customParams()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_defaultHeaders">defaultHeaders()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_defaultParams">defaultParams()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_fetchPayload">fetchPayload()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_getAffectedChannelGroups">getAffectedChannelGroups()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_getAffectedChannels">getAffectedChannels()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_getAffectedUsers">getAffectedUsers()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_getConnectTimeout">getConnectTimeout()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_getName">getName()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_getOperationType">getOperationType()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_getRequestTimeout">getRequestTimeout()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_httpMethod">httpMethod()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_invokeRequest">invokeRequest()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_invokeRequestAndCacheIt">invokeRequestAndCacheIt()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_isAuthRequired">isAuthRequired()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_requestOptions">requestOptions()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_validateChannelGroups">validateChannelGroups()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_validateParams">validateParams()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_validatePublishKey">validatePublishKey()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_validateSecretKey">validateSecretKey()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_validateSubscribeKey">validateSubscribeKey()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_createStatus">createStatus()</a></li>
-                                            <li><a href="classes/PubNub-Endpoints-Endpoint.html#method_getDefaultTransport">getDefaultTransport()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_channel">channel()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_clear">clear()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_envelope">envelope()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_sync">sync()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_buildData">buildData()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_buildParams">buildParams()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_buildPath">buildPath()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_createResponse">createResponse()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_customHeaders">customHeaders()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_customParams">customParams()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_defaultHeaders">defaultHeaders()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_defaultParams">defaultParams()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_fetchPayload">fetchPayload()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_getAffectedChannelGroups">getAffectedChannelGroups()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_getAffectedChannels">getAffectedChannels()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_getAffectedUsers">getAffectedUsers()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_getConnectTimeout">getConnectTimeout()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_getName">getName()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_getOperationType">getOperationType()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_getRequestTimeout">getRequestTimeout()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_getTransport">getTransport()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_httpMethod">httpMethod()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_invokeRequest">invokeRequest()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_invokeRequestAndCacheIt">invokeRequestAndCacheIt()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_isAuthRequired">isAuthRequired()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_requestOptions">requestOptions()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_validateChannelGroups">validateChannelGroups()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Objects-Channel-GetChannelMetadata.html#method_validateParams">validateParams()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_validatePublishKey">validatePublishKey()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_validateSecretKey">validateSecretKey()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_validateSubscribeKey">validateSubscribeKey()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_createStatus">createStatus()</a></li>
+                                            <li class=""><a href="classes/PubNub-Endpoints-Endpoint.html#method_getDefaultTransport">getDefaultTransport()</a></li>
                                     </ul>
             </li>
                     </ul>

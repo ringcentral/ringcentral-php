@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -732,6 +724,7 @@
 
             <p class="phpdocumentor-summary">Cooperatively resolves hosts via the given base executor to ensure same query is not run concurrently</p>
 
+
     <section class="phpdocumentor-description"><p>Wraps an existing <code class="prettyprint">ExecutorInterface</code> to keep tracking of pending queries
 and only starts a new query when the same query is not already pending. Once
 the underlying query is fulfilled/rejected, it will forward its value to all
@@ -755,6 +748,8 @@ combination with some other executor like this:</p>
 );
 </code></pre>
 </section>
+
+
 
 
 
@@ -788,19 +783,19 @@ combination with some other executor like this:</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-Dns-Query-CoopExecutor.html#property_counts">$counts</a>
+    <a class="" href="classes/React-Dns-Query-CoopExecutor.html#property_counts">$counts</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-Dns-Query-CoopExecutor.html#property_executor">$executor</a>
+    <a class="" href="classes/React-Dns-Query-CoopExecutor.html#property_executor">$executor</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-Dns-Query-CoopExecutor.html#property_pending">$pending</a>
+    <a class="" href="classes/React-Dns-Query-CoopExecutor.html#property_pending">$pending</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -814,26 +809,25 @@ combination with some other executor like this:</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Dns-Query-CoopExecutor.html#method___construct">__construct()</a>
+    <a class="" href="classes/React-Dns-Query-CoopExecutor.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Dns-Query-CoopExecutor.html#method_query">query()</a>
+    <a class="" href="classes/React-Dns-Query-CoopExecutor.html#method_query">query()</a>
     <span>
                                 &nbsp;: <a href="classes/React-Promise-PromiseInterface.html"><abbr title="\React\Promise\PromiseInterface">PromiseInterface</abbr></a>&lt;string|int, <a href="classes/React-Dns-Model-Message.html"><abbr title="\React\Dns\Model\Message">Message</abbr></a>&gt;    </span>
 </dt>
 <dd>Executes a query and will return a response message</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/React-Dns-Query-CoopExecutor.html#method_serializeQueryToIdentity">serializeQueryToIdentity()</a>
+    <a class="" href="classes/React-Dns-Query-CoopExecutor.html#method_serializeQueryToIdentity">serializeQueryToIdentity()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
     </dl>
-
 
 
 
@@ -868,6 +862,7 @@ combination with some other executor like this:</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -876,6 +871,8 @@ combination with some other executor like this:</p>
 
     
     
+    
+
     
 
 </article>
@@ -901,6 +898,7 @@ combination with some other executor like this:</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -909,6 +907,8 @@ combination with some other executor like this:</p>
 
     
     
+    
+
     
 
 </article>
@@ -934,6 +934,7 @@ combination with some other executor like this:</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -942,6 +943,8 @@ combination with some other executor like this:</p>
 
     
     
+    
+
     
 
 </article>
@@ -979,6 +982,7 @@ combination with some other executor like this:</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -989,6 +993,8 @@ combination with some other executor like this:</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1020,6 +1026,7 @@ combination with some other executor like this:</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>It returns a Promise which either fulfills with a response
 <code class="prettyprint">React\Dns\Model\Message</code> on success or rejects with an <code class="prettyprint">Exception</code> if
 the query is not successful. A response message may indicate an error
@@ -1054,6 +1061,8 @@ $promise-&gt;cancel();
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1093,6 +1102,7 @@ $promise-&gt;cancel();
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1103,6 +1113,8 @@ $promise-&gt;cancel();
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1221,18 +1233,18 @@ $promise-&gt;cancel();
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/React-Dns-Query-CoopExecutor.html#property_counts">$counts<a href="classes/React-Dns-Query-CoopExecutor.html"></li>
-                                                    <li><a href="classes/React-Dns-Query-CoopExecutor.html#property_executor">$executor<a href="classes/React-Dns-Query-CoopExecutor.html"></li>
-                                                    <li><a href="classes/React-Dns-Query-CoopExecutor.html#property_pending">$pending<a href="classes/React-Dns-Query-CoopExecutor.html"></li>
+                                                    <li class=""><a href="classes/React-Dns-Query-CoopExecutor.html#property_counts">$counts</a></li>
+                                                    <li class=""><a href="classes/React-Dns-Query-CoopExecutor.html#property_executor">$executor</a></li>
+                                                    <li class=""><a href="classes/React-Dns-Query-CoopExecutor.html#property_pending">$pending</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/React-Dns-Query-CoopExecutor.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/React-Dns-Query-CoopExecutor.html#method_query">query()</a></li>
-                                            <li><a href="classes/React-Dns-Query-CoopExecutor.html#method_serializeQueryToIdentity">serializeQueryToIdentity()</a></li>
+                                            <li class=""><a href="classes/React-Dns-Query-CoopExecutor.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/React-Dns-Query-CoopExecutor.html#method_query">query()</a></li>
+                                            <li class=""><a href="classes/React-Dns-Query-CoopExecutor.html#method_serializeQueryToIdentity">serializeQueryToIdentity()</a></li>
                                     </ul>
             </li>
                     </ul>

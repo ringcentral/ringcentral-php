@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -733,6 +725,7 @@
 
             <p class="phpdocumentor-summary">Exception for when an incorrect number of arguments are passed to a method.</p>
 
+
     <section class="phpdocumentor-description"><p>Typically, this exception is used when all arguments for a method are optional,
 but certain arguments need to be passed together, i.e. a method which can be called
 with no arguments or with two arguments, but not with one argument.</p>
@@ -759,6 +752,8 @@ with a certain number of elements and the provided number of elements does not c
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/WpOrg-Requests-Exception-ArgumentCount.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -780,14 +775,14 @@ with a certain number of elements and the provided number of elements does not c
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/WpOrg-Requests-Exception.html#property_data">$data</a>
+    <a class="" href="classes/WpOrg-Requests-Exception.html#property_data">$data</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 <dd>Data associated with the exception</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/WpOrg-Requests-Exception.html#property_type">$type</a>
+    <a class="" href="classes/WpOrg-Requests-Exception.html#property_type">$type</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
@@ -802,35 +797,34 @@ with a certain number of elements and the provided number of elements does not c
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/WpOrg-Requests-Exception.html#method___construct">__construct()</a>
+    <a class="" href="classes/WpOrg-Requests-Exception.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Create a new exception</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/WpOrg-Requests-Exception-ArgumentCount.html#method_create">create()</a>
+    <a class="" href="classes/WpOrg-Requests-Exception-ArgumentCount.html#method_create">create()</a>
     <span>
                                 &nbsp;: <a href="classes/WpOrg-Requests-Exception-ArgumentCount.html"><abbr title="\WpOrg\Requests\Exception\ArgumentCount">ArgumentCount</abbr></a>    </span>
 </dt>
 <dd>Create a new argument count exception with a standardized text.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/WpOrg-Requests-Exception.html#method_getData">getData()</a>
+    <a class="" href="classes/WpOrg-Requests-Exception.html#method_getData">getData()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Gives any relevant data</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/WpOrg-Requests-Exception.html#method_getType">getType()</a>
+    <a class="" href="classes/WpOrg-Requests-Exception.html#method_getType">getType()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Like {@see \Exception::getCode()}, but a string code.</dd>
 
     </dl>
-
 
 
 
@@ -866,6 +860,7 @@ with a certain number of elements and the provided number of elements does not c
 
         <p class="phpdocumentor-summary">Data associated with the exception</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -874,6 +869,8 @@ with a certain number of elements and the provided number of elements does not c
 
     
     
+    
+
     
 
 </article>
@@ -900,6 +897,7 @@ with a certain number of elements and the provided number of elements does not c
 
         <p class="phpdocumentor-summary">Type of exception</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
@@ -908,6 +906,8 @@ with a certain number of elements and the provided number of elements does not c
 
     
     
+    
+
     
 
 </article>
@@ -945,6 +945,7 @@ with a certain number of elements and the provided number of elements does not c
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -989,6 +990,8 @@ with a certain number of elements and the provided number of elements does not c
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1016,6 +1019,7 @@ with a certain number of elements and the provided number of elements does not c
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1048,6 +1052,8 @@ For example: <code class="prettyprint">at least 2 arguments</code> or <code clas
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1086,6 +1092,7 @@ For example: <code class="prettyprint">at least 2 arguments</code> or <code clas
     
     
     
+    
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/WpOrg-Requests-Exception.html#method_getData#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1100,6 +1107,8 @@ For example: <code class="prettyprint">at least 2 arguments</code> or <code clas
                                              
                                     </dd>
                                             </dl>
+
+    
 
     
 </article>
@@ -1132,6 +1141,7 @@ For example: <code class="prettyprint">at least 2 arguments</code> or <code clas
     
     
     
+    
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/WpOrg-Requests-Exception.html#method_getType#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1146,6 +1156,8 @@ For example: <code class="prettyprint">at least 2 arguments</code> or <code clas
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1266,18 +1278,18 @@ For example: <code class="prettyprint">at least 2 arguments</code> or <code clas
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/WpOrg-Requests-Exception.html#property_data">$data<a href="classes/WpOrg-Requests-Exception-ArgumentCount.html"></li>
-                                                    <li><a href="classes/WpOrg-Requests-Exception.html#property_type">$type<a href="classes/WpOrg-Requests-Exception-ArgumentCount.html"></li>
+                                                    <li class=""><a href="classes/WpOrg-Requests-Exception.html#property_data">$data</a></li>
+                                                    <li class=""><a href="classes/WpOrg-Requests-Exception.html#property_type">$type</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/WpOrg-Requests-Exception.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/WpOrg-Requests-Exception-ArgumentCount.html#method_create">create()</a></li>
-                                            <li><a href="classes/WpOrg-Requests-Exception.html#method_getData">getData()</a></li>
-                                            <li><a href="classes/WpOrg-Requests-Exception.html#method_getType">getType()</a></li>
+                                            <li class=""><a href="classes/WpOrg-Requests-Exception.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/WpOrg-Requests-Exception-ArgumentCount.html#method_create">create()</a></li>
+                                            <li class=""><a href="classes/WpOrg-Requests-Exception.html#method_getData">getData()</a></li>
+                                            <li class=""><a href="classes/WpOrg-Requests-Exception.html#method_getType">getType()</a></li>
                                     </ul>
             </li>
                     </ul>

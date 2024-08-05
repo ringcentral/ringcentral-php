@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -731,6 +723,7 @@
 
             <p class="phpdocumentor-summary">StreamOutput writes the output to a given stream.</p>
 
+
     <section class="phpdocumentor-description"><p>Usage:</p>
 <pre class="prettyprint"><code class="prettyprint">$output = new StreamOutput(fopen('php://stdout', 'w'));
 </code></pre>
@@ -759,6 +752,8 @@
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/Symfony-Component-Console-Output-StreamOutput.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -780,19 +775,19 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#property_formatter">$formatter</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#property_formatter">$formatter</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Output-StreamOutput.html#property_stream">$stream</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-StreamOutput.html#property_stream">$stream</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#property_verbosity">$verbosity</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#property_verbosity">$verbosity</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -806,117 +801,116 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method___construct">__construct()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-StreamOutput.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_getFormatter">getFormatter()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_getFormatter">getFormatter()</a>
     <span>
                                 &nbsp;: <a href="classes/Symfony-Component-Console-Formatter-OutputFormatterInterface.html"><abbr title="\Symfony\Component\Console\Formatter\OutputFormatterInterface">OutputFormatterInterface</abbr></a>    </span>
 </dt>
 <dd>Returns current output formatter instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_getStream">getStream()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_getStream">getStream()</a>
     <span>
                                 &nbsp;: resource    </span>
 </dt>
 <dd>Gets the stream attached to this StreamOutput instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_getVerbosity">getVerbosity()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_getVerbosity">getVerbosity()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Gets the current verbosity of the output.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_isDebug">isDebug()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_isDebug">isDebug()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether verbosity is debug (-vvv).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_isDecorated">isDecorated()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_isDecorated">isDecorated()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Gets the decorated flag.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_isQuiet">isQuiet()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_isQuiet">isQuiet()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether verbosity is quiet (-q).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_isVerbose">isVerbose()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_isVerbose">isVerbose()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether verbosity is verbose (-v).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_isVeryVerbose">isVeryVerbose()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_isVeryVerbose">isVeryVerbose()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether verbosity is very verbose (-vv).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_setDecorated">setDecorated()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_setDecorated">setDecorated()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Sets the decorated flag.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_setFormatter">setFormatter()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_setFormatter">setFormatter()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_setVerbosity">setVerbosity()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_setVerbosity">setVerbosity()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Sets the verbosity of the output.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_write">write()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_write">write()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Writes a message to the output.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_writeln">writeln()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_writeln">writeln()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Writes a message to the output and adds a newline at the end.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_doWrite">doWrite()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_doWrite">doWrite()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Writes a message to the output.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_hasColorSupport">hasColorSupport()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_hasColorSupport">hasColorSupport()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns true if the stream supports colorization.</dd>
 
     </dl>
-
 
 
 
@@ -951,6 +945,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -959,6 +954,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -984,6 +981,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -992,6 +990,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1017,6 +1017,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1025,6 +1026,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1061,6 +1064,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1122,6 +1126,8 @@
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1151,6 +1157,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1187,6 +1196,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1228,6 +1240,9 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1267,6 +1282,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1308,6 +1326,9 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1347,6 +1368,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1388,6 +1412,9 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1428,6 +1455,9 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1466,6 +1496,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1478,6 +1509,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1509,6 +1542,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1519,6 +1553,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1551,6 +1587,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1563,6 +1600,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1594,6 +1633,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1629,6 +1669,8 @@
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1657,6 +1699,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1678,6 +1721,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1710,6 +1755,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1731,6 +1777,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1762,6 +1810,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Colorization is disabled if not supported by the stream:</p>
 <p>This is tricky on Windows, because Cygwin, Msys2 etc emulate pseudo
 terminals via named pipes, so we can only check the environment.</p>
@@ -1770,6 +1819,8 @@ https://github.com/composer/xdebug-handler</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1895,31 +1946,31 @@ https://github.com/composer/xdebug-handler</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Symfony-Component-Console-Output-Output.html#property_formatter">$formatter<a href="classes/Symfony-Component-Console-Output-StreamOutput.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#property_stream">$stream<a href="classes/Symfony-Component-Console-Output-StreamOutput.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Console-Output-Output.html#property_verbosity">$verbosity<a href="classes/Symfony-Component-Console-Output-StreamOutput.html"></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#property_formatter">$formatter</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#property_stream">$stream</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#property_verbosity">$verbosity</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_getFormatter">getFormatter()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_getStream">getStream()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_getVerbosity">getVerbosity()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_isDebug">isDebug()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_isDecorated">isDecorated()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_isQuiet">isQuiet()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_isVerbose">isVerbose()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_isVeryVerbose">isVeryVerbose()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_setDecorated">setDecorated()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_setFormatter">setFormatter()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_setVerbosity">setVerbosity()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_write">write()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_writeln">writeln()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_doWrite">doWrite()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_hasColorSupport">hasColorSupport()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_getFormatter">getFormatter()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_getStream">getStream()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_getVerbosity">getVerbosity()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_isDebug">isDebug()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_isDecorated">isDecorated()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_isQuiet">isQuiet()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_isVerbose">isVerbose()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_isVeryVerbose">isVeryVerbose()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_setDecorated">setDecorated()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_setFormatter">setFormatter()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_setVerbosity">setVerbosity()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_write">write()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_writeln">writeln()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_doWrite">doWrite()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_hasColorSupport">hasColorSupport()</a></li>
                                     </ul>
             </li>
                     </ul>

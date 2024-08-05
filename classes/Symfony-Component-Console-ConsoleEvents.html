@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -731,6 +723,7 @@
 
 
 
+
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Symfony-Component-Console-ConsoleEvents.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -747,6 +740,8 @@
 
                                     </dd>
                                             </dl>
+
+
 
 
 
@@ -769,7 +764,7 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/Symfony-Component-Console-ConsoleEvents.html#constant_COMMAND">COMMAND</a>
+    <a class="" href="classes/Symfony-Component-Console-ConsoleEvents.html#constant_COMMAND">COMMAND</a>
     <span>
         &nbsp;= &#039;console.command&#039;                            </span>
 </dt>
@@ -778,14 +773,14 @@ executed by the console. It also allows you to modify the command, input and out
 before they are handed to the command.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/Symfony-Component-Console-ConsoleEvents.html#constant_ERROR">ERROR</a>
+    <a class="" href="classes/Symfony-Component-Console-ConsoleEvents.html#constant_ERROR">ERROR</a>
     <span>
         &nbsp;= &#039;console.error&#039;                            </span>
 </dt>
 <dd>The ERROR event occurs when an uncaught exception or error appears.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/Symfony-Component-Console-ConsoleEvents.html#constant_TERMINATE">TERMINATE</a>
+    <a class="" href="classes/Symfony-Component-Console-ConsoleEvents.html#constant_TERMINATE">TERMINATE</a>
     <span>
         &nbsp;= &#039;console.terminate&#039;                            </span>
 </dt>
@@ -793,7 +788,6 @@ before they are handed to the command.</dd>
 executed by the console.</dd>
 
     </dl>
-
 
 
 
@@ -825,6 +819,7 @@ executed by the console.</dd>
 executed by the console. It also allows you to modify the command, input and output
 before they are handed to the command.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -851,7 +846,9 @@ before they are handed to the command.</p>
 </section>
 
                                     </dd>
-                                            </dl>
+                                                                </dl>
+
+    
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
@@ -870,6 +867,7 @@ before they are handed to the command.</p>
 
         <p class="phpdocumentor-summary">The ERROR event occurs when an uncaught exception or error appears.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -899,7 +897,9 @@ to modify the thrown exception.</p>
 </section>
 
                                     </dd>
-                                            </dl>
+                                                                </dl>
+
+    
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
@@ -919,6 +919,7 @@ to modify the thrown exception.</p>
         <p class="phpdocumentor-summary">The TERMINATE event allows you to attach listeners after a command is
 executed by the console.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -945,7 +946,9 @@ executed by the console.</p>
 </section>
 
                                     </dd>
-                                            </dl>
+                                                                </dl>
+
+    
 
 </article>
             </section>
@@ -1062,9 +1065,9 @@ executed by the console.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Symfony-Component-Console-ConsoleEvents.html#constant_COMMAND">COMMAND</a></li>
-                                                    <li><a href="classes/Symfony-Component-Console-ConsoleEvents.html#constant_ERROR">ERROR</a></li>
-                                                    <li><a href="classes/Symfony-Component-Console-ConsoleEvents.html#constant_TERMINATE">TERMINATE</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-ConsoleEvents.html#constant_COMMAND">COMMAND</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-ConsoleEvents.html#constant_ERROR">ERROR</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-ConsoleEvents.html#constant_TERMINATE">TERMINATE</a></li>
                                             </ul>
                 </li>
             

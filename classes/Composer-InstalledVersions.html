@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -725,6 +717,7 @@
 
             <p class="phpdocumentor-summary">This class is copied in every Composer installed project and available to all</p>
 
+
     <section class="phpdocumentor-description"><p>See also https://getcomposer.org/doc/07-runtime.md#installed-versions</p>
 <p>To require its presence, you can require <code class="prettyprint">composer-runtime-api ^2.0</code></p>
 </section>
@@ -744,6 +737,8 @@
                                              
                                     </dd>
                                             </dl>
+
+
 
 
 
@@ -768,19 +763,19 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Composer-InstalledVersions.html#property_canGetVendors">$canGetVendors</a>
+    <a class="" href="classes/Composer-InstalledVersions.html#property_canGetVendors">$canGetVendors</a>
     <span>
                         &nbsp;: bool|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Composer-InstalledVersions.html#property_installed">$installed</a>
+    <a class="" href="classes/Composer-InstalledVersions.html#property_installed">$installed</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Composer-InstalledVersions.html#property_installedByVendor">$installedByVendor</a>
+    <a class="" href="classes/Composer-InstalledVersions.html#property_installedByVendor">$installedByVendor</a>
     <span>
                         &nbsp;: array&lt;string|int, array&lt;string|int, mixed&gt;&gt;            </span>
 </dt>
@@ -794,99 +789,98 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-InstalledVersions.html#method_getAllRawData">getAllRawData()</a>
+    <a class="" href="classes/Composer-InstalledVersions.html#method_getAllRawData">getAllRawData()</a>
     <span>
                                 &nbsp;: array&lt;string|int, array&lt;string|int, mixed&gt;&gt;    </span>
 </dt>
 <dd>Returns the raw data of all installed.php which are currently loaded for custom implementations</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-InstalledVersions.html#method_getInstalledPackages">getInstalledPackages()</a>
+    <a class="" href="classes/Composer-InstalledVersions.html#method_getInstalledPackages">getInstalledPackages()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string&gt;    </span>
 </dt>
 <dd>Returns a list of all package names which are present, either by being installed, replaced or provided</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-InstalledVersions.html#method_getInstalledPackagesByType">getInstalledPackagesByType()</a>
+    <a class="" href="classes/Composer-InstalledVersions.html#method_getInstalledPackagesByType">getInstalledPackagesByType()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string&gt;    </span>
 </dt>
 <dd>Returns a list of all package names with a specific type e.g. &#039;library&#039;</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-InstalledVersions.html#method_getInstallPath">getInstallPath()</a>
+    <a class="" href="classes/Composer-InstalledVersions.html#method_getInstallPath">getInstallPath()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-InstalledVersions.html#method_getPrettyVersion">getPrettyVersion()</a>
+    <a class="" href="classes/Composer-InstalledVersions.html#method_getPrettyVersion">getPrettyVersion()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-InstalledVersions.html#method_getRawData">getRawData()</a>
+    <a class="-deprecated" href="classes/Composer-InstalledVersions.html#method_getRawData">getRawData()</a>
     <span>
                                 &nbsp;: array&lt;string|int, array&lt;string|int, mixed&gt;&gt;    </span>
 </dt>
 <dd>Returns the raw installed.php data for custom implementations</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-InstalledVersions.html#method_getReference">getReference()</a>
+    <a class="" href="classes/Composer-InstalledVersions.html#method_getReference">getReference()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-InstalledVersions.html#method_getRootPackage">getRootPackage()</a>
+    <a class="" href="classes/Composer-InstalledVersions.html#method_getRootPackage">getRootPackage()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-InstalledVersions.html#method_getVersion">getVersion()</a>
+    <a class="" href="classes/Composer-InstalledVersions.html#method_getVersion">getVersion()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-InstalledVersions.html#method_getVersionRanges">getVersionRanges()</a>
+    <a class="" href="classes/Composer-InstalledVersions.html#method_getVersionRanges">getVersionRanges()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns a version constraint representing all the range(s) which are installed for a given package</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-InstalledVersions.html#method_isInstalled">isInstalled()</a>
+    <a class="" href="classes/Composer-InstalledVersions.html#method_isInstalled">isInstalled()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Checks whether the given package is installed</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-InstalledVersions.html#method_reload">reload()</a>
+    <a class="" href="classes/Composer-InstalledVersions.html#method_reload">reload()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Lets you reload the static array from another file</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Composer-InstalledVersions.html#method_satisfies">satisfies()</a>
+    <a class="" href="classes/Composer-InstalledVersions.html#method_satisfies">satisfies()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Checks whether the given package satisfies a version constraint</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Composer-InstalledVersions.html#method_getInstalled">getInstalled()</a>
+    <a class="" href="classes/Composer-InstalledVersions.html#method_getInstalled">getInstalled()</a>
     <span>
                                 &nbsp;: array&lt;string|int, array&lt;string|int, mixed&gt;&gt;    </span>
 </dt>
 
     </dl>
-
 
 
 
@@ -921,6 +915,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">bool|null</span>
@@ -929,6 +924,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -953,6 +950,7 @@
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -980,6 +978,8 @@
                                     </dd>
                                             </dl>
 
+    
+
 </article>
                     <article
         class="
@@ -1002,6 +1002,7 @@
 
     </aside>
 
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -1028,6 +1029,8 @@
 
                                     </dd>
                                             </dl>
+
+    
 
 </article>
             </section>
@@ -1067,6 +1070,7 @@
     
     
     
+    
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Composer-InstalledVersions.html#method_getAllRawData#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1083,6 +1087,8 @@
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1119,6 +1125,7 @@
     
     
     
+    
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Composer-InstalledVersions.html#method_getInstalledPackages#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1135,6 +1142,8 @@
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1169,6 +1178,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1197,6 +1207,8 @@
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1230,6 +1242,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1240,6 +1253,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1279,6 +1294,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1289,6 +1305,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1328,6 +1346,14 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+                <div class="phpdocumentor-admonition">
+        <svg class="phpdocumentor-admonition__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <article>
+                <p>Use getAllRawData() instead which returns all datasets for all autoloaders present in the process. getRawData only returns the first dataset loaded, which may not be what you expect.</p>
+
+            </article>
+        </div>
+    
     
     
     
@@ -1338,15 +1364,6 @@
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">deprecated</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Use getAllRawData() instead which returns all datasets for all autoloaders present in the process. getRawData only returns the first dataset loaded, which may not be what you expect.</p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">psalm-return</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -1356,6 +1373,8 @@
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1389,6 +1408,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1399,6 +1419,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1440,6 +1462,7 @@
     
     
     
+    
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Composer-InstalledVersions.html#method_getRootPackage#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1456,6 +1479,8 @@
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1489,6 +1514,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1499,6 +1525,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1538,6 +1566,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>It is easier to use this via isInstalled() with the $constraint argument if you need to check
 whether a given version of a package is installed, and not just whether it exists</p>
 </section>
@@ -1552,6 +1581,8 @@ whether a given version of a package is installed, and not just whether it exist
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1591,6 +1622,7 @@ whether a given version of a package is installed, and not just whether it exist
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This also returns true if the package name is provided or replaced by another package</p>
 </section>
 
@@ -1611,6 +1643,8 @@ whether a given version of a package is installed, and not just whether it exist
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1646,6 +1680,7 @@ whether a given version of a package is installed, and not just whether it exist
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This is only useful for complex integrations in which a project needs to use
 this class but then also needs to execute another project's autoloader in process,
 and wants to ensure both projects have access to their version of installed.php.</p>
@@ -1688,6 +1723,8 @@ interference between PHPUnit's dependencies and the project's dependencies.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1715,6 +1752,7 @@ interference between PHPUnit's dependencies and the project's dependencies.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>e.g. If you want to know whether version 2.3+ of package foo/bar is installed, you would call:</p>
 <p>Composer\InstalledVersions::satisfies(new VersionParser, 'foo/bar', '^2.3')</p>
 </section>
@@ -1747,6 +1785,8 @@ interference between PHPUnit's dependencies and the project's dependencies.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1784,6 +1824,7 @@ interference between PHPUnit's dependencies and the project's dependencies.</p>
     
     
     
+    
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Composer-InstalledVersions.html#method_getInstalled#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1800,6 +1841,8 @@ interference between PHPUnit's dependencies and the project's dependencies.</p>
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1920,29 +1963,29 @@ interference between PHPUnit's dependencies and the project's dependencies.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Composer-InstalledVersions.html#property_canGetVendors">$canGetVendors<a href="classes/Composer-InstalledVersions.html"></li>
-                                                    <li><a href="classes/Composer-InstalledVersions.html#property_installed">$installed<a href="classes/Composer-InstalledVersions.html"></li>
-                                                    <li><a href="classes/Composer-InstalledVersions.html#property_installedByVendor">$installedByVendor<a href="classes/Composer-InstalledVersions.html"></li>
+                                                    <li class=""><a href="classes/Composer-InstalledVersions.html#property_canGetVendors">$canGetVendors</a></li>
+                                                    <li class=""><a href="classes/Composer-InstalledVersions.html#property_installed">$installed</a></li>
+                                                    <li class=""><a href="classes/Composer-InstalledVersions.html#property_installedByVendor">$installedByVendor</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/Composer-InstalledVersions.html#method_getAllRawData">getAllRawData()</a></li>
-                                            <li><a href="classes/Composer-InstalledVersions.html#method_getInstalledPackages">getInstalledPackages()</a></li>
-                                            <li><a href="classes/Composer-InstalledVersions.html#method_getInstalledPackagesByType">getInstalledPackagesByType()</a></li>
-                                            <li><a href="classes/Composer-InstalledVersions.html#method_getInstallPath">getInstallPath()</a></li>
-                                            <li><a href="classes/Composer-InstalledVersions.html#method_getPrettyVersion">getPrettyVersion()</a></li>
-                                            <li><a href="classes/Composer-InstalledVersions.html#method_getRawData">getRawData()</a></li>
-                                            <li><a href="classes/Composer-InstalledVersions.html#method_getReference">getReference()</a></li>
-                                            <li><a href="classes/Composer-InstalledVersions.html#method_getRootPackage">getRootPackage()</a></li>
-                                            <li><a href="classes/Composer-InstalledVersions.html#method_getVersion">getVersion()</a></li>
-                                            <li><a href="classes/Composer-InstalledVersions.html#method_getVersionRanges">getVersionRanges()</a></li>
-                                            <li><a href="classes/Composer-InstalledVersions.html#method_isInstalled">isInstalled()</a></li>
-                                            <li><a href="classes/Composer-InstalledVersions.html#method_reload">reload()</a></li>
-                                            <li><a href="classes/Composer-InstalledVersions.html#method_satisfies">satisfies()</a></li>
-                                            <li><a href="classes/Composer-InstalledVersions.html#method_getInstalled">getInstalled()</a></li>
+                                            <li class=""><a href="classes/Composer-InstalledVersions.html#method_getAllRawData">getAllRawData()</a></li>
+                                            <li class=""><a href="classes/Composer-InstalledVersions.html#method_getInstalledPackages">getInstalledPackages()</a></li>
+                                            <li class=""><a href="classes/Composer-InstalledVersions.html#method_getInstalledPackagesByType">getInstalledPackagesByType()</a></li>
+                                            <li class=""><a href="classes/Composer-InstalledVersions.html#method_getInstallPath">getInstallPath()</a></li>
+                                            <li class=""><a href="classes/Composer-InstalledVersions.html#method_getPrettyVersion">getPrettyVersion()</a></li>
+                                            <li class="-deprecated"><a href="classes/Composer-InstalledVersions.html#method_getRawData">getRawData()</a></li>
+                                            <li class=""><a href="classes/Composer-InstalledVersions.html#method_getReference">getReference()</a></li>
+                                            <li class=""><a href="classes/Composer-InstalledVersions.html#method_getRootPackage">getRootPackage()</a></li>
+                                            <li class=""><a href="classes/Composer-InstalledVersions.html#method_getVersion">getVersion()</a></li>
+                                            <li class=""><a href="classes/Composer-InstalledVersions.html#method_getVersionRanges">getVersionRanges()</a></li>
+                                            <li class=""><a href="classes/Composer-InstalledVersions.html#method_isInstalled">isInstalled()</a></li>
+                                            <li class=""><a href="classes/Composer-InstalledVersions.html#method_reload">reload()</a></li>
+                                            <li class=""><a href="classes/Composer-InstalledVersions.html#method_satisfies">satisfies()</a></li>
+                                            <li class=""><a href="classes/Composer-InstalledVersions.html#method_getInstalled">getInstalled()</a></li>
                                     </ul>
             </li>
                     </ul>

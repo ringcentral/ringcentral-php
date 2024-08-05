@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -718,11 +710,14 @@
 
             <p class="phpdocumentor-summary">Value object representing a file uploaded through an HTTP request.</p>
 
+
     <section class="phpdocumentor-description"><p>Instances of this interface are considered immutable; all methods that
 might change state MUST be implemented such that they retain the internal
 state of the current instance and return an instance that contains the
 changed state.</p>
 </section>
+
+
 
 
 
@@ -750,42 +745,42 @@ changed state.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getClientFilename">getClientFilename()</a>
+    <a class="" href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getClientFilename">getClientFilename()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
 <dd>Retrieve the filename sent by the client.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getClientMediaType">getClientMediaType()</a>
+    <a class="" href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getClientMediaType">getClientMediaType()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
 <dd>Retrieve the media type sent by the client.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getError">getError()</a>
+    <a class="" href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getError">getError()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Retrieve the error associated with the uploaded file.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getSize">getSize()</a>
+    <a class="" href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getSize">getSize()</a>
     <span>
                                 &nbsp;: int|null    </span>
 </dt>
 <dd>Retrieve the file size.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getStream">getStream()</a>
+    <a class="" href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getStream">getStream()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-StreamInterface.html"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>    </span>
 </dt>
 <dd>Retrieve a stream representing the uploaded file.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_moveTo">moveTo()</a>
+    <a class="" href="classes/Psr-Http-Message-UploadedFileInterface.html#method_moveTo">moveTo()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -830,6 +825,7 @@ changed state.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Do not trust the value returned by this method. A client could send
 a malicious filename with the intention to corrupt or hack your
 application.</p>
@@ -838,6 +834,8 @@ the file in the $_FILES array.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -877,6 +875,7 @@ was provided.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Do not trust the value returned by this method. A client could send
 a malicious media type with the intention to corrupt or hack your
 application.</p>
@@ -885,6 +884,8 @@ the file in the $_FILES array.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -924,6 +925,7 @@ was provided.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The return value MUST be one of PHP's UPLOAD_ERR_XXX constants.</p>
 <p>If the file was uploaded successfully, this method MUST return
 UPLOAD_ERR_OK.</p>
@@ -948,6 +950,8 @@ the file in the $_FILES array.</p>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -985,12 +989,15 @@ the file in the $_FILES array.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Implementations SHOULD return the value stored in the &quot;size&quot; key of
 the file in the $_FILES array if available, as PHP calculates this based
 on the actual size transmitted.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1029,6 +1036,7 @@ on the actual size transmitted.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This method MUST return a StreamInterface instance, representing the
 uploaded file. The purpose of this method is to allow utilizing native PHP
 stream functionality to manipulate the file upload, such as
@@ -1058,6 +1066,8 @@ created.</p>
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1095,6 +1105,7 @@ created.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Use this method as an alternative to move_uploaded_file(). This method is
 guaranteed to work in both SAPI and non-SAPI environments.
 Implementations must determine which environment they are in, and use the
@@ -1171,6 +1182,8 @@ the second or subsequent call to the method.</p>
 
                                     </dd>
                                             </dl>
+
+    
 
     
 </article>
@@ -1286,12 +1299,12 @@ the second or subsequent call to the method.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Methods</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getClientFilename">getClientFilename()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getClientMediaType">getClientMediaType()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getError">getError()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getSize">getSize()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getStream">getStream()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_moveTo">moveTo()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getClientFilename">getClientFilename()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getClientMediaType">getClientMediaType()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getError">getError()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getSize">getSize()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_getStream">getStream()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-UploadedFileInterface.html#method_moveTo">moveTo()</a></li>
                                             </ul>
                 </li>
             

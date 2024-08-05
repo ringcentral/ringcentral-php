@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -733,6 +725,7 @@
 
             <p class="phpdocumentor-summary">Event encapsulation class.</p>
 
+
     <section class="phpdocumentor-description"><p>Encapsulates events thus decoupling the observer from the subject they encapsulate.</p>
 </section>
 
@@ -753,6 +746,8 @@
 
                                     </dd>
                                             </dl>
+
+
 
 
 
@@ -784,19 +779,19 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#property_arguments">$arguments</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#property_arguments">$arguments</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#property_subject">$subject</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#property_subject">$subject</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-EventDispatcher-Event.html#property_propagationStopped">$propagationStopped</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-Event.html#property_propagationStopped">$propagationStopped</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -810,103 +805,102 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method___construct">__construct()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Encapsulate an event with $subject and $args.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getArgument">getArgument()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getArgument">getArgument()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Get argument by key.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getArguments">getArguments()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getArguments">getArguments()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Getter for all arguments.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getIterator">getIterator()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getIterator">getIterator()</a>
     <span>
                                 &nbsp;: <abbr title="\ArrayIterator">ArrayIterator</abbr>    </span>
 </dt>
 <dd>IteratorAggregate for iterating over the object like an array.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getSubject">getSubject()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getSubject">getSubject()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Getter for subject property.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_hasArgument">hasArgument()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_hasArgument">hasArgument()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Has argument.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-Event.html#method_isPropagationStopped">isPropagationStopped()</a>
+    <a class="-deprecated" href="classes/Symfony-Component-EventDispatcher-Event.html#method_isPropagationStopped">isPropagationStopped()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetExists">offsetExists()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetExists">offsetExists()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>ArrayAccess has argument.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetGet">offsetGet()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetGet">offsetGet()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>ArrayAccess for argument getter.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetSet">offsetSet()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetSet">offsetSet()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>ArrayAccess for argument setter.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetUnset">offsetUnset()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetUnset">offsetUnset()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>ArrayAccess for unset argument.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_setArgument">setArgument()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_setArgument">setArgument()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Add argument to event.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_setArguments">setArguments()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_setArguments">setArguments()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Set args property.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-Event.html#method_stopPropagation">stopPropagation()</a>
+    <a class="-deprecated" href="classes/Symfony-Component-EventDispatcher-Event.html#method_stopPropagation">stopPropagation()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
     </dl>
-
 
 
 
@@ -941,6 +935,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -949,6 +944,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -974,6 +971,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -982,6 +980,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1007,6 +1007,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1015,6 +1016,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1053,6 +1056,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1074,6 +1078,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1106,6 +1112,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1137,6 +1144,8 @@
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1177,6 +1186,9 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1213,6 +1225,20 @@
     
     
     
+    
+
+    
+    <section class="phpdocumentor-attributes">
+        <h5 class="phpdocumentor-elements__header" id="attributes">
+            Attributes <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getIterator#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h5>
+                    <dl class="phpdocumentor-argument-list">
+    <dt class="phpdocumentor-argument-list__entry">
+        #[<a href="classes/ReturnTypeWillChange.html"><abbr title="\ReturnTypeWillChange">ReturnTypeWillChange</abbr></a>]
+    </dt>
+    </dl>
+            </section>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1248,6 +1274,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1287,6 +1316,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1299,6 +1329,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1333,25 +1365,19 @@
 
     <div class="phpdocumentor-label-line">
         </div>
-    
-    
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/Symfony-Component-EventDispatcher-Event.html#method_isPropagationStopped#tags" class="headerlink"><i class="fas fa-link"></i></a>
+                <div class="phpdocumentor-admonition">
+        <svg class="phpdocumentor-admonition__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <article>
+                <p>since Symfony 4.3, use &quot;Symfony\Contracts\EventDispatcher\Event&quot; instead</p>
 
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">deprecated</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>since Symfony 4.3, use &quot;Symfony\Contracts\EventDispatcher\Event&quot; instead</p>
-</section>
+            </article>
+        </div>
+    
+    
+    
+    
 
-                                    </dd>
-                                            </dl>
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1390,6 +1416,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1404,6 +1431,19 @@
             </dl>
 
     
+
+    
+    <section class="phpdocumentor-attributes">
+        <h5 class="phpdocumentor-elements__header" id="attributes">
+            Attributes <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetExists#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h5>
+                    <dl class="phpdocumentor-argument-list">
+    <dt class="phpdocumentor-argument-list__entry">
+        #[<a href="classes/ReturnTypeWillChange.html"><abbr title="\ReturnTypeWillChange">ReturnTypeWillChange</abbr></a>]
+    </dt>
+    </dl>
+            </section>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1438,6 +1478,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1471,6 +1512,19 @@
                                             </dl>
 
     
+    <section class="phpdocumentor-attributes">
+        <h5 class="phpdocumentor-elements__header" id="attributes">
+            Attributes <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetGet#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h5>
+                    <dl class="phpdocumentor-argument-list">
+    <dt class="phpdocumentor-argument-list__entry">
+        #[<a href="classes/ReturnTypeWillChange.html"><abbr title="\ReturnTypeWillChange">ReturnTypeWillChange</abbr></a>]
+    </dt>
+    </dl>
+            </section>
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1499,6 +1553,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1522,6 +1577,19 @@
             </dl>
 
     
+
+    
+    <section class="phpdocumentor-attributes">
+        <h5 class="phpdocumentor-elements__header" id="attributes">
+            Attributes <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetSet#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h5>
+                    <dl class="phpdocumentor-argument-list">
+    <dt class="phpdocumentor-argument-list__entry">
+        #[<a href="classes/ReturnTypeWillChange.html"><abbr title="\ReturnTypeWillChange">ReturnTypeWillChange</abbr></a>]
+    </dt>
+    </dl>
+            </section>
 
     
 </article>
@@ -1552,6 +1620,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1566,6 +1635,19 @@
             </dl>
 
     
+
+    
+    <section class="phpdocumentor-attributes">
+        <h5 class="phpdocumentor-elements__header" id="attributes">
+            Attributes <a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetUnset#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h5>
+                    <dl class="phpdocumentor-argument-list">
+    <dt class="phpdocumentor-argument-list__entry">
+        #[<a href="classes/ReturnTypeWillChange.html"><abbr title="\ReturnTypeWillChange">ReturnTypeWillChange</abbr></a>]
+    </dt>
+    </dl>
+            </section>
 
     
 </article>
@@ -1596,6 +1678,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1617,6 +1700,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1653,6 +1738,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1665,6 +1751,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1699,25 +1787,19 @@
 
     <div class="phpdocumentor-label-line">
         </div>
-    
-    
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/Symfony-Component-EventDispatcher-Event.html#method_stopPropagation#tags" class="headerlink"><i class="fas fa-link"></i></a>
+                <div class="phpdocumentor-admonition">
+        <svg class="phpdocumentor-admonition__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <article>
+                <p>since Symfony 4.3, use &quot;Symfony\Contracts\EventDispatcher\Event&quot; instead</p>
 
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">deprecated</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>since Symfony 4.3, use &quot;Symfony\Contracts\EventDispatcher\Event&quot; instead</p>
-</section>
+            </article>
+        </div>
+    
+    
+    
+    
 
-                                    </dd>
-                                            </dl>
+    
 
     
 </article>
@@ -1834,29 +1916,29 @@
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#property_arguments">$arguments<a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html"></li>
-                                                    <li><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#property_subject">$subject<a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html"></li>
-                                                    <li><a href="classes/Symfony-Component-EventDispatcher-Event.html#property_propagationStopped">$propagationStopped<a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html"></li>
+                                                    <li class=""><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#property_arguments">$arguments</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#property_subject">$subject</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-EventDispatcher-Event.html#property_propagationStopped">$propagationStopped</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getArgument">getArgument()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getArguments">getArguments()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getIterator">getIterator()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getSubject">getSubject()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_hasArgument">hasArgument()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-Event.html#method_isPropagationStopped">isPropagationStopped()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetExists">offsetExists()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetGet">offsetGet()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetSet">offsetSet()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetUnset">offsetUnset()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_setArgument">setArgument()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_setArguments">setArguments()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-Event.html#method_stopPropagation">stopPropagation()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getArgument">getArgument()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getArguments">getArguments()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getIterator">getIterator()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_getSubject">getSubject()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_hasArgument">hasArgument()</a></li>
+                                            <li class="-deprecated"><a href="classes/Symfony-Component-EventDispatcher-Event.html#method_isPropagationStopped">isPropagationStopped()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetExists">offsetExists()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetGet">offsetGet()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetSet">offsetSet()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_offsetUnset">offsetUnset()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_setArgument">setArgument()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-GenericEvent.html#method_setArguments">setArguments()</a></li>
+                                            <li class="-deprecated"><a href="classes/Symfony-Component-EventDispatcher-Event.html#method_stopPropagation">stopPropagation()</a></li>
                                     </ul>
             </li>
                     </ul>

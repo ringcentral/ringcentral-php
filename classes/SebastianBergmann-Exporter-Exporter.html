@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -726,6 +718,7 @@
 
             <p class="phpdocumentor-summary">A nifty utility for visualizing PHP variables.</p>
 
+
     <section class="phpdocumentor-description"><code class="prettyprint">
 <?php
 use SebastianBergmann\Exporter\Exporter;
@@ -733,6 +726,8 @@ use SebastianBergmann\Exporter\Exporter;
 print $exporter-&gt;export(new Exception);
 </code></p>
 </section>
+
+
 
 
 
@@ -760,27 +755,27 @@ print $exporter-&gt;export(new Exception);
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/SebastianBergmann-Exporter-Exporter.html#method_export">export()</a>
+    <a class="" href="classes/SebastianBergmann-Exporter-Exporter.html#method_export">export()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Exports a value as a string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/SebastianBergmann-Exporter-Exporter.html#method_shortenedExport">shortenedExport()</a>
+    <a class="" href="classes/SebastianBergmann-Exporter-Exporter.html#method_shortenedExport">shortenedExport()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Exports a value into a single-line string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/SebastianBergmann-Exporter-Exporter.html#method_shortenedRecursiveExport">shortenedRecursiveExport()</a>
+    <a class="" href="classes/SebastianBergmann-Exporter-Exporter.html#method_shortenedRecursiveExport">shortenedRecursiveExport()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/SebastianBergmann-Exporter-Exporter.html#method_toArray">toArray()</a>
+    <a class="" href="classes/SebastianBergmann-Exporter-Exporter.html#method_toArray">toArray()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
@@ -788,14 +783,13 @@ print $exporter-&gt;export(new Exception);
 and public properties.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/SebastianBergmann-Exporter-Exporter.html#method_recursiveExport">recursiveExport()</a>
+    <a class="" href="classes/SebastianBergmann-Exporter-Exporter.html#method_recursiveExport">recursiveExport()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Recursive implementation of export.</dd>
 
     </dl>
-
 
 
 
@@ -835,6 +829,7 @@ and public properties.</dd>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The output of this method is similar to the output of print_r(), but
 improved in various aspects:</p>
 <ul>
@@ -866,6 +861,8 @@ improved in various aspects:</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -901,6 +898,7 @@ improved in various aspects:</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The output of this method is similar to the output of
 SebastianBergmann\Exporter\Exporter::export().</p>
 <p>Newlines are replaced by the visible string '\n'.
@@ -935,6 +933,8 @@ Contents of arrays and objects (if any) are replaced by '...'.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
@@ -967,6 +967,7 @@ Contents of arrays and objects (if any) are replaced by '...'.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -984,6 +985,8 @@ Contents of arrays and objects (if any) are replaced by '...'.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1021,6 +1024,7 @@ and public properties.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1031,6 +1035,8 @@ and public properties.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1066,6 +1072,7 @@ and public properties.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1114,6 +1121,8 @@ and public properties.</p>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1234,11 +1243,11 @@ and public properties.</p>
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/SebastianBergmann-Exporter-Exporter.html#method_export">export()</a></li>
-                                            <li><a href="classes/SebastianBergmann-Exporter-Exporter.html#method_shortenedExport">shortenedExport()</a></li>
-                                            <li><a href="classes/SebastianBergmann-Exporter-Exporter.html#method_shortenedRecursiveExport">shortenedRecursiveExport()</a></li>
-                                            <li><a href="classes/SebastianBergmann-Exporter-Exporter.html#method_toArray">toArray()</a></li>
-                                            <li><a href="classes/SebastianBergmann-Exporter-Exporter.html#method_recursiveExport">recursiveExport()</a></li>
+                                            <li class=""><a href="classes/SebastianBergmann-Exporter-Exporter.html#method_export">export()</a></li>
+                                            <li class=""><a href="classes/SebastianBergmann-Exporter-Exporter.html#method_shortenedExport">shortenedExport()</a></li>
+                                            <li class=""><a href="classes/SebastianBergmann-Exporter-Exporter.html#method_shortenedRecursiveExport">shortenedRecursiveExport()</a></li>
+                                            <li class=""><a href="classes/SebastianBergmann-Exporter-Exporter.html#method_toArray">toArray()</a></li>
+                                            <li class=""><a href="classes/SebastianBergmann-Exporter-Exporter.html#method_recursiveExport">recursiveExport()</a></li>
                                     </ul>
             </li>
                     </ul>

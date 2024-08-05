@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -732,6 +724,9 @@
 
 
 
+
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/GuzzleHttp-Promise-Each.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -754,7 +749,7 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Promise-Each.html#method_of">of()</a>
+    <a class="" href="classes/GuzzleHttp-Promise-Each.html#method_of">of()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
@@ -763,7 +758,7 @@ is fulfilled with a null value when the iterator has been consumed or
 the aggregate promise has been fulfilled or rejected.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Promise-Each.html#method_ofLimit">ofLimit()</a>
+    <a class="" href="classes/GuzzleHttp-Promise-Each.html#method_ofLimit">ofLimit()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
@@ -771,7 +766,7 @@ the aggregate promise has been fulfilled or rejected.</dd>
 given time.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Promise-Each.html#method_ofLimitAll">ofLimitAll()</a>
+    <a class="" href="classes/GuzzleHttp-Promise-Each.html#method_ofLimitAll">ofLimitAll()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
@@ -780,7 +775,6 @@ is rejected. If any promise is rejected, then the aggregate promise is
 rejected with the encountered rejection.</dd>
 
     </dl>
-
 
 
 
@@ -818,10 +812,11 @@ the aggregate promise has been fulfilled or rejected.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">of</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$iterable</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onFulfilled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onRejected</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">of</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$iterable</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onFulfilled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onRejected</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>$onFulfilled is a function that accepts the fulfilled value, iterator
 index, and the aggregate promise. The callback can invoke any necessary
 side effects and choose to resolve or reject the aggregate if needed.</p>
@@ -843,19 +838,21 @@ side effects and choose to resolve or reject the aggregate if needed.</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$onFulfilled</span>
-                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$onRejected</span>
-                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -888,10 +885,11 @@ given time.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">ofLimit</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$iterable</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$concurrency</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onFulfilled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onRejected</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">ofLimit</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$iterable</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$concurrency</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onFulfilled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onRejected</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>$concurrency may be an integer or a function that accepts the number of
 pending promises and returns a numeric concurrency limit value to allow
 for dynamic a concurrency size.</p>
@@ -915,19 +913,21 @@ for dynamic a concurrency size.</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$onFulfilled</span>
-                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$onRejected</span>
-                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -961,10 +961,11 @@ rejected with the encountered rejection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">ofLimitAll</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$iterable</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$concurrency</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onFulfilled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">ofLimitAll</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$iterable</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$concurrency</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onFulfilled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -984,12 +985,14 @@ rejected with the encountered rejection.</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$onFulfilled</span>
-                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1112,9 +1115,9 @@ rejected with the encountered rejection.</p>
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/GuzzleHttp-Promise-Each.html#method_of">of()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Promise-Each.html#method_ofLimit">ofLimit()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Promise-Each.html#method_ofLimitAll">ofLimitAll()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Promise-Each.html#method_of">of()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Promise-Each.html#method_ofLimit">ofLimit()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Promise-Each.html#method_ofLimitAll">ofLimitAll()</a></li>
                                     </ul>
             </li>
                     </ul>

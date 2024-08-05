@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -734,6 +726,7 @@
 
             <p class="phpdocumentor-summary">ConsoleOutput is the default class for all CLI output. It uses STDOUT and STDERR.</p>
 
+
     <section class="phpdocumentor-description"><p>This class is a convenient wrapper around <code class="prettyprint">StreamOutput</code> for both STDOUT and STDERR.</p>
 <pre class="prettyprint"><code class="prettyprint">$output = new ConsoleOutput();
 </code></pre>
@@ -760,6 +753,8 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));
 
                                     </dd>
                                             </dl>
+
+
 
 
 
@@ -791,31 +786,31 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#property_consoleSectionOutputs">$consoleSectionOutputs</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#property_consoleSectionOutputs">$consoleSectionOutputs</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#property_formatter">$formatter</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#property_formatter">$formatter</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#property_stderr">$stderr</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#property_stderr">$stderr</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Output-StreamOutput.html#property_stream">$stream</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-StreamOutput.html#property_stream">$stream</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#property_verbosity">$verbosity</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#property_verbosity">$verbosity</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -829,138 +824,137 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method___construct">__construct()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_getErrorOutput">getErrorOutput()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_getErrorOutput">getErrorOutput()</a>
     <span>
                                 &nbsp;: <a href="classes/Symfony-Component-Console-Output-OutputInterface.html"><abbr title="\Symfony\Component\Console\Output\OutputInterface">OutputInterface</abbr></a>    </span>
 </dt>
 <dd>Gets the OutputInterface for errors.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_getFormatter">getFormatter()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_getFormatter">getFormatter()</a>
     <span>
                                 &nbsp;: <a href="classes/Symfony-Component-Console-Formatter-OutputFormatterInterface.html"><abbr title="\Symfony\Component\Console\Formatter\OutputFormatterInterface">OutputFormatterInterface</abbr></a>    </span>
 </dt>
 <dd>Returns current output formatter instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_getStream">getStream()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_getStream">getStream()</a>
     <span>
                                 &nbsp;: resource    </span>
 </dt>
 <dd>Gets the stream attached to this StreamOutput instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_getVerbosity">getVerbosity()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_getVerbosity">getVerbosity()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Gets the current verbosity of the output.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_isDebug">isDebug()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_isDebug">isDebug()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether verbosity is debug (-vvv).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_isDecorated">isDecorated()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_isDecorated">isDecorated()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Gets the decorated flag.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_isQuiet">isQuiet()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_isQuiet">isQuiet()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether verbosity is quiet (-q).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_isVerbose">isVerbose()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_isVerbose">isVerbose()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether verbosity is verbose (-v).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_isVeryVerbose">isVeryVerbose()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_isVeryVerbose">isVeryVerbose()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether verbosity is very verbose (-vv).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_section">section()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_section">section()</a>
     <span>
                                 &nbsp;: <a href="classes/Symfony-Component-Console-Output-ConsoleSectionOutput.html"><abbr title="\Symfony\Component\Console\Output\ConsoleSectionOutput">ConsoleSectionOutput</abbr></a>    </span>
 </dt>
 <dd>Creates a new output section.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_setDecorated">setDecorated()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_setDecorated">setDecorated()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>{@inheritdoc}</dd>
+<dd>Sets the decorated flag.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_setErrorOutput">setErrorOutput()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_setErrorOutput">setErrorOutput()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_setFormatter">setFormatter()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_setFormatter">setFormatter()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>{@inheritdoc}</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_setVerbosity">setVerbosity()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_setVerbosity">setVerbosity()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>{@inheritdoc}</dd>
+<dd>Sets the verbosity of the output.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_write">write()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_write">write()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Writes a message to the output.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_writeln">writeln()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-Output.html#method_writeln">writeln()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Writes a message to the output and adds a newline at the end.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/Symfony-Component-Console-Output-Output.html#method_doWrite">doWrite()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_doWrite">doWrite()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Writes a message to the output.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_hasColorSupport">hasColorSupport()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_hasColorSupport">hasColorSupport()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns true if the stream supports colorization.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_hasStderrSupport">hasStderrSupport()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_hasStderrSupport">hasStderrSupport()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -968,7 +962,7 @@ $stdErr = new StreamOutput(fopen('php://stderr', 'w'));
 STDERR.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_hasStdoutSupport">hasStdoutSupport()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_hasStdoutSupport">hasStdoutSupport()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -976,7 +970,7 @@ STDERR.</dd>
 STDOUT.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_isRunningOS400">isRunningOS400()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_isRunningOS400">isRunningOS400()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -984,19 +978,18 @@ STDOUT.</dd>
 doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_openErrorStream">openErrorStream()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_openErrorStream">openErrorStream()</a>
     <span>
                                 &nbsp;: resource    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_openOutputStream">openOutputStream()</a>
+    <a class="" href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_openOutputStream">openOutputStream()</a>
     <span>
                                 &nbsp;: resource    </span>
 </dt>
 
     </dl>
-
 
 
 
@@ -1031,6 +1024,7 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1039,6 +1033,8 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1064,6 +1060,7 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1072,6 +1069,8 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1097,6 +1096,7 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1105,6 +1105,8 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1130,6 +1132,7 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1138,6 +1141,8 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1163,6 +1168,7 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1171,6 +1177,8 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1208,6 +1216,7 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1242,6 +1251,8 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1271,6 +1282,9 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1308,6 +1322,9 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1343,6 +1360,9 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1384,6 +1404,9 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1423,6 +1446,9 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1464,6 +1490,9 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1503,6 +1532,9 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1544,6 +1576,9 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1583,6 +1618,9 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1624,6 +1662,9 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1649,7 +1690,7 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
 
     </aside>
 
-        <p class="phpdocumentor-summary">{@inheritdoc}</p>
+        <p class="phpdocumentor-summary">Sets the decorated flag.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1658,6 +1699,7 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1665,9 +1707,13 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Whether to decorate the messages</p>
+</section>
+
             </dd>
             </dl>
+
+    
 
     
 
@@ -1699,6 +1745,7 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1709,6 +1756,8 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1732,14 +1781,14 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
 
     </aside>
 
-        <p class="phpdocumentor-summary">{@inheritdoc}</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setFormatter</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Symfony-Component-Console-Formatter-OutputFormatterInterface.html"><abbr title="\Symfony\Component\Console\Formatter\OutputFormatterInterface">OutputFormatterInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$formatter</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1751,6 +1800,8 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1774,7 +1825,7 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
 
     </aside>
 
-        <p class="phpdocumentor-summary">{@inheritdoc}</p>
+        <p class="phpdocumentor-summary">Sets the verbosity of the output.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1783,6 +1834,7 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1790,9 +1842,13 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The level of verbosity (one of the VERBOSITY constants)</p>
+</section>
+
             </dd>
             </dl>
+
+    
 
     
 
@@ -1824,6 +1880,7 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1859,6 +1916,8 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1887,6 +1946,7 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1912,22 +1972,24 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
             -method
             -protected
-                        -abstract                                "
+                                                        "
 >
     <h4 class="phpdocumentor-element__name" id="method_doWrite">
         doWrite()
-        <a href="classes/Symfony-Component-Console-Output-Output.html#method_doWrite" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_doWrite" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/symfony/console/Output/Output.php"><a href="files/vendor-symfony-console-output-output.html"><abbr title="vendor/symfony/console/Output/Output.php">Output.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/symfony/console/Output/StreamOutput.php"><a href="files/vendor-symfony-console-output-streamoutput.html"><abbr title="vendor/symfony/console/Output/StreamOutput.php">StreamOutput.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">176</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 
     </aside>
 
@@ -1935,16 +1997,17 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">doWrite</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$newline</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">doWrite</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$newline</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$message</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>A message to write to the output</p>
@@ -1953,7 +2016,7 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$newline</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>Whether to add a newline or not</p>
@@ -1961,6 +2024,8 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1992,6 +2057,7 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</dd>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Colorization is disabled if not supported by the stream:</p>
 <p>This is tricky on Windows, because Cygwin, Msys2 etc emulate pseudo
 terminals via named pipes, so we can only check the environment.</p>
@@ -2000,6 +2066,8 @@ https://github.com/composer/xdebug-handler</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -2042,6 +2110,9 @@ STDERR.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2078,6 +2149,9 @@ STDOUT.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -2116,6 +2190,9 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2151,6 +2228,9 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2185,6 +2265,9 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -2306,41 +2389,41 @@ doesn&#039;t properly convert character-encodings between ASCII to EBCDIC.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#property_consoleSectionOutputs">$consoleSectionOutputs<a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Console-Output-Output.html#property_formatter">$formatter<a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#property_stderr">$stderr<a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#property_stream">$stream<a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Console-Output-Output.html#property_verbosity">$verbosity<a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html"></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#property_consoleSectionOutputs">$consoleSectionOutputs</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#property_formatter">$formatter</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#property_stderr">$stderr</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#property_stream">$stream</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#property_verbosity">$verbosity</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_getErrorOutput">getErrorOutput()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_getFormatter">getFormatter()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_getStream">getStream()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_getVerbosity">getVerbosity()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_isDebug">isDebug()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_isDecorated">isDecorated()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_isQuiet">isQuiet()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_isVerbose">isVerbose()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_isVeryVerbose">isVeryVerbose()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_section">section()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_setDecorated">setDecorated()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_setErrorOutput">setErrorOutput()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_setFormatter">setFormatter()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_setVerbosity">setVerbosity()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_write">write()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_writeln">writeln()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-Output.html#method_doWrite">doWrite()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_hasColorSupport">hasColorSupport()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_hasStderrSupport">hasStderrSupport()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_hasStdoutSupport">hasStdoutSupport()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_isRunningOS400">isRunningOS400()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_openErrorStream">openErrorStream()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_openOutputStream">openOutputStream()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_getErrorOutput">getErrorOutput()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_getFormatter">getFormatter()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_getStream">getStream()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_getVerbosity">getVerbosity()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_isDebug">isDebug()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_isDecorated">isDecorated()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_isQuiet">isQuiet()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_isVerbose">isVerbose()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_isVeryVerbose">isVeryVerbose()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_section">section()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_setDecorated">setDecorated()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_setErrorOutput">setErrorOutput()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_setFormatter">setFormatter()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_setVerbosity">setVerbosity()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_write">write()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-Output.html#method_writeln">writeln()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_doWrite">doWrite()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-StreamOutput.html#method_hasColorSupport">hasColorSupport()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_hasStderrSupport">hasStderrSupport()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_hasStdoutSupport">hasStdoutSupport()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_isRunningOS400">isRunningOS400()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_openErrorStream">openErrorStream()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Output-ConsoleOutput.html#method_openOutputStream">openOutputStream()</a></li>
                                     </ul>
             </li>
                     </ul>

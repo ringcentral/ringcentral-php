@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -721,6 +713,7 @@
 
             <p class="phpdocumentor-summary">Representation of an outgoing, client-side request.</p>
 
+
     <section class="phpdocumentor-description"><p>Per the HTTP specification, this interface includes properties for
 each of the following:</p>
 <ul>
@@ -736,6 +729,8 @@ a provided URI if no Host header is provided.</p>
 be implemented such that they retain the internal state of the current
 message and return an instance that contains the changed state.</p>
 </section>
+
+
 
 
 
@@ -763,119 +758,119 @@ message and return an instance that contains the changed state.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-MessageInterface.html#method_getBody">getBody()</a>
+    <a class="" href="classes/Psr-Http-Message-MessageInterface.html#method_getBody">getBody()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-StreamInterface.html"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>    </span>
 </dt>
 <dd>Gets the body of the message.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-MessageInterface.html#method_getHeader">getHeader()</a>
+    <a class="" href="classes/Psr-Http-Message-MessageInterface.html#method_getHeader">getHeader()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string&gt;    </span>
 </dt>
 <dd>Retrieves a message header value by the given case-insensitive name.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-MessageInterface.html#method_getHeaderLine">getHeaderLine()</a>
+    <a class="" href="classes/Psr-Http-Message-MessageInterface.html#method_getHeaderLine">getHeaderLine()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Retrieves a comma-separated string of the values for a single header.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-MessageInterface.html#method_getHeaders">getHeaders()</a>
+    <a class="" href="classes/Psr-Http-Message-MessageInterface.html#method_getHeaders">getHeaders()</a>
     <span>
                                 &nbsp;: array&lt;string|int, array&lt;string|int, string&gt;&gt;    </span>
 </dt>
 <dd>Retrieves all message header values.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-RequestInterface.html#method_getMethod">getMethod()</a>
+    <a class="" href="classes/Psr-Http-Message-RequestInterface.html#method_getMethod">getMethod()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Retrieves the HTTP method of the request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-MessageInterface.html#method_getProtocolVersion">getProtocolVersion()</a>
+    <a class="" href="classes/Psr-Http-Message-MessageInterface.html#method_getProtocolVersion">getProtocolVersion()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Retrieves the HTTP protocol version as a string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-RequestInterface.html#method_getRequestTarget">getRequestTarget()</a>
+    <a class="" href="classes/Psr-Http-Message-RequestInterface.html#method_getRequestTarget">getRequestTarget()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Retrieves the message&#039;s request target.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-RequestInterface.html#method_getUri">getUri()</a>
+    <a class="" href="classes/Psr-Http-Message-RequestInterface.html#method_getUri">getUri()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-UriInterface.html"><abbr title="\Psr\Http\Message\UriInterface">UriInterface</abbr></a>    </span>
 </dt>
 <dd>Retrieves the URI instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-MessageInterface.html#method_hasHeader">hasHeader()</a>
+    <a class="" href="classes/Psr-Http-Message-MessageInterface.html#method_hasHeader">hasHeader()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Checks if a header exists by the given case-insensitive name.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-MessageInterface.html#method_withAddedHeader">withAddedHeader()</a>
+    <a class="" href="classes/Psr-Http-Message-MessageInterface.html#method_withAddedHeader">withAddedHeader()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 <dd>Return an instance with the specified header appended with the given value.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-MessageInterface.html#method_withBody">withBody()</a>
+    <a class="" href="classes/Psr-Http-Message-MessageInterface.html#method_withBody">withBody()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 <dd>Return an instance with the specified message body.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-MessageInterface.html#method_withHeader">withHeader()</a>
+    <a class="" href="classes/Psr-Http-Message-MessageInterface.html#method_withHeader">withHeader()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 <dd>Return an instance with the provided value replacing the specified header.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-RequestInterface.html#method_withMethod">withMethod()</a>
+    <a class="" href="classes/Psr-Http-Message-RequestInterface.html#method_withMethod">withMethod()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 <dd>Return an instance with the provided HTTP method.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-MessageInterface.html#method_withoutHeader">withoutHeader()</a>
+    <a class="" href="classes/Psr-Http-Message-MessageInterface.html#method_withoutHeader">withoutHeader()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 <dd>Return an instance without the specified header.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-MessageInterface.html#method_withProtocolVersion">withProtocolVersion()</a>
+    <a class="" href="classes/Psr-Http-Message-MessageInterface.html#method_withProtocolVersion">withProtocolVersion()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 <dd>Return an instance with the specified HTTP protocol version.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-RequestInterface.html#method_withRequestTarget">withRequestTarget()</a>
+    <a class="" href="classes/Psr-Http-Message-RequestInterface.html#method_withRequestTarget">withRequestTarget()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 <dd>Return an instance with the specific request-target.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-RequestInterface.html#method_withUri">withUri()</a>
+    <a class="" href="classes/Psr-Http-Message-RequestInterface.html#method_withUri">withUri()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
@@ -923,6 +918,9 @@ message and return an instance that contains the changed state.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -960,6 +958,7 @@ message and return an instance that contains the changed state.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This method returns an array of all the header values of the given
 case-insensitive header name.</p>
 <p>If the header does not appear in the message, this method MUST return an
@@ -978,6 +977,8 @@ empty array.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1019,6 +1020,7 @@ return an empty array.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This method returns all of the header values of the given
 case-insensitive header name as a string concatenated together using
 a comma.</p>
@@ -1041,6 +1043,8 @@ an empty string.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1082,6 +1086,7 @@ the message, this method MUST return an empty string.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The keys represent the header name as it will be sent over the wire, and
 each value is an array of strings associated with the header.</p>
 <pre class="prettyprint"><code class="prettyprint">// Represent the headers as a string
@@ -1101,6 +1106,8 @@ exact case in which headers were originally specified.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1144,6 +1151,9 @@ for that header.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1181,10 +1191,13 @@ for that header.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The string MUST contain only the HTTP version number (e.g., &quot;1.1&quot;, &quot;1.0&quot;).</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1223,6 +1236,7 @@ for that header.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Retrieves the message's request-target either as it will appear (for
 clients), as it appeared at request (for servers), or as it was
 specified for the instance (see withRequestTarget()).</p>
@@ -1234,6 +1248,8 @@ provided, this method MUST return the string &quot;/&quot;.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1268,6 +1284,7 @@ provided, this method MUST return the string &quot;/&quot;.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This method MUST return a UriInterface instance.</p>
 </section>
 
@@ -1287,6 +1304,8 @@ provided, this method MUST return the string &quot;/&quot;.</p>
                     
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1326,6 +1345,7 @@ representing the URI of the request.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1338,6 +1358,8 @@ representing the URI of the request.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1379,6 +1401,7 @@ no matching header name is found in the message.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Existing values for the specified header will be maintained. The new
 value(s) will be appended to the existing list. If the header did not
 exist previously, it will be added.</p>
@@ -1428,6 +1451,8 @@ new header and/or value.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
@@ -1460,6 +1485,7 @@ new header and/or value.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The body MUST be a StreamInterface object.</p>
 <p>This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return a new instance that has the
@@ -1498,6 +1524,8 @@ new body stream.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
@@ -1530,6 +1558,7 @@ new body stream.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>While header names are case-insensitive, the casing of the header will
 be preserved by this function, and returned from getHeaders().</p>
 <p>This method MUST be implemented in such a way as to retain the
@@ -1578,6 +1607,8 @@ new and/or updated header and value.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
@@ -1610,6 +1641,7 @@ new and/or updated header and value.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>While HTTP method names are typically all uppercase characters, HTTP
 method names are case-sensitive and thus implementations SHOULD NOT
 modify the given string.</p>
@@ -1650,6 +1682,8 @@ changed request method.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
@@ -1682,6 +1716,7 @@ changed request method.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Header resolution MUST be done without case-sensitivity.</p>
 <p>This method MUST be implemented in such a way as to retain the
 immutability of the message, and MUST return an instance that removes
@@ -1700,6 +1735,8 @@ the named header.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1735,6 +1772,7 @@ the named header.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The version string MUST contain only the HTTP version number (e.g.,
 &quot;1.1&quot;, &quot;1.0&quot;).</p>
 <p>This method MUST be implemented in such a way as to retain the
@@ -1754,6 +1792,8 @@ new protocol version.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1789,6 +1829,7 @@ new protocol version.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>If the request needs a non-origin-form request-target — e.g., for
 specifying an absolute-form, authority-form, or asterisk-form —
 this method may be used to create an instance with the specified
@@ -1827,6 +1868,8 @@ request-target forms allowed in request messages)</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
@@ -1859,6 +1902,7 @@ request-target forms allowed in request messages)</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This method MUST update the Host header of the returned request by
 default if the URI contains a host component. If the URI does not
 contain a host component, any pre-existing Host header MUST be carried
@@ -1918,6 +1962,8 @@ new UriInterface instance.</p>
                     
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2037,23 +2083,23 @@ new UriInterface instance.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Methods</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Psr-Http-Message-MessageInterface.html#method_getBody">getBody()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-MessageInterface.html#method_getHeader">getHeader()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-MessageInterface.html#method_getHeaderLine">getHeaderLine()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-MessageInterface.html#method_getHeaders">getHeaders()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-RequestInterface.html#method_getMethod">getMethod()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-MessageInterface.html#method_getProtocolVersion">getProtocolVersion()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-RequestInterface.html#method_getRequestTarget">getRequestTarget()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-RequestInterface.html#method_getUri">getUri()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-MessageInterface.html#method_hasHeader">hasHeader()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-MessageInterface.html#method_withAddedHeader">withAddedHeader()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-MessageInterface.html#method_withBody">withBody()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-MessageInterface.html#method_withHeader">withHeader()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-RequestInterface.html#method_withMethod">withMethod()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-MessageInterface.html#method_withoutHeader">withoutHeader()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-MessageInterface.html#method_withProtocolVersion">withProtocolVersion()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-RequestInterface.html#method_withRequestTarget">withRequestTarget()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-RequestInterface.html#method_withUri">withUri()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-MessageInterface.html#method_getBody">getBody()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-MessageInterface.html#method_getHeader">getHeader()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-MessageInterface.html#method_getHeaderLine">getHeaderLine()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-MessageInterface.html#method_getHeaders">getHeaders()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-RequestInterface.html#method_getMethod">getMethod()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-MessageInterface.html#method_getProtocolVersion">getProtocolVersion()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-RequestInterface.html#method_getRequestTarget">getRequestTarget()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-RequestInterface.html#method_getUri">getUri()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-MessageInterface.html#method_hasHeader">hasHeader()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-MessageInterface.html#method_withAddedHeader">withAddedHeader()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-MessageInterface.html#method_withBody">withBody()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-MessageInterface.html#method_withHeader">withHeader()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-RequestInterface.html#method_withMethod">withMethod()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-MessageInterface.html#method_withoutHeader">withoutHeader()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-MessageInterface.html#method_withProtocolVersion">withProtocolVersion()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-RequestInterface.html#method_withRequestTarget">withRequestTarget()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-RequestInterface.html#method_withUri">withUri()</a></li>
                                             </ul>
                 </li>
             

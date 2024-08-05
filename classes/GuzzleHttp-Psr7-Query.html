@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -732,6 +724,9 @@
 
 
 
+
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/GuzzleHttp-Psr7-Query.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -754,21 +749,20 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-Query.html#method_build">build()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-Query.html#method_build">build()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Build a query string from an array of key value pairs.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-Query.html#method_parse">parse()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-Query.html#method_parse">parse()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Parse a query string into an associative array.</dd>
 
     </dl>
-
 
 
 
@@ -796,7 +790,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/guzzlehttp/psr7/src/Query.php"><a href="files/vendor-guzzlehttp-psr7-src-query.html"><abbr title="vendor/guzzlehttp/psr7/src/Query.php">Query.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">71</span>
+    <span class="phpdocumentor-element-found-in__line">74</span>
 
     </aside>
 
@@ -804,10 +798,11 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">build</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|false&nbsp;</span><span class="phpdocumentor-signature__argument__name">$encoding</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">PHP_QUERY_RFC3986</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">build</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|false&nbsp;</span><span class="phpdocumentor-signature__argument__name">$encoding</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">PHP_QUERY_RFC3986</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$treatBoolsAsInts</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This function can use the return value of <code class="prettyprint">parse()</code> to build a query
 string. This function does not modify the provided keys when an array is
 encountered (like <code class="prettyprint">http_build_query()</code> would).</p>
@@ -829,13 +824,26 @@ encountered (like <code class="prettyprint">http_build_query()</code> would).</p
                 : <span class="phpdocumentor-signature__argument__return-type">int|false</span>
                  = <span class="phpdocumentor-signature__argument__default-value">PHP_QUERY_RFC3986</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Set to false to not encode, PHP_QUERY_RFC3986
-to encode using RFC3986, or PHP_QUERY_RFC1738
-to encode using RFC1738.</p>
+                    <section class="phpdocumentor-description"><p>Set to false to not encode,
+PHP_QUERY_RFC3986 to encode using
+RFC3986, or PHP_QUERY_RFC1738 to
+encode using RFC1738.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$treatBoolsAsInts</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Set to true to encode as 0/1, and
+false as false/true.</p>
 </section>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -871,6 +879,7 @@ to encode using RFC1738.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>If multiple values are found for the same key, the value of that key
 value pair will become an array. This function does not parse nested
 PHP style arrays into an associative array (e.g., <code class="prettyprint">foo[a]=1&amp;foo[b]=2</code>
@@ -898,6 +907,8 @@ will be parsed into <code class="prettyprint">['foo[a]' =&gt; '1', 'foo[b]' =&gt
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1020,8 +1031,8 @@ will be parsed into <code class="prettyprint">['foo[a]' =&gt; '1', 'foo[b]' =&gt
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/GuzzleHttp-Psr7-Query.html#method_build">build()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-Query.html#method_parse">parse()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-Query.html#method_build">build()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-Query.html#method_parse">parse()</a></li>
                                     </ul>
             </li>
                     </ul>

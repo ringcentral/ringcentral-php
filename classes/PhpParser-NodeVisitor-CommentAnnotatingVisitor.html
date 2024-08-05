@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -733,6 +725,9 @@
 
 
 
+
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -754,19 +749,19 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#property_commentPositions">$commentPositions</a>
+    <a class="" href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#property_commentPositions">$commentPositions</a>
     <span>
                         &nbsp;: array&lt;int, int&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#property_pos">$pos</a>
+    <a class="" href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#property_pos">$pos</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#property_tokens">$tokens</a>
+    <a class="" href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#property_tokens">$tokens</a>
     <span>
                         &nbsp;: array&lt;string|int, <a href="classes/PhpParser-Token.html"><abbr title="\PhpParser\Token">Token</abbr></a>&gt;            </span>
 </dt>
@@ -780,42 +775,41 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#method___construct">__construct()</a>
+    <a class="" href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Create a comment annotation visitor.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-NodeVisitorAbstract.html#method_afterTraverse">afterTraverse()</a>
+    <a class="" href="classes/PhpParser-NodeVisitorAbstract.html#method_afterTraverse">afterTraverse()</a>
     <span>
                                 &nbsp;: null|array&lt;string|int, <a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>&gt;    </span>
 </dt>
 <dd>Called once after traversal.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-NodeVisitorAbstract.html#method_beforeTraverse">beforeTraverse()</a>
+    <a class="" href="classes/PhpParser-NodeVisitorAbstract.html#method_beforeTraverse">beforeTraverse()</a>
     <span>
                                 &nbsp;: null|array&lt;string|int, <a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>&gt;    </span>
 </dt>
 <dd>Called once before traversal.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#method_enterNode">enterNode()</a>
+    <a class="" href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#method_enterNode">enterNode()</a>
     <span>
                                 &nbsp;: null|int|<a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>|array&lt;string|int, <a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>&gt;    </span>
 </dt>
 <dd>Called when entering a node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-NodeVisitorAbstract.html#method_leaveNode">leaveNode()</a>
+    <a class="" href="classes/PhpParser-NodeVisitorAbstract.html#method_leaveNode">leaveNode()</a>
     <span>
                                 &nbsp;: null|int|<a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>|array&lt;string|int, <a href="classes/PhpParser-Node.html"><abbr title="\PhpParser\Node">Node</abbr></a>&gt;    </span>
 </dt>
 <dd>Called when leaving a node.</dd>
 
     </dl>
-
 
 
 
@@ -850,6 +844,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;int, int&gt;</span>
@@ -859,6 +854,8 @@
     
         <section class="phpdocumentor-description"><p>Token positions of comments</p>
 </section>
+
+    
 
     
 
@@ -885,6 +882,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">int</span>
@@ -894,6 +892,8 @@
     
         <section class="phpdocumentor-description"><p>Last seen token start position</p>
 </section>
+
+    
 
     
 
@@ -920,6 +920,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, <a href="classes/PhpParser-Token.html"><abbr title="\PhpParser\Token">Token</abbr></a>&gt;</span>
@@ -929,6 +930,8 @@
     
         <section class="phpdocumentor-description"><p>Token array</p>
 </section>
+
+    
 
     
 
@@ -968,6 +971,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -980,6 +984,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1011,6 +1017,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Return value semantics:</p>
 <ul>
 <li>null:      $nodes stays as-is</li>
@@ -1030,6 +1037,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1069,6 +1078,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Return value semantics:</p>
 <ul>
 <li>null:      $nodes stays as-is</li>
@@ -1088,6 +1098,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1127,6 +1139,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Return value semantics:</p>
 <ul>
 <li>null
@@ -1161,6 +1174,8 @@ traversed. $node stays as-is.</li>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1200,6 +1215,7 @@ traversed. $node stays as-is.</li>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Return value semantics:</p>
 <ul>
 <li>null
@@ -1229,6 +1245,8 @@ traversed. $node stays as-is.</li>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1355,20 +1373,20 @@ traversed. $node stays as-is.</li>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#property_commentPositions">$commentPositions<a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html"></li>
-                                                    <li><a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#property_pos">$pos<a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html"></li>
-                                                    <li><a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#property_tokens">$tokens<a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html"></li>
+                                                    <li class=""><a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#property_commentPositions">$commentPositions</a></li>
+                                                    <li class=""><a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#property_pos">$pos</a></li>
+                                                    <li class=""><a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#property_tokens">$tokens</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/PhpParser-NodeVisitorAbstract.html#method_afterTraverse">afterTraverse()</a></li>
-                                            <li><a href="classes/PhpParser-NodeVisitorAbstract.html#method_beforeTraverse">beforeTraverse()</a></li>
-                                            <li><a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#method_enterNode">enterNode()</a></li>
-                                            <li><a href="classes/PhpParser-NodeVisitorAbstract.html#method_leaveNode">leaveNode()</a></li>
+                                            <li class=""><a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/PhpParser-NodeVisitorAbstract.html#method_afterTraverse">afterTraverse()</a></li>
+                                            <li class=""><a href="classes/PhpParser-NodeVisitorAbstract.html#method_beforeTraverse">beforeTraverse()</a></li>
+                                            <li class=""><a href="classes/PhpParser-NodeVisitor-CommentAnnotatingVisitor.html#method_enterNode">enterNode()</a></li>
+                                            <li class=""><a href="classes/PhpParser-NodeVisitorAbstract.html#method_leaveNode">leaveNode()</a></li>
                                     </ul>
             </li>
                     </ul>

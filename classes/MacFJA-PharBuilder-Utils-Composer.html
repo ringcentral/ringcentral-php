@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -729,6 +721,7 @@
 
             <p class="phpdocumentor-summary">Class Composer.</p>
 
+
     <section class="phpdocumentor-description"><p>An helper class to read data from <code class="prettyprint">composer.json</code> et <code class="prettyprint">composer.lock</code> files.</p>
 </section>
 
@@ -761,6 +754,8 @@
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/MacFJA-PharBuilder-Utils-Composer.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -782,14 +777,14 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/MacFJA-PharBuilder-Utils-Composer.html#property_composerJsonPath">$composerJsonPath</a>
+    <a class="" href="classes/MacFJA-PharBuilder-Utils-Composer.html#property_composerJsonPath">$composerJsonPath</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>The path to the `composer.json` file</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/MacFJA-PharBuilder-Utils-Composer.html#property_lockContentCache">$lockContentCache</a>
+    <a class="" href="classes/MacFJA-PharBuilder-Utils-Composer.html#property_lockContentCache">$lockContentCache</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
@@ -804,77 +799,76 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method___construct">__construct()</a>
+    <a class="" href="classes/MacFJA-PharBuilder-Utils-Composer.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Constructor of the helper class.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getComposerConfig">getComposerConfig()</a>
+    <a class="" href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getComposerConfig">getComposerConfig()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Get the phar-builder config data from the composer.json</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getComposerJsonPath">getComposerJsonPath()</a>
+    <a class="" href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getComposerJsonPath">getComposerJsonPath()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Get the path to the `composer.json` file.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getDevOnlyPackageName">getDevOnlyPackageName()</a>
+    <a class="" href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getDevOnlyPackageName">getDevOnlyPackageName()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Get the list of package name that are only use in require-dev</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getRemoveFilesAutoloadFor">getRemoveFilesAutoloadFor()</a>
+    <a class="" href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getRemoveFilesAutoloadFor">getRemoveFilesAutoloadFor()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
 <dd>Remove packages files from the **files** autoloader</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getSourcePaths">getSourcePaths()</a>
+    <a class="" href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getSourcePaths">getSourcePaths()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Get all paths (files and directories) of root package sources.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getStubFiles">getStubFiles()</a>
+    <a class="" href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getStubFiles">getStubFiles()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Get all files required by require-dev that have to be stubbed.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getVendorDir">getVendorDir()</a>
+    <a class="" href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getVendorDir">getVendorDir()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Get the vendor directory name.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getLockFileContent">getLockFileContent()</a>
+    <a class="" href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getLockFileContent">getLockFileContent()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Get the JSON (array) content of the `composer.lock` file</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_readAutoload">readAutoload()</a>
+    <a class="" href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_readAutoload">readAutoload()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Read the JSON node (associative array). The node is the content of a autoload(-dev) entry.</dd>
 
     </dl>
-
 
 
 
@@ -910,6 +904,7 @@
 
         <p class="phpdocumentor-summary">The path to the `composer.json` file</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
@@ -918,6 +913,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -944,6 +941,7 @@
 
         <p class="phpdocumentor-summary">Instance cache for the `composer.lock` file</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
@@ -952,6 +950,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -990,6 +990,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1002,6 +1003,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1035,6 +1038,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1072,6 +1078,9 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1108,6 +1117,7 @@
     
     
     
+    
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getDevOnlyPackageName#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1123,6 +1133,8 @@
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1157,6 +1169,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1186,6 +1199,8 @@
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1220,6 +1235,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1250,6 +1266,8 @@
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1284,6 +1302,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1314,6 +1333,8 @@
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1347,10 +1368,13 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>By default it's <strong>vendor</strong> but it can be changed in <code class="prettyprint">composer.json</code> file.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1388,6 +1412,7 @@
     
     
     
+    
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getLockFileContent#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1403,6 +1428,8 @@
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1437,6 +1464,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1449,6 +1477,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1571,24 +1601,24 @@
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#property_composerJsonPath">$composerJsonPath<a href="classes/MacFJA-PharBuilder-Utils-Composer.html"></li>
-                                                    <li><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#property_lockContentCache">$lockContentCache<a href="classes/MacFJA-PharBuilder-Utils-Composer.html"></li>
+                                                    <li class=""><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#property_composerJsonPath">$composerJsonPath</a></li>
+                                                    <li class=""><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#property_lockContentCache">$lockContentCache</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getComposerConfig">getComposerConfig()</a></li>
-                                            <li><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getComposerJsonPath">getComposerJsonPath()</a></li>
-                                            <li><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getDevOnlyPackageName">getDevOnlyPackageName()</a></li>
-                                            <li><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getRemoveFilesAutoloadFor">getRemoveFilesAutoloadFor()</a></li>
-                                            <li><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getSourcePaths">getSourcePaths()</a></li>
-                                            <li><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getStubFiles">getStubFiles()</a></li>
-                                            <li><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getVendorDir">getVendorDir()</a></li>
-                                            <li><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getLockFileContent">getLockFileContent()</a></li>
-                                            <li><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_readAutoload">readAutoload()</a></li>
+                                            <li class=""><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getComposerConfig">getComposerConfig()</a></li>
+                                            <li class=""><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getComposerJsonPath">getComposerJsonPath()</a></li>
+                                            <li class=""><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getDevOnlyPackageName">getDevOnlyPackageName()</a></li>
+                                            <li class=""><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getRemoveFilesAutoloadFor">getRemoveFilesAutoloadFor()</a></li>
+                                            <li class=""><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getSourcePaths">getSourcePaths()</a></li>
+                                            <li class=""><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getStubFiles">getStubFiles()</a></li>
+                                            <li class=""><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getVendorDir">getVendorDir()</a></li>
+                                            <li class=""><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_getLockFileContent">getLockFileContent()</a></li>
+                                            <li class=""><a href="classes/MacFJA-PharBuilder-Utils-Composer.html#method_readAutoload">readAutoload()</a></li>
                                     </ul>
             </li>
                     </ul>

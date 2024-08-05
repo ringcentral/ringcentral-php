@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -714,7 +706,7 @@
                             <a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a>                    </span>
     
             <span class="phpdocumentor-element__extends">
-            Uses
+            uses
                             <a href="classes/GuzzleHttp-Psr7-MessageTrait.html"><abbr title="\GuzzleHttp\Psr7\MessageTrait">MessageTrait</abbr></a>                    </span>
     </h2>
 
@@ -731,6 +723,9 @@
     </aside>
 
             <p class="phpdocumentor-summary">PSR-7 response implementation.</p>
+
+
+
 
 
 
@@ -763,7 +758,7 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -private">
-    <a href="classes/GuzzleHttp-Psr7-Response.html#constant_PHRASES">PHRASES</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-Response.html#constant_PHRASES">PHRASES</a>
     <span>
         &nbsp;= [100 =&gt; &#039;Continue&#039;, 101 =&gt; &#039;Switching Protocols&#039;, 102 =&gt; &#039;Processing&#039;, 200 =&gt; &#039;OK&#039;, 201 =&gt; &#039;Created&#039;, 202 =&gt; &#039;Accepted&#039;, 203 =&gt; &#039;Non-Authoritative Information&#039;, 204 =&gt; &#039;No Content&#039;, 205 =&gt; &#039;Reset Content&#039;, 206 =&gt; &#039;Partial Content&#039;, 207 =&gt; &#039;Multi-status&#039;, 208 =&gt; &#039;Already Reported&#039;, 300 =&gt; &#039;Multiple Choices&#039;, 301 =&gt; &#039;Moved Permanently&#039;, 302 =&gt; &#039;Found&#039;, 303 =&gt; &#039;See Other&#039;, 304 =&gt; &#039;Not Modified&#039;, 305 =&gt; &#039;Use Proxy&#039;, 306 =&gt; &#039;Switch Proxy&#039;, 307 =&gt; &#039;Temporary Redirect&#039;, 308 =&gt; &#039;Permanent Redirect&#039;, 400 =&gt; &#039;Bad Request&#039;, 401 =&gt; &#039;Unauthorized&#039;, 402 =&gt; &#039;Payment Required&#039;, 403 =&gt; &#039;Forbidden&#039;, 404 =&gt; &#039;Not Found&#039;, 405 =&gt; &#039;Method Not Allowed&#039;, 406 =&gt; &#039;Not Acceptable&#039;, 407 =&gt; &#039;Proxy Authentication Required&#039;, 408 =&gt; &#039;Request Time-out&#039;, 409 =&gt; &#039;Conflict&#039;, 410 =&gt; &#039;Gone&#039;, 411 =&gt; &#039;Length Required&#039;, 412 =&gt; &#039;Precondition Failed&#039;, 413 =&gt; &#039;Request Entity Too Large&#039;, 414 =&gt; &#039;Request-URI Too Large&#039;, 415 =&gt; &#039;Unsupported Media Type&#039;, 416 =&gt; &#039;Requested range not satisfiable&#039;, 417 =&gt; &#039;Expectation Failed&#039;, 418 =&gt; &#039;I\&#039;m a teapot&#039;, 422 =&gt; &#039;Unprocessable Entity&#039;, 423 =&gt; &#039;Locked&#039;, 424 =&gt; &#039;Failed Dependency&#039;, 425 =&gt; &#039;Unordered Collection&#039;, 426 =&gt; &#039;Upgrade Required&#039;, 428 =&gt; &#039;Precondition Required&#039;, 429 =&gt; &#039;Too Many Requests&#039;, 431 =&gt; &#039;Request Header Fields Too Large&#039;, 451 =&gt; &#039;Unavailable For Legal Reasons&#039;, 500 =&gt; &#039;Internal Server Error&#039;, 501 =&gt; &#039;Not Implemented&#039;, 502 =&gt; &#039;Bad Gateway&#039;, 503 =&gt; &#039;Service Unavailable&#039;, 504 =&gt; &#039;Gateway Time-out&#039;, 505 =&gt; &#039;HTTP Version not supported&#039;, 506 =&gt; &#039;Variant Also Negotiates&#039;, 507 =&gt; &#039;Insufficient Storage&#039;, 508 =&gt; &#039;Loop Detected&#039;, 510 =&gt; &#039;Not Extended&#039;, 511 =&gt; &#039;Network Authentication Required&#039;]                            </span>
 </dt>
@@ -779,37 +774,37 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#property_headerNames">$headerNames</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#property_headerNames">$headerNames</a>
     <span>
                         &nbsp;: array&lt;string|int, string&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#property_headers">$headers</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#property_headers">$headers</a>
     <span>
                         &nbsp;: array&lt;string|int, array&lt;string|int, string&gt;&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#property_protocol">$protocol</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#property_protocol">$protocol</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Psr7-Response.html#property_reasonPhrase">$reasonPhrase</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-Response.html#property_reasonPhrase">$reasonPhrase</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Psr7-Response.html#property_statusCode">$statusCode</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-Response.html#property_statusCode">$statusCode</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#property_stream">$stream</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#property_stream">$stream</a>
     <span>
                         &nbsp;: <a href="classes/Psr-Http-Message-StreamInterface.html"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>|null            </span>
 </dt>
@@ -823,143 +818,142 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-Response.html#method___construct">__construct()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-Response.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getBody">getBody()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getBody">getBody()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-StreamInterface.html"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getHeader">getHeader()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getHeader">getHeader()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getHeaderLine">getHeaderLine()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getHeaderLine">getHeaderLine()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getHeaders">getHeaders()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getHeaders">getHeaders()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getProtocolVersion">getProtocolVersion()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getProtocolVersion">getProtocolVersion()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-Response.html#method_getReasonPhrase">getReasonPhrase()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-Response.html#method_getReasonPhrase">getReasonPhrase()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets the response reason phrase associated with the status code.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-Response.html#method_getStatusCode">getStatusCode()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-Response.html#method_getStatusCode">getStatusCode()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Gets the response status code.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_hasHeader">hasHeader()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_hasHeader">hasHeader()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withAddedHeader">withAddedHeader()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withAddedHeader">withAddedHeader()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-MessageInterface.html"><abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withBody">withBody()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withBody">withBody()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-MessageInterface.html"><abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withHeader">withHeader()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withHeader">withHeader()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-MessageInterface.html"><abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withoutHeader">withoutHeader()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withoutHeader">withoutHeader()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-MessageInterface.html"><abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withProtocolVersion">withProtocolVersion()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withProtocolVersion">withProtocolVersion()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-MessageInterface.html"><abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-Response.html#method_withStatus">withStatus()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-Response.html#method_withStatus">withStatus()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 <dd>Return an instance with the specified status code and, optionally, reason phrase.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_assertHeader">assertHeader()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_assertHeader">assertHeader()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-Psr7-Response.html#method_assertStatusCodeIsInteger">assertStatusCodeIsInteger()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-Response.html#method_assertStatusCodeIsInteger">assertStatusCodeIsInteger()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-Psr7-Response.html#method_assertStatusCodeRange">assertStatusCodeRange()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-Response.html#method_assertStatusCodeRange">assertStatusCodeRange()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_assertValue">assertValue()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_assertValue">assertValue()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_normalizeHeaderValue">normalizeHeaderValue()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_normalizeHeaderValue">normalizeHeaderValue()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_setHeaders">setHeaders()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_setHeaders">setHeaders()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_trimAndValidateHeaderValues">trimAndValidateHeaderValues()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_trimAndValidateHeaderValues">trimAndValidateHeaderValues()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string&gt;    </span>
 </dt>
 <dd>Trims whitespace from the header values.</dd>
 
     </dl>
-
 
 
 
@@ -986,6 +980,7 @@
 
         <p class="phpdocumentor-summary">Map of standard HTTP status code/reason phrases</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -996,6 +991,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1030,6 +1027,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
@@ -1039,6 +1037,8 @@
     
         <section class="phpdocumentor-description"><p>Map of lowercase header name =&gt; original name at registration</p>
 </section>
+
+    
 
     
 
@@ -1065,6 +1065,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, array&lt;string|int, string&gt;&gt;</span>
@@ -1074,6 +1075,8 @@
     
         <section class="phpdocumentor-description"><p>Map of all registered headers, as original name =&gt; array of values</p>
 </section>
+
+    
 
     
 
@@ -1100,6 +1103,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">string</span>
@@ -1108,6 +1112,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1133,6 +1139,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">string</span>
@@ -1141,6 +1148,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1166,6 +1175,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">int</span>
@@ -1174,6 +1184,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1199,6 +1211,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type"><a href="classes/Psr-Http-Message-StreamInterface.html"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>|null</span>
@@ -1207,6 +1220,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1243,6 +1258,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1296,6 +1312,8 @@
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1324,6 +1342,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1358,6 +1379,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1368,6 +1390,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1403,6 +1427,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1413,6 +1438,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1450,6 +1477,9 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1485,6 +1515,9 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1518,6 +1551,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Because a reason phrase is not a required element in a response
 status line, the reason phrase value MAY be null. Implementations MAY
 choose to return the default RFC 7231 recommended reason phrase (or those
@@ -1526,6 +1560,8 @@ status code.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1564,11 +1600,14 @@ status code.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The status code is a 3-digit integer result code of the server's attempt
 to understand and satisfy the request.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1607,6 +1646,7 @@ to understand and satisfy the request.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1617,6 +1657,8 @@ to understand and satisfy the request.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1652,6 +1694,7 @@ to understand and satisfy the request.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1669,6 +1712,8 @@ to understand and satisfy the request.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1704,6 +1749,7 @@ to understand and satisfy the request.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1714,6 +1760,8 @@ to understand and satisfy the request.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1749,6 +1797,7 @@ to understand and satisfy the request.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1766,6 +1815,8 @@ to understand and satisfy the request.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1801,6 +1852,7 @@ to understand and satisfy the request.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1811,6 +1863,8 @@ to understand and satisfy the request.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1846,6 +1900,7 @@ to understand and satisfy the request.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1856,6 +1911,8 @@ to understand and satisfy the request.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1891,6 +1948,7 @@ to understand and satisfy the request.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>If no reason phrase is specified, implementations MAY choose to default
 to the RFC 7231 or IANA recommended reason phrase for the response's
 status code.</p>
@@ -1922,6 +1980,8 @@ use the defaults as suggested in the HTTP specification.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1957,6 +2017,7 @@ use the defaults as suggested in the HTTP specification.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1986,6 +2047,8 @@ use the defaults as suggested in the HTTP specification.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2013,6 +2076,7 @@ use the defaults as suggested in the HTTP specification.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2023,6 +2087,8 @@ use the defaults as suggested in the HTTP specification.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2054,6 +2120,7 @@ use the defaults as suggested in the HTTP specification.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2064,6 +2131,8 @@ use the defaults as suggested in the HTTP specification.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2094,6 +2163,7 @@ use the defaults as suggested in the HTTP specification.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -2131,6 +2201,8 @@ obs-fold       = CRLF 1*( SP / HTAB )</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2158,6 +2230,7 @@ obs-fold       = CRLF 1*( SP / HTAB )</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2168,6 +2241,8 @@ obs-fold       = CRLF 1*( SP / HTAB )</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2203,6 +2278,7 @@ obs-fold       = CRLF 1*( SP / HTAB )</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2213,6 +2289,8 @@ obs-fold       = CRLF 1*( SP / HTAB )</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2244,6 +2322,7 @@ obs-fold       = CRLF 1*( SP / HTAB )</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Spaces and tabs ought to be excluded by parsers when extracting the field value from a header field.</p>
 <p>header-field = field-name &quot;:&quot; OWS field-value OWS
 OWS          = *( SP / HTAB )</p>
@@ -2278,6 +2357,8 @@ OWS          = *( SP / HTAB )</p>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2402,47 +2483,47 @@ OWS          = *( SP / HTAB )</p>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/GuzzleHttp-Psr7-Response.html#constant_PHRASES">PHRASES</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Psr7-Response.html#constant_PHRASES">PHRASES</a></li>
                                             </ul>
                 </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#property_headerNames">$headerNames<a href="classes/GuzzleHttp-Psr7-Response.html"></li>
-                                                    <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#property_headers">$headers<a href="classes/GuzzleHttp-Psr7-Response.html"></li>
-                                                    <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#property_protocol">$protocol<a href="classes/GuzzleHttp-Psr7-Response.html"></li>
-                                                    <li><a href="classes/GuzzleHttp-Psr7-Response.html#property_reasonPhrase">$reasonPhrase<a href="classes/GuzzleHttp-Psr7-Response.html"></li>
-                                                    <li><a href="classes/GuzzleHttp-Psr7-Response.html#property_statusCode">$statusCode<a href="classes/GuzzleHttp-Psr7-Response.html"></li>
-                                                    <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#property_stream">$stream<a href="classes/GuzzleHttp-Psr7-Response.html"></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#property_headerNames">$headerNames</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#property_headers">$headers</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#property_protocol">$protocol</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Psr7-Response.html#property_reasonPhrase">$reasonPhrase</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Psr7-Response.html#property_statusCode">$statusCode</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#property_stream">$stream</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/GuzzleHttp-Psr7-Response.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getBody">getBody()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getHeader">getHeader()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getHeaderLine">getHeaderLine()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getHeaders">getHeaders()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getProtocolVersion">getProtocolVersion()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-Response.html#method_getReasonPhrase">getReasonPhrase()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-Response.html#method_getStatusCode">getStatusCode()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_hasHeader">hasHeader()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withAddedHeader">withAddedHeader()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withBody">withBody()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withHeader">withHeader()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withoutHeader">withoutHeader()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withProtocolVersion">withProtocolVersion()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-Response.html#method_withStatus">withStatus()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_assertHeader">assertHeader()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-Response.html#method_assertStatusCodeIsInteger">assertStatusCodeIsInteger()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-Response.html#method_assertStatusCodeRange">assertStatusCodeRange()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_assertValue">assertValue()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_normalizeHeaderValue">normalizeHeaderValue()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_setHeaders">setHeaders()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_trimAndValidateHeaderValues">trimAndValidateHeaderValues()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-Response.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getBody">getBody()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getHeader">getHeader()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getHeaderLine">getHeaderLine()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getHeaders">getHeaders()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_getProtocolVersion">getProtocolVersion()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-Response.html#method_getReasonPhrase">getReasonPhrase()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-Response.html#method_getStatusCode">getStatusCode()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_hasHeader">hasHeader()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withAddedHeader">withAddedHeader()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withBody">withBody()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withHeader">withHeader()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withoutHeader">withoutHeader()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_withProtocolVersion">withProtocolVersion()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-Response.html#method_withStatus">withStatus()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_assertHeader">assertHeader()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-Response.html#method_assertStatusCodeIsInteger">assertStatusCodeIsInteger()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-Response.html#method_assertStatusCodeRange">assertStatusCodeRange()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_assertValue">assertValue()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_normalizeHeaderValue">normalizeHeaderValue()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_setHeaders">setHeaders()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-MessageTrait.html#method_trimAndValidateHeaderValues">trimAndValidateHeaderValues()</a></li>
                                     </ul>
             </li>
                     </ul>

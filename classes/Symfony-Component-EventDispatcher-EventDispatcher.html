@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -729,6 +721,7 @@
     </aside>
 
             <p class="phpdocumentor-summary">The EventDispatcherInterface is the central point of Symfony&#039;s event listener system.</p>
+
 
     <section class="phpdocumentor-description"><p>Listeners are registered on the manager and events are dispatched through the
 manager.</p>
@@ -817,6 +810,8 @@ manager.</p>
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -845,19 +840,19 @@ manager.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#property_listeners">$listeners</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#property_listeners">$listeners</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#property_optimized">$optimized</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#property_optimized">$optimized</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#property_sorted">$sorted</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#property_sorted">$sorted</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -871,95 +866,94 @@ manager.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method___construct">__construct()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_addListener">addListener()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_addListener">addListener()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Adds an event listener that listens on the specified events.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_addSubscriber">addSubscriber()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_addSubscriber">addSubscriber()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Adds an event subscriber.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_dispatch">dispatch()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_dispatch">dispatch()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: object    </span>
 </dt>
-<dd>{@inheritdoc}</dd>
+<dd>Dispatches an event to all registered listeners.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_getListenerPriority">getListenerPriority()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_getListenerPriority">getListenerPriority()</a>
     <span>
                                 &nbsp;: int|null    </span>
 </dt>
 <dd>Gets the listener priority for a specific event.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_getListeners">getListeners()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_getListeners">getListeners()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Gets the listeners of a specific event or all listeners sorted by descending priority.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_hasListeners">hasListeners()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_hasListeners">hasListeners()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Checks whether an event has any registered listeners.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_removeListener">removeListener()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_removeListener">removeListener()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Removes an event listener from the specified events.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_removeSubscriber">removeSubscriber()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_removeSubscriber">removeSubscriber()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_callListeners">callListeners()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_callListeners">callListeners()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Triggers the listeners of an event.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_doDispatch">doDispatch()</a>
+    <a class="-deprecated" href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_doDispatch">doDispatch()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_optimizeListeners">optimizeListeners()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_optimizeListeners">optimizeListeners()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Optimizes the internal list of listeners for the given event by priority.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_sortListeners">sortListeners()</a>
+    <a class="" href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_sortListeners">sortListeners()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Sorts the internal list of listeners for the given event by priority.</dd>
 
     </dl>
-
 
 
 
@@ -994,6 +988,7 @@ manager.</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1002,6 +997,8 @@ manager.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1027,6 +1024,7 @@ manager.</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1035,6 +1033,8 @@ manager.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1060,6 +1060,7 @@ manager.</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1068,6 +1069,8 @@ manager.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1107,6 +1110,9 @@ manager.</p>
     
     
     
+    
+
+    
 
     
 </article>
@@ -1136,6 +1142,7 @@ manager.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1172,6 +1179,8 @@ listener will be triggered in the chain (defaults to 0)</p>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1200,6 +1209,7 @@ listener will be triggered in the chain (defaults to 0)</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1210,6 +1220,8 @@ listener will be triggered in the chain (defaults to 0)</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1233,14 +1245,15 @@ listener will be triggered in the chain (defaults to 0)</p>
 
     </aside>
 
-        <p class="phpdocumentor-summary">{@inheritdoc}</p>
+        <p class="phpdocumentor-summary">Dispatches an event to all registered listeners.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">dispatch</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$event</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">dispatch</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$event</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">object</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1249,13 +1262,25 @@ listener will be triggered in the chain (defaults to 0)</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The event to pass to the event handlers/listeners</p>
+</section>
+
             </dd>
             </dl>
 
     
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">object</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The passed $event MUST be returned</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1284,6 +1309,7 @@ listener will be triggered in the chain (defaults to 0)</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1305,6 +1331,8 @@ listener will be triggered in the chain (defaults to 0)</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1345,6 +1373,7 @@ listener will be triggered in the chain (defaults to 0)</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1357,6 +1386,8 @@ listener will be triggered in the chain (defaults to 0)</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1397,6 +1428,7 @@ listener will be triggered in the chain (defaults to 0)</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1409,6 +1441,8 @@ listener will be triggered in the chain (defaults to 0)</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1449,6 +1483,7 @@ listener will be triggered in the chain (defaults to 0)</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1470,6 +1505,8 @@ listener will be triggered in the chain (defaults to 0)</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1501,6 +1538,7 @@ listener will be triggered in the chain (defaults to 0)</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1511,6 +1549,8 @@ listener will be triggered in the chain (defaults to 0)</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1542,6 +1582,7 @@ listener will be triggered in the chain (defaults to 0)</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This method can be overridden to add functionality that is executed
 for each listener.</p>
 </section>
@@ -1580,6 +1621,8 @@ for each listener.</p>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1606,6 +1649,14 @@ for each listener.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+                <div class="phpdocumentor-admonition">
+        <svg class="phpdocumentor-admonition__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <article>
+                <p>since Symfony 4.3, use callListeners() instead</p>
+
+            </article>
+        </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1633,22 +1684,8 @@ for each listener.</p>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_doDispatch#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">deprecated</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>since Symfony 4.3, use callListeners() instead</p>
-</section>
-
-                                    </dd>
-                                            </dl>
+    
 
     
 </article>
@@ -1679,6 +1716,7 @@ for each listener.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1689,6 +1727,8 @@ for each listener.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1725,6 +1765,7 @@ for each listener.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1735,6 +1776,8 @@ for each listener.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1853,28 +1896,28 @@ for each listener.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#property_listeners">$listeners<a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html"></li>
-                                                    <li><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#property_optimized">$optimized<a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html"></li>
-                                                    <li><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#property_sorted">$sorted<a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html"></li>
+                                                    <li class=""><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#property_listeners">$listeners</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#property_optimized">$optimized</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#property_sorted">$sorted</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_addListener">addListener()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_addSubscriber">addSubscriber()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_dispatch">dispatch()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_getListenerPriority">getListenerPriority()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_getListeners">getListeners()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_hasListeners">hasListeners()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_removeListener">removeListener()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_removeSubscriber">removeSubscriber()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_callListeners">callListeners()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_doDispatch">doDispatch()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_optimizeListeners">optimizeListeners()</a></li>
-                                            <li><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_sortListeners">sortListeners()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_addListener">addListener()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_addSubscriber">addSubscriber()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_dispatch">dispatch()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_getListenerPriority">getListenerPriority()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_getListeners">getListeners()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_hasListeners">hasListeners()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_removeListener">removeListener()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_removeSubscriber">removeSubscriber()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_callListeners">callListeners()</a></li>
+                                            <li class="-deprecated"><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_doDispatch">doDispatch()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_optimizeListeners">optimizeListeners()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-EventDispatcher-EventDispatcher.html#method_sortListeners">sortListeners()</a></li>
                                     </ul>
             </li>
                     </ul>

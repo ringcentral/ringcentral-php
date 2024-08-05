@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -729,6 +721,7 @@
             <p class="phpdocumentor-summary">Formats log messages using variable substitutions for requests, responses,
 and other transactional data.</p>
 
+
     <section class="phpdocumentor-description"><p>The following variable substitutions are supported:</p>
 <ul>
 <li>{request}:        Full HTTP request message</li>
@@ -772,6 +765,8 @@ and other transactional data.</p>
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/GuzzleHttp-MessageFormatter.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -798,20 +793,20 @@ and other transactional data.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-MessageFormatter.html#constant_CLF">CLF</a>
+    <a class="" href="classes/GuzzleHttp-MessageFormatter.html#constant_CLF">CLF</a>
     <span>
         &nbsp;= &#039;{hostname} {req_header_User-Agent} - [{date_common_log}] &quot;{method} {target} HTTP/{version}&quot; {code} {res_header_Content-Length}&#039;                            </span>
 </dt>
 <dd>Apache Common Log Format.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-MessageFormatter.html#constant_DEBUG">DEBUG</a>
+    <a class="" href="classes/GuzzleHttp-MessageFormatter.html#constant_DEBUG">DEBUG</a>
     <span>
         &nbsp;= &quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;\n{request}\n&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;\n{response}\n--------\n{error}&quot;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-MessageFormatter.html#constant_SHORT">SHORT</a>
+    <a class="" href="classes/GuzzleHttp-MessageFormatter.html#constant_SHORT">SHORT</a>
     <span>
         &nbsp;= &#039;[{ts}] &quot;{method} {target} HTTP/{version}&quot; {code}&#039;                            </span>
 </dt>
@@ -826,7 +821,7 @@ and other transactional data.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-MessageFormatter.html#property_template">$template</a>
+    <a class="" href="classes/GuzzleHttp-MessageFormatter.html#property_template">$template</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
@@ -840,27 +835,26 @@ and other transactional data.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-MessageFormatter.html#method___construct">__construct()</a>
+    <a class="" href="classes/GuzzleHttp-MessageFormatter.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-MessageFormatter.html#method_format">format()</a>
+    <a class="" href="classes/GuzzleHttp-MessageFormatter.html#method_format">format()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns a formatted message string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-MessageFormatter.html#method_headers">headers()</a>
+    <a class="" href="classes/GuzzleHttp-MessageFormatter.html#method_headers">headers()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Get headers from message as string</dd>
 
     </dl>
-
 
 
 
@@ -887,6 +881,7 @@ and other transactional data.</p>
 
         <p class="phpdocumentor-summary">Apache Common Log Format.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">string</span>
@@ -912,7 +907,9 @@ and other transactional data.</p>
                                         
                                              
                                     </dd>
-                                            </dl>
+                                                                </dl>
+
+    
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
@@ -930,6 +927,7 @@ and other transactional data.</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -940,6 +938,8 @@ and other transactional data.</p>
 
     
     
+    
+
     
 
 </article>
@@ -958,6 +958,7 @@ and other transactional data.</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -968,6 +969,8 @@ and other transactional data.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1002,6 +1005,7 @@ and other transactional data.</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">string</span>
@@ -1011,6 +1015,8 @@ and other transactional data.</p>
     
         <section class="phpdocumentor-description"><p>Template used to format log messages</p>
 </section>
+
+    
 
     
 
@@ -1049,6 +1055,7 @@ and other transactional data.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1061,6 +1068,8 @@ and other transactional data.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1093,6 +1102,7 @@ and other transactional data.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1123,6 +1133,8 @@ and other transactional data.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1159,6 +1171,7 @@ and other transactional data.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1169,6 +1182,8 @@ and other transactional data.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1291,25 +1306,25 @@ and other transactional data.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/GuzzleHttp-MessageFormatter.html#constant_CLF">CLF</a></li>
-                                                    <li><a href="classes/GuzzleHttp-MessageFormatter.html#constant_DEBUG">DEBUG</a></li>
-                                                    <li><a href="classes/GuzzleHttp-MessageFormatter.html#constant_SHORT">SHORT</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-MessageFormatter.html#constant_CLF">CLF</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-MessageFormatter.html#constant_DEBUG">DEBUG</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-MessageFormatter.html#constant_SHORT">SHORT</a></li>
                                             </ul>
                 </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/GuzzleHttp-MessageFormatter.html#property_template">$template<a href="classes/GuzzleHttp-MessageFormatter.html"></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-MessageFormatter.html#property_template">$template</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/GuzzleHttp-MessageFormatter.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/GuzzleHttp-MessageFormatter.html#method_format">format()</a></li>
-                                            <li><a href="classes/GuzzleHttp-MessageFormatter.html#method_headers">headers()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-MessageFormatter.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-MessageFormatter.html#method_format">format()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-MessageFormatter.html#method_headers">headers()</a></li>
                                     </ul>
             </li>
                     </ul>

@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -728,6 +720,7 @@
 
             <p class="phpdocumentor-summary">Sends an iterator of requests concurrently using a capped pool size.</p>
 
+
     <section class="phpdocumentor-description"><p>The pool will read from an iterator until it is cancelled or until the
 iterator is consumed. When a request is yielded, the request is sent after
 applying the &quot;request_options&quot; request options (if provided in the ctor).</p>
@@ -751,6 +744,8 @@ options, and the function MUST then return a wait-able promise.</p>
                                              
                                     </dd>
                                             </dl>
+
+
 
 
 
@@ -782,7 +777,7 @@ options, and the function MUST then return a wait-able promise.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Pool.html#property_each">$each</a>
+    <a class="" href="classes/GuzzleHttp-Pool.html#property_each">$each</a>
     <span>
                         &nbsp;: <a href="classes/GuzzleHttp-Promise-EachPromise.html"><abbr title="\GuzzleHttp\Promise\EachPromise">EachPromise</abbr></a>            </span>
 </dt>
@@ -796,13 +791,13 @@ options, and the function MUST then return a wait-able promise.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Pool.html#method___construct">__construct()</a>
+    <a class="" href="classes/GuzzleHttp-Pool.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Pool.html#method_batch">batch()</a>
+    <a class="" href="classes/GuzzleHttp-Pool.html#method_batch">batch()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
@@ -810,21 +805,20 @@ options, and the function MUST then return a wait-able promise.</p>
 and exceptions that uses the same ordering as the provided requests.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Pool.html#method_promise">promise()</a>
+    <a class="" href="classes/GuzzleHttp-Pool.html#method_promise">promise()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
 <dd>Get promise</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-Pool.html#method_cmpCallback">cmpCallback()</a>
+    <a class="" href="classes/GuzzleHttp-Pool.html#method_cmpCallback">cmpCallback()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Execute callback(s)</dd>
 
     </dl>
-
 
 
 
@@ -859,6 +853,7 @@ and exceptions that uses the same ordering as the provided requests.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type"><a href="classes/GuzzleHttp-Promise-EachPromise.html"><abbr title="\GuzzleHttp\Promise\EachPromise">EachPromise</abbr></a></span>
@@ -867,6 +862,8 @@ and exceptions that uses the same ordering as the provided requests.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -903,6 +900,7 @@ and exceptions that uses the same ordering as the provided requests.</dd>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -945,6 +943,8 @@ requests to send concurrently.</p>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -973,6 +973,7 @@ and exceptions that uses the same ordering as the provided requests.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>IMPORTANT: This method keeps every request and response in memory, and
 as such, is NOT recommended when sending a large number or an
 indeterminate number of requests concurrently.</p>
@@ -1029,6 +1030,8 @@ indeterminate number of requests concurrently.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
@@ -1069,6 +1072,9 @@ in the same order that the requests were sent.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1103,6 +1109,7 @@ in the same order that the requests were sent.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1127,6 +1134,8 @@ in the same order that the requests were sent.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1245,17 +1254,17 @@ in the same order that the requests were sent.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/GuzzleHttp-Pool.html#property_each">$each<a href="classes/GuzzleHttp-Pool.html"></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Pool.html#property_each">$each</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/GuzzleHttp-Pool.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Pool.html#method_batch">batch()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Pool.html#method_promise">promise()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Pool.html#method_cmpCallback">cmpCallback()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Pool.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Pool.html#method_batch">batch()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Pool.html#method_promise">promise()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Pool.html#method_cmpCallback">cmpCallback()</a></li>
                                     </ul>
             </li>
                     </ul>

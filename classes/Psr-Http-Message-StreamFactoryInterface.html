@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -722,6 +714,9 @@
 
 
 
+
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/Psr-Http-Message-StreamFactoryInterface.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -744,21 +739,21 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamFactoryInterface.html#method_createStream">createStream()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamFactoryInterface.html#method_createStream">createStream()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-StreamInterface.html"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>    </span>
 </dt>
 <dd>Create a new stream from a string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamFactoryInterface.html#method_createStreamFromFile">createStreamFromFile()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamFactoryInterface.html#method_createStreamFromFile">createStreamFromFile()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-StreamInterface.html"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>    </span>
 </dt>
 <dd>Create a stream from an existing file.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Psr-Http-Message-StreamFactoryInterface.html#method_createStreamFromResource">createStreamFromResource()</a>
+    <a class="" href="classes/Psr-Http-Message-StreamFactoryInterface.html#method_createStreamFromResource">createStreamFromResource()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-StreamInterface.html"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a>    </span>
 </dt>
@@ -803,6 +798,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The stream SHOULD be created with a temporary resource.</p>
 </section>
 
@@ -818,6 +814,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -853,6 +851,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The file MUST be opened using the given mode, which may be any mode
 supported by the <code class="prettyprint">fopen</code> function.</p>
 <p>The <code class="prettyprint">$filename</code> MAY be any string supported by <code class="prettyprint">fopen()</code>.</p>
@@ -909,6 +908,8 @@ supported by the <code class="prettyprint">fopen</code> function.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/Psr-Http-Message-StreamInterface.html"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr></a></span>
@@ -941,6 +942,7 @@ supported by the <code class="prettyprint">fopen</code> function.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The stream MUST be readable and may be writable.</p>
 </section>
 
@@ -956,6 +958,8 @@ supported by the <code class="prettyprint">fopen</code> function.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1077,9 +1081,9 @@ supported by the <code class="prettyprint">fopen</code> function.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Methods</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Psr-Http-Message-StreamFactoryInterface.html#method_createStream">createStream()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-StreamFactoryInterface.html#method_createStreamFromFile">createStreamFromFile()</a></li>
-                                                    <li><a href="classes/Psr-Http-Message-StreamFactoryInterface.html#method_createStreamFromResource">createStreamFromResource()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamFactoryInterface.html#method_createStream">createStream()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamFactoryInterface.html#method_createStreamFromFile">createStreamFromFile()</a></li>
+                                                    <li class=""><a href="classes/Psr-Http-Message-StreamFactoryInterface.html#method_createStreamFromResource">createStreamFromResource()</a></li>
                                             </ul>
                 </li>
             

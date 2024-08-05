@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -729,9 +721,12 @@
 
             <p class="phpdocumentor-summary">Class to validate and to work with IPv6 addresses</p>
 
+
     <section class="phpdocumentor-description"><p>This was originally based on the PEAR class of the same name, but has been
 entirely rewritten.</p>
 </section>
+
+
 
 
 
@@ -759,35 +754,34 @@ entirely rewritten.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/WpOrg-Requests-Ipv6.html#method_check_ipv6">check_ipv6()</a>
+    <a class="" href="classes/WpOrg-Requests-Ipv6.html#method_check_ipv6">check_ipv6()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Checks an IPv6 address</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/WpOrg-Requests-Ipv6.html#method_compress">compress()</a>
+    <a class="" href="classes/WpOrg-Requests-Ipv6.html#method_compress">compress()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Compresses an IPv6 address</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/WpOrg-Requests-Ipv6.html#method_uncompress">uncompress()</a>
+    <a class="" href="classes/WpOrg-Requests-Ipv6.html#method_uncompress">uncompress()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Uncompresses an IPv6 address</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/WpOrg-Requests-Ipv6.html#method_split_v6_v4">split_v6_v4()</a>
+    <a class="" href="classes/WpOrg-Requests-Ipv6.html#method_split_v6_v4">split_v6_v4()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string&gt;    </span>
 </dt>
 <dd>Splits an IPv6 address into the IPv6 and IPv4 representation parts</dd>
 
     </dl>
-
 
 
 
@@ -827,6 +821,7 @@ entirely rewritten.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Checks if the given IP is a valid IPv6 address</p>
 </section>
 
@@ -842,6 +837,8 @@ entirely rewritten.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -881,6 +878,7 @@ entirely rewritten.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>RFC 4291 allows you to compress consecutive zero pieces in an address to
 '::'. This method expects a valid IPv6 address and compresses consecutive
 zero pieces to '::'.</p>
@@ -918,6 +916,8 @@ zero pieces to '::'.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
@@ -954,6 +954,7 @@ zero pieces to '::'.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>RFC 4291 allows you to compress consecutive zero pieces in an address to
 '::'. This method expects a valid IPv6 address and expands the '::' to
 the required number of zero pieces.</p>
@@ -1038,6 +1039,8 @@ the required number of zero pieces.</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
@@ -1074,6 +1077,7 @@ the required number of zero pieces.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>RFC 4291 allows you to represent the last two parts of an IPv6 address
 using the standard IPv4 representation</p>
 <p>Example:  0:0:0:0:0:0:13.1.68.3
@@ -1092,6 +1096,8 @@ using the standard IPv4 representation</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1218,10 +1224,10 @@ using the standard IPv4 representation</p>
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/WpOrg-Requests-Ipv6.html#method_check_ipv6">check_ipv6()</a></li>
-                                            <li><a href="classes/WpOrg-Requests-Ipv6.html#method_compress">compress()</a></li>
-                                            <li><a href="classes/WpOrg-Requests-Ipv6.html#method_uncompress">uncompress()</a></li>
-                                            <li><a href="classes/WpOrg-Requests-Ipv6.html#method_split_v6_v4">split_v6_v4()</a></li>
+                                            <li class=""><a href="classes/WpOrg-Requests-Ipv6.html#method_check_ipv6">check_ipv6()</a></li>
+                                            <li class=""><a href="classes/WpOrg-Requests-Ipv6.html#method_compress">compress()</a></li>
+                                            <li class=""><a href="classes/WpOrg-Requests-Ipv6.html#method_uncompress">uncompress()</a></li>
+                                            <li class=""><a href="classes/WpOrg-Requests-Ipv6.html#method_split_v6_v4">split_v6_v4()</a></li>
                                     </ul>
             </li>
                     </ul>

@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -735,6 +727,7 @@
 
             <p class="phpdocumentor-summary">Class \Hoa\Stream\Filter\Basic.</p>
 
+
     <section class="phpdocumentor-description"><p>Basic filter. Force to implement some methods.
 Actually, it extends the php_user_filter class.</p>
 </section>
@@ -768,6 +761,8 @@ Actually, it extends the php_user_filter class.</p>
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/Hoa-Stream-Filter-Basic.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -794,42 +789,42 @@ Actually, it extends the php_user_filter class.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/Hoa-Stream-Filter-Basic.html#constant_FATAL_ERROR">FATAL_ERROR</a>
+    <a class="" href="classes/Hoa-Stream-Filter-Basic.html#constant_FATAL_ERROR">FATAL_ERROR</a>
     <span>
         &nbsp;= PSFS_ERR_FATAL                            </span>
 </dt>
 <dd>The filter experienced and unrecoverable error and cannot continue.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/Hoa-Stream-Filter-Basic.html#constant_FEED_ME">FEED_ME</a>
+    <a class="" href="classes/Hoa-Stream-Filter-Basic.html#constant_FEED_ME">FEED_ME</a>
     <span>
         &nbsp;= PSFS_FEED_ME                            </span>
 </dt>
 <dd>Filter processed successfully, however no data was available to return.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/Hoa-Stream-Filter-Basic.html#constant_FLAG_FLUSH_CLOSE">FLAG_FLUSH_CLOSE</a>
+    <a class="" href="classes/Hoa-Stream-Filter-Basic.html#constant_FLAG_FLUSH_CLOSE">FLAG_FLUSH_CLOSE</a>
     <span>
         &nbsp;= PSFS_FLAG_FLUSH_CLOSE                            </span>
 </dt>
 <dd>Final flush prior to closing.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/Hoa-Stream-Filter-Basic.html#constant_FLAG_FLUSH_INC">FLAG_FLUSH_INC</a>
+    <a class="" href="classes/Hoa-Stream-Filter-Basic.html#constant_FLAG_FLUSH_INC">FLAG_FLUSH_INC</a>
     <span>
         &nbsp;= PSFS_FLAG_FLUSH_INC                            </span>
 </dt>
 <dd>An incremental flush.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/Hoa-Stream-Filter-Basic.html#constant_FLAG_NORMAL">FLAG_NORMAL</a>
+    <a class="" href="classes/Hoa-Stream-Filter-Basic.html#constant_FLAG_NORMAL">FLAG_NORMAL</a>
     <span>
         &nbsp;= PSFS_FLAG_NORMAL                            </span>
 </dt>
 <dd>Regular read/write.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/Hoa-Stream-Filter-Basic.html#constant_PASS_ON">PASS_ON</a>
+    <a class="" href="classes/Hoa-Stream-Filter-Basic.html#constant_PASS_ON">PASS_ON</a>
     <span>
         &nbsp;= PSFS_PASS_ON                            </span>
 </dt>
@@ -847,35 +842,35 @@ brigade.</dd>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Hoa-Stream-Filter-Basic.html#method_filter">filter()</a>
+    <a class="" href="classes/Hoa-Stream-Filter-Basic.html#method_filter">filter()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Filter data.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Hoa-Stream-Filter-Basic.html#method_getName">getName()</a>
+    <a class="" href="classes/Hoa-Stream-Filter-Basic.html#method_getName">getName()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Get the filter name.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Hoa-Stream-Filter-Basic.html#method_getParameters">getParameters()</a>
+    <a class="" href="classes/Hoa-Stream-Filter-Basic.html#method_getParameters">getParameters()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Get the filter parameters.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Hoa-Stream-Filter-Basic.html#method_getStream">getStream()</a>
+    <a class="" href="classes/Hoa-Stream-Filter-Basic.html#method_getStream">getStream()</a>
     <span>
                                 &nbsp;: resource    </span>
 </dt>
 <dd>Get the stream resource being filtered.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Hoa-Stream-Filter-Basic.html#method_onClose">onClose()</a>
+    <a class="" href="classes/Hoa-Stream-Filter-Basic.html#method_onClose">onClose()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -883,28 +878,27 @@ brigade.</dd>
 shutdown), and is executed after the flush method is called.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Hoa-Stream-Filter-Basic.html#method_onCreate">onCreate()</a>
+    <a class="" href="classes/Hoa-Stream-Filter-Basic.html#method_onCreate">onCreate()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Called during instanciation of the filter class object.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Hoa-Stream-Filter-Basic.html#method_setName">setName()</a>
+    <a class="" href="classes/Hoa-Stream-Filter-Basic.html#method_setName">setName()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Set the filter name.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Hoa-Stream-Filter-Basic.html#method_setParameters">setParameters()</a>
+    <a class="" href="classes/Hoa-Stream-Filter-Basic.html#method_setParameters">setParameters()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Set the filter parameters.</dd>
 
     </dl>
-
 
 
 
@@ -931,6 +925,7 @@ shutdown), and is executed after the flush method is called.</dd>
 
         <p class="phpdocumentor-summary">The filter experienced and unrecoverable error and cannot continue.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -957,7 +952,9 @@ shutdown), and is executed after the flush method is called.</dd>
 </section>
 
                                     </dd>
-                                            </dl>
+                                                                </dl>
+
+    
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
@@ -976,6 +973,7 @@ shutdown), and is executed after the flush method is called.</dd>
 
         <p class="phpdocumentor-summary">Filter processed successfully, however no data was available to return.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1004,7 +1002,9 @@ shutdown), and is executed after the flush method is called.</dd>
 </section>
 
                                     </dd>
-                                            </dl>
+                                                                </dl>
+
+    
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
@@ -1023,6 +1023,7 @@ shutdown), and is executed after the flush method is called.</dd>
 
         <p class="phpdocumentor-summary">Final flush prior to closing.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1049,7 +1050,9 @@ shutdown), and is executed after the flush method is called.</dd>
 </section>
 
                                     </dd>
-                                            </dl>
+                                                                </dl>
+
+    
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
@@ -1068,6 +1071,7 @@ shutdown), and is executed after the flush method is called.</dd>
 
         <p class="phpdocumentor-summary">An incremental flush.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1094,7 +1098,9 @@ shutdown), and is executed after the flush method is called.</dd>
 </section>
 
                                     </dd>
-                                            </dl>
+                                                                </dl>
+
+    
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
@@ -1113,6 +1119,7 @@ shutdown), and is executed after the flush method is called.</dd>
 
         <p class="phpdocumentor-summary">Regular read/write.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1139,7 +1146,9 @@ shutdown), and is executed after the flush method is called.</dd>
 </section>
 
                                     </dd>
-                                            </dl>
+                                                                </dl>
+
+    
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
@@ -1159,6 +1168,7 @@ shutdown), and is executed after the flush method is called.</dd>
         <p class="phpdocumentor-summary">Filter processed successfully with data available in the out bucket
 brigade.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1185,7 +1195,9 @@ brigade.</p>
 </section>
 
                                     </dd>
-                                            </dl>
+                                                                </dl>
+
+    
 
 </article>
             </section>
@@ -1224,6 +1236,7 @@ brigade.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This method is called whenever data is read from or written to the attach
 stream.</p>
 </section>
@@ -1280,6 +1293,8 @@ closing parameter will be set to true.</p>
 
     
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">int</span>
@@ -1314,6 +1329,9 @@ closing parameter will be set to true.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1351,6 +1369,9 @@ closing parameter will be set to true.</p>
     
     
     
+    
+
+    
 
     
 </article>
@@ -1380,11 +1401,14 @@ closing parameter will be set to true.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Maybe available only during <strong>filter</strong> calls when the closing parameter
 is set to false.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1423,6 +1447,9 @@ shutdown), and is executed after the flush method is called.</p>
     
     
     
+    
+
+    
 
     
 </article>
@@ -1454,6 +1481,9 @@ shutdown), and is executed after the flush method is called.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1489,6 +1519,7 @@ shutdown), and is executed after the flush method is called.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1501,6 +1532,8 @@ shutdown), and is executed after the flush method is called.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1537,6 +1570,7 @@ shutdown), and is executed after the flush method is called.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1549,6 +1583,8 @@ shutdown), and is executed after the flush method is called.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1666,12 +1702,12 @@ shutdown), and is executed after the flush method is called.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Hoa-Stream-Filter-Basic.html#constant_FATAL_ERROR">FATAL_ERROR</a></li>
-                                                    <li><a href="classes/Hoa-Stream-Filter-Basic.html#constant_FEED_ME">FEED_ME</a></li>
-                                                    <li><a href="classes/Hoa-Stream-Filter-Basic.html#constant_FLAG_FLUSH_CLOSE">FLAG_FLUSH_CLOSE</a></li>
-                                                    <li><a href="classes/Hoa-Stream-Filter-Basic.html#constant_FLAG_FLUSH_INC">FLAG_FLUSH_INC</a></li>
-                                                    <li><a href="classes/Hoa-Stream-Filter-Basic.html#constant_FLAG_NORMAL">FLAG_NORMAL</a></li>
-                                                    <li><a href="classes/Hoa-Stream-Filter-Basic.html#constant_PASS_ON">PASS_ON</a></li>
+                                                    <li class=""><a href="classes/Hoa-Stream-Filter-Basic.html#constant_FATAL_ERROR">FATAL_ERROR</a></li>
+                                                    <li class=""><a href="classes/Hoa-Stream-Filter-Basic.html#constant_FEED_ME">FEED_ME</a></li>
+                                                    <li class=""><a href="classes/Hoa-Stream-Filter-Basic.html#constant_FLAG_FLUSH_CLOSE">FLAG_FLUSH_CLOSE</a></li>
+                                                    <li class=""><a href="classes/Hoa-Stream-Filter-Basic.html#constant_FLAG_FLUSH_INC">FLAG_FLUSH_INC</a></li>
+                                                    <li class=""><a href="classes/Hoa-Stream-Filter-Basic.html#constant_FLAG_NORMAL">FLAG_NORMAL</a></li>
+                                                    <li class=""><a href="classes/Hoa-Stream-Filter-Basic.html#constant_PASS_ON">PASS_ON</a></li>
                                             </ul>
                 </li>
             
@@ -1679,14 +1715,14 @@ shutdown), and is executed after the flush method is called.</p>
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/Hoa-Stream-Filter-Basic.html#method_filter">filter()</a></li>
-                                            <li><a href="classes/Hoa-Stream-Filter-Basic.html#method_getName">getName()</a></li>
-                                            <li><a href="classes/Hoa-Stream-Filter-Basic.html#method_getParameters">getParameters()</a></li>
-                                            <li><a href="classes/Hoa-Stream-Filter-Basic.html#method_getStream">getStream()</a></li>
-                                            <li><a href="classes/Hoa-Stream-Filter-Basic.html#method_onClose">onClose()</a></li>
-                                            <li><a href="classes/Hoa-Stream-Filter-Basic.html#method_onCreate">onCreate()</a></li>
-                                            <li><a href="classes/Hoa-Stream-Filter-Basic.html#method_setName">setName()</a></li>
-                                            <li><a href="classes/Hoa-Stream-Filter-Basic.html#method_setParameters">setParameters()</a></li>
+                                            <li class=""><a href="classes/Hoa-Stream-Filter-Basic.html#method_filter">filter()</a></li>
+                                            <li class=""><a href="classes/Hoa-Stream-Filter-Basic.html#method_getName">getName()</a></li>
+                                            <li class=""><a href="classes/Hoa-Stream-Filter-Basic.html#method_getParameters">getParameters()</a></li>
+                                            <li class=""><a href="classes/Hoa-Stream-Filter-Basic.html#method_getStream">getStream()</a></li>
+                                            <li class=""><a href="classes/Hoa-Stream-Filter-Basic.html#method_onClose">onClose()</a></li>
+                                            <li class=""><a href="classes/Hoa-Stream-Filter-Basic.html#method_onCreate">onCreate()</a></li>
+                                            <li class=""><a href="classes/Hoa-Stream-Filter-Basic.html#method_setName">setName()</a></li>
+                                            <li class=""><a href="classes/Hoa-Stream-Filter-Basic.html#method_setParameters">setParameters()</a></li>
                                     </ul>
             </li>
                     </ul>

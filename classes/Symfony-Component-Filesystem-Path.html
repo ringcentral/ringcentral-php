@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -729,6 +721,7 @@
 
             <p class="phpdocumentor-summary">Contains utility methods for handling path strings.</p>
 
+
     <section class="phpdocumentor-description"><p>The methods in this class are able to deal with both UNIX and Windows paths
 with both forward and backward slashes. All methods return normalized parts
 containing only forward slashes and no excess &quot;.&quot; and &quot;..&quot; segments.</p>
@@ -772,6 +765,8 @@ containing only forward slashes and no excess &quot;.&quot; and &quot;..&quot; s
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/Symfony-Component-Filesystem-Path.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -791,14 +786,14 @@ containing only forward slashes and no excess &quot;.&quot; and &quot;..&quot; s
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -private">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#constant_CLEANUP_SIZE">CLEANUP_SIZE</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#constant_CLEANUP_SIZE">CLEANUP_SIZE</a>
     <span>
         &nbsp;= 1000                            </span>
 </dt>
 <dd>The buffer size after the cleanup operation.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -private">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#constant_CLEANUP_THRESHOLD">CLEANUP_THRESHOLD</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#constant_CLEANUP_THRESHOLD">CLEANUP_THRESHOLD</a>
     <span>
         &nbsp;= 1250                            </span>
 </dt>
@@ -814,14 +809,14 @@ containing only forward slashes and no excess &quot;.&quot; and &quot;..&quot; s
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#property_buffer">$buffer</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#property_buffer">$buffer</a>
     <span>
                         &nbsp;: array&lt;string, string&gt;            </span>
 </dt>
 <dd>Buffers input/output of {@link canonicalize()}.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#property_bufferSize">$bufferSize</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#property_bufferSize">$bufferSize</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
@@ -835,49 +830,49 @@ containing only forward slashes and no excess &quot;.&quot; and &quot;..&quot; s
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_canonicalize">canonicalize()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_canonicalize">canonicalize()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Canonicalizes the given path.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_changeExtension">changeExtension()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_changeExtension">changeExtension()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Changes the extension of a path string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_getDirectory">getDirectory()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_getDirectory">getDirectory()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns the directory part of the path.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_getExtension">getExtension()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_getExtension">getExtension()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns the extension from a file path (without leading dot).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_getFilenameWithoutExtension">getFilenameWithoutExtension()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_getFilenameWithoutExtension">getFilenameWithoutExtension()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns the file name without the extension from a file path.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_getHomeDirectory">getHomeDirectory()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_getHomeDirectory">getHomeDirectory()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns canonical path of the user&#039;s home directory.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_getLongestCommonBasePath">getLongestCommonBasePath()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_getLongestCommonBasePath">getLongestCommonBasePath()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
@@ -885,100 +880,99 @@ containing only forward slashes and no excess &quot;.&quot; and &quot;..&quot; s
 `null` if the paths are on different Windows partitions.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_getRoot">getRoot()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_getRoot">getRoot()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns the root directory of a path.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_hasExtension">hasExtension()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_hasExtension">hasExtension()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether the path has an (or the specified) extension.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_isAbsolute">isAbsolute()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_isAbsolute">isAbsolute()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_isBasePath">isBasePath()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_isBasePath">isBasePath()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether a path is a base path of another path.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_isLocal">isLocal()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_isLocal">isLocal()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether the given path is on the local filesystem.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_isRelative">isRelative()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_isRelative">isRelative()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_join">join()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_join">join()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Joins two or more path strings into a canonical path.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_makeAbsolute">makeAbsolute()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_makeAbsolute">makeAbsolute()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Turns a relative path into an absolute path in canonical form.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_makeRelative">makeRelative()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_makeRelative">makeRelative()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Turns a path into a relative path.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_normalize">normalize()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_normalize">normalize()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Normalizes the given path.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method___construct">__construct()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_findCanonicalParts">findCanonicalParts()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_findCanonicalParts">findCanonicalParts()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_split">split()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_split">split()</a>
     <span>
                                 &nbsp;: array{: string, : string}    </span>
 </dt>
 <dd>Splits a canonical path into its root directory and the remainder.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Symfony-Component-Filesystem-Path.html#method_toLower">toLower()</a>
+    <a class="" href="classes/Symfony-Component-Filesystem-Path.html#method_toLower">toLower()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 
     </dl>
-
 
 
 
@@ -1005,6 +999,7 @@ containing only forward slashes and no excess &quot;.&quot; and &quot;..&quot; s
 
         <p class="phpdocumentor-summary">The buffer size after the cleanup operation.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1015,6 +1010,8 @@ containing only forward slashes and no excess &quot;.&quot; and &quot;..&quot; s
 
     
     
+    
+
     
 
 </article>
@@ -1034,6 +1031,7 @@ containing only forward slashes and no excess &quot;.&quot; and &quot;..&quot; s
 
         <p class="phpdocumentor-summary">The number of buffer entries that triggers a cleanup operation.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1044,6 +1042,8 @@ containing only forward slashes and no excess &quot;.&quot; and &quot;..&quot; s
 
     
     
+    
+
     
 
 </article>
@@ -1079,6 +1079,7 @@ containing only forward slashes and no excess &quot;.&quot; and &quot;..&quot; s
 
         <p class="phpdocumentor-summary">Buffers input/output of {@link canonicalize()}.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string, string&gt;</span>
@@ -1087,6 +1088,8 @@ containing only forward slashes and no excess &quot;.&quot; and &quot;..&quot; s
 
     
     
+    
+
     
 
 </article>
@@ -1112,6 +1115,7 @@ containing only forward slashes and no excess &quot;.&quot; and &quot;..&quot; s
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">int</span>
@@ -1120,6 +1124,8 @@ containing only forward slashes and no excess &quot;.&quot; and &quot;..&quot; s
 
     
     
+    
+
     
 
 </article>
@@ -1157,6 +1163,7 @@ containing only forward slashes and no excess &quot;.&quot; and &quot;..&quot; s
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>During normalization, all slashes are replaced by forward slashes (&quot;/&quot;).
 Furthermore, all &quot;.&quot; and &quot;..&quot; segments are removed as far as possible.
 &quot;..&quot; segments at the beginning of relative paths are not removed.</p>
@@ -1179,6 +1186,8 @@ echo Path::canonicalize(&quot;../css/./style.css&quot;);
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1215,6 +1224,7 @@ echo Path::canonicalize(&quot;../css/./style.css&quot;);
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1236,6 +1246,8 @@ echo Path::canonicalize(&quot;../css/./style.css&quot;);
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1275,6 +1287,7 @@ echo Path::canonicalize(&quot;../css/./style.css&quot;);
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This method is similar to PHP's dirname(), but handles various cases
 where dirname() returns a weird result:</p>
 <ul>
@@ -1300,6 +1313,8 @@ otherwise.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1343,6 +1358,7 @@ Returns an empty string if an empty string is passed.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1362,6 +1378,8 @@ Returns an empty string if an empty string is passed.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1398,6 +1416,7 @@ Returns an empty string if an empty string is passed.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1418,6 +1437,8 @@ off (may contain leading dot)</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1453,6 +1474,7 @@ off (may contain leading dot)</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Supported operating systems:</p>
 <ul>
 <li>UNIX</li>
@@ -1481,6 +1503,8 @@ off (may contain leading dot)</p>
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1515,6 +1539,7 @@ off (may contain leading dot)</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Dot segments (&quot;.&quot; and &quot;..&quot;) are removed/collapsed and all slashes turned
 into forward slashes.</p>
 <pre class="prettyprint"><code class="language-php">$basePath = Path::getLongestCommonBasePath(
@@ -1553,6 +1578,8 @@ returned.</p>
 
     
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string|null</span>
@@ -1585,6 +1612,7 @@ returned.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The result is a canonical path.</p>
 </section>
 
@@ -1598,6 +1626,8 @@ returned.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1639,6 +1669,7 @@ the given path is relative or empty.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1676,6 +1707,8 @@ without leading dot)</p>
 
     
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
@@ -1708,6 +1741,7 @@ without leading dot)</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1718,6 +1752,8 @@ without leading dot)</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1753,6 +1789,7 @@ without leading dot)</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Dot segments (&quot;.&quot; and &quot;..&quot;) are removed/collapsed and all slashes turned
 into forward slashes.</p>
 <pre class="prettyprint"><code class="language-php">Path::isBasePath('/symfony', '/symfony/css');
@@ -1789,6 +1826,8 @@ Path::isBasePath('/symfony', '/puli');
 
     
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
@@ -1822,6 +1861,7 @@ Path::isBasePath('/symfony', '/puli');
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1832,6 +1872,8 @@ Path::isBasePath('/symfony', '/puli');
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1867,6 +1909,7 @@ Path::isBasePath('/symfony', '/puli');
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1877,6 +1920,8 @@ Path::isBasePath('/symfony', '/puli');
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1913,6 +1958,7 @@ Path::isBasePath('/symfony', '/puli');
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1923,6 +1969,8 @@ Path::isBasePath('/symfony', '/puli');
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1958,6 +2006,7 @@ Path::isBasePath('/symfony', '/puli');
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Usually, the relative path is appended to the given base path. Dot
 segments (&quot;.&quot; and &quot;..&quot;) are removed/collapsed and all slashes turned
 into forward slashes.</p>
@@ -2021,6 +2070,8 @@ a different root than the base path</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
@@ -2053,6 +2104,7 @@ a different root than the base path</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The relative path is created relative to the given base path:</p>
 <pre class="prettyprint"><code class="language-php">echo Path::makeRelative(&quot;/symfony/style.css&quot;, &quot;/symfony/puli&quot;);
 // =&gt; ../style.css
@@ -2120,6 +2172,8 @@ than the base path</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
@@ -2152,6 +2206,7 @@ than the base path</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>During normalization, all slashes are replaced by forward slashes (&quot;/&quot;).
 Contrary to <a href="canonicalize()"></a>, this method does not remove invalid
 or dot path segments. Consequently, it is much more efficient and should
@@ -2170,6 +2225,8 @@ path.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2207,6 +2264,9 @@ path.</p>
     
     
     
+    
+
+    
 
     
 </article>
@@ -2236,6 +2296,7 @@ path.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2253,6 +2314,8 @@ path.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2288,6 +2351,7 @@ path.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>If the path has no root directory, an empty root directory will be
 returned.</p>
 <p>If the root directory is a Windows style partition, the resulting root
@@ -2308,6 +2372,8 @@ will always contain a trailing slash.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2347,6 +2413,7 @@ will always contain a trailing slash.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2357,6 +2424,8 @@ will always contain a trailing slash.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2479,43 +2548,43 @@ will always contain a trailing slash.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Symfony-Component-Filesystem-Path.html#constant_CLEANUP_SIZE">CLEANUP_SIZE</a></li>
-                                                    <li><a href="classes/Symfony-Component-Filesystem-Path.html#constant_CLEANUP_THRESHOLD">CLEANUP_THRESHOLD</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#constant_CLEANUP_SIZE">CLEANUP_SIZE</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#constant_CLEANUP_THRESHOLD">CLEANUP_THRESHOLD</a></li>
                                             </ul>
                 </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Symfony-Component-Filesystem-Path.html#property_buffer">$buffer<a href="classes/Symfony-Component-Filesystem-Path.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Filesystem-Path.html#property_bufferSize">$bufferSize<a href="classes/Symfony-Component-Filesystem-Path.html"></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#property_buffer">$buffer</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#property_bufferSize">$bufferSize</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_canonicalize">canonicalize()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_changeExtension">changeExtension()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_getDirectory">getDirectory()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_getExtension">getExtension()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_getFilenameWithoutExtension">getFilenameWithoutExtension()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_getHomeDirectory">getHomeDirectory()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_getLongestCommonBasePath">getLongestCommonBasePath()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_getRoot">getRoot()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_hasExtension">hasExtension()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_isAbsolute">isAbsolute()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_isBasePath">isBasePath()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_isLocal">isLocal()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_isRelative">isRelative()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_join">join()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_makeAbsolute">makeAbsolute()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_makeRelative">makeRelative()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_normalize">normalize()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_findCanonicalParts">findCanonicalParts()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_split">split()</a></li>
-                                            <li><a href="classes/Symfony-Component-Filesystem-Path.html#method_toLower">toLower()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_canonicalize">canonicalize()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_changeExtension">changeExtension()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_getDirectory">getDirectory()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_getExtension">getExtension()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_getFilenameWithoutExtension">getFilenameWithoutExtension()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_getHomeDirectory">getHomeDirectory()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_getLongestCommonBasePath">getLongestCommonBasePath()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_getRoot">getRoot()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_hasExtension">hasExtension()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_isAbsolute">isAbsolute()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_isBasePath">isBasePath()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_isLocal">isLocal()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_isRelative">isRelative()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_join">join()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_makeAbsolute">makeAbsolute()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_makeRelative">makeRelative()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_normalize">normalize()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_findCanonicalParts">findCanonicalParts()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_split">split()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Filesystem-Path.html#method_toLower">toLower()</a></li>
                                     </ul>
             </li>
                     </ul>

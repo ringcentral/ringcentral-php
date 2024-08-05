@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -731,6 +723,7 @@
 
             <p class="phpdocumentor-summary">Provides a read only stream that pumps data from a PHP callable.</p>
 
+
     <section class="phpdocumentor-description"><p>When invoking the provided callable, the PumpStream will pass the amount of
 data requested to read to the callable. The callable can choose to ignore
 this value and return fewer or more bytes than requested. Any extra data
@@ -738,6 +731,8 @@ returned by the provided callable is buffered internally until drained using
 the read() function of the PumpStream. The provided callable MUST return
 false when there is no more data to read.</p>
 </section>
+
+
 
 
 
@@ -771,31 +766,31 @@ false when there is no more data to read.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#property_buffer">$buffer</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#property_buffer">$buffer</a>
     <span>
                         &nbsp;: <a href="classes/GuzzleHttp-Psr7-BufferStream.html"><abbr title="\GuzzleHttp\Psr7\BufferStream">BufferStream</abbr></a>            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#property_metadata">$metadata</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#property_metadata">$metadata</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#property_size">$size</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#property_size">$size</a>
     <span>
                         &nbsp;: int|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#property_source">$source</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#property_source">$source</a>
     <span>
-                        &nbsp;: callable            </span>
+                        &nbsp;: callable(int): Array|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#property_tellPos">$tellPos</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#property_tellPos">$tellPos</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
@@ -809,124 +804,123 @@ false when there is no more data to read.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method___construct">__construct()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method___toString">__toString()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method___toString">__toString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Reads all data from the stream into a string, from the beginning to end.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_close">close()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method_close">close()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Closes the stream and any underlying resources.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_detach">detach()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method_detach">detach()</a>
     <span>
                                 &nbsp;: resource|null    </span>
 </dt>
 <dd>Separates any underlying resources from the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_eof">eof()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method_eof">eof()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns true if the stream is at the end of the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_getContents">getContents()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method_getContents">getContents()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns the remaining contents in a string</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_getMetadata">getMetadata()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method_getMetadata">getMetadata()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Get stream metadata as an associative array or retrieve a specific key.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_getSize">getSize()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method_getSize">getSize()</a>
     <span>
                                 &nbsp;: int|null    </span>
 </dt>
 <dd>Get the size of the stream if known.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_isReadable">isReadable()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method_isReadable">isReadable()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether or not the stream is readable.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_isSeekable">isSeekable()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method_isSeekable">isSeekable()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether or not the stream is seekable.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_isWritable">isWritable()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method_isWritable">isWritable()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether or not the stream is writable.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_read">read()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method_read">read()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Read data from the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_rewind">rewind()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method_rewind">rewind()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Seek to the beginning of the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_seek">seek()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method_seek">seek()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Seek to a position in the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_tell">tell()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method_tell">tell()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Returns the current position of the file read/write pointer</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_write">write()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method_write">write()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Write data to the stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_pump">pump()</a>
+    <a class="" href="classes/GuzzleHttp-Psr7-PumpStream.html#method_pump">pump()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
     </dl>
-
 
 
 
@@ -961,6 +955,7 @@ false when there is no more data to read.</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type"><a href="classes/GuzzleHttp-Psr7-BufferStream.html"><abbr title="\GuzzleHttp\Psr7\BufferStream">BufferStream</abbr></a></span>
@@ -969,6 +964,8 @@ false when there is no more data to read.</p>
 
     
     
+    
+
     
 
 </article>
@@ -994,6 +991,7 @@ false when there is no more data to read.</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
@@ -1002,6 +1000,8 @@ false when there is no more data to read.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1027,6 +1027,7 @@ false when there is no more data to read.</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">int|null</span>
@@ -1035,6 +1036,8 @@ false when there is no more data to read.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1060,15 +1063,16 @@ false when there is no more data to read.</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">callable</span>
+        <span class="phpdocumentor-signature__type">callable(int): Array|null</span>
     <span class="phpdocumentor-signature__name">$source</span>
     </code>
 
     
-        <section class="phpdocumentor-description"><p>(string|false|null)|null</p>
-</section>
+    
+    
 
     
 
@@ -1095,6 +1099,7 @@ false when there is no more data to read.</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">int</span>
@@ -1103,6 +1108,8 @@ false when there is no more data to read.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1135,19 +1142,26 @@ false when there is no more data to read.</p>
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$source</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array{size?: int, metadata?: array}&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable(int): Array&nbsp;</span><span class="phpdocumentor-signature__argument__name">$source</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array{size?: int, metadata?: array}&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$source</span>
-                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable(int): Array</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Source of the stream data. The callable MAY
+accept an integer argument used to control the
+amount of data to return. The callable MUST
+return a string when called, or false|null on error
+or EOF.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$options</span>
@@ -1163,6 +1177,8 @@ false when there is no more data to read.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1194,6 +1210,7 @@ false when there is no more data to read.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This method MUST attempt to seek to the beginning of the stream before
 reading data and read the stream until the end is reached.</p>
 <p>Warning: This could attempt to load a large amount of data into memory.</p>
@@ -1202,6 +1219,8 @@ string casting operations.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1239,6 +1258,9 @@ string casting operations.</p>
     
     
     
+    
+
+    
 
     
 </article>
@@ -1268,10 +1290,13 @@ string casting operations.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>After the stream has been detached, the stream is in an unusable state.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1313,6 +1338,9 @@ string casting operations.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1349,6 +1377,9 @@ string casting operations.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1383,6 +1414,7 @@ string casting operations.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1395,6 +1427,8 @@ string casting operations.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1428,6 +1462,9 @@ string casting operations.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1469,6 +1506,9 @@ string casting operations.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1504,6 +1544,9 @@ string casting operations.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1541,6 +1584,9 @@ string casting operations.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1575,6 +1621,7 @@ string casting operations.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1589,6 +1636,8 @@ call returns fewer bytes.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1629,11 +1678,14 @@ if no bytes are available.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>If the stream is not seekable, this method will raise an exception;
 otherwise, it will perform a seek(0).</p>
 </section>
 
     
+    
+
     
 
     
@@ -1665,6 +1717,7 @@ otherwise, it will perform a seek(0).</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1690,6 +1743,8 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1723,6 +1778,9 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1762,6 +1820,7 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1774,6 +1833,8 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1813,6 +1874,7 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1823,6 +1885,8 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1941,34 +2005,34 @@ SEEK_END: Set position to end-of-stream plus offset.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#property_buffer">$buffer<a href="classes/GuzzleHttp-Psr7-PumpStream.html"></li>
-                                                    <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#property_metadata">$metadata<a href="classes/GuzzleHttp-Psr7-PumpStream.html"></li>
-                                                    <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#property_size">$size<a href="classes/GuzzleHttp-Psr7-PumpStream.html"></li>
-                                                    <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#property_source">$source<a href="classes/GuzzleHttp-Psr7-PumpStream.html"></li>
-                                                    <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#property_tellPos">$tellPos<a href="classes/GuzzleHttp-Psr7-PumpStream.html"></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#property_buffer">$buffer</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#property_metadata">$metadata</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#property_size">$size</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#property_source">$source</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#property_tellPos">$tellPos</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method___toString">__toString()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_close">close()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_detach">detach()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_eof">eof()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_getContents">getContents()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_getMetadata">getMetadata()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_getSize">getSize()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_isReadable">isReadable()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_isSeekable">isSeekable()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_isWritable">isWritable()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_read">read()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_rewind">rewind()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_seek">seek()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_tell">tell()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_write">write()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_pump">pump()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method___toString">__toString()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_close">close()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_detach">detach()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_eof">eof()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_getContents">getContents()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_getMetadata">getMetadata()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_getSize">getSize()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_isReadable">isReadable()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_isSeekable">isSeekable()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_isWritable">isWritable()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_read">read()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_rewind">rewind()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_seek">seek()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_tell">tell()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_write">write()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Psr7-PumpStream.html#method_pump">pump()</a></li>
                                     </ul>
             </li>
                     </ul>

@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -731,6 +723,14 @@
 
             <p class="phpdocumentor-summary">[Deprecated] An `ext-libevent` based event loop.</p>
 
+            <div class="phpdocumentor-admonition">
+        <svg class="phpdocumentor-admonition__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <article>
+                <p>use <a href="#exteventloop"><code class="prettyprint">ExtEventLoop</code></a> instead.</p>
+
+            </article>
+        </div>
+    
     <section class="phpdocumentor-description"><p>This uses the <a href="https://pecl.php.net/package/libevent"><code class="prettyprint">libevent</code> PECL extension</a>,
 that provides an interface to <code class="prettyprint">libevent</code> library.
 <code class="prettyprint">libevent</code> itself supports a number of system-specific backends (epoll, kqueue).</p>
@@ -764,17 +764,9 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
                                                                                                         <a class="phpdocumentor-tag-link" href="https://pecl.php.net/package/libevent"> https://pecl.php.net/package/libevent </a>
                     
                                     </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">deprecated</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.2.0,</span>
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>use <a href="#exteventloop"><code class="prettyprint">ExtEventLoop</code></a> instead.</p>
-</section>
-
-                                    </dd>
                                             </dl>
+
+
 
 
 
@@ -806,73 +798,73 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#property_eventBase">$eventBase</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#property_eventBase">$eventBase</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#property_futureTickQueue">$futureTickQueue</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#property_futureTickQueue">$futureTickQueue</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#property_readEvents">$readEvents</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#property_readEvents">$readEvents</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#property_readListeners">$readListeners</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#property_readListeners">$readListeners</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#property_running">$running</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#property_running">$running</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#property_signalEvents">$signalEvents</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#property_signalEvents">$signalEvents</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#property_signals">$signals</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#property_signals">$signals</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#property_streamCallback">$streamCallback</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#property_streamCallback">$streamCallback</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#property_timerCallback">$timerCallback</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#property_timerCallback">$timerCallback</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#property_timerEvents">$timerEvents</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#property_timerEvents">$timerEvents</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#property_writeEvents">$writeEvents</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#property_writeEvents">$writeEvents</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#property_writeListeners">$writeListeners</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#property_writeListeners">$writeListeners</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -886,118 +878,117 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#method___construct">__construct()</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#method_addPeriodicTimer">addPeriodicTimer()</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#method_addPeriodicTimer">addPeriodicTimer()</a>
     <span>
                                 &nbsp;: <a href="classes/React-EventLoop-TimerInterface.html"><abbr title="\React\EventLoop\TimerInterface">TimerInterface</abbr></a>    </span>
 </dt>
 <dd>Enqueue a callback to be invoked repeatedly after the given interval.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#method_addReadStream">addReadStream()</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#method_addReadStream">addReadStream()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>[Advanced] Register a listener to be notified when a stream is ready to read.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#method_addSignal">addSignal()</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#method_addSignal">addSignal()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Register a listener to be notified when a signal has been caught by this process.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#method_addTimer">addTimer()</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#method_addTimer">addTimer()</a>
     <span>
                                 &nbsp;: <a href="classes/React-EventLoop-TimerInterface.html"><abbr title="\React\EventLoop\TimerInterface">TimerInterface</abbr></a>    </span>
 </dt>
 <dd>Enqueue a callback to be invoked once after the given interval.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#method_addWriteStream">addWriteStream()</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#method_addWriteStream">addWriteStream()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>[Advanced] Register a listener to be notified when a stream is ready to write.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#method_cancelTimer">cancelTimer()</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#method_cancelTimer">cancelTimer()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Cancel a pending timer.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#method_futureTick">futureTick()</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#method_futureTick">futureTick()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Schedule a callback to be invoked on a future tick of the event loop.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#method_removeReadStream">removeReadStream()</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#method_removeReadStream">removeReadStream()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Remove the read event listener for the given stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#method_removeSignal">removeSignal()</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#method_removeSignal">removeSignal()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Removes a previously added signal listener.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#method_removeWriteStream">removeWriteStream()</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#method_removeWriteStream">removeWriteStream()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Remove the write event listener for the given stream.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#method_run">run()</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#method_run">run()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Run the event loop until there are no more tasks to perform.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#method_stop">stop()</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#method_stop">stop()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Instruct a running event loop to stop.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#method_createStreamCallback">createStreamCallback()</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#method_createStreamCallback">createStreamCallback()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Create a callback used as the target of stream events.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#method_createTimerCallback">createTimerCallback()</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#method_createTimerCallback">createTimerCallback()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Create a callback used as the target of timer events.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/React-EventLoop-ExtLibeventLoop.html#method_scheduleTimer">scheduleTimer()</a>
+    <a class="" href="classes/React-EventLoop-ExtLibeventLoop.html#method_scheduleTimer">scheduleTimer()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Schedule a timer for execution.</dd>
 
     </dl>
-
 
 
 
@@ -1032,6 +1023,7 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1040,6 +1032,8 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
 
     
     
+    
+
     
 
 </article>
@@ -1065,6 +1059,7 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1073,6 +1068,8 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
 
     
     
+    
+
     
 
 </article>
@@ -1098,6 +1095,7 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1106,6 +1104,8 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
 
     
     
+    
+
     
 
 </article>
@@ -1131,6 +1131,7 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1139,6 +1140,8 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
 
     
     
+    
+
     
 
 </article>
@@ -1164,6 +1167,7 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1172,6 +1176,8 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
 
     
     
+    
+
     
 
 </article>
@@ -1197,6 +1203,7 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1205,6 +1212,8 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
 
     
     
+    
+
     
 
 </article>
@@ -1230,6 +1239,7 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1238,6 +1248,8 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
 
     
     
+    
+
     
 
 </article>
@@ -1263,6 +1275,7 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1271,6 +1284,8 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
 
     
     
+    
+
     
 
 </article>
@@ -1296,6 +1311,7 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1304,6 +1320,8 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
 
     
     
+    
+
     
 
 </article>
@@ -1329,6 +1347,7 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1337,6 +1356,8 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
 
     
     
+    
+
     
 
 </article>
@@ -1362,6 +1383,7 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1370,6 +1392,8 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
 
     
     
+    
+
     
 
 </article>
@@ -1395,6 +1419,7 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1403,6 +1428,8 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
 
     
     
+    
+
     
 
 </article>
@@ -1442,6 +1469,9 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
     
     
     
+    
+
+    
 
     
 </article>
@@ -1471,6 +1501,7 @@ See also <a href="#addreadstream"><code class="prettyprint">addReadStream()</cod
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The second parameter MUST be a timer callback function that accepts
 the timer instance as its only parameter.
 If you don't use the timer instance inside your timer callback function
@@ -1560,6 +1591,8 @@ accuracy or below.</p>
 
     
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/React-EventLoop-TimerInterface.html"><abbr title="\React\EventLoop\TimerInterface">TimerInterface</abbr></a></span>
@@ -1592,6 +1625,7 @@ accuracy or below.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Note that this low-level API is considered advanced usage.
 Most use cases should probably use the higher-level
 <a href="https://github.com/reactphp/stream#readablestreaminterface">readable Stream API</a>
@@ -1649,6 +1683,8 @@ the same time is not guaranteed.</p>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1676,6 +1712,7 @@ the same time is not guaranteed.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This is useful to catch user interrupt signals or shutdown signals from
 tools like <code class="prettyprint">supervisor</code> or <code class="prettyprint">systemd</code>.</p>
 <p>The second parameter MUST be a listener callback function that accepts
@@ -1721,6 +1758,8 @@ attempts to add it more than once will be ignored.</strong></p>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1748,6 +1787,7 @@ attempts to add it more than once will be ignored.</strong></p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The second parameter MUST be a timer callback function that accepts
 the timer instance as its only parameter.
 If you don't use the timer instance inside your timer callback function
@@ -1826,6 +1866,8 @@ See also <a href="#loop-implementations">event loop implementations</a> for more
 
     
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/React-EventLoop-TimerInterface.html"><abbr title="\React\EventLoop\TimerInterface">TimerInterface</abbr></a></span>
@@ -1858,6 +1900,7 @@ See also <a href="#loop-implementations">event loop implementations</a> for more
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Note that this low-level API is considered advanced usage.
 Most use cases should probably use the higher-level
 <a href="https://github.com/reactphp/stream#writablestreaminterface">writable Stream API</a>
@@ -1922,6 +1965,8 @@ to disable PHP's internal read buffer in this case.</p>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1949,6 +1994,7 @@ to disable PHP's internal read buffer in this case.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>See also <a href="#addperiodictimer"><code class="prettyprint">addPeriodicTimer()</code></a> and <a href="examples">example #2</a>.</p>
 <p>Calling this method on a timer instance that has not been added to this
 loop instance or on a timer that has already been cancelled has no effect.</p>
@@ -1966,6 +2012,8 @@ loop instance or on a timer that has already been cancelled has no effect.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1997,6 +2045,7 @@ loop instance or on a timer that has already been cancelled has no effect.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This works very much similar to timers with an interval of zero seconds,
 but does not require the overhead of scheduling a timer queue.</p>
 <p>The tick callback function MUST be able to accept zero parameters.</p>
@@ -2047,6 +2096,8 @@ echo 'a';
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -2074,6 +2125,7 @@ echo 'a';
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Removing a stream from the loop that has already been removed or trying
 to remove a stream that was never added or is invalid has no effect.</p>
 </section>
@@ -2090,6 +2142,8 @@ to remove a stream that was never added or is invalid has no effect.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2121,6 +2175,7 @@ to remove a stream that was never added or is invalid has no effect.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$loop-&gt;removeSignal(SIGINT, $listener);
 </code></pre>
 <p>Any attempts to remove listeners that aren't registered will be ignored.</p>
@@ -2143,6 +2198,8 @@ to remove a stream that was never added or is invalid has no effect.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2174,6 +2231,7 @@ to remove a stream that was never added or is invalid has no effect.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Removing a stream from the loop that has already been removed or trying
 to remove a stream that was never added or is invalid has no effect.</p>
 </section>
@@ -2190,6 +2248,8 @@ to remove a stream that was never added or is invalid has no effect.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2221,6 +2281,7 @@ to remove a stream that was never added or is invalid has no effect.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>For many applications, this method is the only directly visible
 invocation on the event loop.
 As a rule of thumb, it is usually recommended to attach everything to the
@@ -2242,6 +2303,8 @@ previously did no longer have anything to do.</p>
 </section>
 
     
+    
+
     
 
     
@@ -2272,6 +2335,7 @@ previously did no longer have anything to do.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This method is considered advanced usage and should be used with care.
 As a rule of thumb, it is usually recommended to let the loop stop
 only automatically when it no longer has anything to do.</p>
@@ -2285,6 +2349,8 @@ on a loop instance that has already been stopped has no effect.</p>
 </section>
 
     
+    
+
     
 
     
@@ -2315,12 +2381,15 @@ on a loop instance that has already been stopped has no effect.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>A reference is kept to the callback for the lifetime of the loop
 to prevent &quot;Cannot destroy active lambda function&quot; fatal error from
 the event extension.</p>
 </section>
 
     
+    
+
     
 
     
@@ -2351,12 +2420,15 @@ the event extension.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>A reference is kept to the callback for the lifetime of the loop
 to prevent &quot;Cannot destroy active lambda function&quot; fatal error from
 the event extension.</p>
 </section>
 
     
+    
+
     
 
     
@@ -2388,6 +2460,7 @@ the event extension.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2398,6 +2471,8 @@ the event extension.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2516,40 +2591,40 @@ the event extension.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_eventBase">$eventBase<a href="classes/React-EventLoop-ExtLibeventLoop.html"></li>
-                                                    <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_futureTickQueue">$futureTickQueue<a href="classes/React-EventLoop-ExtLibeventLoop.html"></li>
-                                                    <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_readEvents">$readEvents<a href="classes/React-EventLoop-ExtLibeventLoop.html"></li>
-                                                    <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_readListeners">$readListeners<a href="classes/React-EventLoop-ExtLibeventLoop.html"></li>
-                                                    <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_running">$running<a href="classes/React-EventLoop-ExtLibeventLoop.html"></li>
-                                                    <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_signalEvents">$signalEvents<a href="classes/React-EventLoop-ExtLibeventLoop.html"></li>
-                                                    <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_signals">$signals<a href="classes/React-EventLoop-ExtLibeventLoop.html"></li>
-                                                    <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_streamCallback">$streamCallback<a href="classes/React-EventLoop-ExtLibeventLoop.html"></li>
-                                                    <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_timerCallback">$timerCallback<a href="classes/React-EventLoop-ExtLibeventLoop.html"></li>
-                                                    <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_timerEvents">$timerEvents<a href="classes/React-EventLoop-ExtLibeventLoop.html"></li>
-                                                    <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_writeEvents">$writeEvents<a href="classes/React-EventLoop-ExtLibeventLoop.html"></li>
-                                                    <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_writeListeners">$writeListeners<a href="classes/React-EventLoop-ExtLibeventLoop.html"></li>
+                                                    <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_eventBase">$eventBase</a></li>
+                                                    <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_futureTickQueue">$futureTickQueue</a></li>
+                                                    <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_readEvents">$readEvents</a></li>
+                                                    <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_readListeners">$readListeners</a></li>
+                                                    <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_running">$running</a></li>
+                                                    <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_signalEvents">$signalEvents</a></li>
+                                                    <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_signals">$signals</a></li>
+                                                    <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_streamCallback">$streamCallback</a></li>
+                                                    <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_timerCallback">$timerCallback</a></li>
+                                                    <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_timerEvents">$timerEvents</a></li>
+                                                    <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_writeEvents">$writeEvents</a></li>
+                                                    <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#property_writeListeners">$writeListeners</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_addPeriodicTimer">addPeriodicTimer()</a></li>
-                                            <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_addReadStream">addReadStream()</a></li>
-                                            <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_addSignal">addSignal()</a></li>
-                                            <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_addTimer">addTimer()</a></li>
-                                            <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_addWriteStream">addWriteStream()</a></li>
-                                            <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_cancelTimer">cancelTimer()</a></li>
-                                            <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_futureTick">futureTick()</a></li>
-                                            <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_removeReadStream">removeReadStream()</a></li>
-                                            <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_removeSignal">removeSignal()</a></li>
-                                            <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_removeWriteStream">removeWriteStream()</a></li>
-                                            <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_run">run()</a></li>
-                                            <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_stop">stop()</a></li>
-                                            <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_createStreamCallback">createStreamCallback()</a></li>
-                                            <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_createTimerCallback">createTimerCallback()</a></li>
-                                            <li><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_scheduleTimer">scheduleTimer()</a></li>
+                                            <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_addPeriodicTimer">addPeriodicTimer()</a></li>
+                                            <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_addReadStream">addReadStream()</a></li>
+                                            <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_addSignal">addSignal()</a></li>
+                                            <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_addTimer">addTimer()</a></li>
+                                            <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_addWriteStream">addWriteStream()</a></li>
+                                            <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_cancelTimer">cancelTimer()</a></li>
+                                            <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_futureTick">futureTick()</a></li>
+                                            <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_removeReadStream">removeReadStream()</a></li>
+                                            <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_removeSignal">removeSignal()</a></li>
+                                            <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_removeWriteStream">removeWriteStream()</a></li>
+                                            <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_run">run()</a></li>
+                                            <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_stop">stop()</a></li>
+                                            <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_createStreamCallback">createStreamCallback()</a></li>
+                                            <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_createTimerCallback">createTimerCallback()</a></li>
+                                            <li class=""><a href="classes/React-EventLoop-ExtLibeventLoop.html#method_scheduleTimer">scheduleTimer()</a></li>
                                     </ul>
             </li>
                     </ul>

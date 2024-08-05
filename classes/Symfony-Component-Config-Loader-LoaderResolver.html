@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -731,6 +723,7 @@
 
             <p class="phpdocumentor-summary">LoaderResolver selects a loader for a given resource.</p>
 
+
     <section class="phpdocumentor-description"><p>A resource can be anything (e.g. a full path to a config file or a Closure).
 Each loader determines whether it can load a resource and how.</p>
 </section>
@@ -752,6 +745,8 @@ Each loader determines whether it can load a resource and how.</p>
 
                                     </dd>
                                             </dl>
+
+
 
 
 
@@ -783,7 +778,7 @@ Each loader determines whether it can load a resource and how.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#property_loaders">$loaders</a>
+    <a class="" href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#property_loaders">$loaders</a>
     <span>
                         &nbsp;: array&lt;string|int, <a href="classes/Symfony-Component-Config-Loader-LoaderInterface.html"><abbr title="\Symfony\Component\Config\Loader\LoaderInterface">LoaderInterface</abbr></a>&gt;            </span>
 </dt>
@@ -797,33 +792,32 @@ Each loader determines whether it can load a resource and how.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#method___construct">__construct()</a>
+    <a class="" href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#method_addLoader">addLoader()</a>
+    <a class="" href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#method_addLoader">addLoader()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#method_getLoaders">getLoaders()</a>
+    <a class="" href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#method_getLoaders">getLoaders()</a>
     <span>
                                 &nbsp;: array&lt;string|int, <a href="classes/Symfony-Component-Config-Loader-LoaderInterface.html"><abbr title="\Symfony\Component\Config\Loader\LoaderInterface">LoaderInterface</abbr></a>&gt;    </span>
 </dt>
 <dd>Returns the registered loaders.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#method_resolve">resolve()</a>
+    <a class="" href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#method_resolve">resolve()</a>
     <span>
                                 &nbsp;: <a href="classes/Symfony-Component-Config-Loader-LoaderInterface.html"><abbr title="\Symfony\Component\Config\Loader\LoaderInterface">LoaderInterface</abbr></a>|false    </span>
 </dt>
 <dd>Returns a loader able to load the resource.</dd>
 
     </dl>
-
 
 
 
@@ -858,6 +852,7 @@ Each loader determines whether it can load a resource and how.</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, <a href="classes/Symfony-Component-Config-Loader-LoaderInterface.html"><abbr title="\Symfony\Component\Config\Loader\LoaderInterface">LoaderInterface</abbr></a>&gt;</span>
@@ -867,6 +862,8 @@ Each loader determines whether it can load a resource and how.</p>
     
         <section class="phpdocumentor-description"><p>An array of LoaderInterface objects</p>
 </section>
+
+    
 
     
 
@@ -905,6 +902,7 @@ Each loader determines whether it can load a resource and how.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -917,6 +915,8 @@ Each loader determines whether it can load a resource and how.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -948,6 +948,7 @@ Each loader determines whether it can load a resource and how.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -958,6 +959,8 @@ Each loader determines whether it can load a resource and how.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -991,6 +994,9 @@ Each loader determines whether it can load a resource and how.</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1026,6 +1032,7 @@ Each loader determines whether it can load a resource and how.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1045,6 +1052,8 @@ Each loader determines whether it can load a resource and how.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1167,17 +1176,17 @@ Each loader determines whether it can load a resource and how.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#property_loaders">$loaders<a href="classes/Symfony-Component-Config-Loader-LoaderResolver.html"></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#property_loaders">$loaders</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#method_addLoader">addLoader()</a></li>
-                                            <li><a href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#method_getLoaders">getLoaders()</a></li>
-                                            <li><a href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#method_resolve">resolve()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#method_addLoader">addLoader()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#method_getLoaders">getLoaders()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Config-Loader-LoaderResolver.html#method_resolve">resolve()</a></li>
                                     </ul>
             </li>
                     </ul>

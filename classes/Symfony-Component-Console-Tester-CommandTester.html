@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -713,7 +705,7 @@
     
     
             <span class="phpdocumentor-element__extends">
-            Uses
+            uses
                             <a href="classes/Symfony-Component-Console-Tester-TesterTrait.html"><abbr title="\Symfony\Component\Console\Tester\TesterTrait">TesterTrait</abbr></a>                    </span>
     </h2>
 
@@ -730,6 +722,7 @@
     </aside>
 
             <p class="phpdocumentor-summary">Eases the testing of console commands.</p>
+
 
 
 
@@ -761,6 +754,8 @@
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/Symfony-Component-Console-Tester-CommandTester.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -782,37 +777,37 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#property_captureStreamsIndependently">$captureStreamsIndependently</a>
+    <a class="" href="classes/Symfony-Component-Console-Tester-TesterTrait.html#property_captureStreamsIndependently">$captureStreamsIndependently</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Tester-CommandTester.html#property_command">$command</a>
+    <a class="" href="classes/Symfony-Component-Console-Tester-CommandTester.html#property_command">$command</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Tester-CommandTester.html#property_input">$input</a>
+    <a class="" href="classes/Symfony-Component-Console-Tester-CommandTester.html#property_input">$input</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#property_inputs">$inputs</a>
+    <a class="" href="classes/Symfony-Component-Console-Tester-TesterTrait.html#property_inputs">$inputs</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#property_output">$output</a>
+    <a class="" href="classes/Symfony-Component-Console-Tester-TesterTrait.html#property_output">$output</a>
     <span>
                         &nbsp;: <a href="classes/Symfony-Component-Console-Output-StreamOutput.html"><abbr title="\Symfony\Component\Console\Output\StreamOutput">StreamOutput</abbr></a>            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Console-Tester-CommandTester.html#property_statusCode">$statusCode</a>
+    <a class="" href="classes/Symfony-Component-Console-Tester-CommandTester.html#property_statusCode">$statusCode</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -826,75 +821,74 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Tester-CommandTester.html#method___construct">__construct()</a>
+    <a class="" href="classes/Symfony-Component-Console-Tester-CommandTester.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Tester-CommandTester.html#method_execute">execute()</a>
+    <a class="" href="classes/Symfony-Component-Console-Tester-CommandTester.html#method_execute">execute()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Executes the command.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getDisplay">getDisplay()</a>
+    <a class="" href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getDisplay">getDisplay()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets the display returned by the last execution of the command or application.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getErrorOutput">getErrorOutput()</a>
+    <a class="" href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getErrorOutput">getErrorOutput()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets the output written to STDERR by the application.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getInput">getInput()</a>
+    <a class="" href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getInput">getInput()</a>
     <span>
                                 &nbsp;: <a href="classes/Symfony-Component-Console-Input-InputInterface.html"><abbr title="\Symfony\Component\Console\Input\InputInterface">InputInterface</abbr></a>    </span>
 </dt>
 <dd>Gets the input instance used by the last execution of the command or application.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getOutput">getOutput()</a>
+    <a class="" href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getOutput">getOutput()</a>
     <span>
                                 &nbsp;: <a href="classes/Symfony-Component-Console-Output-OutputInterface.html"><abbr title="\Symfony\Component\Console\Output\OutputInterface">OutputInterface</abbr></a>    </span>
 </dt>
 <dd>Gets the output instance used by the last execution of the command or application.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getStatusCode">getStatusCode()</a>
+    <a class="" href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getStatusCode">getStatusCode()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Gets the status code returned by the last execution of the command or application.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_setInputs">setInputs()</a>
+    <a class="" href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_setInputs">setInputs()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Sets the user inputs.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_createStream">createStream()</a>
+    <a class="" href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_createStream">createStream()</a>
     <span>
                                 &nbsp;: resource    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_initOutput">initOutput()</a>
+    <a class="" href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_initOutput">initOutput()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Initializes the output property.</dd>
 
     </dl>
-
 
 
 
@@ -929,6 +923,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -937,6 +932,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -962,6 +959,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -970,6 +968,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -995,6 +995,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1003,6 +1004,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1028,6 +1031,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1036,6 +1040,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1061,6 +1067,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type"><a href="classes/Symfony-Component-Console-Output-StreamOutput.html"><abbr title="\Symfony\Component\Console\Output\StreamOutput">StreamOutput</abbr></a></span>
@@ -1069,6 +1076,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1094,6 +1103,7 @@
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1102,6 +1112,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1139,6 +1151,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1149,6 +1162,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1180,6 +1195,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Available execution options:</p>
 <ul>
 <li>interactive:               Sets the input interactive flag</li>
@@ -1210,6 +1226,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1250,6 +1268,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1262,6 +1281,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1302,6 +1323,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1314,6 +1336,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1351,6 +1375,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1392,6 +1419,9 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1432,6 +1462,9 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1470,6 +1503,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1483,6 +1517,8 @@ passed to the command input stream</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1518,6 +1554,7 @@ passed to the command input stream</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1528,6 +1565,8 @@ passed to the command input stream</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1563,6 +1602,7 @@ passed to the command input stream</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Available options:</p>
 <ul>
 <li>decorated:                 Sets the output decorated flag</li>
@@ -1581,6 +1621,8 @@ passed to the command input stream</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1699,28 +1741,28 @@ passed to the command input stream</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#property_captureStreamsIndependently">$captureStreamsIndependently<a href="classes/Symfony-Component-Console-Tester-CommandTester.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Console-Tester-CommandTester.html#property_command">$command<a href="classes/Symfony-Component-Console-Tester-CommandTester.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Console-Tester-CommandTester.html#property_input">$input<a href="classes/Symfony-Component-Console-Tester-CommandTester.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#property_inputs">$inputs<a href="classes/Symfony-Component-Console-Tester-CommandTester.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#property_output">$output<a href="classes/Symfony-Component-Console-Tester-CommandTester.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Console-Tester-CommandTester.html#property_statusCode">$statusCode<a href="classes/Symfony-Component-Console-Tester-CommandTester.html"></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#property_captureStreamsIndependently">$captureStreamsIndependently</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Tester-CommandTester.html#property_command">$command</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Tester-CommandTester.html#property_input">$input</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#property_inputs">$inputs</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#property_output">$output</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Console-Tester-CommandTester.html#property_statusCode">$statusCode</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/Symfony-Component-Console-Tester-CommandTester.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Tester-CommandTester.html#method_execute">execute()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getDisplay">getDisplay()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getErrorOutput">getErrorOutput()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getInput">getInput()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getOutput">getOutput()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getStatusCode">getStatusCode()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_setInputs">setInputs()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_createStream">createStream()</a></li>
-                                            <li><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_initOutput">initOutput()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Tester-CommandTester.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Tester-CommandTester.html#method_execute">execute()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getDisplay">getDisplay()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getErrorOutput">getErrorOutput()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getInput">getInput()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getOutput">getOutput()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_getStatusCode">getStatusCode()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_setInputs">setInputs()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_createStream">createStream()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Console-Tester-TesterTrait.html#method_initOutput">initOutput()</a></li>
                                     </ul>
             </li>
                     </ul>

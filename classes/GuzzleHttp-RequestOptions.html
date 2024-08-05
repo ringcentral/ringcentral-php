@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -729,6 +721,7 @@
 
 
 
+
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/GuzzleHttp-RequestOptions.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -744,6 +737,8 @@
                                              
                                     </dd>
                                             </dl>
+
+
 
 
 
@@ -766,7 +761,7 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_ALLOW_REDIRECTS">ALLOW_REDIRECTS</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_ALLOW_REDIRECTS">ALLOW_REDIRECTS</a>
     <span>
         &nbsp;= &#039;allow_redirects&#039;                            </span>
 </dt>
@@ -775,7 +770,7 @@ to disable redirects, pass true to enable redirects, pass an
 associative to provide custom redirect settings. Defaults to &quot;false&quot;.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_AUTH">AUTH</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_AUTH">AUTH</a>
     <span>
         &nbsp;= &#039;auth&#039;                            </span>
 </dt>
@@ -786,7 +781,7 @@ authentication type in index [2]. Pass null to disable authentication
 for a request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_BODY">BODY</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_BODY">BODY</a>
     <span>
         &nbsp;= &#039;body&#039;                            </span>
 </dt>
@@ -794,7 +789,7 @@ for a request.</dd>
 Body to send in the request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_CERT">CERT</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_CERT">CERT</a>
     <span>
         &nbsp;= &#039;cert&#039;                            </span>
 </dt>
@@ -805,7 +800,7 @@ file in the first array element followed by the certificate password
 in the second array element.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_CONNECT_TIMEOUT">CONNECT_TIMEOUT</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_CONNECT_TIMEOUT">CONNECT_TIMEOUT</a>
     <span>
         &nbsp;= &#039;connect_timeout&#039;                            </span>
 </dt>
@@ -814,7 +809,7 @@ seconds to wait while trying to connect to a server. Use 0 to wait
 300 seconds (the default behavior).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_COOKIES">COOKIES</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_COOKIES">COOKIES</a>
     <span>
         &nbsp;= &#039;cookies&#039;                            </span>
 </dt>
@@ -822,10 +817,10 @@ seconds to wait while trying to connect to a server. Use 0 to wait
 Specifies whether or not cookies are used in a request or what cookie
 jar to use or what cookies to send. This option only works if your
 handler has the `cookie` middleware. Valid values are `false` and
-an instance of {@see \GuzzleHttp\Cookie\CookieJarInterface}.</dd>
+an instance of {@see Cookie\CookieJarInterface}.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_CRYPTO_METHOD">CRYPTO_METHOD</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_CRYPTO_METHOD">CRYPTO_METHOD</a>
     <span>
         &nbsp;= &#039;crypto_method&#039;                            </span>
 </dt>
@@ -833,7 +828,7 @@ an instance of {@see \GuzzleHttp\Cookie\CookieJarInterface}.</dd>
 version to use.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_DEBUG">DEBUG</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_DEBUG">DEBUG</a>
     <span>
         &nbsp;= &#039;debug&#039;                            </span>
 </dt>
@@ -842,7 +837,7 @@ fopen()  enable debug output with the HTTP handler used to send a
 request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_DECODE_CONTENT">DECODE_CONTENT</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_DECODE_CONTENT">DECODE_CONTENT</a>
     <span>
         &nbsp;= &#039;decode_content&#039;                            </span>
 </dt>
@@ -851,14 +846,14 @@ Content-Encoding responses (gzip, deflate, etc.) are automatically
 decoded.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_DELAY">DELAY</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_DELAY">DELAY</a>
     <span>
         &nbsp;= &#039;delay&#039;                            </span>
 </dt>
 <dd>delay: (int) The amount of time to delay before sending in milliseconds.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_EXPECT">EXPECT</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_EXPECT">EXPECT</a>
     <span>
         &nbsp;= &#039;expect&#039;                            </span>
 </dt>
@@ -866,14 +861,14 @@ decoded.</dd>
 &quot;Expect: 100-Continue&quot; header.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_FORCE_IP_RESOLVE">FORCE_IP_RESOLVE</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_FORCE_IP_RESOLVE">FORCE_IP_RESOLVE</a>
     <span>
         &nbsp;= &#039;force_ip_resolve&#039;                            </span>
 </dt>
 <dd>force_ip_resolve: (bool) Force client to use only ipv4 or ipv6 protocol</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_FORM_PARAMS">FORM_PARAMS</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_FORM_PARAMS">FORM_PARAMS</a>
     <span>
         &nbsp;= &#039;form_params&#039;                            </span>
 </dt>
@@ -883,7 +878,7 @@ header to application/x-www-form-urlencoded when no Content-Type header
 is already present.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_HEADERS">HEADERS</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_HEADERS">HEADERS</a>
     <span>
         &nbsp;= &#039;headers&#039;                            </span>
 </dt>
@@ -891,7 +886,7 @@ is already present.</dd>
 a string or array of strings.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_HTTP_ERRORS">HTTP_ERRORS</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_HTTP_ERRORS">HTTP_ERRORS</a>
     <span>
         &nbsp;= &#039;http_errors&#039;                            </span>
 </dt>
@@ -901,7 +896,7 @@ exceptions will be thrown for 4xx and 5xx responses. This option only
 works if your handler has the `httpErrors` middleware.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_IDN_CONVERSION">IDN_CONVERSION</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_IDN_CONVERSION">IDN_CONVERSION</a>
     <span>
         &nbsp;= &#039;idn_conversion&#039;                            </span>
 </dt>
@@ -911,7 +906,7 @@ disable IDN support completely, or to true to use the default
 configuration (IDNA_DEFAULT constant).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_JSON">JSON</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_JSON">JSON</a>
     <span>
         &nbsp;= &#039;json&#039;                            </span>
 </dt>
@@ -920,7 +915,7 @@ encoded and a Content-Type header of application/json will be added to
 the request if no Content-Type header is already present.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_MULTIPART">MULTIPART</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_MULTIPART">MULTIPART</a>
     <span>
         &nbsp;= &#039;multipart&#039;                            </span>
 </dt>
@@ -933,7 +928,7 @@ the part. If no &quot;filename&quot; key is present, then no &quot;filename&quot
 will be added to the part.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_ON_HEADERS">ON_HEADERS</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_ON_HEADERS">ON_HEADERS</a>
     <span>
         &nbsp;= &#039;on_headers&#039;                            </span>
 </dt>
@@ -942,7 +937,7 @@ of the response have been received but the body has not yet begun to
 download.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_ON_STATS">ON_STATS</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_ON_STATS">ON_STATS</a>
     <span>
         &nbsp;= &#039;on_stats&#039;                            </span>
 </dt>
@@ -955,7 +950,7 @@ the error encountered. Included in the data is the total amount of time
 taken to send the request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_PROGRESS">PROGRESS</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_PROGRESS">PROGRESS</a>
     <span>
         &nbsp;= &#039;progress&#039;                            </span>
 </dt>
@@ -966,7 +961,7 @@ number of bytes downloaded so far, the number of bytes expected to be
 uploaded, the number of bytes uploaded so far.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_PROXY">PROXY</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_PROXY">PROXY</a>
     <span>
         &nbsp;= &#039;proxy&#039;                            </span>
 </dt>
@@ -975,7 +970,7 @@ array to specify different proxies for different protocols (where the
 key is the protocol and the value is a proxy string).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_QUERY">QUERY</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_QUERY">QUERY</a>
     <span>
         &nbsp;= &#039;query&#039;                            </span>
 </dt>
@@ -985,7 +980,7 @@ the string representation. Pass a string value if you need more
 control than what this method provides</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_READ_TIMEOUT">READ_TIMEOUT</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_READ_TIMEOUT">READ_TIMEOUT</a>
     <span>
         &nbsp;= &#039;read_timeout&#039;                            </span>
 </dt>
@@ -993,7 +988,7 @@ control than what this method provides</dd>
 the body read timeout, for stream requests.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_SINK">SINK</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_SINK">SINK</a>
     <span>
         &nbsp;= &#039;sink&#039;                            </span>
 </dt>
@@ -1002,7 +997,7 @@ response is written to. Defaults to a PHP temp stream. Providing a
 string will write data to a file by the given name.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_SSL_KEY">SSL_KEY</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_SSL_KEY">SSL_KEY</a>
     <span>
         &nbsp;= &#039;ssl_key&#039;                            </span>
 </dt>
@@ -1012,7 +1007,7 @@ containing the path to the SSL key in the first array element followed
 by the password required for the certificate in the second element.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_STREAM">STREAM</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_STREAM">STREAM</a>
     <span>
         &nbsp;= &#039;stream&#039;                            </span>
 </dt>
@@ -1020,7 +1015,7 @@ by the password required for the certificate in the second element.</dd>
 download it all up-front.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_SYNCHRONOUS">SYNCHRONOUS</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_SYNCHRONOUS">SYNCHRONOUS</a>
     <span>
         &nbsp;= &#039;synchronous&#039;                            </span>
 </dt>
@@ -1030,7 +1025,7 @@ that a promise is still returned if you are using one of the async
 client methods.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_TIMEOUT">TIMEOUT</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_TIMEOUT">TIMEOUT</a>
     <span>
         &nbsp;= &#039;timeout&#039;                            </span>
 </dt>
@@ -1038,7 +1033,7 @@ client methods.</dd>
 request in seconds. Use 0 to wait indefinitely (the default behavior).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_VERIFY">VERIFY</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_VERIFY">VERIFY</a>
     <span>
         &nbsp;= &#039;verify&#039;                            </span>
 </dt>
@@ -1050,14 +1045,13 @@ is insecure!). Set to a string to provide the path to a CA bundle on
 disk to enable verification using a custom certificate.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/GuzzleHttp-RequestOptions.html#constant_VERSION">VERSION</a>
+    <a class="" href="classes/GuzzleHttp-RequestOptions.html#constant_VERSION">VERSION</a>
     <span>
         &nbsp;= &#039;version&#039;                            </span>
 </dt>
 <dd>version: (float) Specifies the HTTP protocol version to attempt to use.</dd>
 
     </dl>
-
 
 
 
@@ -1089,6 +1083,7 @@ disk to enable verification using a custom certificate.</dd>
 to disable redirects, pass true to enable redirects, pass an
 associative to provide custom redirect settings. Defaults to &quot;false&quot;.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1119,6 +1114,8 @@ from the on_redirect function is ignored.</li>
     
     
 
+    
+
 </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_AUTH">
@@ -1140,6 +1137,7 @@ the password in index [1], and you can optionally provide a built-in
 authentication type in index [2]. Pass null to disable authentication
 for a request.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1150,6 +1148,8 @@ for a request.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1170,6 +1170,7 @@ for a request.</p>
         <p class="phpdocumentor-summary">body: (resource|string|null|int|float|StreamInterface|callable|\Iterator)
 Body to send in the request.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1180,6 +1181,8 @@ Body to send in the request.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1203,6 +1206,7 @@ is required, then set cert to an array containing the path to the PEM
 file in the first array element followed by the certificate password
 in the second array element.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1213,6 +1217,8 @@ in the second array element.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1234,6 +1240,7 @@ in the second array element.</p>
 seconds to wait while trying to connect to a server. Use 0 to wait
 300 seconds (the default behavior).</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1244,6 +1251,8 @@ seconds to wait while trying to connect to a server. Use 0 to wait
 
     
     
+    
+
     
 
 </article>
@@ -1265,8 +1274,9 @@ seconds to wait while trying to connect to a server. Use 0 to wait
 Specifies whether or not cookies are used in a request or what cookie
 jar to use or what cookies to send. This option only works if your
 handler has the `cookie` middleware. Valid values are `false` and
-an instance of {@see \GuzzleHttp\Cookie\CookieJarInterface}.</p>
+an instance of {@see Cookie\CookieJarInterface}.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1277,6 +1287,8 @@ an instance of {@see \GuzzleHttp\Cookie\CookieJarInterface}.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1297,6 +1309,7 @@ an instance of {@see \GuzzleHttp\Cookie\CookieJarInterface}.</p>
         <p class="phpdocumentor-summary">crypto_method: (int) A value describing the minimum TLS protocol
 version to use.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1313,6 +1326,8 @@ required to use TLS 1.3.</p>
 </section>
 
     
+    
+
     
 
 </article>
@@ -1334,6 +1349,7 @@ required to use TLS 1.3.</p>
 fopen()  enable debug output with the HTTP handler used to send a
 request.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1344,6 +1360,8 @@ request.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1365,6 +1383,7 @@ request.</p>
 Content-Encoding responses (gzip, deflate, etc.) are automatically
 decoded.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1375,6 +1394,8 @@ decoded.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1394,6 +1415,7 @@ decoded.</p>
 
         <p class="phpdocumentor-summary">delay: (int) The amount of time to delay before sending in milliseconds.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1404,6 +1426,8 @@ decoded.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1424,6 +1448,7 @@ decoded.</p>
         <p class="phpdocumentor-summary">expect: (bool|integer) Controls the behavior of the
 &quot;Expect: 100-Continue&quot; header.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1447,6 +1472,8 @@ using HTTP/1.1.</p>
     
     
 
+    
+
 </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_FORCE_IP_RESOLVE">
@@ -1464,6 +1491,7 @@ using HTTP/1.1.</p>
 
         <p class="phpdocumentor-summary">force_ip_resolve: (bool) Force client to use only ipv4 or ipv6 protocol</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1474,6 +1502,8 @@ using HTTP/1.1.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1496,6 +1526,7 @@ where each value is a string or array of strings. Sets the Content-Type
 header to application/x-www-form-urlencoded when no Content-Type header
 is already present.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1506,6 +1537,8 @@ is already present.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1526,6 +1559,7 @@ is already present.</p>
         <p class="phpdocumentor-summary">headers: (array) Associative array of HTTP headers. Each value MUST be
 a string or array of strings.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1536,6 +1570,8 @@ a string or array of strings.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1558,6 +1594,7 @@ when a non- successful HTTP response is received. By default,
 exceptions will be thrown for 4xx and 5xx responses. This option only
 works if your handler has the `httpErrors` middleware.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1568,6 +1605,8 @@ works if your handler has the `httpErrors` middleware.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1590,6 +1629,7 @@ idn_to_ascii() PHP&#039;s function (see &quot;options&quot; parameter). Set to f
 disable IDN support completely, or to true to use the default
 configuration (IDNA_DEFAULT constant).</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1600,6 +1640,8 @@ configuration (IDNA_DEFAULT constant).</p>
 
     
     
+    
+
     
 
 </article>
@@ -1621,6 +1663,7 @@ configuration (IDNA_DEFAULT constant).</p>
 encoded and a Content-Type header of application/json will be added to
 the request if no Content-Type header is already present.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1631,6 +1674,8 @@ the request if no Content-Type header is already present.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1656,6 +1701,7 @@ optional &quot;filename&quot; key mapping to a string to send as the filename in
 the part. If no &quot;filename&quot; key is present, then no &quot;filename&quot; attribute
 will be added to the part.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1666,6 +1712,8 @@ will be added to the part.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1687,6 +1735,7 @@ will be added to the part.</p>
 of the response have been received but the body has not yet begun to
 download.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1697,6 +1746,8 @@ download.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1722,6 +1773,7 @@ with transfer statistics about the request, the response received, or
 the error encountered. Included in the data is the total amount of time
 taken to send the request.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1732,6 +1784,8 @@ taken to send the request.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1755,6 +1809,7 @@ arguments: the total number of bytes expected to be downloaded, the
 number of bytes downloaded so far, the number of bytes expected to be
 uploaded, the number of bytes uploaded so far.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1765,6 +1820,8 @@ uploaded, the number of bytes uploaded so far.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1786,6 +1843,7 @@ uploaded, the number of bytes uploaded so far.</p>
 array to specify different proxies for different protocols (where the
 key is the protocol and the value is a proxy string).</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1796,6 +1854,8 @@ key is the protocol and the value is a proxy string).</p>
 
     
     
+    
+
     
 
 </article>
@@ -1818,6 +1878,7 @@ to the request. This option uses PHP&#039;s http_build_query() to create
 the string representation. Pass a string value if you need more
 control than what this method provides</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1828,6 +1889,8 @@ control than what this method provides</p>
 
     
     
+    
+
     
 
 </article>
@@ -1848,6 +1911,7 @@ control than what this method provides</p>
         <p class="phpdocumentor-summary">read_timeout: (float, default=default_socket_timeout ini setting) Float describing
 the body read timeout, for stream requests.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1858,6 +1922,8 @@ the body read timeout, for stream requests.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1879,6 +1945,7 @@ the body read timeout, for stream requests.</p>
 response is written to. Defaults to a PHP temp stream. Providing a
 string will write data to a file by the given name.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1889,6 +1956,8 @@ string will write data to a file by the given name.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1911,6 +1980,7 @@ SSL key in PEM format. If a password is required, then set to an array
 containing the path to the SSL key in the first array element followed
 by the password required for the certificate in the second element.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1921,6 +1991,8 @@ by the password required for the certificate in the second element.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1941,6 +2013,7 @@ by the password required for the certificate in the second element.</p>
         <p class="phpdocumentor-summary">stream: Set to true to attempt to stream a response rather than
 download it all up-front.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1951,6 +2024,8 @@ download it all up-front.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1973,6 +2048,7 @@ on waiting on the response. This can be useful for optimizations. Note
 that a promise is still returned if you are using one of the async
 client methods.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1983,6 +2059,8 @@ client methods.</p>
 
     
     
+    
+
     
 
 </article>
@@ -2003,6 +2081,7 @@ client methods.</p>
         <p class="phpdocumentor-summary">timeout: (float, default=0) Float describing the timeout of the
 request in seconds. Use 0 to wait indefinitely (the default behavior).</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2013,6 +2092,8 @@ request in seconds. Use 0 to wait indefinitely (the default behavior).</p>
 
     
     
+    
+
     
 
 </article>
@@ -2037,6 +2118,7 @@ certificate verification using the system CA bundle when available
 is insecure!). Set to a string to provide the path to a CA bundle on
 disk to enable verification using a custom certificate.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2047,6 +2129,8 @@ disk to enable verification using a custom certificate.</p>
 
     
     
+    
+
     
 
 </article>
@@ -2066,6 +2150,7 @@ disk to enable verification using a custom certificate.</p>
 
         <p class="phpdocumentor-summary">version: (float) Specifies the HTTP protocol version to attempt to use.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -2076,6 +2161,8 @@ disk to enable verification using a custom certificate.</p>
 
     
     
+    
+
     
 
 </article>
@@ -2193,37 +2280,37 @@ disk to enable verification using a custom certificate.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_ALLOW_REDIRECTS">ALLOW_REDIRECTS</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_AUTH">AUTH</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_BODY">BODY</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_CERT">CERT</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_CONNECT_TIMEOUT">CONNECT_TIMEOUT</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_COOKIES">COOKIES</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_CRYPTO_METHOD">CRYPTO_METHOD</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_DEBUG">DEBUG</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_DECODE_CONTENT">DECODE_CONTENT</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_DELAY">DELAY</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_EXPECT">EXPECT</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_FORCE_IP_RESOLVE">FORCE_IP_RESOLVE</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_FORM_PARAMS">FORM_PARAMS</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_HEADERS">HEADERS</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_HTTP_ERRORS">HTTP_ERRORS</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_IDN_CONVERSION">IDN_CONVERSION</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_JSON">JSON</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_MULTIPART">MULTIPART</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_ON_HEADERS">ON_HEADERS</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_ON_STATS">ON_STATS</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_PROGRESS">PROGRESS</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_PROXY">PROXY</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_QUERY">QUERY</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_READ_TIMEOUT">READ_TIMEOUT</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_SINK">SINK</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_SSL_KEY">SSL_KEY</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_STREAM">STREAM</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_SYNCHRONOUS">SYNCHRONOUS</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_TIMEOUT">TIMEOUT</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_VERIFY">VERIFY</a></li>
-                                                    <li><a href="classes/GuzzleHttp-RequestOptions.html#constant_VERSION">VERSION</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_ALLOW_REDIRECTS">ALLOW_REDIRECTS</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_AUTH">AUTH</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_BODY">BODY</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_CERT">CERT</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_CONNECT_TIMEOUT">CONNECT_TIMEOUT</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_COOKIES">COOKIES</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_CRYPTO_METHOD">CRYPTO_METHOD</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_DEBUG">DEBUG</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_DECODE_CONTENT">DECODE_CONTENT</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_DELAY">DELAY</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_EXPECT">EXPECT</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_FORCE_IP_RESOLVE">FORCE_IP_RESOLVE</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_FORM_PARAMS">FORM_PARAMS</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_HEADERS">HEADERS</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_HTTP_ERRORS">HTTP_ERRORS</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_IDN_CONVERSION">IDN_CONVERSION</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_JSON">JSON</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_MULTIPART">MULTIPART</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_ON_HEADERS">ON_HEADERS</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_ON_STATS">ON_STATS</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_PROGRESS">PROGRESS</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_PROXY">PROXY</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_QUERY">QUERY</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_READ_TIMEOUT">READ_TIMEOUT</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_SINK">SINK</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_SSL_KEY">SSL_KEY</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_STREAM">STREAM</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_SYNCHRONOUS">SYNCHRONOUS</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_TIMEOUT">TIMEOUT</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_VERIFY">VERIFY</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-RequestOptions.html#constant_VERSION">VERSION</a></li>
                                             </ul>
                 </li>
             

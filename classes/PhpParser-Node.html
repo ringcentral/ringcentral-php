@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -720,6 +712,9 @@
 
 
 
+
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/PhpParser-Node.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -742,119 +737,119 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_getAttribute">getAttribute()</a>
+    <a class="" href="classes/PhpParser-Node.html#method_getAttribute">getAttribute()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Returns the value of an attribute.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_getAttributes">getAttributes()</a>
+    <a class="" href="classes/PhpParser-Node.html#method_getAttributes">getAttributes()</a>
     <span>
                                 &nbsp;: array&lt;string, mixed&gt;    </span>
 </dt>
 <dd>Returns all the attributes of this node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_getComments">getComments()</a>
+    <a class="" href="classes/PhpParser-Node.html#method_getComments">getComments()</a>
     <span>
                                 &nbsp;: array&lt;string|int, <a href="classes/PhpParser-Comment.html"><abbr title="\PhpParser\Comment">Comment</abbr></a>&gt;    </span>
 </dt>
 <dd>Gets all comments directly preceding this node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_getDocComment">getDocComment()</a>
+    <a class="" href="classes/PhpParser-Node.html#method_getDocComment">getDocComment()</a>
     <span>
                                 &nbsp;: null|<a href="classes/PhpParser-Comment-Doc.html"><abbr title="\PhpParser\Comment\Doc">Doc</abbr></a>    </span>
 </dt>
 <dd>Gets the doc comment of the node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_getEndFilePos">getEndFilePos()</a>
+    <a class="" href="classes/PhpParser-Node.html#method_getEndFilePos">getEndFilePos()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Gets the file offset of the last character that is part of this node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_getEndLine">getEndLine()</a>
+    <a class="" href="classes/PhpParser-Node.html#method_getEndLine">getEndLine()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Gets the line the node ended in.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_getEndTokenPos">getEndTokenPos()</a>
+    <a class="" href="classes/PhpParser-Node.html#method_getEndTokenPos">getEndTokenPos()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Gets the token offset of the last token that is part of this node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_getLine">getLine()</a>
+    <a class="-deprecated" href="classes/PhpParser-Node.html#method_getLine">getLine()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Gets line the node started in (alias of getStartLine).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_getStartFilePos">getStartFilePos()</a>
+    <a class="" href="classes/PhpParser-Node.html#method_getStartFilePos">getStartFilePos()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Gets the file offset of the first character that is part of this node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_getStartLine">getStartLine()</a>
+    <a class="" href="classes/PhpParser-Node.html#method_getStartLine">getStartLine()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Gets line the node started in.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_getStartTokenPos">getStartTokenPos()</a>
+    <a class="" href="classes/PhpParser-Node.html#method_getStartTokenPos">getStartTokenPos()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 <dd>Gets the token offset of the first token that is part of this node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_getSubNodeNames">getSubNodeNames()</a>
+    <a class="" href="classes/PhpParser-Node.html#method_getSubNodeNames">getSubNodeNames()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string&gt;    </span>
 </dt>
 <dd>Gets the names of the sub nodes.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_getType">getType()</a>
+    <a class="" href="classes/PhpParser-Node.html#method_getType">getType()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets the type of the node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_hasAttribute">hasAttribute()</a>
+    <a class="" href="classes/PhpParser-Node.html#method_hasAttribute">hasAttribute()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns whether an attribute exists.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_setAttribute">setAttribute()</a>
+    <a class="" href="classes/PhpParser-Node.html#method_setAttribute">setAttribute()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Sets an attribute on a node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_setAttributes">setAttributes()</a>
+    <a class="" href="classes/PhpParser-Node.html#method_setAttributes">setAttributes()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Replaces all the attributes of this node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PhpParser-Node.html#method_setDocComment">setDocComment()</a>
+    <a class="" href="classes/PhpParser-Node.html#method_setDocComment">setDocComment()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -887,7 +882,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">131</span>
+    <span class="phpdocumentor-element-found-in__line">135</span>
 
     </aside>
 
@@ -899,6 +894,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -921,6 +917,8 @@
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -936,7 +934,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">142</span>
 
     </aside>
 
@@ -950,6 +948,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -972,7 +973,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">98</span>
 
     </aside>
 
@@ -984,10 +985,13 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The comments are also available through the &quot;comments&quot; attribute.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1010,7 +1014,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">105</span>
 
     </aside>
 
@@ -1024,6 +1028,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1050,7 +1057,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">89</span>
 
     </aside>
 
@@ -1062,10 +1069,13 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Requires the 'endFilePos' attribute to be enabled in the lexer (DISABLED by default).</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1092,7 +1102,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
@@ -1104,10 +1114,29 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Requires the 'endLine' attribute to be enabled in the lexer (enabled by default).</p>
 </section>
 
     
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/PhpParser-Node.html#method_getEndLine#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">phpstan-return</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>-1|positive-int</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
     
 
             <section>
@@ -1134,7 +1163,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">67</span>
+    <span class="phpdocumentor-element-found-in__line">71</span>
 
     </aside>
 
@@ -1146,11 +1175,14 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The offset is an index into the array returned by Lexer::getTokens().</p>
 <p>Requires the 'endTokenPos' attribute to be enabled in the lexer (DISABLED by default).</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1177,7 +1209,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
@@ -1189,6 +1221,14 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+                <div class="phpdocumentor-admonition">
+        <svg class="phpdocumentor-admonition__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <article>
+                <p>Use getStartLine() instead</p>
+
+            </article>
+        </div>
+    
     
     
     
@@ -1199,15 +1239,17 @@
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">deprecated</span>
+                    <span class="phpdocumentor-tag__name">phpstan-return</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>Use getStartLine() instead</p>
+                                                 <section class="phpdocumentor-description"><p>-1|positive-int</p>
 </section>
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1233,7 +1275,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">76</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 
@@ -1245,10 +1287,13 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Requires the 'startFilePos' attribute to be enabled in the lexer (DISABLED by default).</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1275,7 +1320,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
@@ -1287,10 +1332,29 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Requires the 'startLine' attribute to be enabled in the lexer (enabled by default).</p>
 </section>
 
     
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/PhpParser-Node.html#method_getStartLine#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">phpstan-return</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>-1|positive-int</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
     
 
             <section>
@@ -1317,7 +1381,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">56</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 
     </aside>
 
@@ -1329,11 +1393,14 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The offset is an index into the array returned by Lexer::getTokens().</p>
 <p>Requires the 'startTokenPos' attribute to be enabled in the lexer (DISABLED by default).</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1360,7 +1427,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
@@ -1374,6 +1441,9 @@
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -1400,7 +1470,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
@@ -1414,6 +1484,25 @@
         </div>
     
     
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/PhpParser-Node.html#method_getType#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">psalm-return</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>non-empty-string</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
     
 
             <section>
@@ -1440,7 +1529,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">122</span>
+    <span class="phpdocumentor-element-found-in__line">126</span>
 
     </aside>
 
@@ -1453,6 +1542,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1463,6 +1553,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1486,7 +1578,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">121</span>
 
     </aside>
 
@@ -1498,6 +1590,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1520,6 +1613,8 @@
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1535,7 +1630,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">145</span>
+    <span class="phpdocumentor-element-found-in__line">149</span>
 
     </aside>
 
@@ -1548,6 +1643,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1558,6 +1654,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1577,7 +1675,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node.php">Node.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 
     </aside>
 
@@ -1589,6 +1687,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>This will either replace an existing doc comment or add it to the comments array.</p>
 </section>
 
@@ -1604,6 +1703,8 @@
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1721,23 +1822,23 @@
                             <li class="phpdocumentor-on-this-page-section__title">Methods</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/PhpParser-Node.html#method_getAttribute">getAttribute()</a></li>
-                                                    <li><a href="classes/PhpParser-Node.html#method_getAttributes">getAttributes()</a></li>
-                                                    <li><a href="classes/PhpParser-Node.html#method_getComments">getComments()</a></li>
-                                                    <li><a href="classes/PhpParser-Node.html#method_getDocComment">getDocComment()</a></li>
-                                                    <li><a href="classes/PhpParser-Node.html#method_getEndFilePos">getEndFilePos()</a></li>
-                                                    <li><a href="classes/PhpParser-Node.html#method_getEndLine">getEndLine()</a></li>
-                                                    <li><a href="classes/PhpParser-Node.html#method_getEndTokenPos">getEndTokenPos()</a></li>
-                                                    <li><a href="classes/PhpParser-Node.html#method_getLine">getLine()</a></li>
-                                                    <li><a href="classes/PhpParser-Node.html#method_getStartFilePos">getStartFilePos()</a></li>
-                                                    <li><a href="classes/PhpParser-Node.html#method_getStartLine">getStartLine()</a></li>
-                                                    <li><a href="classes/PhpParser-Node.html#method_getStartTokenPos">getStartTokenPos()</a></li>
-                                                    <li><a href="classes/PhpParser-Node.html#method_getSubNodeNames">getSubNodeNames()</a></li>
-                                                    <li><a href="classes/PhpParser-Node.html#method_getType">getType()</a></li>
-                                                    <li><a href="classes/PhpParser-Node.html#method_hasAttribute">hasAttribute()</a></li>
-                                                    <li><a href="classes/PhpParser-Node.html#method_setAttribute">setAttribute()</a></li>
-                                                    <li><a href="classes/PhpParser-Node.html#method_setAttributes">setAttributes()</a></li>
-                                                    <li><a href="classes/PhpParser-Node.html#method_setDocComment">setDocComment()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node.html#method_getAttribute">getAttribute()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node.html#method_getAttributes">getAttributes()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node.html#method_getComments">getComments()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node.html#method_getDocComment">getDocComment()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node.html#method_getEndFilePos">getEndFilePos()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node.html#method_getEndLine">getEndLine()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node.html#method_getEndTokenPos">getEndTokenPos()</a></li>
+                                                    <li class="-deprecated"><a href="classes/PhpParser-Node.html#method_getLine">getLine()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node.html#method_getStartFilePos">getStartFilePos()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node.html#method_getStartLine">getStartLine()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node.html#method_getStartTokenPos">getStartTokenPos()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node.html#method_getSubNodeNames">getSubNodeNames()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node.html#method_getType">getType()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node.html#method_hasAttribute">hasAttribute()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node.html#method_setAttribute">setAttribute()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node.html#method_setAttributes">setAttributes()</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node.html#method_setDocComment">setDocComment()</a></li>
                                             </ul>
                 </li>
             

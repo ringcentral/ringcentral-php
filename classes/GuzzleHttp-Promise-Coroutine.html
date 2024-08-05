@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -731,6 +723,7 @@
 
             <p class="phpdocumentor-summary">Creates a promise that is resolved using a generator that yields values or
 promises (somewhat similar to C#&#039;s async keyword).</p>
+
 
     <section class="phpdocumentor-description"><p>When called, the Coroutine::of method will start an instance of the generator
 and returns a promise that is fulfilled with its final yielded value.</p>
@@ -779,6 +772,8 @@ $promise-&gt;then(function ($v) { echo $v; });
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/GuzzleHttp-Promise-Coroutine.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -807,19 +802,19 @@ $promise-&gt;then(function ($v) { echo $v; });
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Promise-Coroutine.html#property_currentPromise">$currentPromise</a>
+    <a class="" href="classes/GuzzleHttp-Promise-Coroutine.html#property_currentPromise">$currentPromise</a>
     <span>
                         &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Promise-Coroutine.html#property_generator">$generator</a>
+    <a class="" href="classes/GuzzleHttp-Promise-Coroutine.html#property_generator">$generator</a>
     <span>
                         &nbsp;: <abbr title="\Generator">Generator</abbr>            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-Promise-Coroutine.html#property_result">$result</a>
+    <a class="" href="classes/GuzzleHttp-Promise-Coroutine.html#property_result">$result</a>
     <span>
                         &nbsp;: <a href="classes/GuzzleHttp-Promise-Promise.html"><abbr title="\GuzzleHttp\Promise\Promise">Promise</abbr></a>            </span>
 </dt>
@@ -833,34 +828,34 @@ $promise-&gt;then(function ($v) { echo $v; });
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Promise-Coroutine.html#method___construct">__construct()</a>
+    <a class="" href="classes/GuzzleHttp-Promise-Coroutine.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Promise-Coroutine.html#method_cancel">cancel()</a>
+    <a class="" href="classes/GuzzleHttp-Promise-Coroutine.html#method_cancel">cancel()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Cancels the promise if possible.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Promise-Coroutine.html#method_getState">getState()</a>
+    <a class="" href="classes/GuzzleHttp-Promise-Coroutine.html#method_getState">getState()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Get the state of the promise (&quot;pending&quot;, &quot;rejected&quot;, or &quot;fulfilled&quot;).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Promise-Coroutine.html#method_of">of()</a>
+    <a class="" href="classes/GuzzleHttp-Promise-Coroutine.html#method_of">of()</a>
     <span>
                                 &nbsp;: self    </span>
 </dt>
 <dd>Create a new coroutine.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Promise-Coroutine.html#method_otherwise">otherwise()</a>
+    <a class="" href="classes/GuzzleHttp-Promise-Coroutine.html#method_otherwise">otherwise()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
@@ -870,21 +865,21 @@ or to its original fulfillment value if the promise is instead
 fulfilled.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Promise-Coroutine.html#method_reject">reject()</a>
+    <a class="" href="classes/GuzzleHttp-Promise-Coroutine.html#method_reject">reject()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Reject the promise with the given reason.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Promise-Coroutine.html#method_resolve">resolve()</a>
+    <a class="" href="classes/GuzzleHttp-Promise-Coroutine.html#method_resolve">resolve()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Resolve the promise with the given value.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Promise-Coroutine.html#method_then">then()</a>
+    <a class="" href="classes/GuzzleHttp-Promise-Coroutine.html#method_then">then()</a>
     <span>
                                 &nbsp;: <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
@@ -892,20 +887,19 @@ fulfilled.</dd>
 a new promise resolving to the return value of the called handler.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-Promise-Coroutine.html#method_wait">wait()</a>
+    <a class="" href="classes/GuzzleHttp-Promise-Coroutine.html#method_wait">wait()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Waits until the promise completes if possible.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-Promise-Coroutine.html#method_nextCoroutine">nextCoroutine()</a>
+    <a class="" href="classes/GuzzleHttp-Promise-Coroutine.html#method_nextCoroutine">nextCoroutine()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
     </dl>
-
 
 
 
@@ -940,6 +934,7 @@ a new promise resolving to the return value of the called handler.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type"><a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>|null</span>
@@ -948,6 +943,8 @@ a new promise resolving to the return value of the called handler.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -973,6 +970,7 @@ a new promise resolving to the return value of the called handler.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type"><abbr title="\Generator">Generator</abbr></span>
@@ -981,6 +979,8 @@ a new promise resolving to the return value of the called handler.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1006,6 +1006,7 @@ a new promise resolving to the return value of the called handler.</dd>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type"><a href="classes/GuzzleHttp-Promise-Promise.html"><abbr title="\GuzzleHttp\Promise\Promise">Promise</abbr></a></span>
@@ -1014,6 +1015,8 @@ a new promise resolving to the return value of the called handler.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1051,6 +1054,7 @@ a new promise resolving to the return value of the called handler.</dd>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1061,6 +1065,8 @@ a new promise resolving to the return value of the called handler.</dd>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1095,6 +1101,9 @@ a new promise resolving to the return value of the called handler.</dd>
     
     
     
+    
+
+    
 
     
 </article>
@@ -1124,11 +1133,14 @@ a new promise resolving to the return value of the called handler.</dd>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The three states can be checked against the constants defined on
 PromiseInterface: PENDING, FULFILLED, and REJECTED.</p>
 </section>
 
     
+    
+
     
 
             <section>
@@ -1164,6 +1176,7 @@ PromiseInterface: PENDING, FULFILLED, and REJECTED.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1174,6 +1187,8 @@ PromiseInterface: PENDING, FULFILLED, and REJECTED.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1213,6 +1228,7 @@ fulfilled.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1225,6 +1241,8 @@ fulfilled.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1261,6 +1279,7 @@ fulfilled.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1271,6 +1290,8 @@ fulfilled.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1303,6 +1324,7 @@ fulfilled.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1313,6 +1335,8 @@ fulfilled.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1341,16 +1365,17 @@ a new promise resolving to the return value of the called handler.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">then</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onFulfilled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onRejected</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">then</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">callable|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onFulfilled</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onRejected</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$onFulfilled</span>
-                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>Invoked when the promise fulfills.</p>
@@ -1359,7 +1384,7 @@ a new promise resolving to the return value of the called handler.</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$onRejected</span>
-                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>Invoked when the promise is rejected.</p>
@@ -1367,6 +1392,8 @@ a new promise resolving to the return value of the called handler.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1402,6 +1429,7 @@ a new promise resolving to the return value of the called handler.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Pass $unwrap as true to unwrap the result of the promise, either
 returning the resolved value or throwing the rejected exception.</p>
 <p>If the promise cannot be waited on, then the promise will be rejected.</p>
@@ -1417,6 +1445,8 @@ returning the resolved value or throwing the rejected exception.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1448,6 +1478,7 @@ returning the resolved value or throwing the rejected exception.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1458,6 +1489,8 @@ returning the resolved value or throwing the rejected exception.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1576,25 +1609,25 @@ returning the resolved value or throwing the rejected exception.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/GuzzleHttp-Promise-Coroutine.html#property_currentPromise">$currentPromise<a href="classes/GuzzleHttp-Promise-Coroutine.html"></li>
-                                                    <li><a href="classes/GuzzleHttp-Promise-Coroutine.html#property_generator">$generator<a href="classes/GuzzleHttp-Promise-Coroutine.html"></li>
-                                                    <li><a href="classes/GuzzleHttp-Promise-Coroutine.html#property_result">$result<a href="classes/GuzzleHttp-Promise-Coroutine.html"></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Promise-Coroutine.html#property_currentPromise">$currentPromise</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Promise-Coroutine.html#property_generator">$generator</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-Promise-Coroutine.html#property_result">$result</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/GuzzleHttp-Promise-Coroutine.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_cancel">cancel()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_getState">getState()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_of">of()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_otherwise">otherwise()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_reject">reject()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_resolve">resolve()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_then">then()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_wait">wait()</a></li>
-                                            <li><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_nextCoroutine">nextCoroutine()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Promise-Coroutine.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_cancel">cancel()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_getState">getState()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_of">of()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_otherwise">otherwise()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_reject">reject()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_resolve">resolve()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_then">then()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_wait">wait()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-Promise-Coroutine.html#method_nextCoroutine">nextCoroutine()</a></li>
                                     </ul>
             </li>
                     </ul>

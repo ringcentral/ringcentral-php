@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -726,6 +718,7 @@
 
             <p class="phpdocumentor-summary">Class \Hoa\Event\Event.</p>
 
+
     <section class="phpdocumentor-description"><p>Events are asynchronous at registration, anonymous at use (until we
 receive a bucket) and useful to largely spread data through components
 without any known connection between them.</p>
@@ -760,6 +753,8 @@ without any known connection between them.</p>
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/Hoa-Event-Event.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -779,14 +774,14 @@ without any known connection between them.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/Hoa-Event-Event.html#constant_KEY_EVENT">KEY_EVENT</a>
+    <a class="" href="classes/Hoa-Event-Event.html#constant_KEY_EVENT">KEY_EVENT</a>
     <span>
         &nbsp;= 0                            </span>
 </dt>
 <dd>Event ID key.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/Hoa-Event-Event.html#constant_KEY_SOURCE">KEY_SOURCE</a>
+    <a class="" href="classes/Hoa-Event-Event.html#constant_KEY_SOURCE">KEY_SOURCE</a>
     <span>
         &nbsp;= 1                            </span>
 </dt>
@@ -802,14 +797,14 @@ without any known connection between them.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Hoa-Event-Event.html#property__callable">$_callable</a>
+    <a class="" href="classes/Hoa-Event-Event.html#property__callable">$_callable</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 <dd>Callables, i.e. observer objects.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Hoa-Event-Event.html#property__register">$_register</a>
+    <a class="" href="classes/Hoa-Event-Event.html#property__register">$_register</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
@@ -825,28 +820,28 @@ object, i.e. object that can send event.</dd>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Hoa-Event-Event.html#method_attach">attach()</a>
+    <a class="" href="classes/Hoa-Event-Event.html#method_attach">attach()</a>
     <span>
                                 &nbsp;: <a href="classes/Hoa-Event-Event.html"><abbr title="\Hoa\Event\Event">Event</abbr></a>    </span>
 </dt>
 <dd>Attach an object to an event.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Hoa-Event-Event.html#method_detach">detach()</a>
+    <a class="" href="classes/Hoa-Event-Event.html#method_detach">detach()</a>
     <span>
                                 &nbsp;: <a href="classes/Hoa-Event-Event.html"><abbr title="\Hoa\Event\Event">Event</abbr></a>    </span>
 </dt>
 <dd>Detach an object to an event.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Hoa-Event-Event.html#method_eventExists">eventExists()</a>
+    <a class="" href="classes/Hoa-Event-Event.html#method_eventExists">eventExists()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Check whether an event exists.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Hoa-Event-Event.html#method_getEvent">getEvent()</a>
+    <a class="" href="classes/Hoa-Event-Event.html#method_getEvent">getEvent()</a>
     <span>
                                 &nbsp;: <a href="classes/Hoa-Event-Event.html"><abbr title="\Hoa\Event\Event">Event</abbr></a>    </span>
 </dt>
@@ -854,42 +849,41 @@ object, i.e. object that can send event.</dd>
 attachments.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Hoa-Event-Event.html#method_isListened">isListened()</a>
+    <a class="" href="classes/Hoa-Event-Event.html#method_isListened">isListened()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Check if at least one callable is attached to an event.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Hoa-Event-Event.html#method_notify">notify()</a>
+    <a class="" href="classes/Hoa-Event-Event.html#method_notify">notify()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Notify, i.e. send data to observers.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Hoa-Event-Event.html#method_register">register()</a>
+    <a class="" href="classes/Hoa-Event-Event.html#method_register">register()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Declare a new object in the observable collection.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Hoa-Event-Event.html#method_unregister">unregister()</a>
+    <a class="" href="classes/Hoa-Event-Event.html#method_unregister">unregister()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Undeclare an object in the observable collection.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/Hoa-Event-Event.html#method___construct">__construct()</a>
+    <a class="" href="classes/Hoa-Event-Event.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Privatize the constructor.</dd>
 
     </dl>
-
 
 
 
@@ -916,6 +910,7 @@ attachments.</dd>
 
         <p class="phpdocumentor-summary">Event ID key.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -942,7 +937,9 @@ attachments.</dd>
 </section>
 
                                     </dd>
-                                            </dl>
+                                                                </dl>
+
+    
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
@@ -961,6 +958,7 @@ attachments.</dd>
 
         <p class="phpdocumentor-summary">Source object key.</p>
 
+    
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -987,7 +985,9 @@ attachments.</dd>
 </section>
 
                                     </dd>
-                                            </dl>
+                                                                </dl>
+
+    
 
 </article>
             </section>
@@ -1022,6 +1022,7 @@ attachments.</dd>
 
         <p class="phpdocumentor-summary">Callables, i.e. observer objects.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
@@ -1030,6 +1031,8 @@ attachments.</dd>
 
     
     
+    
+
     
 
 </article>
@@ -1057,6 +1060,7 @@ attachments.</dd>
         <p class="phpdocumentor-summary">Static register of all observable objects, i.e. \Hoa\Event\Source
 object, i.e. object that can send event.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
@@ -1065,6 +1069,8 @@ object, i.e. object that can send event.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1102,6 +1108,7 @@ object, i.e. object that can send event.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>It can be a callable or an accepted callable form (please, see the
 \Hoa\Consistency\Xcallable class).</p>
 </section>
@@ -1118,6 +1125,8 @@ object, i.e. object that can send event.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1153,6 +1162,7 @@ object, i.e. object that can send event.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Please see $this-&gt;attach() method.</p>
 </section>
 
@@ -1168,6 +1178,8 @@ object, i.e. object that can send event.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1204,6 +1216,7 @@ object, i.e. object that can send event.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1216,6 +1229,8 @@ object, i.e. object that can send event.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1253,6 +1268,7 @@ attachments.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1265,6 +1281,8 @@ attachments.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1303,6 +1321,9 @@ attachments.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1336,6 +1357,7 @@ attachments.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1386,6 +1408,8 @@ attachments.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1413,6 +1437,7 @@ attachments.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>Note: Hoa's libraries use hoa://Event/AnID for their observable objects;</p>
 </section>
 
@@ -1456,6 +1481,8 @@ attachments.</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1484,6 +1511,7 @@ attachments.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1506,6 +1534,8 @@ delete source and attached callables.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1539,6 +1569,9 @@ delete source and attached callables.</p>
         </div>
     
     
+    
+    
+
     
 
     
@@ -1656,31 +1689,31 @@ delete source and attached callables.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Hoa-Event-Event.html#constant_KEY_EVENT">KEY_EVENT</a></li>
-                                                    <li><a href="classes/Hoa-Event-Event.html#constant_KEY_SOURCE">KEY_SOURCE</a></li>
+                                                    <li class=""><a href="classes/Hoa-Event-Event.html#constant_KEY_EVENT">KEY_EVENT</a></li>
+                                                    <li class=""><a href="classes/Hoa-Event-Event.html#constant_KEY_SOURCE">KEY_SOURCE</a></li>
                                             </ul>
                 </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Hoa-Event-Event.html#property__callable">$_callable<a href="classes/Hoa-Event-Event.html"></li>
-                                                    <li><a href="classes/Hoa-Event-Event.html#property__register">$_register<a href="classes/Hoa-Event-Event.html"></li>
+                                                    <li class=""><a href="classes/Hoa-Event-Event.html#property__callable">$_callable</a></li>
+                                                    <li class=""><a href="classes/Hoa-Event-Event.html#property__register">$_register</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/Hoa-Event-Event.html#method_attach">attach()</a></li>
-                                            <li><a href="classes/Hoa-Event-Event.html#method_detach">detach()</a></li>
-                                            <li><a href="classes/Hoa-Event-Event.html#method_eventExists">eventExists()</a></li>
-                                            <li><a href="classes/Hoa-Event-Event.html#method_getEvent">getEvent()</a></li>
-                                            <li><a href="classes/Hoa-Event-Event.html#method_isListened">isListened()</a></li>
-                                            <li><a href="classes/Hoa-Event-Event.html#method_notify">notify()</a></li>
-                                            <li><a href="classes/Hoa-Event-Event.html#method_register">register()</a></li>
-                                            <li><a href="classes/Hoa-Event-Event.html#method_unregister">unregister()</a></li>
-                                            <li><a href="classes/Hoa-Event-Event.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/Hoa-Event-Event.html#method_attach">attach()</a></li>
+                                            <li class=""><a href="classes/Hoa-Event-Event.html#method_detach">detach()</a></li>
+                                            <li class=""><a href="classes/Hoa-Event-Event.html#method_eventExists">eventExists()</a></li>
+                                            <li class=""><a href="classes/Hoa-Event-Event.html#method_getEvent">getEvent()</a></li>
+                                            <li class=""><a href="classes/Hoa-Event-Event.html#method_isListened">isListened()</a></li>
+                                            <li class=""><a href="classes/Hoa-Event-Event.html#method_notify">notify()</a></li>
+                                            <li class=""><a href="classes/Hoa-Event-Event.html#method_register">register()</a></li>
+                                            <li class=""><a href="classes/Hoa-Event-Event.html#method_unregister">unregister()</a></li>
+                                            <li class=""><a href="classes/Hoa-Event-Event.html#method___construct">__construct()</a></li>
                                     </ul>
             </li>
                     </ul>

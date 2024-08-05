@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -728,6 +720,7 @@ an HTTP handler function.</p>
 
 
 
+
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/GuzzleHttp-HandlerStack.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -742,6 +735,8 @@ an HTTP handler function.</p>
                                              
                                     </dd>
                                             </dl>
+
+
 
 
 
@@ -766,19 +761,19 @@ an HTTP handler function.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-HandlerStack.html#property_cached">$cached</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#property_cached">$cached</a>
     <span>
                         &nbsp;: callable(<a href="classes/Psr-Http-Message-RequestInterface.html"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>, array&lt;string|int, mixed&gt;): <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-HandlerStack.html#property_handler">$handler</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#property_handler">$handler</a>
     <span>
                         &nbsp;: callable(<a href="classes/Psr-Http-Message-RequestInterface.html"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>, array&lt;string|int, mixed&gt;): <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/GuzzleHttp-HandlerStack.html#property_stack">$stack</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#property_stack">$stack</a>
     <span>
                         &nbsp;: array&lt;string|int, array{: callable, : string|null}&gt;            </span>
 </dt>
@@ -792,110 +787,109 @@ an HTTP handler function.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-HandlerStack.html#method___construct">__construct()</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-HandlerStack.html#method___invoke">__invoke()</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#method___invoke">__invoke()</a>
     <span>
                                 &nbsp;: <a href="classes/Psr-Http-Message-ResponseInterface.html"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></a>|<a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
 <dd>Invokes the handler stack as a composed handler</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-HandlerStack.html#method___toString">__toString()</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#method___toString">__toString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Dumps a string representation of the stack.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-HandlerStack.html#method_after">after()</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#method_after">after()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Add a middleware after another middleware by name.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-HandlerStack.html#method_before">before()</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#method_before">before()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Add a middleware before another middleware by name.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-HandlerStack.html#method_create">create()</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#method_create">create()</a>
     <span>
                                 &nbsp;: self    </span>
 </dt>
 <dd>Creates a default handler stack that can be used by clients.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-HandlerStack.html#method_hasHandler">hasHandler()</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#method_hasHandler">hasHandler()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns true if the builder has a handler.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-HandlerStack.html#method_push">push()</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#method_push">push()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Push a middleware to the top of the stack.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-HandlerStack.html#method_remove">remove()</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#method_remove">remove()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Remove a middleware by instance or name from the stack.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-HandlerStack.html#method_resolve">resolve()</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#method_resolve">resolve()</a>
     <span>
-                                &nbsp;: callable    </span>
+                                &nbsp;: callable(<a href="classes/Psr-Http-Message-RequestInterface.html"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>, array&lt;string|int, mixed&gt;): <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>    </span>
 </dt>
 <dd>Compose the middleware and handler into a single callable function.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-HandlerStack.html#method_setHandler">setHandler()</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#method_setHandler">setHandler()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Set the HTTP handler that actually returns a promise.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/GuzzleHttp-HandlerStack.html#method_unshift">unshift()</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#method_unshift">unshift()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Unshift a middleware to the bottom of the stack.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-HandlerStack.html#method_debugCallable">debugCallable()</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#method_debugCallable">debugCallable()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Provides a debug string for a given callable.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-HandlerStack.html#method_findByName">findByName()</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#method_findByName">findByName()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/GuzzleHttp-HandlerStack.html#method_splice">splice()</a>
+    <a class="" href="classes/GuzzleHttp-HandlerStack.html#method_splice">splice()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Splices a function into the middleware list at a specific position.</dd>
 
     </dl>
-
 
 
 
@@ -930,6 +924,7 @@ an HTTP handler function.</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">callable(<a href="classes/Psr-Http-Message-RequestInterface.html"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>, array&lt;string|int, mixed&gt;): <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>|null</span>
@@ -938,6 +933,8 @@ an HTTP handler function.</p>
 
     
     
+    
+
     
 
 </article>
@@ -963,6 +960,7 @@ an HTTP handler function.</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">callable(<a href="classes/Psr-Http-Message-RequestInterface.html"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>, array&lt;string|int, mixed&gt;): <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>|null</span>
@@ -971,6 +969,8 @@ an HTTP handler function.</p>
 
     
     
+    
+
     
 
 </article>
@@ -996,6 +996,7 @@ an HTTP handler function.</p>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, array{: callable, : string|null}&gt;</span>
@@ -1004,6 +1005,8 @@ an HTTP handler function.</p>
 
     
     
+    
+
     
 
 </article>
@@ -1041,6 +1044,7 @@ an HTTP handler function.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1053,6 +1057,8 @@ an HTTP handler function.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1085,6 +1091,7 @@ an HTTP handler function.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1102,6 +1109,8 @@ an HTTP handler function.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1140,6 +1149,9 @@ an HTTP handler function.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1169,10 +1181,11 @@ an HTTP handler function.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">after</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$findName</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$middleware</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$withName</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">after</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$findName</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable(callable): callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$middleware</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$withName</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1187,10 +1200,12 @@ an HTTP handler function.</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$middleware</span>
-                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable(callable): callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Middleware function</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$withName</span>
@@ -1202,6 +1217,8 @@ an HTTP handler function.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1229,10 +1246,11 @@ an HTTP handler function.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">before</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$findName</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$middleware</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$withName</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">before</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$findName</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable(callable): callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$middleware</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$withName</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1247,10 +1265,12 @@ an HTTP handler function.</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$middleware</span>
-                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable(callable): callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Middleware function</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$withName</span>
@@ -1262,6 +1282,8 @@ an HTTP handler function.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1293,6 +1315,7 @@ an HTTP handler function.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>The returned handler will wrap the provided handler or use the most
 appropriate default handler for your system. The returned HandlerStack has
 support for cookies, redirects, HTTP error exceptions, and preparing a body
@@ -1315,6 +1338,8 @@ system will be utilized.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1353,6 +1378,9 @@ system will be utilized.</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1382,19 +1410,22 @@ system will be utilized.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">push</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$middleware</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">push</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable(callable): callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$middleware</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$middleware</span>
-                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable(callable): callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Middleware function</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$name</span>
@@ -1406,6 +1437,8 @@ system will be utilized.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1438,6 +1471,7 @@ system will be utilized.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1450,6 +1484,8 @@ system will be utilized.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1477,21 +1513,20 @@ system will be utilized.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">resolve</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">callable</span></code>
+                    <span class="phpdocumentor-signature__name">resolve</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">callable(<a href="classes/Psr-Http-Message-RequestInterface.html"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>, array&lt;string|int, mixed&gt;): <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">callable</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>PromiseInterface</p>
-</section>
-
+        <span class="phpdocumentor-signature__response_type">callable(<a href="classes/Psr-Http-Message-RequestInterface.html"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>, array&lt;string|int, mixed&gt;): <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
             </section>
 
 </article>
@@ -1517,21 +1552,27 @@ system will be utilized.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setHandler</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$handler</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">setHandler</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable(<a href="classes/Psr-Http-Message-RequestInterface.html"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>, array&lt;string|int, mixed&gt;): <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$handler</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$handler</span>
-                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable(<a href="classes/Psr-Http-Message-RequestInterface.html"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></a>, array&lt;string|int, mixed&gt;): <a href="classes/GuzzleHttp-Promise-PromiseInterface.html"><abbr title="\GuzzleHttp\Promise\PromiseInterface">PromiseInterface</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Accepts a request and array of options and
+returns a Promise.</p>
+</section>
+
             </dd>
             </dl>
+
+    
 
     
 
@@ -1559,19 +1600,22 @@ system will be utilized.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">unshift</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$middleware</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">unshift</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable(callable): callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$middleware</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$middleware</span>
-                : <span class="phpdocumentor-signature__argument__return-type">callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable(callable): callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Middleware function</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$name</span>
@@ -1583,6 +1627,8 @@ system will be utilized.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1615,6 +1661,7 @@ system will be utilized.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1627,6 +1674,8 @@ system will be utilized.</p>
 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1662,6 +1711,7 @@ system will be utilized.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1672,6 +1722,8 @@ system will be utilized.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1708,6 +1760,7 @@ system will be utilized.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1739,6 +1792,8 @@ system will be utilized.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1857,30 +1912,30 @@ system will be utilized.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/GuzzleHttp-HandlerStack.html#property_cached">$cached<a href="classes/GuzzleHttp-HandlerStack.html"></li>
-                                                    <li><a href="classes/GuzzleHttp-HandlerStack.html#property_handler">$handler<a href="classes/GuzzleHttp-HandlerStack.html"></li>
-                                                    <li><a href="classes/GuzzleHttp-HandlerStack.html#property_stack">$stack<a href="classes/GuzzleHttp-HandlerStack.html"></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#property_cached">$cached</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#property_handler">$handler</a></li>
+                                                    <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#property_stack">$stack</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/GuzzleHttp-HandlerStack.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/GuzzleHttp-HandlerStack.html#method___invoke">__invoke()</a></li>
-                                            <li><a href="classes/GuzzleHttp-HandlerStack.html#method___toString">__toString()</a></li>
-                                            <li><a href="classes/GuzzleHttp-HandlerStack.html#method_after">after()</a></li>
-                                            <li><a href="classes/GuzzleHttp-HandlerStack.html#method_before">before()</a></li>
-                                            <li><a href="classes/GuzzleHttp-HandlerStack.html#method_create">create()</a></li>
-                                            <li><a href="classes/GuzzleHttp-HandlerStack.html#method_hasHandler">hasHandler()</a></li>
-                                            <li><a href="classes/GuzzleHttp-HandlerStack.html#method_push">push()</a></li>
-                                            <li><a href="classes/GuzzleHttp-HandlerStack.html#method_remove">remove()</a></li>
-                                            <li><a href="classes/GuzzleHttp-HandlerStack.html#method_resolve">resolve()</a></li>
-                                            <li><a href="classes/GuzzleHttp-HandlerStack.html#method_setHandler">setHandler()</a></li>
-                                            <li><a href="classes/GuzzleHttp-HandlerStack.html#method_unshift">unshift()</a></li>
-                                            <li><a href="classes/GuzzleHttp-HandlerStack.html#method_debugCallable">debugCallable()</a></li>
-                                            <li><a href="classes/GuzzleHttp-HandlerStack.html#method_findByName">findByName()</a></li>
-                                            <li><a href="classes/GuzzleHttp-HandlerStack.html#method_splice">splice()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#method___invoke">__invoke()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#method___toString">__toString()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#method_after">after()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#method_before">before()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#method_create">create()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#method_hasHandler">hasHandler()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#method_push">push()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#method_remove">remove()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#method_resolve">resolve()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#method_setHandler">setHandler()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#method_unshift">unshift()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#method_debugCallable">debugCallable()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#method_findByName">findByName()</a></li>
+                                            <li class=""><a href="classes/GuzzleHttp-HandlerStack.html#method_splice">splice()</a></li>
                                     </ul>
             </li>
                     </ul>

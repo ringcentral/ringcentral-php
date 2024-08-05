@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -731,6 +723,7 @@
 
             <p class="phpdocumentor-summary">ClassExistenceResource represents a class existence.</p>
 
+
     <section class="phpdocumentor-description"><p>Freshness is only evaluated against resource existence.</p>
 <p>The resource must be a fully-qualified class name.</p>
 </section>
@@ -759,6 +752,8 @@
                                              
                                     </dd>
                                             </dl>
+
+
 
 
 
@@ -791,31 +786,31 @@ without special support from external services.</dd>    </dl>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_autoloadedClass">$autoloadedClass</a>
+    <a class="" href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_autoloadedClass">$autoloadedClass</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_autoloadLevel">$autoloadLevel</a>
+    <a class="" href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_autoloadLevel">$autoloadLevel</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_exists">$exists</a>
+    <a class="" href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_exists">$exists</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_existsCache">$existsCache</a>
+    <a class="" href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_existsCache">$existsCache</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_resource">$resource</a>
+    <a class="" href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_resource">$resource</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
@@ -829,32 +824,32 @@ without special support from external services.</dd>    </dl>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#method___construct">__construct()</a>
+    <a class="" href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#method___toString">__toString()</a>
+    <a class="" href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#method___toString">__toString()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns a string representation of the Resource.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#method_getResource">getResource()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#method_getResource">getResource()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#method_isFresh">isFresh()</a>
+    <a class="" href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#method_isFresh">isFresh()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Returns true if the resource has not been updated since the given timestamp.</dd>
 
     </dl>
-
 
 
 
@@ -889,6 +884,7 @@ without special support from external services.</dd>    </dl>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">string|null</span>
@@ -897,6 +893,8 @@ without special support from external services.</dd>    </dl>
 
     
     
+    
+
     
 
 </article>
@@ -922,6 +920,7 @@ without special support from external services.</dd>    </dl>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">int</span>
@@ -930,6 +929,8 @@ without special support from external services.</dd>    </dl>
 
     
     
+    
+
     
 
 </article>
@@ -955,6 +956,7 @@ without special support from external services.</dd>    </dl>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;|null</span>
@@ -963,6 +965,8 @@ without special support from external services.</dd>    </dl>
 
     
     
+    
+
     
 
 </article>
@@ -988,6 +992,7 @@ without special support from external services.</dd>    </dl>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
     <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
@@ -996,6 +1001,8 @@ without special support from external services.</dd>    </dl>
 
     
     
+    
+
     
 
 </article>
@@ -1021,6 +1028,7 @@ without special support from external services.</dd>    </dl>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">string</span>
@@ -1029,6 +1037,8 @@ without special support from external services.</dd>    </dl>
 
     
     
+    
+
     
 
 </article>
@@ -1066,6 +1076,7 @@ without special support from external services.</dd>    </dl>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1091,6 +1102,8 @@ without special support from external services.</dd>    </dl>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1110,7 +1123,8 @@ without special support from external services.</dd>    </dl>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Returns a string representation of the Resource.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -1118,7 +1132,16 @@ without special support from external services.</dd>    </dl>
     <div class="phpdocumentor-label-line">
         </div>
     
+        <section class="phpdocumentor-description"><p>This method is necessary to allow for resource de-duplication, for example by means
+of array_unique(). The string returned need not have a particular meaning, but has
+to be identical for different ResourceInterface instances referring to the same
+resource; and it should be unlikely to collide with that of other, unrelated
+resource instances.</p>
+</section>
+
     
+    
+
     
 
             <section>
@@ -1155,6 +1178,9 @@ without special support from external services.</dd>    </dl>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1189,6 +1215,7 @@ without special support from external services.</dd>    </dl>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1220,6 +1247,8 @@ without special support from external services.</dd>    </dl>
 
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1340,21 +1369,21 @@ without special support from external services.</dd>    </dl>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_autoloadedClass">$autoloadedClass<a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_autoloadLevel">$autoloadLevel<a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_exists">$exists<a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_existsCache">$existsCache<a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html"></li>
-                                                    <li><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_resource">$resource<a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html"></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_autoloadedClass">$autoloadedClass</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_autoloadLevel">$autoloadLevel</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_exists">$exists</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_existsCache">$existsCache</a></li>
+                                                    <li class=""><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#property_resource">$resource</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#method___toString">__toString()</a></li>
-                                            <li><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#method_getResource">getResource()</a></li>
-                                            <li><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#method_isFresh">isFresh()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#method___toString">__toString()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#method_getResource">getResource()</a></li>
+                                            <li class=""><a href="classes/Symfony-Component-Config-Resource-ClassExistenceResource.html#method_isFresh">isFresh()</a></li>
                                     </ul>
             </li>
                     </ul>

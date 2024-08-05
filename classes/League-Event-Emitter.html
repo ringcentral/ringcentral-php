@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -733,6 +725,9 @@
 
 
 
+
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/League-Event-Emitter.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -761,14 +756,14 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/League-Event-Emitter.html#property_listeners">$listeners</a>
+    <a class="" href="classes/League-Event-Emitter.html#property_listeners">$listeners</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 <dd>The registered listeners.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/League-Event-Emitter.html#property_sortedListeners">$sortedListeners</a>
+    <a class="" href="classes/League-Event-Emitter.html#property_sortedListeners">$sortedListeners</a>
     <span>
                         &nbsp;: array&lt;string|int, <a href="classes/League-Event-ListenerInterface.html"><abbr title="\League\Event\ListenerInterface">ListenerInterface</abbr></a>&gt;            </span>
 </dt>
@@ -783,117 +778,118 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/League-Event-Emitter.html#method_addListener">addListener()</a>
+    <a class="" href="classes/League-Event-Emitter.html#method_addListener">addListener()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: $this    </span>
 </dt>
+<dd>Add a listener for an event.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/League-Event-Emitter.html#method_addOneTimeListener">addOneTimeListener()</a>
+    <a class="" href="classes/League-Event-Emitter.html#method_addOneTimeListener">addOneTimeListener()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: $this    </span>
 </dt>
+<dd>Add a one time listener for an event.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/League-Event-Emitter.html#method_emit">emit()</a>
+    <a class="" href="classes/League-Event-Emitter.html#method_emit">emit()</a>
     <span>
                                 &nbsp;: <a href="classes/League-Event-EventInterface.html"><abbr title="\League\Event\EventInterface">EventInterface</abbr></a>    </span>
 </dt>
 <dd>Emit an event.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/League-Event-Emitter.html#method_emitBatch">emitBatch()</a>
+    <a class="" href="classes/League-Event-Emitter.html#method_emitBatch">emitBatch()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Emit a batch of events.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/League-Event-Emitter.html#method_emitGeneratedEvents">emitGeneratedEvents()</a>
+    <a class="" href="classes/League-Event-Emitter.html#method_emitGeneratedEvents">emitGeneratedEvents()</a>
     <span>
                                 &nbsp;: array&lt;string|int, <a href="classes/League-Event-EventInterface.html"><abbr title="\League\Event\EventInterface">EventInterface</abbr></a>&gt;    </span>
 </dt>
 <dd>Release all events stored in a generator</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/League-Event-Emitter.html#method_getListeners">getListeners()</a>
+    <a class="" href="classes/League-Event-Emitter.html#method_getListeners">getListeners()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Get all the listeners for an event.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/League-Event-Emitter.html#method_hasListeners">hasListeners()</a>
+    <a class="" href="classes/League-Event-Emitter.html#method_hasListeners">hasListeners()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Check whether an event has listeners.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/League-Event-Emitter.html#method_removeAllListeners">removeAllListeners()</a>
+    <a class="" href="classes/League-Event-Emitter.html#method_removeAllListeners">removeAllListeners()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Remove all listeners for an event.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/League-Event-Emitter.html#method_removeListener">removeListener()</a>
+    <a class="" href="classes/League-Event-Emitter.html#method_removeListener">removeListener()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Remove a specific listener for an event.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/League-Event-Emitter.html#method_useListenerProvider">useListenerProvider()</a>
+    <a class="" href="classes/League-Event-Emitter.html#method_useListenerProvider">useListenerProvider()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
 <dd>Use a provider to add listeners.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/League-Event-Emitter.html#method_clearSortedListeners">clearSortedListeners()</a>
+    <a class="" href="classes/League-Event-Emitter.html#method_clearSortedListeners">clearSortedListeners()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Clear the sorted listeners for an event</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/League-Event-Emitter.html#method_ensureEvent">ensureEvent()</a>
+    <a class="" href="classes/League-Event-Emitter.html#method_ensureEvent">ensureEvent()</a>
     <span>
                                 &nbsp;: <a href="classes/League-Event-EventInterface.html"><abbr title="\League\Event\EventInterface">EventInterface</abbr></a>    </span>
 </dt>
 <dd>Ensure event input is of type EventInterface or convert it.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/League-Event-Emitter.html#method_ensureListener">ensureListener()</a>
+    <a class="" href="classes/League-Event-Emitter.html#method_ensureListener">ensureListener()</a>
     <span>
                                 &nbsp;: <a href="classes/League-Event-ListenerInterface.html"><abbr title="\League\Event\ListenerInterface">ListenerInterface</abbr></a>    </span>
 </dt>
 <dd>Ensure the input is a listener.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/League-Event-Emitter.html#method_getSortedListeners">getSortedListeners()</a>
+    <a class="" href="classes/League-Event-Emitter.html#method_getSortedListeners">getSortedListeners()</a>
     <span>
                                 &nbsp;: array&lt;string|int, <a href="classes/League-Event-ListenerInterface.html"><abbr title="\League\Event\ListenerInterface">ListenerInterface</abbr></a>&gt;    </span>
 </dt>
 <dd>Get the listeners sorted by priority for a given event.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/League-Event-Emitter.html#method_invokeListeners">invokeListeners()</a>
+    <a class="" href="classes/League-Event-Emitter.html#method_invokeListeners">invokeListeners()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Invoke the listeners for an event.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/League-Event-Emitter.html#method_prepareEvent">prepareEvent()</a>
+    <a class="" href="classes/League-Event-Emitter.html#method_prepareEvent">prepareEvent()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Prepare an event for emitting.</dd>
 
     </dl>
-
 
 
 
@@ -929,6 +925,7 @@
 
         <p class="phpdocumentor-summary">The registered listeners.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
@@ -937,6 +934,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -963,6 +962,7 @@
 
         <p class="phpdocumentor-summary">The sorted listeners</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, <a href="classes/League-Event-ListenerInterface.html"><abbr title="\League\Event\ListenerInterface">ListenerInterface</abbr></a>&gt;</span>
@@ -973,6 +973,8 @@
 </section>
 
     
+    
+
     
 
 </article>
@@ -1002,13 +1004,15 @@
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Add a listener for an event.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">addListener</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$event</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$listener</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$priority</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::P_NORMAL</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">addListener</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$event</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$listener</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$priority</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::P_NORMAL</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1052,6 +1056,12 @@
                                             </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">$this</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1071,13 +1081,15 @@
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Add a one time listener for an event.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">addOneTimeListener</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$event</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$listener</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$priority</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::P_NORMAL</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">addOneTimeListener</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$event</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$listener</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$priority</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::P_NORMAL</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1121,6 +1133,12 @@
                                             </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">$this</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1149,6 +1167,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1175,6 +1194,8 @@
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1209,6 +1230,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1235,6 +1257,8 @@
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1269,6 +1293,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1295,6 +1320,8 @@
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1329,6 +1356,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1355,6 +1383,8 @@
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1389,6 +1419,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1415,6 +1446,8 @@
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1449,6 +1482,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1475,6 +1509,8 @@
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1508,6 +1544,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1543,6 +1580,8 @@
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">$this</span>
@@ -1576,6 +1615,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1602,6 +1642,8 @@
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1631,21 +1673,24 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">clearSortedListeners</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$event</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">clearSortedListeners</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$event</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$event</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1678,6 +1723,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1705,6 +1751,8 @@
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1739,6 +1787,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1766,6 +1815,8 @@
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1800,6 +1851,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1810,6 +1862,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1846,6 +1900,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1870,6 +1925,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1902,6 +1959,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1912,6 +1970,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -2034,30 +2094,30 @@
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/League-Event-Emitter.html#property_listeners">$listeners<a href="classes/League-Event-Emitter.html"></li>
-                                                    <li><a href="classes/League-Event-Emitter.html#property_sortedListeners">$sortedListeners<a href="classes/League-Event-Emitter.html"></li>
+                                                    <li class=""><a href="classes/League-Event-Emitter.html#property_listeners">$listeners</a></li>
+                                                    <li class=""><a href="classes/League-Event-Emitter.html#property_sortedListeners">$sortedListeners</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/League-Event-Emitter.html#method_addListener">addListener()</a></li>
-                                            <li><a href="classes/League-Event-Emitter.html#method_addOneTimeListener">addOneTimeListener()</a></li>
-                                            <li><a href="classes/League-Event-Emitter.html#method_emit">emit()</a></li>
-                                            <li><a href="classes/League-Event-Emitter.html#method_emitBatch">emitBatch()</a></li>
-                                            <li><a href="classes/League-Event-Emitter.html#method_emitGeneratedEvents">emitGeneratedEvents()</a></li>
-                                            <li><a href="classes/League-Event-Emitter.html#method_getListeners">getListeners()</a></li>
-                                            <li><a href="classes/League-Event-Emitter.html#method_hasListeners">hasListeners()</a></li>
-                                            <li><a href="classes/League-Event-Emitter.html#method_removeAllListeners">removeAllListeners()</a></li>
-                                            <li><a href="classes/League-Event-Emitter.html#method_removeListener">removeListener()</a></li>
-                                            <li><a href="classes/League-Event-Emitter.html#method_useListenerProvider">useListenerProvider()</a></li>
-                                            <li><a href="classes/League-Event-Emitter.html#method_clearSortedListeners">clearSortedListeners()</a></li>
-                                            <li><a href="classes/League-Event-Emitter.html#method_ensureEvent">ensureEvent()</a></li>
-                                            <li><a href="classes/League-Event-Emitter.html#method_ensureListener">ensureListener()</a></li>
-                                            <li><a href="classes/League-Event-Emitter.html#method_getSortedListeners">getSortedListeners()</a></li>
-                                            <li><a href="classes/League-Event-Emitter.html#method_invokeListeners">invokeListeners()</a></li>
-                                            <li><a href="classes/League-Event-Emitter.html#method_prepareEvent">prepareEvent()</a></li>
+                                            <li class=""><a href="classes/League-Event-Emitter.html#method_addListener">addListener()</a></li>
+                                            <li class=""><a href="classes/League-Event-Emitter.html#method_addOneTimeListener">addOneTimeListener()</a></li>
+                                            <li class=""><a href="classes/League-Event-Emitter.html#method_emit">emit()</a></li>
+                                            <li class=""><a href="classes/League-Event-Emitter.html#method_emitBatch">emitBatch()</a></li>
+                                            <li class=""><a href="classes/League-Event-Emitter.html#method_emitGeneratedEvents">emitGeneratedEvents()</a></li>
+                                            <li class=""><a href="classes/League-Event-Emitter.html#method_getListeners">getListeners()</a></li>
+                                            <li class=""><a href="classes/League-Event-Emitter.html#method_hasListeners">hasListeners()</a></li>
+                                            <li class=""><a href="classes/League-Event-Emitter.html#method_removeAllListeners">removeAllListeners()</a></li>
+                                            <li class=""><a href="classes/League-Event-Emitter.html#method_removeListener">removeListener()</a></li>
+                                            <li class=""><a href="classes/League-Event-Emitter.html#method_useListenerProvider">useListenerProvider()</a></li>
+                                            <li class=""><a href="classes/League-Event-Emitter.html#method_clearSortedListeners">clearSortedListeners()</a></li>
+                                            <li class=""><a href="classes/League-Event-Emitter.html#method_ensureEvent">ensureEvent()</a></li>
+                                            <li class=""><a href="classes/League-Event-Emitter.html#method_ensureListener">ensureListener()</a></li>
+                                            <li class=""><a href="classes/League-Event-Emitter.html#method_getSortedListeners">getSortedListeners()</a></li>
+                                            <li class=""><a href="classes/League-Event-Emitter.html#method_invokeListeners">invokeListeners()</a></li>
+                                            <li class=""><a href="classes/League-Event-Emitter.html#method_prepareEvent">prepareEvent()</a></li>
                                     </ul>
             </li>
                     </ul>

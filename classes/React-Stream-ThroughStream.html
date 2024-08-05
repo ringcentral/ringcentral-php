@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/ringcentral.html" class="">RingCentral</a>
@@ -232,10 +232,6 @@
             </li>
                     <li>
                 <a href="namespaces/phpparser-errorhandler.html" class="">ErrorHandler</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/phpparser-internal.html" class="">Internal</a>
                 
             </li>
                     <li>
@@ -548,10 +544,6 @@
                 <a href="namespaces/symfony-contracts.html" class="">Contracts</a>
                 
             </li>
-                    <li>
-                <a href="namespaces/symfony-polyfill.html" class="">Polyfill</a>
-                
-            </li>
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -575,7 +567,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -677,14 +669,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -735,6 +727,7 @@
             <p class="phpdocumentor-summary">The `ThroughStream` implements the
 [`DuplexStreamInterface`](#duplexstreaminterface) and will simply pass any data
 you write to it through to its readable end.</p>
+
 
     <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$through = new ThroughStream();
 $through-&gt;on('data', $this-&gt;expectCallableOnceWith('hello'));
@@ -825,6 +818,8 @@ $through-&gt;write(2);
 
 
 
+
+
 <h3 id="toc">
     Table of Contents
     <a href="classes/React-Stream-ThroughStream.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -854,49 +849,49 @@ duplex streams (both readable and writable).</dd>    </dl>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Evenement-EventEmitterTrait.html#property_listeners">$listeners</a>
+    <a class="" href="classes/Evenement-EventEmitterTrait.html#property_listeners">$listeners</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Evenement-EventEmitterTrait.html#property_onceListeners">$onceListeners</a>
+    <a class="" href="classes/Evenement-EventEmitterTrait.html#property_onceListeners">$onceListeners</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-Stream-ThroughStream.html#property_callback">$callback</a>
+    <a class="" href="classes/React-Stream-ThroughStream.html#property_callback">$callback</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-Stream-ThroughStream.html#property_closed">$closed</a>
+    <a class="" href="classes/React-Stream-ThroughStream.html#property_closed">$closed</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-Stream-ThroughStream.html#property_drain">$drain</a>
+    <a class="" href="classes/React-Stream-ThroughStream.html#property_drain">$drain</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-Stream-ThroughStream.html#property_paused">$paused</a>
+    <a class="" href="classes/React-Stream-ThroughStream.html#property_paused">$paused</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-Stream-ThroughStream.html#property_readable">$readable</a>
+    <a class="" href="classes/React-Stream-ThroughStream.html#property_readable">$readable</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/React-Stream-ThroughStream.html#property_writable">$writable</a>
+    <a class="" href="classes/React-Stream-ThroughStream.html#property_writable">$writable</a>
     <span>
                         &nbsp;: mixed            </span>
 </dt>
@@ -910,97 +905,104 @@ duplex streams (both readable and writable).</dd>    </dl>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Stream-ThroughStream.html#method___construct">__construct()</a>
+    <a class="" href="classes/React-Stream-ThroughStream.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Stream-ThroughStream.html#method_close">close()</a>
+    <a class="" href="classes/React-Stream-ThroughStream.html#method_close">close()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Closes the stream (forcefully).</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/Evenement-EventEmitterTrait.html#method_emit">emit()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Evenement-EventEmitterTrait.html#method_emit">emit()</a>
+    <a class="" href="classes/React-Stream-ThroughStream.html#method_end">end()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
+<dd>Successfully ends the stream (after optionally sending some final data).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Stream-ThroughStream.html#method_end">end()</a>
+    <a class="" href="classes/React-Stream-ThroughStream.html#method_isReadable">isReadable()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: bool    </span>
 </dt>
+<dd>Checks whether this stream is in a readable state (not closed already).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Stream-ThroughStream.html#method_isReadable">isReadable()</a>
+    <a class="" href="classes/React-Stream-ThroughStream.html#method_isWritable">isWritable()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: bool    </span>
 </dt>
+<dd>Checks whether this stream is in a writable state (not closed already).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Stream-ThroughStream.html#method_isWritable">isWritable()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Evenement-EventEmitterTrait.html#method_listeners">listeners()</a>
+    <a class="" href="classes/Evenement-EventEmitterTrait.html#method_listeners">listeners()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Evenement-EventEmitterTrait.html#method_on">on()</a>
+    <a class="" href="classes/Evenement-EventEmitterTrait.html#method_on">on()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Evenement-EventEmitterTrait.html#method_once">once()</a>
+    <a class="" href="classes/Evenement-EventEmitterTrait.html#method_once">once()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Stream-ThroughStream.html#method_pause">pause()</a>
+    <a class="" href="classes/React-Stream-ThroughStream.html#method_pause">pause()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Pauses reading incoming data events.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/React-Stream-ThroughStream.html#method_pipe">pipe()</a>
+    <span>
+                                &nbsp;: <a href="classes/React-Stream-WritableStreamInterface.html"><abbr title="\React\Stream\WritableStreamInterface">WritableStreamInterface</abbr></a>    </span>
+</dt>
+<dd>Pipes all the data from this readable source into the given writable destination.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/Evenement-EventEmitterTrait.html#method_removeAllListeners">removeAllListeners()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Stream-ThroughStream.html#method_pipe">pipe()</a>
+    <a class="" href="classes/Evenement-EventEmitterTrait.html#method_removeListener">removeListener()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Evenement-EventEmitterTrait.html#method_removeAllListeners">removeAllListeners()</a>
+    <a class="" href="classes/React-Stream-ThroughStream.html#method_resume">resume()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
+<dd>Resumes reading incoming data events.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Evenement-EventEmitterTrait.html#method_removeListener">removeListener()</a>
+    <a class="" href="classes/React-Stream-ThroughStream.html#method_write">write()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: bool    </span>
 </dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Stream-ThroughStream.html#method_resume">resume()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/React-Stream-ThroughStream.html#method_write">write()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
+<dd>Write some data into the stream.</dd>
 
     </dl>
-
 
 
 
@@ -1035,6 +1037,7 @@ duplex streams (both readable and writable).</dd>    </dl>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1043,6 +1046,8 @@ duplex streams (both readable and writable).</dd>    </dl>
 
     
     
+    
+
     
 
 </article>
@@ -1068,6 +1073,7 @@ duplex streams (both readable and writable).</dd>    </dl>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1076,6 +1082,8 @@ duplex streams (both readable and writable).</dd>    </dl>
 
     
     
+    
+
     
 
 </article>
@@ -1101,6 +1109,7 @@ duplex streams (both readable and writable).</dd>    </dl>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1109,6 +1118,8 @@ duplex streams (both readable and writable).</dd>    </dl>
 
     
     
+    
+
     
 
 </article>
@@ -1134,6 +1145,7 @@ duplex streams (both readable and writable).</dd>    </dl>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1142,6 +1154,8 @@ duplex streams (both readable and writable).</dd>    </dl>
 
     
     
+    
+
     
 
 </article>
@@ -1167,6 +1181,7 @@ duplex streams (both readable and writable).</dd>    </dl>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1175,6 +1190,8 @@ duplex streams (both readable and writable).</dd>    </dl>
 
     
     
+    
+
     
 
 </article>
@@ -1200,6 +1217,7 @@ duplex streams (both readable and writable).</dd>    </dl>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1208,6 +1226,8 @@ duplex streams (both readable and writable).</dd>    </dl>
 
     
     
+    
+
     
 
 </article>
@@ -1233,6 +1253,7 @@ duplex streams (both readable and writable).</dd>    </dl>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1241,6 +1262,8 @@ duplex streams (both readable and writable).</dd>    </dl>
 
     
     
+    
+
     
 
 </article>
@@ -1266,6 +1289,7 @@ duplex streams (both readable and writable).</dd>    </dl>
     </aside>
 
     
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -1274,6 +1298,8 @@ duplex streams (both readable and writable).</dd>    </dl>
 
     
     
+    
+
     
 
 </article>
@@ -1311,6 +1337,7 @@ duplex streams (both readable and writable).</dd>    </dl>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1321,6 +1348,8 @@ duplex streams (both readable and writable).</dd>    </dl>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1340,19 +1369,44 @@ duplex streams (both readable and writable).</dd>    </dl>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/react/stream/src/ThroughStream.php"><a href="files/vendor-react-stream-src-throughstream.html"><abbr title="vendor/react/stream/src/ThroughStream.php">ThroughStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">174</span>
+    <span class="phpdocumentor-element-found-in__line">178</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Closes the stream (forcefully).</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">close</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">close</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
+        <section class="phpdocumentor-description"><p>This method can be used to (forcefully) close the stream.</p>
+<pre class="prettyprint"><code class="language-php">$stream-&gt;close();
+</code></pre>
+<p>Once the stream is closed, it SHOULD emit a <code class="prettyprint">close</code> event.
+Note that this event SHOULD NOT be emitted more than once, in particular
+if this method is called multiple times.</p>
+<p>After calling this method, the stream MUST switch into a non-readable
+mode, see also <code class="prettyprint">isReadable()</code>.
+This means that no further <code class="prettyprint">data</code> or <code class="prettyprint">end</code> events SHOULD be emitted.</p>
+<pre class="prettyprint"><code class="language-php">$stream-&gt;close();
+assert($stream-&gt;isReadable() === false);
+
+$stream-&gt;on('data', assertNeverCalled());
+$stream-&gt;on('end', assertNeverCalled());
+</code></pre>
+<p>If this stream is a <code class="prettyprint">DuplexStreamInterface</code>, you should also notice
+how the writable side of the stream also implements a <code class="prettyprint">close()</code> method.
+In other words, after calling this method, the stream MUST switch into
+non-writable AND non-readable mode, see also <code class="prettyprint">isWritable()</code>.
+Note that this method should not be confused with the <code class="prettyprint">end()</code> method.</p>
+</section>
+
     
+    
+
     
 
     
@@ -1383,6 +1437,7 @@ duplex streams (both readable and writable).</dd>    </dl>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1404,6 +1459,8 @@ duplex streams (both readable and writable).</dd>    </dl>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1419,18 +1476,71 @@ duplex streams (both readable and writable).</dd>    </dl>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/react/stream/src/ThroughStream.php"><a href="files/vendor-react-stream-src-throughstream.html"><abbr title="vendor/react/stream/src/ThroughStream.php">ThroughStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">150</span>
+    <span class="phpdocumentor-element-found-in__line">154</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Successfully ends the stream (after optionally sending some final data).</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">end</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">end</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
+        <section class="phpdocumentor-description"><p>This method can be used to successfully end the stream, i.e. close
+the stream after sending out all data that is currently buffered.</p>
+<pre class="prettyprint"><code class="language-php">$stream-&gt;write('hello');
+$stream-&gt;write('world');
+$stream-&gt;end();
+</code></pre>
+<p>If there's no data currently buffered and nothing to be flushed, then
+this method MAY <code class="prettyprint">close()</code> the stream immediately.</p>
+<p>If there's still data in the buffer that needs to be flushed first, then
+this method SHOULD try to write out this data and only then <code class="prettyprint">close()</code>
+the stream.
+Once the stream is closed, it SHOULD emit a <code class="prettyprint">close</code> event.</p>
+<p>Note that this interface gives you no control over explicitly flushing
+the buffered data, as finding the appropriate time for this is beyond the
+scope of this interface and left up to the implementation of this
+interface.</p>
+<p>Many common streams (such as a TCP/IP connection or file-based stream)
+may choose to buffer all given data and schedule a future flush by using
+an underlying EventLoop to check when the resource is actually writable.</p>
+<p>You can optionally pass some final data that is written to the stream
+before ending the stream. If a non-<code class="prettyprint">null</code> value is given as <code class="prettyprint">$data</code>, then
+this method will behave just like calling <code class="prettyprint">write($data)</code> before ending
+with no data.</p>
+<pre class="prettyprint"><code class="language-php">// shorter version
+$stream-&gt;end('bye');
+
+// same as longer version
+$stream-&gt;write('bye');
+$stream-&gt;end();
+</code></pre>
+<p>After calling this method, the stream MUST switch into a non-writable
+mode, see also <code class="prettyprint">isWritable()</code>.
+This means that no further writes are possible, so any additional
+<code class="prettyprint">write()</code> or <code class="prettyprint">end()</code> calls have no effect.</p>
+<pre class="prettyprint"><code class="language-php">$stream-&gt;end();
+assert($stream-&gt;isWritable() === false);
+
+$stream-&gt;write('nope'); // NO-OP
+$stream-&gt;end(); // NO-OP
+</code></pre>
+<p>If this stream is a <code class="prettyprint">DuplexStreamInterface</code>, calling this method SHOULD
+also end its readable side, unless the stream supports half-open mode.
+In other words, after calling this method, these streams SHOULD switch
+into non-writable AND non-readable mode, see also <code class="prettyprint">isReadable()</code>.
+This implies that in this case, the stream SHOULD NOT emit any <code class="prettyprint">data</code>
+or <code class="prettyprint">end</code> events anymore.
+Streams MAY choose to use the <code class="prettyprint">pause()</code> method logic for this, but
+special care may have to be taken to ensure a following call to the
+<code class="prettyprint">resume()</code> method SHOULD NOT continue emitting readable events.</p>
+<p>Note that this method should not be confused with the <code class="prettyprint">close()</code> method.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1441,6 +1551,8 @@ duplex streams (both readable and writable).</dd>    </dl>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1460,22 +1572,50 @@ duplex streams (both readable and writable).</dd>    </dl>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/react/stream/src/ThroughStream.php"><a href="files/vendor-react-stream-src-throughstream.html"><abbr title="vendor/react/stream/src/ThroughStream.php">ThroughStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">113</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Checks whether this stream is in a readable state (not closed already).</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">isReadable</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">isReadable</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
+        <section class="phpdocumentor-description"><p>This method can be used to check if the stream still accepts incoming
+data events or if it is ended or closed already.
+Once the stream is non-readable, no further <code class="prettyprint">data</code> or <code class="prettyprint">end</code> events SHOULD
+be emitted.</p>
+<pre class="prettyprint"><code class="language-php">assert($stream-&gt;isReadable() === false);
+
+$stream-&gt;on('data', assertNeverCalled());
+$stream-&gt;on('end', assertNeverCalled());
+</code></pre>
+<p>A successfully opened stream always MUST start in readable mode.</p>
+<p>Once the stream ends or closes, it MUST switch to non-readable mode.
+This can happen any time, explicitly through <code class="prettyprint">close()</code> or
+implicitly due to a remote close or an unrecoverable transmission error.
+Once a stream has switched to non-readable mode, it MUST NOT transition
+back to readable mode.</p>
+<p>If this stream is a <code class="prettyprint">DuplexStreamInterface</code>, you should also notice
+how the writable side of the stream also implements an <code class="prettyprint">isWritable()</code>
+method. Unless this is a half-open duplex stream, they SHOULD usually
+have the same return value.</p>
+</section>
+
     
     
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1491,22 +1631,49 @@ duplex streams (both readable and writable).</dd>    </dl>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/react/stream/src/ThroughStream.php"><a href="files/vendor-react-stream-src-throughstream.html"><abbr title="vendor/react/stream/src/ThroughStream.php">ThroughStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">118</span>
+    <span class="phpdocumentor-element-found-in__line">121</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Checks whether this stream is in a writable state (not closed already).</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">isWritable</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">isWritable</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
+        <section class="phpdocumentor-description"><p>This method can be used to check if the stream still accepts writing
+any data or if it is ended or closed already.
+Writing any data to a non-writable stream is a NO-OP:</p>
+<pre class="prettyprint"><code class="language-php">assert($stream-&gt;isWritable() === false);
+
+$stream-&gt;write('end'); // NO-OP
+$stream-&gt;end('end'); // NO-OP
+</code></pre>
+<p>A successfully opened stream always MUST start in writable mode.</p>
+<p>Once the stream ends or closes, it MUST switch to non-writable mode.
+This can happen any time, explicitly through <code class="prettyprint">end()</code> or <code class="prettyprint">close()</code> or
+implicitly due to a remote close or an unrecoverable transmission error.
+Once a stream has switched to non-writable mode, it MUST NOT transition
+back to writable mode.</p>
+<p>If this stream is a <code class="prettyprint">DuplexStreamInterface</code>, you should also notice
+how the readable side of the stream also implements an <code class="prettyprint">isReadable()</code>
+method. Unless this is a half-open duplex stream, they SHOULD usually
+have the same return value.</p>
+</section>
+
     
     
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1534,6 +1701,7 @@ duplex streams (both readable and writable).</dd>    </dl>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1544,6 +1712,8 @@ duplex streams (both readable and writable).</dd>    </dl>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1579,6 +1749,7 @@ duplex streams (both readable and writable).</dd>    </dl>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1596,6 +1767,8 @@ duplex streams (both readable and writable).</dd>    </dl>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1627,6 +1800,7 @@ duplex streams (both readable and writable).</dd>    </dl>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1644,6 +1818,8 @@ duplex streams (both readable and writable).</dd>    </dl>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1667,15 +1843,36 @@ duplex streams (both readable and writable).</dd>    </dl>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Pauses reading incoming data events.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">pause</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">pause</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
+        <section class="phpdocumentor-description"><p>Removes the data source file descriptor from the event loop. This
+allows you to throttle incoming data.</p>
+<p>Unless otherwise noted, a successfully opened stream SHOULD NOT start
+in paused state.</p>
+<p>Once the stream is paused, no futher <code class="prettyprint">data</code> or <code class="prettyprint">end</code> events SHOULD
+be emitted.</p>
+<pre class="prettyprint"><code class="language-php">$stream-&gt;pause();
+
+$stream-&gt;on('data', assertShouldNeverCalled());
+$stream-&gt;on('end', assertShouldNeverCalled());
+</code></pre>
+<p>This method is advisory-only, though generally not recommended, the
+stream MAY continue emitting <code class="prettyprint">data</code> events.</p>
+<p>You can continue processing events by calling <code class="prettyprint">resume()</code> again.</p>
+<p>Note that both methods can be called any number of times, in particular
+calling <code class="prettyprint">pause()</code> more than once SHOULD NOT have any effect.</p>
+</section>
+
     
+    
+
     
 
     
@@ -1694,18 +1891,62 @@ duplex streams (both readable and writable).</dd>    </dl>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/react/stream/src/ThroughStream.php"><a href="files/vendor-react-stream-src-throughstream.html"><abbr title="vendor/react/stream/src/ThroughStream.php">ThroughStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Pipes all the data from this readable source into the given writable destination.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">pipe</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/React-Stream-WritableStreamInterface.html"><abbr title="\React\Stream\WritableStreamInterface">WritableStreamInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dest</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">array()</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">pipe</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/React-Stream-WritableStreamInterface.html"><abbr title="\React\Stream\WritableStreamInterface">WritableStreamInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dest</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">array()</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/React-Stream-WritableStreamInterface.html"><abbr title="\React\Stream\WritableStreamInterface">WritableStreamInterface</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
+        <section class="phpdocumentor-description"><p>Automatically sends all incoming data to the destination.
+Automatically throttles the source based on what the destination can handle.</p>
+<pre class="prettyprint"><code class="language-php">$source-&gt;pipe($dest);
+</code></pre>
+<p>Similarly, you can also pipe an instance implementing <code class="prettyprint">DuplexStreamInterface</code>
+into itself in order to write back all the data that is received.
+This may be a useful feature for a TCP/IP echo service:</p>
+<pre class="prettyprint"><code class="language-php">$connection-&gt;pipe($connection);
+</code></pre>
+<p>This method returns the destination stream as-is, which can be used to
+set up chains of piped streams:</p>
+<pre class="prettyprint"><code class="language-php">$source-&gt;pipe($decodeGzip)-&gt;pipe($filterBadWords)-&gt;pipe($dest);
+</code></pre>
+<p>By default, this will call <code class="prettyprint">end()</code> on the destination stream once the
+source stream emits an <code class="prettyprint">end</code> event. This can be disabled like this:</p>
+<pre class="prettyprint"><code class="language-php">$source-&gt;pipe($dest, array('end' =&gt; false));
+</code></pre>
+<p>Note that this only applies to the <code class="prettyprint">end</code> event.
+If an <code class="prettyprint">error</code> or explicit <code class="prettyprint">close</code> event happens on the source stream,
+you'll have to manually close the destination stream:</p>
+<pre class="prettyprint"><code class="language-php">$source-&gt;pipe($dest);
+$source-&gt;on('close', function () use ($dest) {
+    $dest-&gt;end('BYE!');
+});
+</code></pre>
+<p>If the source stream is not readable (closed state), then this is a NO-OP.</p>
+<pre class="prettyprint"><code class="language-php">$source-&gt;close();
+$source-&gt;pipe($dest); // NO-OP
+</code></pre>
+<p>If the destinantion stream is not writable (closed state), then this will simply
+throttle (pause) the source stream:</p>
+<pre class="prettyprint"><code class="language-php">$dest-&gt;close();
+$source-&gt;pipe($dest); // calls $source-&gt;pause()
+</code></pre>
+<p>Similarly, if the destination stream is closed while the pipe is still
+active, it will also throttle (pause) the source stream:</p>
+<pre class="prettyprint"><code class="language-php">$source-&gt;pipe($dest);
+$dest-&gt;close(); // calls $source-&gt;pause()
+</code></pre>
+<p>Once the pipe is set up successfully, the destination stream MUST emit
+a <code class="prettyprint">pipe</code> event with this source stream an event argument.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1727,6 +1968,16 @@ duplex streams (both readable and writable).</dd>    </dl>
     
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/React-Stream-WritableStreamInterface.html"><abbr title="\React\Stream\WritableStreamInterface">WritableStreamInterface</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>$dest stream as-is</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1754,6 +2005,7 @@ duplex streams (both readable and writable).</dd>    </dl>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1764,6 +2016,8 @@ duplex streams (both readable and writable).</dd>    </dl>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1795,6 +2049,7 @@ duplex streams (both readable and writable).</dd>    </dl>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1816,6 +2071,8 @@ duplex streams (both readable and writable).</dd>    </dl>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1831,19 +2088,33 @@ duplex streams (both readable and writable).</dd>    </dl>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/react/stream/src/ThroughStream.php"><a href="files/vendor-react-stream-src-throughstream.html"><abbr title="vendor/react/stream/src/ThroughStream.php">ThroughStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">99</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Resumes reading incoming data events.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">resume</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">resume</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
+        <section class="phpdocumentor-description"><p>Re-attach the data source after a previous <code class="prettyprint">pause()</code>.</p>
+<pre class="prettyprint"><code class="language-php">$stream-&gt;pause();
+
+Loop::addTimer(1.0, function () use ($stream) {
+    $stream-&gt;resume();
+});
+</code></pre>
+<p>Note that both methods can be called any number of times, in particular
+calling <code class="prettyprint">resume()</code> without a prior <code class="prettyprint">pause()</code> SHOULD NOT have any effect.</p>
+</section>
+
     
+    
+
     
 
     
@@ -1862,18 +2133,54 @@ duplex streams (both readable and writable).</dd>    </dl>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/react/stream/src/ThroughStream.php"><a href="files/vendor-react-stream-src-throughstream.html"><abbr title="vendor/react/stream/src/ThroughStream.php">ThroughStream.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">123</span>
+    <span class="phpdocumentor-element-found-in__line">126</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Write some data into the stream.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">write</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">write</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
+        <section class="phpdocumentor-description"><p>A successful write MUST be confirmed with a boolean <code class="prettyprint">true</code>, which means
+that either the data was written (flushed) immediately or is buffered and
+scheduled for a future write. Note that this interface gives you no
+control over explicitly flushing the buffered data, as finding the
+appropriate time for this is beyond the scope of this interface and left
+up to the implementation of this interface.</p>
+<p>Many common streams (such as a TCP/IP connection or file-based stream)
+may choose to buffer all given data and schedule a future flush by using
+an underlying EventLoop to check when the resource is actually writable.</p>
+<p>If a stream cannot handle writing (or flushing) the data, it SHOULD emit
+an <code class="prettyprint">error</code> event and MAY <code class="prettyprint">close()</code> the stream if it can not recover from
+this error.</p>
+<p>If the internal buffer is full after adding <code class="prettyprint">$data</code>, then <code class="prettyprint">write()</code>
+SHOULD return <code class="prettyprint">false</code>, indicating that the caller should stop sending
+data until the buffer drains.
+The stream SHOULD send a <code class="prettyprint">drain</code> event once the buffer is ready to accept
+more data.</p>
+<p>Similarly, if the stream is not writable (already in a closed state)
+it MUST NOT process the given <code class="prettyprint">$data</code> and SHOULD return <code class="prettyprint">false</code>,
+indicating that the caller should stop sending data.</p>
+<p>The given <code class="prettyprint">$data</code> argument MAY be of mixed type, but it's usually
+recommended it SHOULD be a <code class="prettyprint">string</code> value or MAY use a type that allows
+representation as a <code class="prettyprint">string</code> for maximum compatibility.</p>
+<p>Many common streams (such as a TCP/IP connection or a file-based stream)
+will only accept the raw (binary) payload data that is transferred over
+the wire as chunks of <code class="prettyprint">string</code> values.</p>
+<p>Due to the stream-based nature of this, the sender may send any number
+of chunks with varying sizes. There are no guarantees that these chunks
+will be received with the exact same framing the sender intended to send.
+In other words, many lower-level protocols (such as TCP/IP) transfer the
+data in chunks that may be anywhere between single-byte values to several
+dozens of kilobytes. You may want to apply a higher-level protocol to
+these low-level data chunks in order to achieve proper message framing.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1888,6 +2195,12 @@ duplex streams (both readable and writable).</dd>    </dl>
     
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
             </section>
 
@@ -2002,35 +2315,35 @@ duplex streams (both readable and writable).</dd>    </dl>
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Evenement-EventEmitterTrait.html#property_listeners">$listeners<a href="classes/React-Stream-ThroughStream.html"></li>
-                                                    <li><a href="classes/Evenement-EventEmitterTrait.html#property_onceListeners">$onceListeners<a href="classes/React-Stream-ThroughStream.html"></li>
-                                                    <li><a href="classes/React-Stream-ThroughStream.html#property_callback">$callback<a href="classes/React-Stream-ThroughStream.html"></li>
-                                                    <li><a href="classes/React-Stream-ThroughStream.html#property_closed">$closed<a href="classes/React-Stream-ThroughStream.html"></li>
-                                                    <li><a href="classes/React-Stream-ThroughStream.html#property_drain">$drain<a href="classes/React-Stream-ThroughStream.html"></li>
-                                                    <li><a href="classes/React-Stream-ThroughStream.html#property_paused">$paused<a href="classes/React-Stream-ThroughStream.html"></li>
-                                                    <li><a href="classes/React-Stream-ThroughStream.html#property_readable">$readable<a href="classes/React-Stream-ThroughStream.html"></li>
-                                                    <li><a href="classes/React-Stream-ThroughStream.html#property_writable">$writable<a href="classes/React-Stream-ThroughStream.html"></li>
+                                                    <li class=""><a href="classes/Evenement-EventEmitterTrait.html#property_listeners">$listeners</a></li>
+                                                    <li class=""><a href="classes/Evenement-EventEmitterTrait.html#property_onceListeners">$onceListeners</a></li>
+                                                    <li class=""><a href="classes/React-Stream-ThroughStream.html#property_callback">$callback</a></li>
+                                                    <li class=""><a href="classes/React-Stream-ThroughStream.html#property_closed">$closed</a></li>
+                                                    <li class=""><a href="classes/React-Stream-ThroughStream.html#property_drain">$drain</a></li>
+                                                    <li class=""><a href="classes/React-Stream-ThroughStream.html#property_paused">$paused</a></li>
+                                                    <li class=""><a href="classes/React-Stream-ThroughStream.html#property_readable">$readable</a></li>
+                                                    <li class=""><a href="classes/React-Stream-ThroughStream.html#property_writable">$writable</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/React-Stream-ThroughStream.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/React-Stream-ThroughStream.html#method_close">close()</a></li>
-                                            <li><a href="classes/Evenement-EventEmitterTrait.html#method_emit">emit()</a></li>
-                                            <li><a href="classes/React-Stream-ThroughStream.html#method_end">end()</a></li>
-                                            <li><a href="classes/React-Stream-ThroughStream.html#method_isReadable">isReadable()</a></li>
-                                            <li><a href="classes/React-Stream-ThroughStream.html#method_isWritable">isWritable()</a></li>
-                                            <li><a href="classes/Evenement-EventEmitterTrait.html#method_listeners">listeners()</a></li>
-                                            <li><a href="classes/Evenement-EventEmitterTrait.html#method_on">on()</a></li>
-                                            <li><a href="classes/Evenement-EventEmitterTrait.html#method_once">once()</a></li>
-                                            <li><a href="classes/React-Stream-ThroughStream.html#method_pause">pause()</a></li>
-                                            <li><a href="classes/React-Stream-ThroughStream.html#method_pipe">pipe()</a></li>
-                                            <li><a href="classes/Evenement-EventEmitterTrait.html#method_removeAllListeners">removeAllListeners()</a></li>
-                                            <li><a href="classes/Evenement-EventEmitterTrait.html#method_removeListener">removeListener()</a></li>
-                                            <li><a href="classes/React-Stream-ThroughStream.html#method_resume">resume()</a></li>
-                                            <li><a href="classes/React-Stream-ThroughStream.html#method_write">write()</a></li>
+                                            <li class=""><a href="classes/React-Stream-ThroughStream.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/React-Stream-ThroughStream.html#method_close">close()</a></li>
+                                            <li class=""><a href="classes/Evenement-EventEmitterTrait.html#method_emit">emit()</a></li>
+                                            <li class=""><a href="classes/React-Stream-ThroughStream.html#method_end">end()</a></li>
+                                            <li class=""><a href="classes/React-Stream-ThroughStream.html#method_isReadable">isReadable()</a></li>
+                                            <li class=""><a href="classes/React-Stream-ThroughStream.html#method_isWritable">isWritable()</a></li>
+                                            <li class=""><a href="classes/Evenement-EventEmitterTrait.html#method_listeners">listeners()</a></li>
+                                            <li class=""><a href="classes/Evenement-EventEmitterTrait.html#method_on">on()</a></li>
+                                            <li class=""><a href="classes/Evenement-EventEmitterTrait.html#method_once">once()</a></li>
+                                            <li class=""><a href="classes/React-Stream-ThroughStream.html#method_pause">pause()</a></li>
+                                            <li class=""><a href="classes/React-Stream-ThroughStream.html#method_pipe">pipe()</a></li>
+                                            <li class=""><a href="classes/Evenement-EventEmitterTrait.html#method_removeAllListeners">removeAllListeners()</a></li>
+                                            <li class=""><a href="classes/Evenement-EventEmitterTrait.html#method_removeListener">removeListener()</a></li>
+                                            <li class=""><a href="classes/React-Stream-ThroughStream.html#method_resume">resume()</a></li>
+                                            <li class=""><a href="classes/React-Stream-ThroughStream.html#method_write">write()</a></li>
                                     </ul>
             </li>
                     </ul>
