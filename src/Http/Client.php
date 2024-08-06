@@ -71,7 +71,7 @@ class Client
             $request->getBody()->rewind();
         }
 
-        $response = $this->_guzzle->send($request, ['exceptions' => false]);
+        $response = $this->_guzzle->send($request, ['http_errors' => false, 'exceptions' => false]);
 
         return new ApiResponse($request, $response);
 
@@ -127,16 +127,16 @@ class Client
         $query = "";
         if (!empty($queryParams) && is_array($queryParams)) {
             foreach ($queryParams as $key => $value) {
-              if (is_array($value)){
-                foreach ($value as $val) {
-                  $query .= $key."=".urlencode($val)."&";
+                if (is_array($value)) {
+                    foreach ($value as $val) {
+                        $query .= $key . "=" . urlencode($val) . "&";
+                    }
+                } else {
+                    $query .= $key . "=" . urlencode($value) . "&";
                 }
-              }else{
-                $query .= $key."=".urlencode($value)."&";
-              }
             }
         }
-        $query = rtrim($query,'&');
+        $query = rtrim($query, '&');
         if ($query != "") {
             $url = $url . (stristr($url, '?') ? '&' : '?') . $query;
         }
@@ -188,10 +188,10 @@ class Client
         // Create request
 
         return [
-            'method'  => $method,
-            'url'     => $url,
+            'method' => $method,
+            'url' => $url,
             'headers' => $headers,
-            'body'    => $body,
+            'body' => $body,
         ];
 
     }
