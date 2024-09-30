@@ -765,15 +765,33 @@ properties and constants.</p>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/PhpParser-Modifiers.html#constant_PRIVATE_SET">PRIVATE_SET</a>
+    <span>
+        &nbsp;= 512                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/PhpParser-Modifiers.html#constant_PROTECTED">PROTECTED</a>
     <span>
         &nbsp;= 2                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/PhpParser-Modifiers.html#constant_PROTECTED_SET">PROTECTED_SET</a>
+    <span>
+        &nbsp;= 256                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/PhpParser-Modifiers.html#constant_PUBLIC">PUBLIC</a>
     <span>
         &nbsp;= 1                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/PhpParser-Modifiers.html#constant_PUBLIC_SET">PUBLIC_SET</a>
+    <span>
+        &nbsp;= 128                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
@@ -791,13 +809,44 @@ properties and constants.</p>
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/PhpParser-Modifiers.html#constant_VISIBILITY_MASK">VISIBILITY_MASK</a>
     <span>
-        &nbsp;= 1 | 2 | 4                            </span>
+        &nbsp;= self::PUBLIC | self::PROTECTED | self::PRIVATE                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/PhpParser-Modifiers.html#constant_VISIBILITY_SET_MASK">VISIBILITY_SET_MASK</a>
+    <span>
+        &nbsp;= self::PUBLIC_SET | self::PROTECTED_SET | self::PRIVATE_SET                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -private">
+    <a class="" href="classes/PhpParser-Modifiers.html#constant_TO_STRING_MAP">TO_STRING_MAP</a>
+    <span>
+        &nbsp;= [self::PUBLIC =&gt; &#039;public&#039;, self::PROTECTED =&gt; &#039;protected&#039;, self::PRIVATE =&gt; &#039;private&#039;, self::STATIC =&gt; &#039;static&#039;, self::ABSTRACT =&gt; &#039;abstract&#039;, self::FINAL =&gt; &#039;final&#039;, self::READONLY =&gt; &#039;readonly&#039;, self::PUBLIC_SET =&gt; &#039;public(set)&#039;, self::PROTECTED_SET =&gt; &#039;protected(set)&#039;, self::PRIVATE_SET =&gt; &#039;private(set)&#039;]                            </span>
 </dt>
 
     </dl>
 
 
 
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/PhpParser-Modifiers.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/PhpParser-Modifiers.html#method_toString">toString()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a class="" href="classes/PhpParser-Modifiers.html#method_isValidModifier">isValidModifier()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+
+    </dl>
 
 
 
@@ -902,6 +951,37 @@ properties and constants.</p>
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PRIVATE_SET">
+        PRIVATE_SET
+        <a href="classes/PhpParser-Modifiers.html#constant_PRIVATE_SET" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Modifiers.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-modifiers.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Modifiers.php">Modifiers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">19</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PRIVATE_SET</span>
+    = <span class="phpdocumentor-signature__default-value">512</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_PROTECTED">
         PROTECTED
         <a href="classes/PhpParser-Modifiers.html#constant_PROTECTED" class="headerlink"><i class="fas fa-link"></i></a>
@@ -933,6 +1013,37 @@ properties and constants.</p>
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PROTECTED_SET">
+        PROTECTED_SET
+        <a href="classes/PhpParser-Modifiers.html#constant_PROTECTED_SET" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Modifiers.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-modifiers.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Modifiers.php">Modifiers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">18</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PROTECTED_SET</span>
+    = <span class="phpdocumentor-signature__default-value">256</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_PUBLIC">
         PUBLIC
         <a href="classes/PhpParser-Modifiers.html#constant_PUBLIC" class="headerlink"><i class="fas fa-link"></i></a>
@@ -953,6 +1064,37 @@ properties and constants.</p>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">PUBLIC</span>
     = <span class="phpdocumentor-signature__default-value">1</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PUBLIC_SET">
+        PUBLIC_SET
+        <a href="classes/PhpParser-Modifiers.html#constant_PUBLIC_SET" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Modifiers.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-modifiers.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Modifiers.php">Modifiers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">17</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PUBLIC_SET</span>
+    = <span class="phpdocumentor-signature__default-value">128</span>
 </code>
 
 
@@ -1035,7 +1177,7 @@ properties and constants.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Modifiers.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-modifiers.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Modifiers.php">Modifiers.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
@@ -1045,7 +1187,69 @@ properties and constants.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">VISIBILITY_MASK</span>
-    = <span class="phpdocumentor-signature__default-value">1 | 2 | 4</span>
+    = <span class="phpdocumentor-signature__default-value">self::PUBLIC | self::PROTECTED | self::PRIVATE</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_VISIBILITY_SET_MASK">
+        VISIBILITY_SET_MASK
+        <a href="classes/PhpParser-Modifiers.html#constant_VISIBILITY_SET_MASK" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Modifiers.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-modifiers.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Modifiers.php">Modifiers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">23</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">VISIBILITY_SET_MASK</span>
+    = <span class="phpdocumentor-signature__default-value">self::PUBLIC_SET | self::PROTECTED_SET | self::PRIVATE_SET</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -private ">
+    <h4 class="phpdocumentor-element__name" id="constant_TO_STRING_MAP">
+        TO_STRING_MAP
+        <a href="classes/PhpParser-Modifiers.html#constant_TO_STRING_MAP" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Modifiers.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-modifiers.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Modifiers.php">Modifiers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">25</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TO_STRING_MAP</span>
+    = <span class="phpdocumentor-signature__default-value">[self::PUBLIC =&gt; &#039;public&#039;, self::PROTECTED =&gt; &#039;protected&#039;, self::PRIVATE =&gt; &#039;private&#039;, self::STATIC =&gt; &#039;static&#039;, self::ABSTRACT =&gt; &#039;abstract&#039;, self::FINAL =&gt; &#039;final&#039;, self::READONLY =&gt; &#039;readonly&#039;, self::PUBLIC_SET =&gt; &#039;public(set)&#039;, self::PROTECTED_SET =&gt; &#039;protected(set)&#039;, self::PRIVATE_SET =&gt; &#039;private(set)&#039;]</span>
 </code>
 
 
@@ -1060,7 +1264,110 @@ properties and constants.</p>
 
         
 
-        
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/PhpParser-Modifiers.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_toString">
+        toString()
+        <a href="classes/PhpParser-Modifiers.html#method_toString" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Modifiers.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-modifiers.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Modifiers.php">Modifiers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">38</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">toString</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$modifier</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$modifier</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isValidModifier">
+        isValidModifier()
+        <a href="classes/PhpParser-Modifiers.html#method_isValidModifier" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Modifiers.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-modifiers.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Modifiers.php">Modifiers.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">45</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">isValidModifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$modifier</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$modifier</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
@@ -1165,7 +1472,8 @@ properties and constants.</p>
             <li>
                 <ul class="phpdocumentor-list -clean">
                                         <li><a href="classes/PhpParser-Modifiers.html#toc-constants">Constants</a></li>
-                                                                            </ul>
+                                                                                <li><a href="classes/PhpParser-Modifiers.html#toc-methods">Methods</a></li>
+                                    </ul>
             </li>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
@@ -1173,15 +1481,27 @@ properties and constants.</p>
                                                     <li class=""><a href="classes/PhpParser-Modifiers.html#constant_ABSTRACT">ABSTRACT</a></li>
                                                     <li class=""><a href="classes/PhpParser-Modifiers.html#constant_FINAL">FINAL</a></li>
                                                     <li class=""><a href="classes/PhpParser-Modifiers.html#constant_PRIVATE">PRIVATE</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Modifiers.html#constant_PRIVATE_SET">PRIVATE_SET</a></li>
                                                     <li class=""><a href="classes/PhpParser-Modifiers.html#constant_PROTECTED">PROTECTED</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Modifiers.html#constant_PROTECTED_SET">PROTECTED_SET</a></li>
                                                     <li class=""><a href="classes/PhpParser-Modifiers.html#constant_PUBLIC">PUBLIC</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Modifiers.html#constant_PUBLIC_SET">PUBLIC_SET</a></li>
                                                     <li class=""><a href="classes/PhpParser-Modifiers.html#constant_READONLY">READONLY</a></li>
                                                     <li class=""><a href="classes/PhpParser-Modifiers.html#constant_STATIC">STATIC</a></li>
                                                     <li class=""><a href="classes/PhpParser-Modifiers.html#constant_VISIBILITY_MASK">VISIBILITY_MASK</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Modifiers.html#constant_VISIBILITY_SET_MASK">VISIBILITY_SET_MASK</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Modifiers.html#constant_TO_STRING_MAP">TO_STRING_MAP</a></li>
                                             </ul>
                 </li>
             
             
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/PhpParser-Modifiers.html#method_toString">toString()</a></li>
+                                            <li class=""><a href="classes/PhpParser-Modifiers.html#method_isValidModifier">isValidModifier()</a></li>
+                                    </ul>
+            </li>
                     </ul>
     </section>
 

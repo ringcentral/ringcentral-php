@@ -687,15 +687,14 @@
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/phpparser.html">PhpParser</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/phpparser-node.html">Node</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/phpparser-node-stmt.html">Stmt</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    Property
+    PropertyHook
 
         <span class="phpdocumentor-element__extends">
-        extends <a href="classes/PhpParser-Node-Stmt.html"><abbr title="\PhpParser\Node\Stmt">Stmt</abbr></a>
+        extends <a href="classes/PhpParser-NodeAbstract.html"><abbr title="\PhpParser\NodeAbstract">NodeAbstract</abbr></a>
     </span>
     
             <div class="phpdocumentor-element__package">
@@ -705,6 +704,9 @@
                             </ul>
         </div>
     
+            <span class="phpdocumentor-element__implements">
+            implements
+                            <a href="classes/PhpParser-Node-FunctionLike.html"><abbr title="\PhpParser\Node\FunctionLike">FunctionLike</abbr></a>                    </span>
     
     </h2>
 
@@ -714,9 +716,9 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-propertyhook.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php">PropertyHook.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">8</span>
 
     </aside>
 
@@ -731,12 +733,19 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/PhpParser-Node-Stmt-Property.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/PhpParser-Node-PropertyHook.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
 
 
+    <h4 id="toc-interfaces">
+        Interfaces
+        <a href="classes/PhpParser-Node-PropertyHook.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <dl class="phpdocumentor-table-of-contents">
+                    <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/PhpParser-Node-FunctionLike.html"><abbr title="\PhpParser\Node\FunctionLike">FunctionLike</abbr></a></dt>    </dl>
 
 
 
@@ -745,38 +754,44 @@
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/PhpParser-Node-Stmt-Property.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/PhpParser-Node-PropertyHook.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/PhpParser-Node-Stmt-Property.html#property_attrGroups">$attrGroups</a>
+    <a class="" href="classes/PhpParser-Node-PropertyHook.html#property_attrGroups">$attrGroups</a>
     <span>
                         &nbsp;: array&lt;string|int, <a href="classes/PhpParser-Node-AttributeGroup.html"><abbr title="\PhpParser\Node\AttributeGroup">AttributeGroup</abbr></a>&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/PhpParser-Node-Stmt-Property.html#property_flags">$flags</a>
+    <a class="" href="classes/PhpParser-Node-PropertyHook.html#property_body">$body</a>
+    <span>
+                        &nbsp;: null|<a href="classes/PhpParser-Node-Expr.html"><abbr title="\PhpParser\Node\Expr">Expr</abbr></a>|array&lt;string|int, <a href="classes/PhpParser-Node-Stmt.html"><abbr title="\PhpParser\Node\Stmt">Stmt</abbr></a>&gt;            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/PhpParser-Node-PropertyHook.html#property_byRef">$byRef</a>
+    <span>
+                        &nbsp;: bool            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/PhpParser-Node-PropertyHook.html#property_flags">$flags</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/PhpParser-Node-Stmt-Property.html#property_hooks">$hooks</a>
+    <a class="" href="classes/PhpParser-Node-PropertyHook.html#property_name">$name</a>
     <span>
-                        &nbsp;: array&lt;string|int, <a href="classes/PhpParser-Node-PropertyHook.html"><abbr title="\PhpParser\Node\PropertyHook">PropertyHook</abbr></a>&gt;            </span>
+                        &nbsp;: <a href="classes/PhpParser-Node-Identifier.html"><abbr title="\PhpParser\Node\Identifier">Identifier</abbr></a>            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/PhpParser-Node-Stmt-Property.html#property_props">$props</a>
+    <a class="" href="classes/PhpParser-Node-PropertyHook.html#property_params">$params</a>
     <span>
-                        &nbsp;: array&lt;string|int, <a href="classes/PhpParser-Node-PropertyItem.html"><abbr title="\PhpParser\Node\PropertyItem">PropertyItem</abbr></a>&gt;            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/PhpParser-Node-Stmt-Property.html#property_type">$type</a>
-    <span>
-                        &nbsp;: null|<a href="classes/PhpParser-Node-Identifier.html"><abbr title="\PhpParser\Node\Identifier">Identifier</abbr></a>|<a href="classes/PhpParser-Node-Name.html"><abbr title="\PhpParser\Node\Name">Name</abbr></a>|<a href="classes/PhpParser-Node-ComplexType.html"><abbr title="\PhpParser\Node\ComplexType">ComplexType</abbr></a>            </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/PhpParser-Node-Param.html"><abbr title="\PhpParser\Node\Param">Param</abbr></a>&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
@@ -789,16 +804,23 @@
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/PhpParser-Node-Stmt-Property.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/PhpParser-Node-PropertyHook.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/PhpParser-Node-Stmt-Property.html#method___construct">__construct()</a>
+    <a class="" href="classes/PhpParser-Node-PropertyHook.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Constructs a class property list node.</dd>
+<dd>Constructs a property hook node.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/PhpParser-Node-PropertyHook.html#method_getAttrGroups">getAttrGroups()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, <a href="classes/PhpParser-Node-AttributeGroup.html"><abbr title="\PhpParser\Node\AttributeGroup">AttributeGroup</abbr></a>&gt;    </span>
+</dt>
+<dd>Get PHP attribute groups.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/PhpParser-NodeAbstract.html#method_getAttribute">getAttribute()</a>
@@ -857,6 +879,20 @@
 <dd>Gets line the node started in (alias of getStartLine).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/PhpParser-Node-PropertyHook.html#method_getParams">getParams()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, <a href="classes/PhpParser-Node-Param.html"><abbr title="\PhpParser\Node\Param">Param</abbr></a>&gt;    </span>
+</dt>
+<dd>List of parameters</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/PhpParser-Node-PropertyHook.html#method_getReturnType">getReturnType()</a>
+    <span>
+                                &nbsp;: null|<a href="classes/PhpParser-Node-Identifier.html"><abbr title="\PhpParser\Node\Identifier">Identifier</abbr></a>|<a href="classes/PhpParser-Node-Name.html"><abbr title="\PhpParser\Node\Name">Name</abbr></a>|<a href="classes/PhpParser-Node-ComplexType.html"><abbr title="\PhpParser\Node\ComplexType">ComplexType</abbr></a>    </span>
+</dt>
+<dd>Get the declared return type or null</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/PhpParser-NodeAbstract.html#method_getStartFilePos">getStartFilePos()</a>
     <span>
                                 &nbsp;: int    </span>
@@ -878,14 +914,21 @@
 <dd>Gets the token offset of the first token that is part of this node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/PhpParser-Node-Stmt-Property.html#method_getSubNodeNames">getSubNodeNames()</a>
+    <a class="" href="classes/PhpParser-Node-PropertyHook.html#method_getStmts">getStmts()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, <a href="classes/PhpParser-Node-Stmt.html"><abbr title="\PhpParser\Node\Stmt">Stmt</abbr></a>&gt;|null    </span>
+</dt>
+<dd>The function body</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/PhpParser-Node-PropertyHook.html#method_getSubNodeNames">getSubNodeNames()</a>
     <span>
                                 &nbsp;: array&lt;string|int, string&gt;    </span>
 </dt>
 <dd>Gets the names of the sub nodes.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/PhpParser-Node-Stmt-Property.html#method_getType">getType()</a>
+    <a class="" href="classes/PhpParser-Node-PropertyHook.html#method_getType">getType()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
@@ -899,66 +942,17 @@
 <dd>Returns whether an attribute exists.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/PhpParser-Node-Stmt-Property.html#method_isPrivate">isPrivate()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Whether the property is private.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/PhpParser-Node-Stmt-Property.html#method_isPrivateSet">isPrivateSet()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Whether the property has explicit private(set) visibility.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/PhpParser-Node-Stmt-Property.html#method_isProtected">isProtected()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Whether the property is protected.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/PhpParser-Node-Stmt-Property.html#method_isProtectedSet">isProtectedSet()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Whether the property has explicit protected(set) visibility.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/PhpParser-Node-Stmt-Property.html#method_isPublic">isPublic()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Whether the property is explicitly or implicitly public.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/PhpParser-Node-Stmt-Property.html#method_isPublicSet">isPublicSet()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Whether the property has explicit public(set) visibility.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/PhpParser-Node-Stmt-Property.html#method_isReadonly">isReadonly()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Whether the property is readonly.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/PhpParser-Node-Stmt-Property.html#method_isStatic">isStatic()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Whether the property is static.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/PhpParser-NodeAbstract.html#method_jsonSerialize">jsonSerialize()</a>
     <span>
                                 &nbsp;: array&lt;string, mixed&gt;    </span>
 </dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/PhpParser-Node-PropertyHook.html#method_returnsByRef">returnsByRef()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Whether to return by reference</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/PhpParser-NodeAbstract.html#method_setAttribute">setAttribute()</a>
@@ -991,7 +985,7 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/PhpParser-Node-Stmt-Property.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/PhpParser-Node-PropertyHook.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -1003,15 +997,15 @@
 >
     <h4 class="phpdocumentor-element__name" id="property_attrGroups">
         $attrGroups
-        <a href="classes/PhpParser-Node-Stmt-Property.html#property_attrGroups" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PhpParser-Node-PropertyHook.html#property_attrGroups" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-propertyhook.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php">PropertyHook.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
@@ -1039,17 +1033,93 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_flags">
-        $flags
-        <a href="classes/PhpParser-Node-Stmt-Property.html#property_flags" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_body">
+        $body
+        <a href="classes/PhpParser-Node-PropertyHook.html#property_body" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-propertyhook.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php">PropertyHook.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">20</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">null|<a href="classes/PhpParser-Node-Expr.html"><abbr title="\PhpParser\Node\Expr">Expr</abbr></a>|array&lt;string|int, <a href="classes/PhpParser-Node-Stmt.html"><abbr title="\PhpParser\Node\Stmt">Stmt</abbr></a>&gt;</span>
+    <span class="phpdocumentor-signature__name">$body</span>
+    </code>
+
+    
+        <section class="phpdocumentor-description"><p>Hook body</p>
+</section>
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_byRef">
+        $byRef
+        <a href="classes/PhpParser-Node-PropertyHook.html#property_byRef" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-propertyhook.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php">PropertyHook.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">14</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">bool</span>
+    <span class="phpdocumentor-signature__name">$byRef</span>
+    </code>
+
+    
+        <section class="phpdocumentor-description"><p>Whether hook returns by reference</p>
+</section>
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_flags">
+        $flags
+        <a href="classes/PhpParser-Node-PropertyHook.html#property_flags" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-propertyhook.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php">PropertyHook.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
@@ -1077,53 +1147,15 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_hooks">
-        $hooks
-        <a href="classes/PhpParser-Node-Stmt-Property.html#property_hooks" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_name">
+        $name
+        <a href="classes/PhpParser-Node-PropertyHook.html#property_name" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">22</span>
-
-    </aside>
-
-    
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, <a href="classes/PhpParser-Node-PropertyHook.html"><abbr title="\PhpParser\Node\PropertyHook">PropertyHook</abbr></a>&gt;</span>
-    <span class="phpdocumentor-signature__name">$hooks</span>
-    </code>
-
-    
-        <section class="phpdocumentor-description"><p>Property hooks</p>
-</section>
-
-    
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_props">
-        $props
-        <a href="classes/PhpParser-Node-Stmt-Property.html#property_props" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-propertyhook.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php">PropertyHook.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">16</span>
 
@@ -1133,12 +1165,12 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, <a href="classes/PhpParser-Node-PropertyItem.html"><abbr title="\PhpParser\Node\PropertyItem">PropertyItem</abbr></a>&gt;</span>
-    <span class="phpdocumentor-signature__name">$props</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/PhpParser-Node-Identifier.html"><abbr title="\PhpParser\Node\Identifier">Identifier</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$name</span>
     </code>
 
     
-        <section class="phpdocumentor-description"><p>Properties</p>
+        <section class="phpdocumentor-description"><p>Hook name</p>
 </section>
 
     
@@ -1153,15 +1185,15 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_type">
-        $type
-        <a href="classes/PhpParser-Node-Stmt-Property.html#property_type" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_params">
+        $params
+        <a href="classes/PhpParser-Node-PropertyHook.html#property_params" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-propertyhook.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php">PropertyHook.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">18</span>
 
@@ -1171,12 +1203,12 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">null|<a href="classes/PhpParser-Node-Identifier.html"><abbr title="\PhpParser\Node\Identifier">Identifier</abbr></a>|<a href="classes/PhpParser-Node-Name.html"><abbr title="\PhpParser\Node\Name">Name</abbr></a>|<a href="classes/PhpParser-Node-ComplexType.html"><abbr title="\PhpParser\Node\ComplexType">ComplexType</abbr></a></span>
-    <span class="phpdocumentor-signature__name">$type</span>
+        <span class="phpdocumentor-signature__type">array&lt;string|int, <a href="classes/PhpParser-Node-Param.html"><abbr title="\PhpParser\Node\Param">Param</abbr></a>&gt;</span>
+    <span class="phpdocumentor-signature__name">$params</span>
     </code>
 
     
-        <section class="phpdocumentor-description"><p>Type declaration</p>
+        <section class="phpdocumentor-description"><p>Parameters</p>
 </section>
 
     
@@ -1227,7 +1259,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/PhpParser-Node-Stmt-Property.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/PhpParser-Node-PropertyHook.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -1238,21 +1270,21 @@
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/PhpParser-Node-Stmt-Property.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PhpParser-Node-PropertyHook.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-propertyhook.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php">PropertyHook.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Constructs a class property list node.</p>
+        <p class="phpdocumentor-summary">Constructs a property hook node.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$flags</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/PhpParser-Node-PropertyItem.html"><abbr title="\PhpParser\Node\PropertyItem">PropertyItem</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$props</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$attributes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|<a href="classes/PhpParser-Node-Identifier.html"><abbr title="\PhpParser\Node\Identifier">Identifier</abbr></a>|<a href="classes/PhpParser-Node-Name.html"><abbr title="\PhpParser\Node\Name">Name</abbr></a>|<a href="classes/PhpParser-Node-ComplexType.html"><abbr title="\PhpParser\Node\ComplexType">ComplexType</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/PhpParser-Node-AttributeGroup.html"><abbr title="\PhpParser\Node\AttributeGroup">AttributeGroup</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$attrGroups</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/PhpParser-Node-PropertyHook.html"><abbr title="\PhpParser\Node\PropertyHook">PropertyHook</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hooks</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|<a href="classes/PhpParser-Node-Identifier.html"><abbr title="\PhpParser\Node\Identifier">Identifier</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|<a href="classes/PhpParser-Node-Expr.html"><abbr title="\PhpParser\Node\Expr">Expr</abbr></a>|array&lt;string|int, <a href="classes/PhpParser-Node-Stmt.html"><abbr title="\PhpParser\Node\Stmt">Stmt</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$body</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="array{flags?: int, byRef?: bool, params?: \PhpParser\Node\Param[], attrGroups?: \PhpParser\Node\AttributeGroup[]}">AttributeGroup[]}</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$subNodes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$attributes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1261,20 +1293,32 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$flags</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|<a href="classes/PhpParser-Node-Identifier.html"><abbr title="\PhpParser\Node\Identifier">Identifier</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Modifiers</p>
+                    <section class="phpdocumentor-description"><p>Hook name</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$props</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/PhpParser-Node-PropertyItem.html"><abbr title="\PhpParser\Node\PropertyItem">PropertyItem</abbr></a>&gt;</span>
+                <span class="phpdocumentor-signature__argument__name">$body</span>
+                : <span class="phpdocumentor-signature__argument__return-type">null|<a href="classes/PhpParser-Node-Expr.html"><abbr title="\PhpParser\Node\Expr">Expr</abbr></a>|array&lt;string|int, <a href="classes/PhpParser-Node-Stmt.html"><abbr title="\PhpParser\Node\Stmt">Stmt</abbr></a>&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Properties</p>
+                    <section class="phpdocumentor-description"><p>Hook body</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$subNodes</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="array{flags?: int, byRef?: bool, params?: \PhpParser\Node\Param[], attrGroups?: \PhpParser\Node\AttributeGroup[]}">AttributeGroup[]}</abbr></span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Array of the following optional subnodes:
+'byRef'      =&gt; false  : Whether hook returns by reference
+'params'     =&gt; array(): Parameters
+'attrGroups' =&gt; array(): PHP attribute groups</p>
 </section>
 
             </dd>
@@ -1287,33 +1331,6 @@
 </section>
 
             </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$type</span>
-                : <span class="phpdocumentor-signature__argument__return-type">null|<a href="classes/PhpParser-Node-Identifier.html"><abbr title="\PhpParser\Node\Identifier">Identifier</abbr></a>|<a href="classes/PhpParser-Node-Name.html"><abbr title="\PhpParser\Node\Name">Name</abbr></a>|<a href="classes/PhpParser-Node-ComplexType.html"><abbr title="\PhpParser\Node\ComplexType">ComplexType</abbr></a></span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Type declaration</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$attrGroups</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/PhpParser-Node-AttributeGroup.html"><abbr title="\PhpParser\Node\AttributeGroup">AttributeGroup</abbr></a>&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>PHP attribute groups</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$hooks</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/PhpParser-Node-PropertyHook.html"><abbr title="\PhpParser\Node\PropertyHook">PropertyHook</abbr></a>&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Property hooks</p>
-</section>
-
-            </dd>
             </dl>
 
     
@@ -1321,6 +1338,45 @@
     
 
     
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getAttrGroups">
+        getAttrGroups()
+        <a href="classes/PhpParser-Node-PropertyHook.html#method_getAttrGroups" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-propertyhook.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php">PropertyHook.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">67</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get PHP attribute groups.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getAttrGroups</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/PhpParser-Node-AttributeGroup.html"><abbr title="\PhpParser\Node\AttributeGroup">AttributeGroup</abbr></a>&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/PhpParser-Node-AttributeGroup.html"><abbr title="\PhpParser\Node\AttributeGroup">AttributeGroup</abbr></a>&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1714,6 +1770,84 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getParams">
+        getParams()
+        <a href="classes/PhpParser-Node-PropertyHook.html#method_getParams" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-propertyhook.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php">PropertyHook.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">52</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">List of parameters</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getParams</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/PhpParser-Node-Param.html"><abbr title="\PhpParser\Node\Param">Param</abbr></a>&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/PhpParser-Node-Param.html"><abbr title="\PhpParser\Node\Param">Param</abbr></a>&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getReturnType">
+        getReturnType()
+        <a href="classes/PhpParser-Node-PropertyHook.html#method_getReturnType" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-propertyhook.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php">PropertyHook.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">56</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the declared return type or null</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getReturnType</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null|<a href="classes/PhpParser-Node-Identifier.html"><abbr title="\PhpParser\Node\Identifier">Identifier</abbr></a>|<a href="classes/PhpParser-Node-Name.html"><abbr title="\PhpParser\Node\Name">Name</abbr></a>|<a href="classes/PhpParser-Node-ComplexType.html"><abbr title="\PhpParser\Node\ComplexType">ComplexType</abbr></a></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">null|<a href="classes/PhpParser-Node-Identifier.html"><abbr title="\PhpParser\Node\Identifier">Identifier</abbr></a>|<a href="classes/PhpParser-Node-Name.html"><abbr title="\PhpParser\Node\Name">Name</abbr></a>|<a href="classes/PhpParser-Node-ComplexType.html"><abbr title="\PhpParser\Node\ComplexType">ComplexType</abbr></a></span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getStartFilePos">
         getStartFilePos()
         <a href="classes/PhpParser-NodeAbstract.html#method_getStartFilePos" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1866,15 +2000,54 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getSubNodeNames">
-        getSubNodeNames()
-        <a href="classes/PhpParser-Node-Stmt-Property.html#method_getSubNodeNames" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getStmts">
+        getStmts()
+        <a href="classes/PhpParser-Node-PropertyHook.html#method_getStmts" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-propertyhook.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php">PropertyHook.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The function body</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getStmts</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/PhpParser-Node-Stmt.html"><abbr title="\PhpParser\Node\Stmt">Stmt</abbr></a>&gt;|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/PhpParser-Node-Stmt.html"><abbr title="\PhpParser\Node\Stmt">Stmt</abbr></a>&gt;|null</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getSubNodeNames">
+        getSubNodeNames()
+        <a href="classes/PhpParser-Node-PropertyHook.html#method_getSubNodeNames" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-propertyhook.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php">PropertyHook.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">75</span>
 
     </aside>
 
@@ -1911,13 +2084,13 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_getType">
         getType()
-        <a href="classes/PhpParser-Node-Stmt-Property.html#method_getType" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PhpParser-Node-PropertyHook.html#method_getType" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-propertyhook.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php">PropertyHook.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">71</span>
 
     </aside>
 
@@ -2001,318 +2174,6 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_isPrivate">
-        isPrivate()
-        <a href="classes/PhpParser-Node-Stmt-Property.html#method_isPrivate" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">65</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Whether the property is private.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">isPrivate</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_isPrivateSet">
-        isPrivateSet()
-        <a href="classes/PhpParser-Node-Stmt-Property.html#method_isPrivateSet" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">100</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Whether the property has explicit private(set) visibility.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">isPrivateSet</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_isProtected">
-        isProtected()
-        <a href="classes/PhpParser-Node-Stmt-Property.html#method_isProtected" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">58</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Whether the property is protected.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">isProtected</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_isProtectedSet">
-        isProtectedSet()
-        <a href="classes/PhpParser-Node-Stmt-Property.html#method_isProtectedSet" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">93</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Whether the property has explicit protected(set) visibility.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">isProtectedSet</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_isPublic">
-        isPublic()
-        <a href="classes/PhpParser-Node-Stmt-Property.html#method_isPublic" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">50</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Whether the property is explicitly or implicitly public.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">isPublic</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_isPublicSet">
-        isPublicSet()
-        <a href="classes/PhpParser-Node-Stmt-Property.html#method_isPublicSet" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">86</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Whether the property has explicit public(set) visibility.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">isPublicSet</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_isReadonly">
-        isReadonly()
-        <a href="classes/PhpParser-Node-Stmt-Property.html#method_isReadonly" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">79</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Whether the property is readonly.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">isReadonly</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_isStatic">
-        isStatic()
-        <a href="classes/PhpParser-Node-Stmt-Property.html#method_isStatic" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-stmt-property.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php">Property.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">72</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Whether the property is static.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">isStatic</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_jsonSerialize">
         jsonSerialize()
         <a href="classes/PhpParser-NodeAbstract.html#method_jsonSerialize" class="headerlink"><i class="fas fa-link"></i></a>
@@ -2342,6 +2203,45 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_returnsByRef">
+        returnsByRef()
+        <a href="classes/PhpParser-Node-PropertyHook.html#method_returnsByRef" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-node-propertyhook.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php">PropertyHook.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">48</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Whether to return by reference</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">returnsByRef</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
             </section>
 
 </article>
@@ -2497,7 +2397,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Property.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/vendor/nikic/php-parser/lib/PhpParser/Node/PropertyHook.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -2596,19 +2496,20 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                            <li><a href="classes/PhpParser-Node-Stmt-Property.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/PhpParser-Node-Stmt-Property.html#toc-methods">Methods</a></li>
+                                                            <li><a href="classes/PhpParser-Node-PropertyHook.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/PhpParser-Node-PropertyHook.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li class=""><a href="classes/PhpParser-Node-Stmt-Property.html#property_attrGroups">$attrGroups</a></li>
-                                                    <li class=""><a href="classes/PhpParser-Node-Stmt-Property.html#property_flags">$flags</a></li>
-                                                    <li class=""><a href="classes/PhpParser-Node-Stmt-Property.html#property_hooks">$hooks</a></li>
-                                                    <li class=""><a href="classes/PhpParser-Node-Stmt-Property.html#property_props">$props</a></li>
-                                                    <li class=""><a href="classes/PhpParser-Node-Stmt-Property.html#property_type">$type</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node-PropertyHook.html#property_attrGroups">$attrGroups</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node-PropertyHook.html#property_body">$body</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node-PropertyHook.html#property_byRef">$byRef</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node-PropertyHook.html#property_flags">$flags</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node-PropertyHook.html#property_name">$name</a></li>
+                                                    <li class=""><a href="classes/PhpParser-Node-PropertyHook.html#property_params">$params</a></li>
                                                     <li class=""><a href="classes/PhpParser-NodeAbstract.html#property_attributes">$attributes</a></li>
                                             </ul>
                 </li>
@@ -2616,7 +2517,8 @@
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/PhpParser-Node-Stmt-Property.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/PhpParser-Node-PropertyHook.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/PhpParser-Node-PropertyHook.html#method_getAttrGroups">getAttrGroups()</a></li>
                                             <li class=""><a href="classes/PhpParser-NodeAbstract.html#method_getAttribute">getAttribute()</a></li>
                                             <li class=""><a href="classes/PhpParser-NodeAbstract.html#method_getAttributes">getAttributes()</a></li>
                                             <li class=""><a href="classes/PhpParser-NodeAbstract.html#method_getComments">getComments()</a></li>
@@ -2625,21 +2527,17 @@
                                             <li class=""><a href="classes/PhpParser-NodeAbstract.html#method_getEndLine">getEndLine()</a></li>
                                             <li class=""><a href="classes/PhpParser-NodeAbstract.html#method_getEndTokenPos">getEndTokenPos()</a></li>
                                             <li class=""><a href="classes/PhpParser-NodeAbstract.html#method_getLine">getLine()</a></li>
+                                            <li class=""><a href="classes/PhpParser-Node-PropertyHook.html#method_getParams">getParams()</a></li>
+                                            <li class=""><a href="classes/PhpParser-Node-PropertyHook.html#method_getReturnType">getReturnType()</a></li>
                                             <li class=""><a href="classes/PhpParser-NodeAbstract.html#method_getStartFilePos">getStartFilePos()</a></li>
                                             <li class=""><a href="classes/PhpParser-NodeAbstract.html#method_getStartLine">getStartLine()</a></li>
                                             <li class=""><a href="classes/PhpParser-NodeAbstract.html#method_getStartTokenPos">getStartTokenPos()</a></li>
-                                            <li class=""><a href="classes/PhpParser-Node-Stmt-Property.html#method_getSubNodeNames">getSubNodeNames()</a></li>
-                                            <li class=""><a href="classes/PhpParser-Node-Stmt-Property.html#method_getType">getType()</a></li>
+                                            <li class=""><a href="classes/PhpParser-Node-PropertyHook.html#method_getStmts">getStmts()</a></li>
+                                            <li class=""><a href="classes/PhpParser-Node-PropertyHook.html#method_getSubNodeNames">getSubNodeNames()</a></li>
+                                            <li class=""><a href="classes/PhpParser-Node-PropertyHook.html#method_getType">getType()</a></li>
                                             <li class=""><a href="classes/PhpParser-NodeAbstract.html#method_hasAttribute">hasAttribute()</a></li>
-                                            <li class=""><a href="classes/PhpParser-Node-Stmt-Property.html#method_isPrivate">isPrivate()</a></li>
-                                            <li class=""><a href="classes/PhpParser-Node-Stmt-Property.html#method_isPrivateSet">isPrivateSet()</a></li>
-                                            <li class=""><a href="classes/PhpParser-Node-Stmt-Property.html#method_isProtected">isProtected()</a></li>
-                                            <li class=""><a href="classes/PhpParser-Node-Stmt-Property.html#method_isProtectedSet">isProtectedSet()</a></li>
-                                            <li class=""><a href="classes/PhpParser-Node-Stmt-Property.html#method_isPublic">isPublic()</a></li>
-                                            <li class=""><a href="classes/PhpParser-Node-Stmt-Property.html#method_isPublicSet">isPublicSet()</a></li>
-                                            <li class=""><a href="classes/PhpParser-Node-Stmt-Property.html#method_isReadonly">isReadonly()</a></li>
-                                            <li class=""><a href="classes/PhpParser-Node-Stmt-Property.html#method_isStatic">isStatic()</a></li>
                                             <li class=""><a href="classes/PhpParser-NodeAbstract.html#method_jsonSerialize">jsonSerialize()</a></li>
+                                            <li class=""><a href="classes/PhpParser-Node-PropertyHook.html#method_returnsByRef">returnsByRef()</a></li>
                                             <li class=""><a href="classes/PhpParser-NodeAbstract.html#method_setAttribute">setAttribute()</a></li>
                                             <li class=""><a href="classes/PhpParser-NodeAbstract.html#method_setAttributes">setAttributes()</a></li>
                                             <li class=""><a href="classes/PhpParser-NodeAbstract.html#method_setDocComment">setDocComment()</a></li>
@@ -2662,7 +2560,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/PhpParser-Node-Stmt-Property.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/PhpParser-Node-PropertyHook.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

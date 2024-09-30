@@ -239,7 +239,7 @@
                 
             </li>
                     <li>
-                <a href="namespaces/phpparser-node.html" class="-active">Node</a>
+                <a href="namespaces/phpparser-node.html" class="">Node</a>
                 
             </li>
                     <li>
@@ -686,63 +686,523 @@
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/phpparser.html">PhpParser</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/phpparser-lexer.html">Lexer</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/phpparser-lexer-tokenemulator.html">TokenEmulator</a></li>
     </ul>
 
-    <article class="phpdocumentor-element -namespace">
-        <h2 class="phpdocumentor-content__title">Node</h2>
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    PropertyTokenEmulator
+
+        <span class="phpdocumentor-element__extends">
+        extends <a href="classes/PhpParser-Lexer-TokenEmulator-KeywordEmulator.html"><abbr title="\PhpParser\Lexer\TokenEmulator\KeywordEmulator">KeywordEmulator</abbr></a>
+    </span>
+    
+            <div class="phpdocumentor-element__package">
+            in package
+            <ul class="phpdocumentor-breadcrumbs">
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Application.html">Application</a></li>
+                            </ul>
+        </div>
+    
+    
+    </h2>
+
+<div class="phpdocumentor-label-line">
+
+    <div class="phpdocumentor-label phpdocumentor-label--success"><span>Final</span><span>Yes</span></div>
+
+
+</div>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/PropertyTokenEmulator.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-lexer-tokenemulator-propertytokenemulator.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/PropertyTokenEmulator.php">PropertyTokenEmulator.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">7</span>
+
+    </aside>
 
         
+
+
+
+
+
+
+
+
 <h3 id="toc">
     Table of Contents
-    <a href="namespaces/phpparser-node.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/PhpParser-Lexer-TokenEmulator-PropertyTokenEmulator.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
 
-<h4 id="namespaces">
-    Namespaces
-    <a href="namespaces/phpparser-node.html#namespaces" class="headerlink"><i class="fas fa-link"></i></a>
+
+
+
+
+
+
+
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/PhpParser-Lexer-TokenEmulator-PropertyTokenEmulator.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -namespace"><a href="namespaces/phpparser-node-expr.html"><abbr title="\PhpParser\Node\Expr">Expr</abbr></a></dt>
-            <dt class="phpdocumentor-table-of-contents__entry -namespace"><a href="namespaces/phpparser-node-name.html"><abbr title="\PhpParser\Node\Name">Name</abbr></a></dt>
-            <dt class="phpdocumentor-table-of-contents__entry -namespace"><a href="namespaces/phpparser-node-scalar.html"><abbr title="\PhpParser\Node\Scalar">Scalar</abbr></a></dt>
-            <dt class="phpdocumentor-table-of-contents__entry -namespace"><a href="namespaces/phpparser-node-stmt.html"><abbr title="\PhpParser\Node\Stmt">Stmt</abbr></a></dt>
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/PhpParser-Lexer-TokenEmulator-KeywordEmulator.html#method_emulate">emulate()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/PhpParser-Lexer-TokenEmulator-PropertyTokenEmulator.html#method_getKeywordString">getKeywordString()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/PhpParser-Lexer-TokenEmulator-PropertyTokenEmulator.html#method_getKeywordToken">getKeywordToken()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/PhpParser-Lexer-TokenEmulator-PropertyTokenEmulator.html#method_getPhpVersion">getPhpVersion()</a>
+    <span>
+                                &nbsp;: <a href="classes/PhpParser-PhpVersion.html"><abbr title="\PhpParser\PhpVersion">PhpVersion</abbr></a>    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/PhpParser-Lexer-TokenEmulator-KeywordEmulator.html#method_isEmulationNeeded">isEmulationNeeded()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/PhpParser-Lexer-TokenEmulator-KeywordEmulator.html#method_reverseEmulate">reverseEmulate()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/PhpParser-Lexer-TokenEmulator-KeywordEmulator.html#method_isKeywordContext">isKeywordContext()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a class="" href="classes/PhpParser-Lexer-TokenEmulator-KeywordEmulator.html#method_getPreviousNonSpaceToken">getPreviousNonSpaceToken()</a>
+    <span>
+                                &nbsp;: <a href="classes/PhpParser-Token.html"><abbr title="\PhpParser\Token">Token</abbr></a>|null    </span>
+</dt>
+
     </dl>
 
-    <h4 id="toc-interfaces">
-        Interfaces
-        <a href="namespaces/phpparser-node.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/PhpParser-Node-FunctionLike.html"><abbr title="\PhpParser\Node\FunctionLike">FunctionLike</abbr></a></dt>    </dl>
-
-    <h4 id="toc-classes">
-        Classes
-        <a href="namespaces/phpparser-node.html#toc-classes" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-Arg.html"><abbr title="\PhpParser\Node\Arg">Arg</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-ArrayItem.html"><abbr title="\PhpParser\Node\ArrayItem">ArrayItem</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-Attribute.html"><abbr title="\PhpParser\Node\Attribute">Attribute</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-AttributeGroup.html"><abbr title="\PhpParser\Node\AttributeGroup">AttributeGroup</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-ClosureUse.html"><abbr title="\PhpParser\Node\ClosureUse">ClosureUse</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-ComplexType.html"><abbr title="\PhpParser\Node\ComplexType">ComplexType</abbr></a></dt><dd>This is a base class for complex types, including nullable types and union types.</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-Const.html"><abbr title="\PhpParser\Node\Const_">Const_</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-DeclareItem.html"><abbr title="\PhpParser\Node\DeclareItem">DeclareItem</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-Expr.html"><abbr title="\PhpParser\Node\Expr">Expr</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-Identifier.html"><abbr title="\PhpParser\Node\Identifier">Identifier</abbr></a></dt><dd>Represents a non-namespaced name. Namespaced names are represented using Name nodes.</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-InterpolatedStringPart.html"><abbr title="\PhpParser\Node\InterpolatedStringPart">InterpolatedStringPart</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-IntersectionType.html"><abbr title="\PhpParser\Node\IntersectionType">IntersectionType</abbr></a></dt><dd>This is a base class for complex types, including nullable types and union types.</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-MatchArm.html"><abbr title="\PhpParser\Node\MatchArm">MatchArm</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-Name.html"><abbr title="\PhpParser\Node\Name">Name</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-NullableType.html"><abbr title="\PhpParser\Node\NullableType">NullableType</abbr></a></dt><dd>This is a base class for complex types, including nullable types and union types.</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-Param.html"><abbr title="\PhpParser\Node\Param">Param</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-PropertyHook.html"><abbr title="\PhpParser\Node\PropertyHook">PropertyHook</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-PropertyItem.html"><abbr title="\PhpParser\Node\PropertyItem">PropertyItem</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-Scalar.html"><abbr title="\PhpParser\Node\Scalar">Scalar</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-StaticVar.html"><abbr title="\PhpParser\Node\StaticVar">StaticVar</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-Stmt.html"><abbr title="\PhpParser\Node\Stmt">Stmt</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-UnionType.html"><abbr title="\PhpParser\Node\UnionType">UnionType</abbr></a></dt><dd>This is a base class for complex types, including nullable types and union types.</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-UseItem.html"><abbr title="\PhpParser\Node\UseItem">UseItem</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-VariadicPlaceholder.html"><abbr title="\PhpParser\Node\VariadicPlaceholder">VariadicPlaceholder</abbr></a></dt><dd>Represents the &quot;...&quot; in &quot;foo(...)&quot; of the first-class callable syntax.</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/PhpParser-Node-VarLikeIdentifier.html"><abbr title="\PhpParser\Node\VarLikeIdentifier">VarLikeIdentifier</abbr></a></dt><dd>Represents a name that is written in source code with a leading dollar,
-but is not a proper variable. The leading dollar is not stored as part of the name.</dd>    </dl>
-
-
-
-
-
-
 
 
         
 
         
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/PhpParser-Lexer-TokenEmulator-PropertyTokenEmulator.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_emulate">
+        emulate()
+        <a href="classes/PhpParser-Lexer-TokenEmulator-KeywordEmulator.html#method_emulate" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/KeywordEmulator.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-lexer-tokenemulator-keywordemulator.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/KeywordEmulator.php">KeywordEmulator.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">25</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">emulate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$code</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tokens</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$code</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$tokens</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getKeywordString">
+        getKeywordString()
+        <a href="classes/PhpParser-Lexer-TokenEmulator-PropertyTokenEmulator.html#method_getKeywordString" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/PropertyTokenEmulator.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-lexer-tokenemulator-propertytokenemulator.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/PropertyTokenEmulator.php">PropertyTokenEmulator.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">12</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getKeywordString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getKeywordToken">
+        getKeywordToken()
+        <a href="classes/PhpParser-Lexer-TokenEmulator-PropertyTokenEmulator.html#method_getKeywordToken" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/PropertyTokenEmulator.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-lexer-tokenemulator-propertytokenemulator.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/PropertyTokenEmulator.php">PropertyTokenEmulator.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">16</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getKeywordToken</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getPhpVersion">
+        getPhpVersion()
+        <a href="classes/PhpParser-Lexer-TokenEmulator-PropertyTokenEmulator.html#method_getPhpVersion" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/PropertyTokenEmulator.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-lexer-tokenemulator-propertytokenemulator.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/PropertyTokenEmulator.php">PropertyTokenEmulator.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">8</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getPhpVersion</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PhpParser-PhpVersion.html"><abbr title="\PhpParser\PhpVersion">PhpVersion</abbr></a></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/PhpParser-PhpVersion.html"><abbr title="\PhpParser\PhpVersion">PhpVersion</abbr></a></span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isEmulationNeeded">
+        isEmulationNeeded()
+        <a href="classes/PhpParser-Lexer-TokenEmulator-KeywordEmulator.html#method_isEmulationNeeded" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/KeywordEmulator.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-lexer-tokenemulator-keywordemulator.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/KeywordEmulator.php">KeywordEmulator.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">11</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isEmulationNeeded</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$code</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$code</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_reverseEmulate">
+        reverseEmulate()
+        <a href="classes/PhpParser-Lexer-TokenEmulator-KeywordEmulator.html#method_reverseEmulate" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/KeywordEmulator.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-lexer-tokenemulator-keywordemulator.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/KeywordEmulator.php">KeywordEmulator.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">50</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">reverseEmulate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$code</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tokens</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$code</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$tokens</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isKeywordContext">
+        isKeywordContext()
+        <a href="classes/PhpParser-Lexer-TokenEmulator-KeywordEmulator.html#method_isKeywordContext" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/KeywordEmulator.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-lexer-tokenemulator-keywordemulator.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/KeywordEmulator.php">KeywordEmulator.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">16</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">isKeywordContext</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/PhpParser-Token.html"><abbr title="\PhpParser\Token">Token</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tokens</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pos</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$tokens</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/PhpParser-Token.html"><abbr title="\PhpParser\Token">Token</abbr></a>&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$pos</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getPreviousNonSpaceToken">
+        getPreviousNonSpaceToken()
+        <a href="classes/PhpParser-Lexer-TokenEmulator-KeywordEmulator.html#method_getPreviousNonSpaceToken" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/KeywordEmulator.php"><a href="files/vendor-nikic-php-parser-lib-phpparser-lexer-tokenemulator-keywordemulator.html"><abbr title="vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/KeywordEmulator.php">KeywordEmulator.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">38</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">getPreviousNonSpaceToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/PhpParser-Token.html"><abbr title="\PhpParser\Token">Token</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tokens</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$start</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PhpParser-Token.html"><abbr title="\PhpParser\Token">Token</abbr></a>|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$tokens</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/PhpParser-Token.html"><abbr title="\PhpParser\Token">Token</abbr></a>&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$start</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/PhpParser-Token.html"><abbr title="\PhpParser\Token">Token</abbr></a>|null</span>
+            </section>
+
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/vendor/nikic/php-parser/lib/PhpParser/Lexer/TokenEmulator/PropertyTokenEmulator.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -833,7 +1293,7 @@ but is not a proper variable. The leading dollar is not stored as part of the na
     </article>
                                 </section>
                 <section class="phpdocumentor-on-this-page__sidebar">
-                            
+                                
     <section class="phpdocumentor-on-this-page__content">
         <strong class="phpdocumentor-on-this-page__title">On this page</strong>
 
@@ -841,12 +1301,24 @@ but is not a proper variable. The leading dollar is not stored as part of the na
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                <li><a href="namespaces/phpparser-node.html#toc-interfaces">Interfaces</a></li>
-                                                            <li><a href="namespaces/phpparser-node.html#toc-classes">Classes</a></li>
-                                                                                                                    </ul>
+                                                                                <li><a href="classes/PhpParser-Lexer-TokenEmulator-PropertyTokenEmulator.html#toc-methods">Methods</a></li>
+                                    </ul>
             </li>
-
             
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/PhpParser-Lexer-TokenEmulator-KeywordEmulator.html#method_emulate">emulate()</a></li>
+                                            <li class=""><a href="classes/PhpParser-Lexer-TokenEmulator-PropertyTokenEmulator.html#method_getKeywordString">getKeywordString()</a></li>
+                                            <li class=""><a href="classes/PhpParser-Lexer-TokenEmulator-PropertyTokenEmulator.html#method_getKeywordToken">getKeywordToken()</a></li>
+                                            <li class=""><a href="classes/PhpParser-Lexer-TokenEmulator-PropertyTokenEmulator.html#method_getPhpVersion">getPhpVersion()</a></li>
+                                            <li class=""><a href="classes/PhpParser-Lexer-TokenEmulator-KeywordEmulator.html#method_isEmulationNeeded">isEmulationNeeded()</a></li>
+                                            <li class=""><a href="classes/PhpParser-Lexer-TokenEmulator-KeywordEmulator.html#method_reverseEmulate">reverseEmulate()</a></li>
+                                            <li class=""><a href="classes/PhpParser-Lexer-TokenEmulator-KeywordEmulator.html#method_isKeywordContext">isKeywordContext()</a></li>
+                                            <li class=""><a href="classes/PhpParser-Lexer-TokenEmulator-KeywordEmulator.html#method_getPreviousNonSpaceToken">getPreviousNonSpaceToken()</a></li>
+                                    </ul>
+            </li>
                     </ul>
     </section>
 
@@ -864,7 +1336,7 @@ but is not a proper variable. The leading dollar is not stored as part of the na
     </section>
 </section>
         </div>
-        <a href="namespaces/phpparser-node.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/PhpParser-Lexer-TokenEmulator-PropertyTokenEmulator.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
